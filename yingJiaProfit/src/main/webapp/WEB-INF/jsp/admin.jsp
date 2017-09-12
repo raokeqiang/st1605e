@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
  <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>理财管理</title>
+<title>后台管理界面</title>
 
 	<link rel="stylesheet" href="/yingJiaProfit/backstage/common/css/sccl.css">
 	<link rel="stylesheet" type="text/css" href="/yingJiaProfit/backstage/common/skin/qingxin/skin.css" id="layout-skin"/>
