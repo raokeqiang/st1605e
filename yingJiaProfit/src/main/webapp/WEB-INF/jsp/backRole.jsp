@@ -8,11 +8,10 @@
 <title>角色设置</title>
 </head>
 	<script type="text/javascript" language="JavaScript" src="/yingJiaProfit/js/jquery.js"></script>
-	<script type="text/javascript" language="JavaScript" src="/yingJiaProfit/js/bootstrap.js"></script>
-	
+	<script type="text/javascript" language="JavaScript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 <body>
 
-<table class="table">
+<table width="100%" border="1" class="table-bordered class">
 <caption>基本的表格布局</caption>
    <thead>
       <tr>
@@ -31,8 +30,8 @@
       <td>${e.cname }</td>
       <td>${e.remark }</td>
       <td>${e.create_date }</td>
-      <td>${e.update_date }</td>
-      <td><a>修改权限</a></td>
+      <td>${e.update_date }</td>  
+      <td><a href="#">修改权限</a></td>
       </tr>
     </c:forEach>
    </tbody>
