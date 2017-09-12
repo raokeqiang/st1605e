@@ -18,7 +18,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql:///yingjiadata?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql:///winplus?useUnicode=true&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 	</bean>
@@ -59,11 +59,7 @@
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
 		<property name="filterChainDefinitions">
 			<value>
-				/login=anon
-				/admin*=authc
-				/student=roles[teacher]
-				/teacher=perms["user:create"]
-
+				
 			</value>
 		</property>
 	</bean>
@@ -78,7 +74,8 @@
 		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
 		<property name="securityManager" ref="securityManager" />
 	</bean>
-
+	
+	
 	<!-- 声明式事务 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -94,32 +91,10 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config proxy-target-class="true">
-		<aop:pointcut expression="execution(* com.service.*.*(..))" id="acPointcut" />
+		<aop:pointcut expression="execution(* com.profit.Serviceimpl.*.*(..))" id="acPointcut" />
 		<aop:advisor pointcut-ref="acPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<!-- 流程引擎配置 -->
-	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
-		<property name="dataSource" ref="dataSource" />
-		<property name="transactionManager" ref="transactionManager" />
-		<property name="databaseSchemaUpdate" value="true" />
-		<property name="jobExecutorActivate" value="false" />
-	</bean>
-
-	<!-- 流程引擎实例 -->
-	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
-		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
-	</bean>
-
-	<!-- 通过流程引擎获取各种service 用来操控流程、任务、历史等service -->
-	<bean id="repositoryService" factory-bean="processEngine"
-		factory-method="getRepositoryService" />
-	<bean id="runtimeService" factory-bean="processEngine"
-		factory-method="getRuntimeService" />
-	<bean id="taskService" factory-bean="processEngine"
-		factory-method="getTaskService" />
-	<bean id="historyService" factory-bean="processEngine"
-		factory-method="getHistoryService" />
-	<bean id="managementService" factory-bean="processEngine"
-		factory-method="getManagementService" />
+	
 </beans>

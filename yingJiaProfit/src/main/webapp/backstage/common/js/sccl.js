@@ -395,43 +395,42 @@ $(function(){
 
 	/*菜单json*/
 	var menu = [{"id":"1","name":"主菜单","parentId":"0","url":"","icon":"&#xe600;","order":"1","isHeader":"1","childMenus":[
-					 {"id":"2","name":"理财产品","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
-						{"id":"3","name":"固收类/P2P","parentId":"3","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":""},
-						{"id":"4","name":"私募基金","parentId":"3","url":"backstage/menus2.jsp","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""},
-							{"id":"5","name":"海外配置","parentId":"3","url":"over/ysmenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
-					]},
-					{"id":"6","name":"钱包管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-						{"id":"7","name":"缴费记录","parentId":"6","url":"backstage/menus4.jsp","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
-					
-					]},
-            	{"id":"8","name":"学院管理","parentId":"1","url":"","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":[
+				{"id":"2","name":"理财产品","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
+				{"id":"3","name":"固收类/P2P","parentId":"3","url":"menus1","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"4","name":"私募基金","parentId":"3","url":"backstage/menus2.jsp","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"5","name":"海外配置","parentId":"3","url":"over/ysmenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
+				]},
+				{"id":"6","name":"钱包管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
+				{"id":"7","name":"缴费记录","parentId":"6","url":"jfjl","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
+				]},
+            	{"id":"8","name":"学院管理","parentId":"1","url":"xygl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":[
 				{"id":"9","name":"资讯分类","parentId":"9","url":"zxfl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
 				{"id":"10","name":"资讯管理","parentId":"9","url":"zxgl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},
-				 {"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
-			{"id":"12","name":"理财师审核","parentId":"6","url":"menus7","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"13","name":"绑卡管理","parentId":"6","url":"menus8","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"14","name":"付息计划","parentId":"6","url":"menus9","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"15","name":"充值管理","parentId":"6","url":"menus10","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"16","name":"提现管理","parentId":"6","url":"menus11","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"17","name":"邀请管理","parentId":"6","url":"menus12","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"18","name":"账号管理","parentId":"6","url":"menus13","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""}
-			]},
-			{"id":"12","name":"盈+统计","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
-			{"id":"19","name":"财务统计","parentId":"9","url":"cwtj","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
-			{"id":"20","name":"用户综合","parentId":"9","url":"yhzh","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
-			]},	
-				{"id":"13","name":"盈+设置","parentId":"1","url":"yjsz","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":[
-				  {"id":"21","name":"公告管理","parentId":"9","url":"gggl","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""},
-				 {"id":"22","name":"意见反馈","parentId":"9","url":"yjfk","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""}
+	            {"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
+				{"id":"12","name":"理财师审核","parentId":"6","url":"menus7","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"13","name":"绑卡管理","parentId":"6","url":"menus8","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"14","name":"付息计划","parentId":"6","url":"menus9","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"15","name":"充值管理","parentId":"6","url":"menus10","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"16","name":"提现管理","parentId":"6","url":"menus11","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"17","name":"邀请管理","parentId":"6","url":"menus12","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"18","name":"账号管理","parentId":"6","url":"menus13","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""}
+				]},
+				{"id":"12","name":"盈+统计","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
+				{"id":"19","name":"财务统计","parentId":"9","url":"cwtj","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"20","name":"用户综合","parentId":"9","url":"yhzh","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},	
+				{"id":"13","name":"盈+设置","parentId":"1","url":"","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":[
+	            {"id":"21","name":"公告管理","parentId":"9","url":"gggl","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""},
+	            {"id":"22","name":"意见反馈","parentId":"9","url":"yjfk","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""}
+	            ]},	
 				]},
 				{"id":"14","name":"系统设置","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[
                 {"id":"23","name":"账号设置","parentId":"9","url":"backstage/menus5.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
 	            {"id":"24","name":"角色设置","parentId":"9","url":"backstage/menus6.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
                 {"id":"25","name":"密码设置","parentId":"9","url":"backstage/menus6.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""}
 	                                                                                        			]},	
-				  
+				
 				];
 	initMenu(menu,$(".side-menu"));
 	$(".side-menu > li").addClass("menu-item");

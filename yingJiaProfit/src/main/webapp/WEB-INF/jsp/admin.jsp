@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <button class="tab-btn btn-right"><i class="icon-font">&#xe60f;</i></button>
 			</div>
 			<div class="layout-main-body">
-				<iframe class="body-iframe" name="iframe0" width="100%" height="99%" src="/yingJiaProfit/WEB-INF/jsp/menus1.jsp" frameborder="0" data-id="home.html" seamless></iframe>
+				<iframe class="body-iframe" name="iframe0" width="100%" height="99%" src="/yingJiaPro/WEB-INF/jsp/menus1.jsp" frameborder="0" data-id="home.html" seamless></iframe>
 			</div>
 		</section>
 		<div class="layout-footer"> <div id="jnkc"> </div> 

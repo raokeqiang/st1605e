@@ -57,5 +57,4 @@ public class ShowFrontController {
 	public String  toStudy(){
 		return "front/frontStudy";
 	}
-	
 }
