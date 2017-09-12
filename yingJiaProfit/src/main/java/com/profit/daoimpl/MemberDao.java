@@ -1,4 +1,4 @@
-package com.profit.dao;
+package com.profit.daoimpl;
 
 public class MemberDao {
 

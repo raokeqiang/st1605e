@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.Resources;
-import com.profit.dao.UserRolesResourcesDaoImpl;
+import com.profit.daoimpl.UserRolesResourcesDaoImpl;
 import com.profit.service.UserService;
 @Component
 @Transactional
