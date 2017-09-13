@@ -7,11 +7,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.profit.bean.Member;
 import com.profit.bean.UserRole;
 import com.profit.dao.RoleDao;
 
 @Component
-public class RoleDaoImpl implements RoleDao<UserRole> {
+public class MemberDaoImpl  implements RoleDao<Member>{
+
 	
 	@Autowired
 	public SessionFactory sessionFactory;
@@ -19,20 +21,17 @@ public class RoleDaoImpl implements RoleDao<UserRole> {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	//查询角色
-	public List<UserRole> listRole(){
-		Session  session=getSession();
-		String hql="from UserRole";
-		List<UserRole> list=session.createQuery(hql).list();
-		return list;
-	}
 	@Override
-	public List<UserRole> listMemder() {
-		// TODO Auto-generated method stub
+	public List<Member> listRole() {
 		return null;
 	}
-
-	
-	
+	//查询账号的Dao方法
+	@Override
+	public List<Member> listMemder() {
+		Session  session=getSession();
+		String hql="from Member";
+		List<Member> list=session.createQuery(hql).list();
+		return list;
+	}
 
 }

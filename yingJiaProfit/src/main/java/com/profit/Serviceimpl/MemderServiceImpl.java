@@ -9,30 +9,28 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.profit.bean.Member;
-import com.profit.bean.UserRole;
 import com.profit.dao.RoleDao;
 import com.profit.service.RoleService;
 
 @Service
 @Transactional
-public class RoleServiceImpl implements RoleService<UserRole> {
-	
-	@Autowired
-	@Qualifier("roleDaoImpl")
-	private RoleDao<UserRole> roleDaoImpl;
-	
 
+public class MemderServiceImpl implements RoleService<Member>{
+
+	@Autowired
+	@Qualifier("memberDaoImpl")
+	private RoleDao<Member> memberDaoImpl;
+	
 	//查询角色
-	public List<UserRole> listRole(){
-		return roleDaoImpl.listRole();
-	}
-	//查询账户
 	@Override
-	public List<UserRole> listMemder() {
+	public List<Member> listRole() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
+	//查询账户
+	@Override
+	public List<Member> listMemder(){
+		return memberDaoImpl.listMemder();
+	}
 
 }

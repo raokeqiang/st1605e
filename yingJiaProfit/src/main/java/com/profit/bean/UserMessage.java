@@ -11,17 +11,17 @@ import javax.persistence.Table;
 @Table(name = "User_message") // 用户消息表
 public class UserMessage {
 
-	private int id;// 主键
-	private int user_id;// 用户id
-	private String title;// 消息标题
-	private int business_type;// 业务类别
-	private int owner_id;// 业务id
-	private String content;// 消息内容
-	private int msg_status;// 状态,(已读未读)
-	private int del_flag;// 删除标志
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
-
+	private int id; // 主键
+	private int user_id; // 用户id
+	private String title; // 消息标题
+	private int business_type; // 业务类别
+	private int owner_id; // 业务id
+	private String content; // 消息内容
+	private int msg_status; // 状态,(已读未读)
+	private int del_flag; // 删除标志
+	private Date create_date; // 创建时间
+	private Date update_date; // 修改时间
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

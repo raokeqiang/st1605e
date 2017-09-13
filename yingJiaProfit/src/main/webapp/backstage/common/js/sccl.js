@@ -426,12 +426,11 @@ $(function(){
 	            ]},	
 				]},
 				{"id":"14","name":"系统设置","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[
-                {"id":"23","name":"账号设置","parentId":"9","url":"backstage/menus5.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
+                {"id":"23","name":"账号设置","parentId":"9","url":"admin/Memder","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
 	            {"id":"24","name":"角色设置","parentId":"9","url":"admin/juese1","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
                 {"id":"25","name":"密码设置","parentId":"9","url":"backstage/menus6.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""}
-	                                                                                        			]},	
-				
-				];
+				 ]},
+	            ];
 	initMenu(menu,$(".side-menu"));
 	$(".side-menu > li").addClass("menu-item");
 	

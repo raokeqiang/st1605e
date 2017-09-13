@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.profit.Serviceimpl.RoleServiceImpl;
+import com.profit.bean.Member;
 import com.profit.bean.UserRole;
 import com.profit.service.RoleService;
 /**
@@ -23,7 +23,11 @@ public class ToBackMainPageController {
 	
 	@Autowired
 	@Qualifier("roleServiceImpl")
-	private RoleService roleServiceImpl;
+	private RoleService<UserRole> roleServiceImpl;
+	
+	@Autowired
+	@Qualifier("memderServiceImpl")
+	private RoleService<Member> memderServiceImpl;
 	
 	@RequestMapping("/admin")
 	public String login(){
@@ -42,6 +46,13 @@ public class ToBackMainPageController {
 		List<UserRole> list=roleServiceImpl.listRole();
 		model.addAttribute("list",list);
 		return "backRole";
+	}
+	//查询账号后跳转账号管理界面
+	@RequestMapping("/Memder")
+	public String Memder(Model model){
+		List<Member> list=memderServiceImpl.listMemder();
+		model.addAttribute("list",list);
+		return "backMember";
 	}
 	
 	
