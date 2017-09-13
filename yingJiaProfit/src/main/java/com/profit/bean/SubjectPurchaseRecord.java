@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name = "Subject_purchase_record") // 标的购买表
@@ -16,7 +18,7 @@ public class SubjectPurchaseRecord {
 	private String serial_number;// 流水号
 	private int amount;// 购买金额
 	private String deal_id;// 交易IP
-	private int subject_id;// 标的id
+//	private int subject_id;// 标的id
 	private int member_id;// 会员id
 	private int delflag;// 是否删除
 	private Date create_date;// 创建时间
@@ -26,7 +28,7 @@ public class SubjectPurchaseRecord {
 	private int pay_interest_times;// 购买次数
 	private int last_profit_day;// 最后计息日
 	private String bonus_info;// 红包金额信息（app端实际投资额度+红包额度)
-
+	private Subject subject;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -61,13 +63,13 @@ public class SubjectPurchaseRecord {
 		this.deal_id = deal_id;
 	}
 
-	public int getSubject_id() {
-		return subject_id;
-	}
-
-	public void setSubject_id(int subject_id) {
-		this.subject_id = subject_id;
-	}
+//	public int getSubject_id() {
+//		return subject_id;
+//	}
+//
+//	public void setSubject_id(int subject_id) {
+//		this.subject_id = subject_id;
+//	}
 
 	public int getMember_id() {
 		return member_id;
@@ -140,4 +142,15 @@ public class SubjectPurchaseRecord {
 	public void setBonus_info(String bonus_info) {
 		this.bonus_info = bonus_info;
 	}
+	//bi-directional many-to-one association to SubjectPurchaseRecord
+	@ManyToOne
+	@JoinColumn(name="subject_id")
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	
 }

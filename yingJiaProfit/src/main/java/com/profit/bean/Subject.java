@@ -1,10 +1,14 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,7 +44,11 @@ public class Subject {
     private String projectDetails;//项目详情
     private String safetyControl;//安全保障
     private int exper_status;//体验金是否可以购买（0：否，1：是）
-
+  //private SubjectFolder subjectFolder;
+//	private Set<SubjectBbinPurchaseRecord> subjectBbinPurchaseRecords = new HashSet<>();
+	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();
+	//private Set<SubjectOrderRecord> subjectOrderRecords = new HashSet<>();
+	private Set<SubjectPurchaseRecord> subjectPurchaseRecord = new HashSet<SubjectPurchaseRecord>();
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -282,5 +290,99 @@ public class Subject {
 	public void setExper_status(int exper_status) {
 		this.exper_status = exper_status;
 	}
+	//bi-directional OneToMany association to Subject
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="subject")
+	public Set<SubjectPurchaseRecord> getSubjectPurchaseRecord() {
+		return subjectPurchaseRecord;
+	}
 
-}
+	public void setSubjectPurchaseRecord(Set<SubjectPurchaseRecord> subjectPurchaseRecord) {
+		this.subjectPurchaseRecord = subjectPurchaseRecord;
+	}
+	//bi-directional many-to-one association to SubjectFolder
+	/*	@ManyToOne
+		@JoinColumn(name="folder_id")
+		public SubjectFolder getSubjectFolder() {
+			return this.subjectFolder;
+		}
+	 public void setSubjectFolder(SubjectFolder subjectFolder) {
+			this.subjectFolder = subjectFolder;
+		}
+	*/
+
+	/*		//bi-directional many-to-one association to SubjectBbinPurchaseRecord
+		@OneToMany(mappedBy="subject")
+		public Set<SubjectBbinPurchaseRecord> getSubjectBbinPurchaseRecords() {
+			return this.subjectBbinPurchaseRecords;
+		}
+
+		public void setSubjectBbinPurchaseRecords(Set<SubjectBbinPurchaseRecord> subjectBbinPurchaseRecords) {
+			this.subjectBbinPurchaseRecords = subjectBbinPurchaseRecords;
+		}*/
+
+	/*	public SubjectBbinPurchaseRecord addSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
+			getSubjectBbinPurchaseRecords().add(subjectBbinPurchaseRecord);
+			subjectBbinPurchaseRecord.setSubject(this);
+
+			return subjectBbinPurchaseRecord;
+		}
+
+		public SubjectBbinPurchaseRecord removeSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
+			getSubjectBbinPurchaseRecords().remove(subjectBbinPurchaseRecord);
+			subjectBbinPurchaseRecord.setSubject(null);
+
+			return subjectBbinPurchaseRecord;
+		}*/
+
+
+	/*		//bi-directional many-to-one association to SubjectFieldRecord
+		@OneToMany(mappedBy="subject")
+		public Set<SubjectFieldRecord> getSubjectFieldRecords() {
+			return this.subjectFieldRecords;
+		}
+
+		public void setSubjectFieldRecords(Set<SubjectFieldRecord> subjectFieldRecords) {
+			this.subjectFieldRecords = subjectFieldRecords;
+		}
+	*/
+	/*	public SubjectFieldRecord addSubjectFieldRecord(SubjectFieldRecord subjectFieldRecord) {
+			getSubjectFieldRecords().add(subjectFieldRecord);
+			subjectFieldRecord.setSubject(this);
+
+			return subjectFieldRecord;
+		}
+
+		public SubjectFieldRecord removeSubjectFieldRecord(SubjectFieldRecord subjectFieldRecord) {
+			getSubjectFieldRecords().remove(subjectFieldRecord);
+			subjectFieldRecord.setSubject(null);
+
+			return subjectFieldRecord;
+		}*/
+
+
+	/*	//bi-directional many-to-one association to SubjectOrderRecord
+		@OneToMany(mappedBy="subject")
+		public Set<SubjectOrderRecord> getSubjectOrderRecords() {
+			return this.subjectOrderRecords;
+		}
+
+		public void setSubjectOrderRecords(Set<SubjectOrderRecord> subjectOrderRecords) {
+			this.subjectOrderRecords = subjectOrderRecords;
+		}*/
+
+	/*	public SubjectOrderRecord addSubjectOrderRecord(SubjectOrderRecord subjectOrderRecord) {
+			getSubjectOrderRecords().add(subjectOrderRecord);
+			subjectOrderRecord.setSubject(this);
+
+			return subjectOrderRecord;
+		}
+
+		public SubjectOrderRecord removeSubjectOrderRecord(SubjectOrderRecord subjectOrderRecord) {
+			getSubjectOrderRecords().remove(subjectOrderRecord);
+			subjectOrderRecord.setSubject(null);
+
+			return subjectOrderRecord;
+		}*/
+	}
+
+
