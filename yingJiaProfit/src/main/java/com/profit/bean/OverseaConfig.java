@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="oversea_config")  //海外配置表
 @Entity
 public class OverseaConfig {
-
+	//海外配置表和海外配置预约表多对一，海外配置相当于部门，海外配置预约相当于员工表
 	private int id;//主键
 	private String title;//标题
 	private String content;//内容
