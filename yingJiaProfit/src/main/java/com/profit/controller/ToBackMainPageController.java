@@ -21,9 +21,6 @@ import com.profit.service.RoleService;
 public class ToBackMainPageController {
 	
 	
-	@Autowired
-	@Qualifier("roleServiceImpl")
-	private RoleService<UserRole> roleServiceImpl;
 	
 	@Autowired
 	@Qualifier("memderServiceImpl")
@@ -34,19 +31,6 @@ public class ToBackMainPageController {
 		return "admin";
 	}
 	
-	//直接跳往角色设置页面
-	@RequestMapping("/juese")
-	public String asd(){
-		return "backRole";
-	}
-	
-	//查询内容后跳往角色设置界面
-	@RequestMapping("/juese1")
-	public String listAll(Model model){
-		List<UserRole> list=roleServiceImpl.listRole();
-		model.addAttribute("list",list);
-		return "backRole";
-	}
 	//查询账号后跳转账号管理界面
 	@RequestMapping("/Memder")
 	public String Memder(Model model){

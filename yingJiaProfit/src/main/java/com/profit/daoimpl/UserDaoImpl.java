@@ -29,7 +29,6 @@ public class UserDaoImpl  {
 		 List list =   query.list();
 		 System.out.println(list.size());
 		return list;
-		
 	}
 	
 	public  Users getByName(String name) {

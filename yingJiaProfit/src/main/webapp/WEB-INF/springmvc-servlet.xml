@@ -34,7 +34,6 @@
 	<mvc:resources location="/html/" mapping="/html/**" />
 	
 	
-	
 	<!-- 视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
