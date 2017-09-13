@@ -21,10 +21,6 @@ public class MemberDaoImpl  implements RoleDao<Member>{
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	@Override
-	public List<Member> listRole() {
-		return null;
-	}
 	//查询账号的Dao方法
 	@Override
 	public List<Member> listMemder() {
