@@ -1,6 +1,7 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -282,5 +283,6 @@ public class Subject {
 	public void setExper_status(int exper_status) {
 		this.exper_status = exper_status;
 	}
+
 
 }

@@ -11,12 +11,9 @@
  	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
  	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
  	
- 	
 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>	
 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.ztree.all-3.5.min.js"></script>
-	
-	
 	
 </head>
   
@@ -119,9 +116,9 @@
       <td>${e.create_date }</td>
       <td>${e.update_date }</td>
       <td><a  data-toggle="modal"
-									data-target="#setRoleModal"
-									class="btn btn-lg btn-primary active btn-block" 
-									onclick="cc(${e.id})">权限配置</a></td>
+					data-target="#setRoleModal"
+					class="btn btn-lg btn-primary active btn-block" 
+					onclick="cc(${e.id})">权限配置</a></td>
       </tr>
     </c:forEach>
    </tbody>
