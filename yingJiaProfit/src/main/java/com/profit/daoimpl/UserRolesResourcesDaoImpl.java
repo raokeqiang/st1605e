@@ -31,7 +31,8 @@ public class UserRolesResourcesDaoImpl {
 		List<Resources> UserRoleList = session.createQuery("from Resources where resources_id=" + id).list();
 		return UserRoleList;
 	}
-
+	
+//	修改权限
 	public void save(Object... objects) {
 		Session session = getSession();
 		int id = (int) objects[1];
@@ -47,12 +48,11 @@ public class UserRolesResourcesDaoImpl {
 			// resources.getResour().add(userRole);
 		}
 	}
-
+	
 	public void delete(int id) {
 		Session session = getSession();
 		String sql = "delete  from role_res where rid=" + id;
 		session.createSQLQuery(sql).executeUpdate();
 		session.flush();
 	}
-
 }

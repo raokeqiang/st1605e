@@ -26,5 +26,4 @@ public class MemderServiceImpl implements RoleService<Member>{
 	public List<Member> listMemder(){
 		return memberDaoImpl.listMemder();
 	}
-
 }

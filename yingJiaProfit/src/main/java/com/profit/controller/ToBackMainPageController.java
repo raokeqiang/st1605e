@@ -43,7 +43,4 @@ public class ToBackMainPageController {
 		model.addAttribute("list",list);
 		return "backMember";
 	}
-	
-	
-	
 }
