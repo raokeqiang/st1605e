@@ -20,7 +20,7 @@
 			<tr>
 
 				<td>${stat.index+1 }</td>
-	      <td>${e.name }</td>
+	            <td>${e.name }</td>
 				<td>${e.phone}</td>
 				<td>${e.addr}</td>
 				<td>${e.oversea.addTime }</td>

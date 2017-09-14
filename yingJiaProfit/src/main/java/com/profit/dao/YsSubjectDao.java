@@ -12,4 +12,5 @@ public interface YsSubjectDao{
 	 List<Subject >listSubject();
 	  Subject getById(int id);
 	  void updateSub(Subject sub);
+	  void p2pAdd(Subject sub);
 	}

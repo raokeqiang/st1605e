@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
 <script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
    <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
+   <style type="text/css">
+		.imged{
+		width:50px;
+		height:50px;	
+		}
+	</style>
 <!--    <script type="text/javascript"> -->
 <!-- // 	$(function(){ -->
 <!-- // 		$("#btn1").click(function() { -->
@@ -31,22 +37,19 @@
 <tr>
               <th>编号</th>
 		      <th>标题</th>
-			    <th>子标题</th>
+			   <th>子标题</th>
 			    <th>状态</th>
 			    <th>排序值</th>
-			    <th>图标</th>
 			    <th>添加时间</th>
 			    <th>操作</th>
 </tr>
 <c:forEach items="${list }" var="e" varStatus="stat">
 				<tr>
-				
-				<td>${stat.index+1 }</td>
+				<td><img src="/yingJiaProfit/img/1.jpg" class="imged"></img></td>
 				<td>${e.title }</td>
 				<td>${e.child_title }</td>
 				<td>${e.status}</td>
 				<td>${e.sortColum }</td>
-				<td>${e.oversea_icon}</td>
 				<td>${e.addTime}</td>
 			<td> 
 <!-- <input type="button" class="btn btn-primary btn-sm" value="查看预约" /> -->

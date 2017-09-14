@@ -30,8 +30,8 @@ public class Subject {
     private Date raise_end;//募集结束
     private int refund_way;//还款方式
     private int safeGuard_way;//保障方式
-    private Date start_date;//标的开始日期
-    private Date end_date;//标的结束日期
+//    private Date start_date;//标的开始日期
+//    private Date end_date;//标的结束日期
     private int year_rate;//年化率
     private String comment;//产品速览
     private int folder_id;//文件夹id
@@ -179,21 +179,21 @@ public class Subject {
 		this.safeGuard_way = safeGuard_way;
 	}
 
-	public Date getStart_date() {
-		return start_date;
-	}
+//	public Date getStart_date() {
+//		return start_date;
+//	}
 
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
-	}
-
-	public Date getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
-	}
+//	public void setStart_date(Date start_date) {
+//		this.start_date = start_date;
+//	}
+//
+//	public Date getEnd_date() {
+//		return end_date;
+//	}
+//
+//	public void setEnd_date(Date end_date) {
+//		this.end_date = end_date;
+//	}
 
 	public int getYear_rate() {
 		return year_rate;
@@ -291,7 +291,7 @@ public class Subject {
 		this.exper_status = exper_status;
 	}
 	//bi-directional OneToMany association to Subject
-	@OneToMany(cascade = CascadeType.ALL,mappedBy="subject")
+	@OneToMany(mappedBy="subject")
 	public Set<SubjectPurchaseRecord> getSubjectPurchaseRecord() {
 		return subjectPurchaseRecord;
 	}

@@ -33,4 +33,9 @@ public class YsSubjectServiceImpl implements YsSubjectService{
 		this.subjectDao.updateSub(sub);
 	}
 
+	@Override
+	public void p2pAdd(Subject sub) {
+   this.subjectDao.p2pAdd(sub);		
+	}
+
 }

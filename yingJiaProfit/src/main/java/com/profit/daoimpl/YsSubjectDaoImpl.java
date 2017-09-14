@@ -38,4 +38,10 @@ public class YsSubjectDaoImpl implements YsSubjectDao{
 		Session session=getSession();
 		session.update(sub);
 	}
+
+	@Override
+	public void p2pAdd(Subject sub) {
+     Session session=getSession();
+     session.save(sub);
+	}
 }
