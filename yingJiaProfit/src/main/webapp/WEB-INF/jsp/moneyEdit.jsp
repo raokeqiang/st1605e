@@ -5,50 +5,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
-<script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
-   <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
-  <script type="text/javascript">
-  $(function(){
-  $("#btn2").click(function(){ //返回按钮
-	  	$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
-	  	$("#form1").submit();
+	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+ 	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
+ 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>	
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		  $("#status").val(${sub.status}); 
 	  });
-
+	  $(document).ready(function(){
+		  $("#type").val(${sub.type}); 
 	  });
-  </script>
+	
+	</script>
 </head>
 <body>
-<form action="/yingJiaProfit/subject/p2pAdd" id="form1" method="post">
-名称:<input type="text"  name="name" ><br>
-合同编号:<input type="text" name="serial_no" ><br>
-起投金额:<input type="text" name="floor_amount" ><br>
-年化收益:<input type="text+%" name="year_rate"><br>
-投资期限:<input type="text" name="period"><br>
-状态:<select name="status">
-<option value="0">未募集</option>
-<option value="1">募集中</option>
-</select><br>
-借款人姓名:<input type="text" name="borrowername" ><br>
+<form action="/yingJiaProfit/money/update"  method="post" id="form1" name="form1">
+<input type="hidden" name="id" value="${finance.id }"> 
 类型:
-<select name="type">
-<option value="0">p2p房贷</option>
-<option value="1">p2p车贷</option>
+<select name="type" id="type">
+<option value="SIMU">私募类</option>
+<option value="GUQUAN">股权类</option>
 </select><br>
-借款用途:<input type="text" name="purpose" ><br>
-保障方式:
-<select name="afetyControl">
-<option value="0">企业担保</option>
-<option value="1">保障方式</option>
-</select><br>
- 可使用体验金:
- <select name="exper_status">
-<option value="0">否</option>
-<option value="1">是</option>
-</select><br>
-已购人数:<input type="text" name="bought" ><br>
+名称:<input type="text"  name="name" value="${finance.name}"><br>
+起投金额:<input type="text" name="amount" value="${finance.amount }"><br>
+年化收益:<input type="text" name="year_rate" value="${finance. year_rate}"><br>
+返佣比例:<input type="text" name="ratio" value="${finance.ratio }">
+状态:<select name="status">
+							<option value="">全部</option>
+							<option value="0">募集中</option>
+							<option value="1">未募集</option>
+							<option value="2">回款中</option>
+	</select>
+<br>
 <input type="submit" value="提交">
- <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>

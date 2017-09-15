@@ -5,11 +5,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
+<script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+
 <title>编辑</title>
 <script type="text/javascript">
-$(document).ready(function(){
+ $(document).ready(function(){
 	  $("#status").val(${over.status}); 
-});
+ });
+
+ $(function(){
+ $("#btn2").click(function(){ //返回按钮
+	  	$("#form1").attr("action","/yingJiaProfit/over/Seamenus3");
+	  	$("#form1").submit();
+	  });
+
+	  });
+
 </script>
 </head>
 <body>
@@ -22,9 +38,9 @@ $(document).ready(function(){
 <option value="1">募集中</option>
 </select><br>
 排序值:<input type="text" name="sortColum" value="${over.sortColum}"><br>
-添加时间:<input type="date" name="addTime" value="${ over.addTime}/"><br>
-图标:<input type="file">
+图标:<input type="file"   id="oversea_icon"   >
 <input type="submit" value="提交"  >
+ <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form>
 
 

@@ -34,18 +34,19 @@
 </head>
 <body>
 <form action="/yingJiaProfit/over/Seamenus3" id="form1">
-<table  class="table" width="100%" border="1">
+<table  class="table-striped" width="100%" border="1" >
 
 <!--   <input type="button" value="新增" id="btn1" /> -->
 <button type="button" class="btn btn-primary" id="btn2">新增</button> 
-<tr>
-              <th>编号</th>
+<tr align="center">
+              <th align="center"><font size="+1">编号</font></th>
 		      <th>标题</th>
 			   <th>子标题</th>
 			    <th>状态</th>
 			    <th>排序值</th>
 			    <th>添加时间</th>
 			    <th>操作</th>
+			  
 </tr>
 <c:forEach items="${list }" var="e" varStatus="stat">
 				<tr>
@@ -58,8 +59,8 @@
 				<td>${e.sortColum }</td>
 				<td>${e.addTime}</td>
 			<td> 
-			<button type="button" class="btn btn-primary" id="btn3">查看预约<button>
-				<button type="button" class="btn btn-primary" onclick="fun(${e.id})">编辑查看<button>
+			<button type="button" class="btn btn-warning" id="btn3">查看预约<button>
+				<button type="button" class="btn btn-success" onclick="fun(${e.id})">编辑查看<button>
 				</tr>
 
 			</c:forEach>

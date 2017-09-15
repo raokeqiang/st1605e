@@ -23,6 +23,19 @@ $("#btn2").click(function(){ //新增按钮
 });
 
 });
+//编辑查看
+function test1(id){//button传id
+	 window.location.href = '/yingJiaProfit/money/moneyEdit?id='+id;
+	}
+	//签署状态
+// function test3(id){//button传id
+// 	 window.location.href = '/yingJiaProfit/money/moneyding?id='+id;
+// 	}
+	function test3(id){//签署状态
+	alert(id);
+	 $("#form1").attr("action","/yingJiaProfit/money/moneyding/"+id);
+		$("#form1").submit();
+}
 </script>
 </head>
 <body>
@@ -37,9 +50,9 @@ $("#btn2").click(function(){ //新增按钮
 					</select>
 				类型:<select name="type">
 							<option value="">全部</option>
-							<option value="私募类">私募类</option>
-							<option value="股权类">股权类</option>
-							<option value="SIMU">SIMU</option>
+							<option value="SIMU">私募类</option>
+							<option value="GUQUAN">股权类</option>
+							
 			</select> 
 <button type="button" class="btn btn-primary" id="btn1">查询</button>
 <button type="reset" class="btn btn-primary">重置</button>
@@ -47,16 +60,16 @@ $("#btn2").click(function(){ //新增按钮
 </div>
 <table width="100%" border="1">
 <tr>
-<td>序号</td>
-<td>名称</td>
-<td>类型</td>
-<td>状态</td>
-<td>年化收益</td>
-<td>返佣比例</td>
-<td>投资期限</td>
-<td>起头金额</td>
-<td>添加时间</td>
-<td>操作</td>
+<th>序号</th>
+<th>名称</th>
+<th>类型</th>
+<th>状态</th>
+<th>年化收益</th>
+<th>返佣比例</th>
+<th>投资期限</th>
+<th>起头金额</th>
+<th>添加时间</th>
+<th>操作</th>
 </tr>
 <c:forEach items="${list }" var="e" varStatus="stat">
 <tr>
@@ -70,8 +83,11 @@ $("#btn2").click(function(){ //新增按钮
 			<td>${e.period }天</td>
 			<td>${e.floor_amount }</td>
 			<td>${e.create_date }</td>
+
 			<td>
-			<td>编辑查看</td>
+<button type="button" class="btn btn-primary" onclick="test1(${e.id})">编辑查看</button> 
+<button type="button" class="btn btn-primary" onclick="test3(${e.id})">签署状态</button> 
+			</td>
 </tr>
 </c:forEach>
 </table>

@@ -8,20 +8,58 @@
 <link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
 <script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
    <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
+  <script type="text/javascript">
+  $(function(){
+  $("#btn2").click(function(){ //返回按钮
+	  	$("#form1").attr("action","/yingJiaProfit/over/Seamenus3");
+	  	$("#form1").submit();
+	  });
+
+	  });
+  </script>
 </head>
 <body>
-<form action="/yingJiaProfit/over/oadd" method="post">
-标题<input type="text" name="title"><br>
-子标题:<input type="text" name="child_title"><br>
-描述:<input type="text" name="child_title"><br>
-状态:<select name="status">
-<option value="0">未募集</option>
-<option value="1">募集中</option>
-</select><br>
-<input type="text" name="status"><br>
-排序值:<input type="text" name="sortColmn"><br>
+<form action="/yingJiaProfit/over/oadd"  id="form1" method="post" class="form-inline" role="form">
+<font size="+2">标题:</font>
+<div class="form-group">
+    <label class="sr-only" for="name">标题</label>
+    <input type="text" class="form-control" id="name"  name="name" 
+    placeholder="请输入标题">
+  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <font size="+2">子标题:</font>
+<div class="form-group">
+    <label class="sr-only" for="name">标题</label>
+    <input type="text" class="form-control" id="name"  name="child_title" 
+    placeholder="请输入子标题">
+  </div><br>
+  
+  
+  <font size="+2">描述:</font>
+<div class="form-group">
+    <label class="sr-only" for="name">标题</label>
+    <input type="text" class="form-control" id="name"  name="child_title" 
+    placeholder="请输入描述">
+  </div>&nbsp;&nbsp;
+ <div class="form-horizontal">
+    <div class="control-label col-lg-0">
+    </div>
+    <div class="col-lg-2">
+        <font size="+2">状态</font>:<select class="form-control" >
+            <option value="0">未募集</option>
+            <option value="1">募集中</option>
+        </select>
+    </div>
+</div><br>
+  <font size="+2">排序值:</font>
+<div class="form-group">
+    <label class="sr-only" for="name">排序值:</label>
+    <input type="text" class="form-control" id="name"  name="sortColmn" 
+    placeholder="请输入sortColmn">
+  </div>
 图标:<input type="file" name="oversea_icon"><br>
-<input type="submit" value="提交">
+ <input type="submit" value="提交">
+ <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form>
 
 //编辑器

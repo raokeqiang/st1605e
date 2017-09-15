@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.profit.bean.FinanceProductSubscribe;
 import com.profit.bean.Subject;
 import com.profit.bean.SubjectBbinPurchassRecord;
 import com.profit.dao.YsSubjectDao;

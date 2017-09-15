@@ -1,6 +1,5 @@
 package com.profit.controller;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import java.util.List;
@@ -59,25 +58,20 @@ public class YsOverseaConfigController {
     	
     }
     @RequestMapping("/update")
-    public String update(OverseaConfig over,int id){
-    	OverseaConfig  ov=overService.getById(id);
-    	Date now=new Date();
-		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String hehe=dateFormat.format(now);
-		Date date = null;
-		try {
-			date = dateFormat.parse(hehe);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		ov.setAddTime(date);
-		ov.setStart_time(date);
-		ov.setEnd_time(date);
-		ov.setUpdTime(date);
-		ov.setAddTime(date);
-    	overService.updateover(ov);
+    public String update(OverseaConfig over){  //更新
+    	OverseaConfig  newover=overService.getById(over.getId());//通过id获取的是以前的数据
+//    	System.out.println(over.getTitle());
+//    	System.out.println(over.getChild_title());
+//    	System.out.println(over.getStatus());
+//    	System.out.println(over.getSortColum());
+    	newover.setTitle(over.getTitle());
+        newover.setChild_title(over.getChild_title());
+        newover.setStatus(over.getStatus());
+        newover.setSortColum(over.getSortColum());
+        newover.setUpdTime(new Date());
+        overService.updateover(newover);
 		return "redirect:/over/Seamenus3";
-    	
+    
     }
 //    //显示海外配置预约记录
 //    @RequestMapping("/listding")

@@ -1,6 +1,7 @@
 package com.profit.daoimpl;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.hibernate.Session;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.FinanceProductFunds;
+import com.profit.bean.FinanceProductSubscribe;
 import com.profit.dao.YsFinanceProductDao;
 @Component
 public class YsFinanceProductDaoImpl implements YsFinanceProductDao{
@@ -51,6 +53,38 @@ public class YsFinanceProductDaoImpl implements YsFinanceProductDao{
 		}
 	return hql;
 		
+	}
+
+	@Override
+	public void update(FinanceProductFunds finance) {
+  Session session=getSession();
+  session.update(finance);
+	}
+
+	@Override
+	public FinanceProductFunds getById(int id) {
+		FinanceProductFunds finance=(FinanceProductFunds)this.getSession().get(FinanceProductFunds.class, id);
+		return finance;
+	}
+//显示签署状态
+	@Override
+	public List<FinanceProductSubscribe> showmoneyding(int id) {
+		String hql="from FinanceProductSubscribe where product_id= " +id;
+		Session session=getSession();
+		List<FinanceProductSubscribe>list=session.createQuery(hql).list();
+		return list;
+	}
+
+	@Override
+	public FinanceProductSubscribe getByIding(int id) {
+		FinanceProductSubscribe finance=(FinanceProductSubscribe)this.getSession().get(FinanceProductSubscribe.class, id);
+		return finance;
+	}
+
+	@Override
+	public void savehe(FinanceProductSubscribe fina) {
+  Session session=getSession();
+  session.save(fina);
 	}
 
 	
