@@ -1,6 +1,7 @@
 package com.profit.Serviceimpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.profit.bean.Subject;
+import com.profit.bean.SubjectBbinPurchassRecord;
 import com.profit.dao.YsSubjectDao;
 import com.profit.service.YsSubjectService;
 @Service
@@ -18,8 +20,8 @@ public class YsSubjectServiceImpl implements YsSubjectService{
 	@Qualifier("ysSubjectDaoImpl")
 	private YsSubjectDao subjectDao;
 	@Override
-	public List<Subject> listSubject() {
-		return subjectDao.listSubject();
+	public List<Subject> listSubject(Map map) {
+		return subjectDao.listSubject(map);
 	}
 
 	@Override
@@ -36,6 +38,11 @@ public class YsSubjectServiceImpl implements YsSubjectService{
 	@Override
 	public void p2pAdd(Subject sub) {
    this.subjectDao.p2pAdd(sub);		
+	}
+
+	@Override
+	public List<SubjectBbinPurchassRecord> listp2pton() {
+		return this.subjectDao.listp2pton();
 	}
 
 }

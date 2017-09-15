@@ -8,11 +8,49 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
 <link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
-<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$("#btn1").click(function(){ //模糊查询按钮
+		$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
+		$("#form1").submit();
+	});
+$("#btn2").click(function(){ //新增按钮
+	$("#form1").attr("action","/yingJiaProfit/subject/p2ptoAdd");
+	$("#form1").submit();
+});
+$("#btn3").click(function(){ //查看投资
+	$("#form1").attr("action","/yingJiaProfit/subject/selectp2p");
+	$("#form1").submit();
+});
+});
+function test1(id){//button传id
+ window.location.href = '/yingJiaProfit/subject/selectSub?id='+id;
+}
+</script>
 </head>
 <body>
-<a href="/yingJiaProfit/subject/p2ptoAdd">新增</a>
+<form method="post" id="form1">
+<div>
+ 名称:<input type="text" placeholder="名称" name="name" value="${name}">
+状态:<select name="status">
+							<option value="">全部</option>
+							<option value="0">未发布</option>
+							<option value="1">募集中</option>
+							<option value="2">回款中</option>
+							<option value="3">还款完成</option>
+					</select>
+				类型:<select name="stype">
+							<option value="">全部</option>
+							<option value="0">固收类</option>
+							<option value="1">P2P车贷</option>
+							<option value="2">P2P房贷</option>
+			</select>
+<button type="button" class="btn btn-primary" id="btn1">查询</button>
+<button type="reset" class="btn btn-primary">重置</button>
+<button type="button" class="btn btn-primary" id="btn2">新增</button> 
+</div>
 	<table border="1" width="100%" class="table">
 		<tr>
 			<td>序号</td>
@@ -48,23 +86,11 @@
 						id : id
 					}, function(data) {
 					});
-					document.write(num1);
+					document.write("￥"+num1);
 				</script></td>
-				<td>${e.period}</td>
-				<td>${e.floor_amount }</td>
-				<td><script type="text/javascript">
-					var id = '${e.id}';
-					$.ajaxSetup({
-						async : false
-					});
-					var shou = 0;
-					$.post("/yingJiaProfit/subject/getdate", {
-						id : id
-					}, function(data) {
-						shou = data;
-					});
-					document.write(date);
-				</script></td>
+				<td>${e.period}天</td>
+				<td>￥${e.floor_amount }</td>
+				<td>${e.year_rate}</td>
 				<td><c:if test="${e.status==0}">募集中</c:if> <c:if
 						test="${e.status==1}">未募集</c:if></td>
 				<%-- 				<td>${e.exper_status} </td> --%>
@@ -72,13 +98,11 @@
 						test="${e.exper_status==1}">是</c:if></td>
 				<td>${e.create_date}</td>
 				<td>
-				<td><a href="/yingJiaProfit/subject/selectSub?id=${e.id }">编辑查看</a>
-					<a href="/yingJiaProfit/subject/selectp2p">查看投资</a></td>
-					
-				<td>
+<button type="button" class="btn btn-primary" onclick="test1(${e.id})">编辑查看</button> 
+		<button type="button" class="btn btn-primary" id="btn3" >查看投资</button>  </td>
 			</tr>
 		</c:forEach>
 	</table>
-
+</form>
 </body>
 </html>

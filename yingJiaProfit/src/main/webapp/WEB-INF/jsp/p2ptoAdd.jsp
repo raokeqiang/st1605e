@@ -8,10 +8,10 @@
 </head>
 <body>
 <form action="/yingJiaProfit/subject/p2pAdd"  method="post">
-<!-- <input type="hidden" name="create_date"  value="2016-7-8"> -->
 名称:<input type="text"  name="name" ><br>
 合同编号:<input type="text" name="serial_no" ><br>
 起投金额:<input type="text" name="floor_amount" ><br>
+年化收益:<input type="text+%" name="year_rate"><br>
 投资期限:<input type="text" name="period"><br>
 状态:<select name="status">
 <option value="0">未募集</option>

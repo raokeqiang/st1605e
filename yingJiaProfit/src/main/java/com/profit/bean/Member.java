@@ -1,10 +1,13 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name="Member")//用户基本表
@@ -30,7 +33,7 @@ public class Member {
 	private String qqAccount;//QQ账号关联
 	private String invitedCode;//被邀请码
 	private String qqNumber;//QQ号码
-	
+	private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<SubjectBbinPurchassRecord>();
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -146,6 +149,14 @@ public class Member {
 	}
 	public void setQqNumber(String qqNumber) {
 		this.qqNumber = qqNumber;
+	}
+	//bi-directional many-to-one association to SubjectOrderRecord
+		@OneToMany(mappedBy="member")
+	public Set<SubjectBbinPurchassRecord> getSubjectBbinPurchassRecord() {
+		return SubjectBbinPurchassRecord;
+	}
+	public void setSubjectBbinPurchassRecord(Set<SubjectBbinPurchassRecord> subjectBbinPurchassRecord) {
+		SubjectBbinPurchassRecord = subjectBbinPurchassRecord;
 	}
 	
 }

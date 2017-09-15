@@ -1,4 +1,6 @@
 package com.profit.controller;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
@@ -59,6 +61,20 @@ public class YsOverseaConfigController {
     @RequestMapping("/update")
     public String update(OverseaConfig over,int id){
     	OverseaConfig  ov=overService.getById(id);
+    	Date now=new Date();
+		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String hehe=dateFormat.format(now);
+		Date date = null;
+		try {
+			date = dateFormat.parse(hehe);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		ov.setAddTime(date);
+		ov.setStart_time(date);
+		ov.setEnd_time(date);
+		ov.setUpdTime(date);
+		ov.setAddTime(date);
     	overService.updateover(ov);
 		return "redirect:/over/Seamenus3";
     	

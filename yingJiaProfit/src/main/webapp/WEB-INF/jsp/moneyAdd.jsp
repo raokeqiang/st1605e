@@ -4,27 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title> 
-<link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
-<script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
-   <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
+<title>Insert title here</title>
 </head>
 <body>
-<form action="/yingJiaProfit/over/oadd" method="post">
-标题<input type="text" name="title"><br>
-子标题:<input type="text" name="child_title"><br>
-描述:<input type="text" name="child_title"><br>
+<form action="/yingJiaProfit/money/moneyAdd"  method="post">
+类型:<select name="type">
+							<option value="">全部</option>
+							<option value="私募类">私募类</option>
+							<option value="股权类">股权类</option>
+							<option value="SIMU">SIMU</option>
+</select><br>
+名称:<input type="text"  name="name" ><br>
+起投金额:<input type="text" name="floor_amount" ><br>
+年化收益:<input type="text+%" name="year_rate"><br>
+投资期限:<input type="text" name="period"><br>
 状态:<select name="status">
 <option value="0">未募集</option>
 <option value="1">募集中</option>
 </select><br>
-<input type="text" name="status"><br>
-排序值:<input type="text" name="sortColmn"><br>
-图标:<input type="file" name="oversea_icon"><br>
+返佣比例:<input type="text" name="ratio"><br>
 <input type="submit" value="提交">
-</form>
-
-//编辑器
+</form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
