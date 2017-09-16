@@ -21,11 +21,16 @@ public class UserRoleImpl {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-
+	//查询角色表
 	public List<UserRole> ListAll() {
 		Session session = getSession();
 		List<UserRole> UserRoleList = session.createQuery("from UserRole").list();
 		return UserRoleList;
+	}
+	//添加角色
+	public void saveUsers(UserRole UserRole){
+		Session session =getSession();
+		session.save(UserRole);
 	}
 
 	public UserRole ListAllById(int id) {
@@ -73,7 +78,7 @@ public class UserRoleImpl {
 		Set<String> set = new HashSet<String>(pnameList);
 		return set;
 	}
-
+	//查询是否有该角色
 	public boolean getByName(String name) {
 		Session session = getSession();
 		String hql = "from UserRole u where u.cname='" + name + "'";

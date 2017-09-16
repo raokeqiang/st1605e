@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.Resources;
+import com.profit.bean.UserRole;
 import com.profit.daoimpl.UserRolesResourcesDaoImpl;
 import com.profit.service.UserService;
 @Component
@@ -66,4 +67,11 @@ public class UserRolesResources implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public <T> void saveUserRole(UserRole UserRole) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

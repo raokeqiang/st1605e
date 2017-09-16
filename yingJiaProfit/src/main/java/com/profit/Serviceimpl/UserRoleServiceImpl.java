@@ -73,4 +73,10 @@ public class UserRoleServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public <T> void saveUserRole(UserRole UserRole) {
+		userRoleImpl.saveUsers(UserRole);;
+	}
+
 }

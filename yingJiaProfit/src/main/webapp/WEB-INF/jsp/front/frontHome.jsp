@@ -384,7 +384,6 @@ li.active a {
 			</div>
 		</div>
 	</div>
-
 	<div class="main">
 
 
@@ -428,7 +427,7 @@ li.active a {
 					</p>
 					<a
 						style="float: none; margin: 0 auto; margin-left: 15px; display: inline-block; margin-bottom: 10px;"
-						href="/yingJiaProfit/show/frontIframeLogin"><img
+						href="/yingJiaProfit/toFrontLogin/login"><img
 						src="/yingJiaProfit/img/ying_index_login_btn.png"></a>
 						 <a
 						style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"

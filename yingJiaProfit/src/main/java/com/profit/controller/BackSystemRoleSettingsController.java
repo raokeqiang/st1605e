@@ -1,5 +1,8 @@
 package com.profit.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -40,6 +43,33 @@ public class BackSystemRoleSettingsController {
 		model.addAttribute("list", roleList);
 		return "backRole";
 	}
+	//添加角色
+	@RequestMapping("/saveUserRole")
+	public String saveUserRole(UserRole userRole) {
+		Date now =new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(now+"+++++++++++++-----");
+		String hehe = dateFormat.format(now);
+		Date date=null;
+		System.out.println("+++++++++添加角色");
+		try {
+			date=dateFormat.parse(hehe);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		userRole.setCreate_date(date);
+		userRole.setUpdate_date(date);
+		userRole.setAvailable(1);
+		userRole.setEname("admin:pu");
+		userRole.setCategory("SYS");
+		userRole.setSource_id(0);
+		userRole.setSource_type(0);
+		userRole.setDel_flag(0);
+		userRoleServiceImpl.saveUserRole(userRole);
+		return "redirect:/backSystemRoleSettings/login";
+	}
+	
+	
 
 	// 点ztree选择菜单后 添加角色权限 跳转到角色设置页面
 	@RequestMapping("/addPers")

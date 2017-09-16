@@ -18,23 +18,15 @@ import com.profit.service.RoleService;
  */
 @Controller
 @RequestMapping("/admin")
-public class ToBackMainPageController {
+public class BackMemberController {
 	
 	
 	@Autowired
 	@Qualifier("memderServiceImpl")
 	private RoleService<Member> memderServiceImpl;
 	
-	@RequestMapping("/admin")
-	public String login(){
-		return "admin";
-	}
 	
-	//直接跳往角色设置页面
-	@RequestMapping("/juese")
-	public String asd(){
-		return "backRole";
-	}
+
 	
 	//查询账号后跳转账号管理界面
 	@RequestMapping("/Memder")
