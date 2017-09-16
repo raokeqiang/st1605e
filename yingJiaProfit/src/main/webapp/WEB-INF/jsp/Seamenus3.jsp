@@ -9,51 +9,58 @@
 <link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
 <script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
    <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
-<!--    <script type="text/javascript"> -->
-<!-- // 	$(function(){ -->
-<!-- // 		$("#btn1").click(function() { -->
-<!-- // 			document.forms[0].action = "/yingJiaProfit/over/toAdd"; -->
-<!-- // 			document.forms[0].submit(); -->
-<!-- // 		}); -->
-<!-- // 		$("#btn2").click(function() { -->
-<!-- // 			document.forms[0].action = "/yingJiaProfit/over/inData"; -->
-<!-- // 			document.forms[0].submit(); -->
-<!-- // 		}); -->
-<!-- // 	}); -->
-<!-- </script> -->
+   <script type="text/javascript" src="yingJiaProfit/js/jquery-3.2.0.min.js"></script>
+   <script type="text/javascript">
+   $(function(){
+  $("#btn3").click(function(){ //查看预约
+	   	$("#form1").attr("action","/yingJiaProfit/over/listding");
+	   	$("#form1").submit();
+	   });
+  $("#btn2").click(function(){ //新增按钮
+		$("#form1").attr("action","/yingJiaProfit/over/SeaoverAdd");
+		$("#form1").submit();
+	});
+	   });
+   function fun(id){//button传id
+	   window.location.href = '/yingJiaProfit/over/inData?id='+id;
+	  }
+   </script>
+   <style type="text/css">
+		.imged{
+		width:50px;
+		height:50px;	
+		}
+	</style>
 </head>
 <body>
-<form action="/yingJiaProfit/over/Seamenus3">
-<table  class="table" width="100%" border="1">
+<form action="/yingJiaProfit/over/Seamenus3" id="form1">
+<table  class="table-striped" width="100%" border="1" >
 
 <!--   <input type="button" value="新增" id="btn1" /> -->
-<a href="/yingJiaProfit/over/SeaoverAdd">新增</a>
-<tr>
-              <th>编号</th>
+<button type="button" class="btn btn-primary" id="btn2">新增</button> 
+<tr align="center">
+              <th align="center"><font size="+1">编号</font></th>
 		      <th>标题</th>
-			    <th>子标题</th>
+			   <th>子标题</th>
 			    <th>状态</th>
 			    <th>排序值</th>
-			    <th>图标</th>
 			    <th>添加时间</th>
 			    <th>操作</th>
+			  
 </tr>
 <c:forEach items="${list }" var="e" varStatus="stat">
 				<tr>
-				
-				<td>${stat.index+1 }</td>
+				<td><img src="/yingJiaProfit/img/1.jpg" class="imged"></img></td>
 				<td>${e.title }</td>
 				<td>${e.child_title }</td>
-				<td>${e.status}</td>
+				<td>
+				<c:if test="${e.status==0}">募集中</c:if>
+				 <c:if test="${e.status==1}">未募集</c:if></td>
 				<td>${e.sortColum }</td>
-				<td>${e.oversea_icon}</td>
 				<td>${e.addTime}</td>
 			<td> 
-<!-- <input type="button" class="btn btn-primary btn-sm" value="查看预约" /> -->
-<!-- <input type="button" class="btn btn-success btn-sm" value="编辑查看" id="btn2"/> -->
-			
-				<a href="/yingJiaProfit/over/listding">查看预约</a> 
- 					<a href="/yingJiaProfit/over/inData?id=${e.id }">编辑查看</a></td> 
+			<button type="button" class="btn btn-warning" id="btn3">查看预约<button>
+				<button type="button" class="btn btn-success" onclick="fun(${e.id})">编辑查看<button>
 				</tr>
 
 			</c:forEach>

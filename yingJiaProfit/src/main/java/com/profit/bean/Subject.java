@@ -1,6 +1,7 @@
 package com.profit.bean;
 
 import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +31,8 @@ public class Subject {
     private Date raise_end;//募集结束
     private int refund_way;//还款方式
     private int safeGuard_way;//保障方式
-    private Date start_date;//标的开始日期
-    private Date end_date;//标的结束日期
+//    private Date start_date;//标的开始日期
+//    private Date end_date;//标的结束日期
     private int year_rate;//年化率
     private String comment;//产品速览
     private int folder_id;//文件夹id
@@ -45,7 +46,7 @@ public class Subject {
     private String safetyControl;//安全保障
     private int exper_status;//体验金是否可以购买（0：否，1：是）
   //private SubjectFolder subjectFolder;
-//	private Set<SubjectBbinPurchaseRecord> subjectBbinPurchaseRecords = new HashSet<>();
+private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<SubjectBbinPurchassRecord>();
 	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();
 	//private Set<SubjectOrderRecord> subjectOrderRecords = new HashSet<>();
 	private Set<SubjectPurchaseRecord> subjectPurchaseRecord = new HashSet<SubjectPurchaseRecord>();
@@ -179,21 +180,21 @@ public class Subject {
 		this.safeGuard_way = safeGuard_way;
 	}
 
-	public Date getStart_date() {
-		return start_date;
-	}
+//	public Date getStart_date() {
+//		return start_date;
+//	}
 
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
-	}
-
-	public Date getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
-	}
+//	public void setStart_date(Date start_date) {
+//		this.start_date = start_date;
+//	}
+//
+//	public Date getEnd_date() {
+//		return end_date;
+//	}
+//
+//	public void setEnd_date(Date end_date) {
+//		this.end_date = end_date;
+//	}
 
 	public int getYear_rate() {
 		return year_rate;
@@ -291,7 +292,7 @@ public class Subject {
 		this.exper_status = exper_status;
 	}
 	//bi-directional OneToMany association to Subject
-	@OneToMany(cascade = CascadeType.ALL,mappedBy="subject")
+	@OneToMany(mappedBy="subject")
 	public Set<SubjectPurchaseRecord> getSubjectPurchaseRecord() {
 		return subjectPurchaseRecord;
 	}
@@ -299,6 +300,8 @@ public class Subject {
 	public void setSubjectPurchaseRecord(Set<SubjectPurchaseRecord> subjectPurchaseRecord) {
 		this.subjectPurchaseRecord = subjectPurchaseRecord;
 	}
+
+	
 	//bi-directional many-to-one association to SubjectFolder
 	/*	@ManyToOne
 		@JoinColumn(name="folder_id")
@@ -310,15 +313,15 @@ public class Subject {
 		}
 	*/
 
-	/*		//bi-directional many-to-one association to SubjectBbinPurchaseRecord
-		@OneToMany(mappedBy="subject")
-		public Set<SubjectBbinPurchaseRecord> getSubjectBbinPurchaseRecords() {
-			return this.subjectBbinPurchaseRecords;
+//bi-directional many-to-one association to SubjectBbinPurchaseRecord
+		@OneToMany(cascade = CascadeType.ALL,mappedBy="subject")
+		public Set<SubjectBbinPurchassRecord> getSubjectBbinPurchassRecord() {
+			return SubjectBbinPurchassRecord;
 		}
 
-		public void setSubjectBbinPurchaseRecords(Set<SubjectBbinPurchaseRecord> subjectBbinPurchaseRecords) {
-			this.subjectBbinPurchaseRecords = subjectBbinPurchaseRecords;
-		}*/
+		public void setSubjectBbinPurchassRecord(Set<SubjectBbinPurchassRecord> subjectBbinPurchassRecord) {
+			SubjectBbinPurchassRecord = subjectBbinPurchassRecord;
+		}
 
 	/*	public SubjectBbinPurchaseRecord addSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
 			getSubjectBbinPurchaseRecords().add(subjectBbinPurchaseRecord);

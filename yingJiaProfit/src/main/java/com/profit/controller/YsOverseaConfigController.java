@@ -1,4 +1,5 @@
 package com.profit.controller;
+
 import java.util.Date;
 
 import java.util.List;
@@ -57,11 +58,20 @@ public class YsOverseaConfigController {
     	
     }
     @RequestMapping("/update")
-    public String update(OverseaConfig over,int id){
-    	OverseaConfig  ov=overService.getById(id);
-    	overService.updateover(ov);
+    public String update(OverseaConfig over){  //更新
+    	OverseaConfig  newover=overService.getById(over.getId());//通过id获取的是以前的数据
+//    	System.out.println(over.getTitle());
+//    	System.out.println(over.getChild_title());
+//    	System.out.println(over.getStatus());
+//    	System.out.println(over.getSortColum());
+    	newover.setTitle(over.getTitle());
+        newover.setChild_title(over.getChild_title());
+        newover.setStatus(over.getStatus());
+        newover.setSortColum(over.getSortColum());
+        newover.setUpdTime(new Date());
+        overService.updateover(newover);
 		return "redirect:/over/Seamenus3";
-    	
+    
     }
 //    //显示海外配置预约记录
 //    @RequestMapping("/listding")

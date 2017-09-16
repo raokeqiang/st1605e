@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title> 
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
 <script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
    <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
   <script type="text/javascript">
   $(function(){
   $("#btn2").click(function(){ //返回按钮
-	  	$("#form1").attr("action","/yingJiaProfit/over/Seamenus3");
+	  	$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
 	  	$("#form1").submit();
 	  });
 
@@ -19,50 +19,37 @@
   </script>
 </head>
 <body>
-<form action="/yingJiaProfit/over/oadd"  id="form1" method="post" class="form-inline" role="form">
-<font size="+2">标题:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="name" 
-    placeholder="请输入标题">
-  </div>&nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <font size="+2">子标题:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="child_title" 
-    placeholder="请输入子标题">
-  </div><br>
-  
-  
-  <font size="+2">描述:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="child_title" 
-    placeholder="请输入描述">
-  </div>&nbsp;&nbsp;
- <div class="form-horizontal">
-    <div class="control-label col-lg-0">
-    </div>
-    <div class="col-lg-2">
-        <font size="+2">状态</font>:<select class="form-control" >
-            <option value="0">未募集</option>
-            <option value="1">募集中</option>
-        </select>
-    </div>
-</div><br>
-  <font size="+2">排序值:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">排序值:</label>
-    <input type="text" class="form-control" id="name"  name="sortColmn" 
-    placeholder="请输入sortColmn">
-  </div>
-图标:<input type="file" name="oversea_icon"><br>
- <input type="submit" value="提交">
+<form action="/yingJiaProfit/subject/p2pAdd" id="form1" method="post">
+名称:<input type="text"  name="name" ><br>
+合同编号:<input type="text" name="serial_no" ><br>
+起投金额:<input type="text" name="floor_amount" ><br>
+年化收益:<input type="text+%" name="year_rate"><br>
+投资期限:<input type="text" name="period"><br>
+状态:<select name="status">
+<option value="0">未募集</option>
+<option value="1">募集中</option>
+</select><br>
+借款人姓名:<input type="text" name="borrowername" ><br>
+类型:
+<select name="type">
+<option value="0">p2p房贷</option>
+<option value="1">p2p车贷</option>
+</select><br>
+借款用途:<input type="text" name="purpose" ><br>
+保障方式:
+<select name="afetyControl">
+<option value="0">企业担保</option>
+<option value="1">保障方式</option>
+</select><br>
+ 可使用体验金:
+ <select name="exper_status">
+<option value="0">否</option>
+<option value="1">是</option>
+</select><br>
+已购人数:<input type="text" name="bought" ><br>
+<input type="submit" value="提交">
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
-</form>
-
-//编辑器
+</form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
