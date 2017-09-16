@@ -16,7 +16,13 @@
 	  $(document).ready(function(){
 		  $("#type").val(${sub.type}); 
 	  });
-	
+	  $(function(){
+		  $("#btn2").click(function(){ //返回按钮
+			  	$("#form1").attr("action","/yingJiaProfit/money/showmoney");
+			  	$("#form1").submit();
+			  });
+
+			  });
 	</script>
 </head>
 <body>
@@ -24,8 +30,8 @@
 <input type="hidden" name="id" value="${finance.id }"> 
 类型:
 <select name="type" id="type">
-<option value="SIMU">私募类</option>
-<option value="GUQUAN">股权类</option>
+<option value="0">私募类</option>
+<option value="1">股权类</option>
 </select><br>
 名称:<input type="text"  name="name" value="${finance.name}"><br>
 起投金额:<input type="text" name="amount" value="${finance.amount }"><br>
@@ -38,7 +44,9 @@
 							<option value="2">回款中</option>
 	</select>
 <br>
-<input type="submit" value="提交">
+<!-- <input type="submit" value="提交"> -->
+ <button type="submit" class="btn btn-primary">提交</button>
+ <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>

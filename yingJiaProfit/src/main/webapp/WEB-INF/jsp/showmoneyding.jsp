@@ -14,7 +14,7 @@
 //签署合约
 function test3(id){
 	alert(id);
-	 $("#form1").attr("action","/yingJiaProfit/money/heyue/"+id);
+        $("#form1").attr("action","/yingJiaProfit/money/heyue/"+id);
 		$("#form1").submit();
 }
 </script>
@@ -53,7 +53,6 @@ function test3(id){
 </c:if>
 <c:if test="${e.status==2}">
 <button type="button" class="btn btn-primary" onclick="test3(${e.id})">签署</button>
-<button type="button">签署失败</button>
 </c:if>
 <c:if test="${e.status==3}">
 <button type="button">签署失败</button>

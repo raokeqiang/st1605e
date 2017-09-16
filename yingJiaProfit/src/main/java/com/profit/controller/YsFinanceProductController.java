@@ -93,9 +93,10 @@ public String update(FinanceProductFunds finance){
 }
 //显示签署状态
 @RequestMapping("/moneyding/{id}")
-public String moneyding(Model model,@PathVariable("id")int id){
-	System.out.println("111111111111");
-	List<FinanceProductSubscribe> list=financeService.showmoneyding(id);
+public String moneyding(Model model,@PathVariable("id")int id,FinanceProductFunds finance){
+	System.out.println("11111111111");
+  List<FinanceProductSubscribe> list=financeService.showmoneyding(id);
+	finance.setInvest_points("");
 	model.addAttribute("list",list);
 	System.out.println(list.size());
   return "showmoneyding";
@@ -111,20 +112,26 @@ public String heyue(Model model,@PathVariable("id")int id){
 //保存签署合同
 @RequestMapping("/savehe")
 public String savehe(Model model,FinanceProductSubscribe finance){
-	Date now=new Date();
-	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	String hehe=dateFormat.format(now);
-	Date date = null;
-	try {
-		date = dateFormat.parse(hehe);
-	} catch (ParseException e) {
-		e.printStackTrace();
-	}
-	finance.setCreate_date(date);
-	finance.setUpdate_date(date);
-	finance.setStart_date(date);
-	finance.setEnd_date(date);
+//	Date now=new Date();
+//	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//	String hehe=dateFormat.format(now);
+//	Date date = null;
+//	try {
+//		date = dateFormat.parse(hehe);
+//	} catch (ParseException e) {
+//		e.printStackTrace();
+//	}
+//	finance.setCreate_date(date);
+//	finance.setUpdate_date(date);
+//	finance.setStart_date(date);
+//	finance.setEnd_date(date);
+	finance.setCreate_date(new Date());
+	finance.setUpdate_date(new Date());
+System.out.println("qqqqqq"+finance.getMember().getName());
+System.out.println("mmmmm"+finance.getMember().getIdentity());
+System.out.println("ffffffffff"+finance.getAmount());
+
 	financeService.savehe(finance);
-	return "redirect:/money/showmoneyding";
+	return "redirect:/money/heyue/{id}";
 }
 }

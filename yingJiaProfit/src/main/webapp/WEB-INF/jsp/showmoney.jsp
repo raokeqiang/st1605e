@@ -28,13 +28,13 @@ function test1(id){//button传id
 	 window.location.href = '/yingJiaProfit/money/moneyEdit?id='+id;
 	}
 	//签署状态
-// function test3(id){//button传id
-// 	 window.location.href = '/yingJiaProfit/money/moneyding?id='+id;
-// 	}
+//function test3(id){//button传id
+ 	 //window.location.href = '/yingJiaProfit/money/moneyding?id='+id;
+	//}
 	function test3(id){//签署状态
 	alert(id);
 	 $("#form1").attr("action","/yingJiaProfit/money/moneyding/"+id);
-		$("#form1").submit();
+$("#form1").submit();
 }
 </script>
 </head>
@@ -75,7 +75,11 @@ function test1(id){//button传id
 <tr>
 <td>${stat.index+1 }</td>
 <td>${e.name }</td>
-<td>${e.type }</td>
+<td>
+<c:if test="${e.type==0}">私募类</c:if> <c:if
+test="${e.type==1}">股权类</c:if>
+</td>
+
 <td><c:if test="${e.status==0}">募集中</c:if> <c:if
 						test="${e.status==1}">未募集</c:if></td>
 			<td>${e.year_rate}%</td>
@@ -84,7 +88,7 @@ function test1(id){//button传id
 			<td>${e.floor_amount }</td>
 			<td>${e.create_date }</td>
 
-			<td>
+		<td>
 <button type="button" class="btn btn-primary" onclick="test1(${e.id})">编辑查看</button> 
 <button type="button" class="btn btn-primary" onclick="test3(${e.id})">签署状态</button> 
 			</td>

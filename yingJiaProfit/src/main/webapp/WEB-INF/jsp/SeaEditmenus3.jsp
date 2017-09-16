@@ -39,7 +39,8 @@
 </select><br>
 排序值:<input type="text" name="sortColum" value="${over.sortColum}"><br>
 图标:<input type="file"   id="oversea_icon"   >
-<input type="submit" value="提交"  >
+<!-- <input type="submit" value="提交"  > -->
+<button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form>
 

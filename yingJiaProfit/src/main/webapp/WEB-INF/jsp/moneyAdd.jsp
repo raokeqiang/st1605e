@@ -5,14 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/yingJiaProfit/css/bootstrap.min.css"/>
+<script type="text/javascript" src="/yingJiaProfit/css/iframeindex_data/jquery.js" ></script>
+   <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js" ></script>
+  <script type="text/javascript">
+  $(function(){
+  $("#btn2").click(function(){ //返回按钮
+	  	$("#form1").attr("action","/yingJiaProfit/money/showmoney");
+	  	$("#form1").submit();
+	  });
+
+	  });
+  </script>
 </head>
 <body>
-<form action="/yingJiaProfit/money/moneyAdd"  method="post">
+<form action="/yingJiaProfit/money/moneyAdd"  method="post" id="form1">
 类型:<select name="type">
 							<option value="">全部</option>
-							<option value="私募类">私募类</option>
-							<option value="股权类">股权类</option>
-							<option value="SIMU">SIMU</option>
+						<option value=0>私募类</option>
+							<option value="1">股权类</option>
 </select><br>
 名称:<input type="text"  name="name" ><br>
 起投金额:<input type="text" name="floor_amount" ><br>
@@ -23,7 +34,9 @@
 <option value="1">募集中</option>
 </select><br>
 返佣比例:<input type="text" name="ratio"><br>
-<input type="submit" value="提交">
+<!-- <input type="submit" value="提交"> -->
+ <button type="submit" class="btn btn-primary">提交</button>
+ <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>
