@@ -48,10 +48,8 @@ public class BackSystemRoleSettingsController {
 	public String saveUserRole(UserRole userRole) {
 		Date now =new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println(now+"+++++++++++++-----");
 		String hehe = dateFormat.format(now);
 		Date date=null;
-		System.out.println("+++++++++添加角色");
 		try {
 			date=dateFormat.parse(hehe);
 		} catch (ParseException e) {

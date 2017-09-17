@@ -14,8 +14,7 @@
 <title>盈+理财首页</title>
 <link href="http://www.ying158.com/Content/images/jw/icon.ico"
 	type="image/x-icon" rel="shortcut icon">
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
+
 <link href="/yingJiaProfit/css/video-js.css" rel="stylesheet" type="text/css">
 <link href="/yingJiaProfit/css/common.css" rel="stylesheet">
 
@@ -24,6 +23,9 @@
 <script src="/yingJiaProfit/js/jquery.js"></script>
 
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
+<script src="/yingJiaProfit/js/hm.js"></script>
+<script src="/yingJiaProfit/js/hm_002.js"></script>
+
 
 <style type="text/css">
 .hzhb_box {

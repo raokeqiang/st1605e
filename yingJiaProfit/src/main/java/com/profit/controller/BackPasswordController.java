@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.profit.bean.Users;
 import com.profit.service.RoleService;
 
+//后台密码设置
 
 @Controller
 @RequestMapping("/backPassword")
@@ -39,7 +40,6 @@ public class BackPasswordController {
 		if(password==pwd||password.equals(pwd)){
 			boo=true;
 		}
-		
 		Map<String,Boolean> map=new HashMap<>(); 
 		map.put("valid", boo);
 		System.out.println(boo);
