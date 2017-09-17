@@ -14,8 +14,9 @@
 //签署合约
 function test3(id){
 	alert(id);
-        $("#form1").attr("action","/yingJiaProfit/money/heyue/"+id);
-		$("#form1").submit();
+	$(location).attr('href', '/yingJiaProfit/money/heyue/'+id);
+        //$("#form1").attr("action","/yingJiaProfit/money/heyue/"+id);
+		//$("#form1").submit();
 }
 </script>
 </head>

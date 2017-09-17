@@ -93,9 +93,9 @@ public String update(FinanceProductFunds finance){
 }
 //显示签署状态
 @RequestMapping("/moneyding/{id}")
-public String moneyding(Model model,@PathVariable("id")int id,FinanceProductFunds finance){
+public String moneyding(Model model,@PathVariable("id")String  id,FinanceProductFunds finance){
 	System.out.println("11111111111");
-  List<FinanceProductSubscribe> list=financeService.showmoneyding(id);
+  List<FinanceProductSubscribe> list=financeService.showmoneyding(Integer.valueOf(id));
 	finance.setInvest_points("");
 	model.addAttribute("list",list);
 	System.out.println(list.size());
@@ -104,14 +104,14 @@ public String moneyding(Model model,@PathVariable("id")int id,FinanceProductFund
 //点击签署，签订合约
 @RequestMapping("/heyue/{id}")
 public String heyue(Model model,@PathVariable("id")int id){
-	System.out.println("id="+id);
+	System.out.println("id======"+id);
 	FinanceProductSubscribe finan=financeService.getByIding(id);
 	model.addAttribute("finan",finan);
 	return "showhe";
 }
 //保存签署合同
 @RequestMapping("/savehe")
-public String savehe(Model model,FinanceProductSubscribe finance){
+public String savehe(Model model,FinanceProductSubscribe finance,@PathVariable("id")int id){
 //	Date now=new Date();
 //	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //	String hehe=dateFormat.format(now);
@@ -125,12 +125,13 @@ public String savehe(Model model,FinanceProductSubscribe finance){
 //	finance.setUpdate_date(date);
 //	finance.setStart_date(date);
 //	finance.setEnd_date(date);
+	finance=financeService.getByIding(id);
 	finance.setCreate_date(new Date());
-	finance.setUpdate_date(new Date());
+	//finance.setUpdate_date(new Date());
 System.out.println("qqqqqq"+finance.getMember().getName());
 System.out.println("mmmmm"+finance.getMember().getIdentity());
 System.out.println("ffffffffff"+finance.getAmount());
-
+   
 	financeService.savehe(finance);
 	return "redirect:/money/heyue/{id}";
 }

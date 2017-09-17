@@ -20,10 +20,12 @@ $(function(){
 	date.setDate(date.getDate()+perior);
 	$("#end").val(date.toLocaleDateString());
 	$("#btn1").click(function(){ //签署合约
-		$("#form1").attr("action","/yingJiaProfit/money/savehe");
-		$("#form1").submit();
+		$(location).attr('href', '/yingJiaProfit/money/savehe');
+//		$("#form1").attr("action","/yingJiaProfit/money/savehe");
+	//	$("#form1").submit();
 	});
  });
+ 
  function fun(obj){
 	 var money=obj.value;
 	 var rate=${finan.fina.year_rate}/100;
@@ -35,17 +37,18 @@ $(function(){
 
 </head>
 <body>
-<form action="/yingJiaProfit/money/savehe"  method="post" id="form1">
+<form action="/yingJiaProfit/money/savehe"  method="post" id="form1"  >
+<input type="hidden" name="id" value="${finan.id }">
 真实姓名:<input type="text" name="member_name" value="${finan.member.member_name}" readonly="true"> <br>
 身份证信息:<input type="text" name="identity" value="${finan.member.identity}" readonly="true"> <br>
 购买金额:<input type="text" name="amount" onkeyup="fun(this)"><br>
 利息收益:<input type="text" name="interest" id="interest" readonly="true"><br>
 开始时间:<input type="text" name="start" id="start"  readonly="true"/><br>
 截止时间:<input type="text" name="end" id="end" readonly="true" ><br>
-私募合同:<input type="file"><br>
+<!-- 私募合同:<input type="file"><br>
 
-风险揭示书:<input type="file"><br>
-  <button type="submit" class="btn btn-primary">签署合同</button>
+风险揭示书:<input type="file"><br> -->
+  <button  id="btn1"   type="button" class="btn btn-primary">签署合同</button>
 </form>
 </body>
 </html>
