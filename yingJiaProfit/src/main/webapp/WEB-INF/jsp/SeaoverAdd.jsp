@@ -19,46 +19,20 @@
   </script>
 </head>
 <body>
-<form action="/yingJiaProfit/over/oadd"  id="form1" method="post" class="form-inline" role="form">
-<font size="+2">标题:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="name" 
-    placeholder="请输入标题">
-  </div>&nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <font size="+2">子标题:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="child_title" 
-    placeholder="请输入子标题">
-  </div><br>
-  
-  
-  <font size="+2">描述:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">标题</label>
-    <input type="text" class="form-control" id="name"  name="child_title" 
-    placeholder="请输入描述">
-  </div>&nbsp;&nbsp;
- <div class="form-horizontal">
-    <div class="control-label col-lg-0">
-    </div>
-    <div class="col-lg-2">
-        <font size="+2">状态</font>:<select class="form-control" >
-            <option value="0">未募集</option>
+<form action="/yingJiaProfit/over/oadd"  id="form1" method="post" >
+标题:<input type="text"  name="name" >
+子标题:<input type="text" name="child_title" >
+描述:  <input type="text"  name="description">
+ 状态:<select " >
+           <option value="0">未募集</option>
             <option value="1">募集中</option>
         </select>
-    </div>
-</div><br>
-  <font size="+2">排序值:</font>
-<div class="form-group">
-    <label class="sr-only" for="name">排序值:</label>
-    <input type="text" class="form-control" id="name"  name="sortColmn" 
-    placeholder="请输入sortColmn">
-  </div>
+排序值:
+    <input type="text"   name="sortColmn" >
+  
 图标:<input type="file" name="oversea_icon"><br>
- <input type="submit" value="提交">
+<!--  <input type="submit" value="提交"> -->
+ <button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form>
 

@@ -20,10 +20,19 @@
 	  $(document).ready(function(){
 		  $("#exper_status").val(${sub.exper_status}); 
 	  });
+	
+	  $(function(){
+	  $("#btn2").click(function(){ //返回按钮
+		  	$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
+		  	$("#form1").submit();
+		  });
+
+		  });
+	  
 	</script>
 </head>
 <body>
-<form action="/yingJiaProfit/subject/update"  method="post">
+<form action="/yingJiaProfit/subject/update"  method="post" id="form1"> 
 <input type="hidden" name="id" value="${sub.id }"> 
 名称:<input type="text"  name="name" value="${sub.name}"><br>
 合同编号:<input type="text" name="serial_no" value="${sub.serial_no  }"><br>
@@ -49,7 +58,9 @@
 <option value="1">是</option>
 </select><br>
 已购人数:<input type="text" name="bought" value="${sub.bought }"><br>
-<input type="submit" value="提交">
+<!-- <input type="submit" value="提交"> -->
+<button type="submit" class="btn btn-primary">提交</button>
+ <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>

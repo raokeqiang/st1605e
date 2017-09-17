@@ -47,7 +47,8 @@
 <option value="1">是</option>
 </select><br>
 已购人数:<input type="text" name="bought" ><br>
-<input type="submit" value="提交">
+<!-- <input type="submit" value="提交"> -->
+<button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>

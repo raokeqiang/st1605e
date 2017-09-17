@@ -11,13 +11,22 @@
 <script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-function fun(obj){
+function fun(){
 
 }
+$(function(){
+	  $("#btn2").click(function(){ //返回按钮
+		  	$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
+		  	$("#form1").submit();
+		  });
 
+		  });
 </script>
 </head>
 <body>
+
+ <form method="post" action="" id="form1"> 
+  <button type="button" class="btn btn-primary" id="btn2">返回</button>
 <table border="1" width="100%">
 <tr>
 <td>序号</td>
@@ -35,12 +44,13 @@ function fun(obj){
  <td>${e.member.member_name}</td> 
 <td>${e.amount }</td>
 <td>
-${ e.subject.year_rate}
-,,,,
-${e.subject.period}
-
-
-		
+<script type="text/javascript">
+ var first='${e.amount}';
+ var date=${e.subject.year_rate}/100;
+ var t='${e.subject.period}';
+ var shou=((first * date) / 365) * t;
+ document.write(parseFloat(shou).toFixed(2));
+		</script> 
 </td>
 
 
@@ -52,7 +62,7 @@ ${e.subject.period}
 </tr>
 </c:forEach>
 </table>
-
+</form>
 
 <!--  <script type="text/javascript"> 
 
