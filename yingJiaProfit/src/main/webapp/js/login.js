@@ -49,16 +49,16 @@ $(function () {
                 type: "POST", // 用POST方式传输
                 dataType: "json", // 数据格式:JSON
                 async: true,
-                url: base + '/web/login', // 目标地址
+                url: base + '/yingJiaProfit/toFrontLogin/loginCheck', // 目标地址
                 data: {
                     mobilePhone: phone.val(),
                     password: password.val()
                 },
                 success: function (msg) {
-                    if (msg.code == 0) {
-                        window.location.href = base + "/account/trades/profit/records";
+                    if (msg==true) {
+                        window.location.href = "/yingJiaProfit/toFrontLogin/login";
                     } else {
-                        $(".error").html(msg.msg).show();
+                        $(".error").html("用户名或密码错误").show();
                     }
                 }
             });

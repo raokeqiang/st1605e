@@ -515,7 +515,7 @@ li.active a {
                     <div class="desc">
                         如果您对盈+理财网站操作流程不太熟悉，
                         请参考为您制作的网站操作流程指引：
-                        <button class="btn" onclick="window.location = &#39;http://pro.ying158.com/web/regis&#39;">我来给您带路！</button>
+                        <button class="btn" onclick="window.location =http://pro.ying158.com/web/regis&#39;">我来给您带路！</button>
                        
                     </div>
                 </div>

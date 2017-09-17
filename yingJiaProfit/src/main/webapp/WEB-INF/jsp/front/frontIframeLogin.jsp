@@ -377,7 +377,8 @@ li.active a {
 					<div class="item item1">
 						<div class="lLabel">手机号</div>
 						<div class="lInput">
-							<img src="/yingJiaProfit/img/userIcon.png"><input
+							<img src="/yingJiaProfit/img/userIcon.png">
+							<input
 								placeholder="手机号" id="phone" name="phone"
 								class="form-control phone" type="text"> <span
 								class="errorInfo">用户名不能为空</span>

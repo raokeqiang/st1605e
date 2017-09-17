@@ -16,7 +16,6 @@
 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.ztree.all-3.5.min.js"></script>
 	
 </head>
-  
 	<style type="text/css">
 		.style16{
 		width: 100%;
@@ -67,7 +66,6 @@
  }
  //获取所有选中节点的值
  function GetCheckedAll() {
-	 alert(cid+"+++");
      var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
      var nodes = treeObj.getCheckedNodes(true);
      var msg = "";
@@ -87,14 +85,13 @@
  }    
 </script>
 	
-
 <body>
 <div class="style16" >
 	<shiro:hasPermission name="添加角色">
-							<button type="button" style="width: 100px" data-toggle="modal"
-								data-target="#addRoleModal"
-								class="btn btn-lg btn-success active btn-block" id="saveBtn">+新增角色</button>
-							</shiro:hasPermission>
+				<button type="button" style="width: 150px" data-toggle="modal"
+				data-target="#addRoleModal"
+				class="btn btn-lg btn-success active btn-block" id="saveBtn">✚新增角色</button>
+	</shiro:hasPermission>
 							
 <table width="100%" class="table">
    <thead>
@@ -103,7 +100,6 @@
          <th>角色名</th>
          <th>备注</th>
          <th>创建时间</th>
-         <th>修改时间</th>
          <th>操作</th>
       </tr>
    </thead>
@@ -114,7 +110,6 @@
       <td>${e.cname }</td>
       <td>${e.remark }</td>
       <td>${e.create_date }</td>
-      <td>${e.update_date }</td>
       <td><a  data-toggle="modal"
 					data-target="#setRoleModal"
 					class="btn btn-lg btn-primary active btn-block" 
@@ -135,12 +130,12 @@
 						<h4 class="modal-title" id="myModalLabel"
 							style="font-weight: bold;">新增角色</h4>
 					</div>
-					<form action="" method="post">
+					<form action="/yingJiaProfit/backSystemRoleSettings/saveUserRole" method="post">
 						<div class="modal-body">
 							<label>角色名称:</label> 
-							<input type="text" required="required"	class="form-control" placeholder="角色名称....">
+							<input type="text" required="required" name="cname"	class="form-control" placeholder="角色名称....">
 							<label>角色描述:</label>
-							<input type="text" required="required" class="form-control" placeholder="角色描述....">
+							<input type="text" required="required" name="remark" class="form-control" placeholder="角色描述....">
 						</div>
 						<div class="modal-footer">
 							<div style="margin: 0 auto; width: 50%;">

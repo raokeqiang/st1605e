@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html><head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -31,9 +33,27 @@
         <div class="telInfo">
             <img src="/yingJiaProfit/img/400Icon.png" >
             <div class="detail">
-                        <a style="font-size:18px;float:right;margin-top:5px;color:#917739;" target="_parent" href="/yingJiaProfit/toFrontUserLogin/login">登录</a>
-                        <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="http://pro.ying158.com/web/regis">注册</a>
-                <br>4000-999-158
+                  	<c:if test="${member.id>0 }">
+	                <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#357CB9;" target="_parent" href="/yingJiaProfit/toFrontLogin/logout">
+	                	[退出]
+	                </a>
+	                <span style="font-size:18px;float:right;margin-top:5px;color:#917739;" >
+	                	欢迎${member.member_name },
+	                </span>
+	                 <br>4000-999-158
+	                
+                </c:if>
+                
+                <c:if test="${empty member}">
+	                <a style="font-size:18px;float:right;margin-top:5px;color:#917739;" target="_parent" href="/yingJiaProfit/toFrontLogin/login">
+	                	登录
+	                </a>
+	                <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="http://pro.ying158.com/web/regis">
+	                	注册
+	                </a>
+	                 <br>4000-999-158
+	                
+                </c:if>
             </div>
         </div>
     </div>

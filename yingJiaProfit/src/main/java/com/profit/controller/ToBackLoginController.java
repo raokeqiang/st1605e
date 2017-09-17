@@ -43,16 +43,13 @@ public class ToBackLoginController {
 			String password=user.getPassword();
 			System.out.println(name+"---------"+password);
 			Subject subject=SecurityUtils.getSubject();
-			System.out.println("################");
 			UsernamePasswordToken token=new UsernamePasswordToken(name,password);
 			try {
-				System.out.println("################");
 				subject.login(token);
-				System.out.println("################");
 				Session session=subject.getSession();
-				System.out.println("################");
 				session.setAttribute("user_name", user.getUser_name());
-				System.out.println(user.getUser_name()+"mingz");
+				session.setAttribute("password", user.getPassword());
+				System.out.println(user.getUser_name()+"mingz-------"+user.getPassword());
 				Set<String> set=userRoleServiceImpl.ListAllByName(name);
 				String url=null;
 				for (String string : set) {

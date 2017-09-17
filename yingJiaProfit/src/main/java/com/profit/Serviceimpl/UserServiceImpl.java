@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.profit.bean.UserRole;
 import com.profit.bean.Users;
 import com.profit.daoimpl.UserDaoImpl;
 import com.profit.service.UserService;
@@ -70,6 +71,13 @@ public class UserServiceImpl implements UserService {
 	public <T> Set<String> ListResourcesByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public <T> void saveUserRole(UserRole UserRole) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
