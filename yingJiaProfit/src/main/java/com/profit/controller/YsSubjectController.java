@@ -139,7 +139,7 @@ public class YsSubjectController {
 	System.out.println("id:" + id);
 		Subject sub = this.subjectService.getById(id);
 		int firstmoney = sub.getFloor_amount();// 起头金额
-		int date = sub.getYear_rate();// 年化率
+		double date = sub.getYear_rate();// 年化率
 		int t = sub.getPeriod();// 标的周期
 		double shou = ((firstmoney * date) / 365) * t;
 		System.out.println("shou=" + shou);

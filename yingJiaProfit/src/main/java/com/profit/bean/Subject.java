@@ -33,7 +33,7 @@ public class Subject {
     private int safeGuard_way;//保障方式
 //    private Date start_date;//标的开始日期
 //    private Date end_date;//标的结束日期
-    private int year_rate;//年化率
+    private double year_rate;//年化率
     private String comment;//产品速览
     private int folder_id;//文件夹id
     private int delflag;//是否删除
@@ -196,16 +196,16 @@ private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<S
 //		this.end_date = end_date;
 //	}
 
-	public int getYear_rate() {
+	public String getComment() {
+		return comment;
+	}
+
+	public double getYear_rate() {
 		return year_rate;
 	}
 
-	public void setYear_rate(int year_rate) {
+	public void setYear_rate(double year_rate) {
 		this.year_rate = year_rate;
-	}
-
-	public String getComment() {
-		return comment;
 	}
 
 	public void setComment(String comment) {
