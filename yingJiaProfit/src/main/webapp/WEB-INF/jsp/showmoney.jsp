@@ -33,13 +33,14 @@ function test1(id){//button传id
 	//}
 	function test3(id){//签署状态
 	alert(id);
-	 $("#form1").attr("action","/yingJiaProfit/money/moneyding/"+id);
-$("#form1").submit();
+	$(location).attr('href', '/yingJiaProfit/money/moneyding/'+id);
+	// $("#form1").attr("action",""+id);
+//$("#form1").submit();
 }
 </script>
 </head>
 <body>
-<form method="post" id="form1">
+<form method="post" id="form1" name="form1">
 <div>
  名称:<input type="text" placeholder="名称" name="name" value="${name}">
 状态:<select name="status">

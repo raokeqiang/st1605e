@@ -353,7 +353,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/toFrontPersonage/shouyi">
+						href="/yingJiaProfit/show/frontHome">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -382,182 +382,26 @@ li.active a {
     	<div class="hwpzNav">
     		<ul>
     			<li class="first"><a class="active" href="/yingJiaProfit/subjectqian/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="/yingJiaProfit/qianmoney/showmon">私募基金</a></li>
+    			<li class="second"><a href="">私募基金</a></li>
     			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
     		</ul>
     	</div>
-        <div class="sdShaix">
-        	<ul>
-            	<li class="first">标的类型：</li>
-               		<li><a href="" id="11" class="select">全部</a></li>
-               		<li><a href="" id="12">固收类理财</a></li>
-               		<li><a href="" id="13">车盈宝</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">年化收益：</li>
-               		<li><a href="" id="21" class="select">全部</a></li>
-               		<li><a href="" id="22">6.0%</a></li>
-               		<li><a href="" id="23">7.0%</a></li>
-               		<li><a href="" id="24">7.5%</a></li>
-               		<li><a href="" id="25">8.0%</a></li>
-               		<li><a href="" id="25">8.0%以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">项目期限：</li>
-               		<li><a href="" id="31" class="select">全部</a></li>
-               		<li><a href="" id="32">15天以下</a></li>
-               		<li><a href="" id="33">15-30天</a></li>
-               		<li><a href="" id="34">30-180天</a></li>
-               		<li><a href="" id="35">180-365天</a></li>
-               		<li><a href="" id="36">一年以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">标的状态：</li>
-               		<li><a href="" id="41" class="select">全部</a></li>
-               		<li><a href="" id="42">投标中</a></li>
-               		<li><a href="" id="43">还款中</a></li>
-               		<li><a href="" id="44">已完成</a></li>
-            </ul>
-        </div>
-
-
-<div class="ajaxContainer">
+   		<div class="ajaxContainer">
 	<!-- 异步内容开始 -->
-				<c:forEach items="${subjectList}" var="s">
-					<ul class="tbList">
-						<li class="first">
-							<span class="ico zq"></span>
-							<h2><em>投</em>${s.name }</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							<div class="txt1">
-								<h2>${s.year_rate }<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							<div class="txt2">
-								<h2>￥${s.floor_amount }</h2>
-								<p>起购金额(元)</p>
-							</div>
-							<div class="txt2">
-								<h2>${s.period }天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-							<a href="#1">企业担保</a><span>中国人保财险承保</span>
-							<p>计息日期：当天投资，立即计息<br>已购人数：${s.bought }人</p>
-						</li>
-						<li class="four">
-						</li>
-						<li class="five">
-							<a class="abtn" href="/yingJiaProfit/product/toBuy?id=${s.id }">购买</a>
-						</li>
-					</ul>
-				</c:forEach>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝起步标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>5.5<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>15天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：382人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="http://pro.ying158.com/subject/subjectContent/1611">购买</a>
-						</li>
-					</ul>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝整月标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>6.0<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>30天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：354人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="http://pro.ying158.com/subject/subjectContent/1610">购买</a>
-						</li>
-					</ul>
-					<ul class="tbList">
-						<li class="first">
-									<span class="ico zq"></span>
-							<h2><em>投</em>稳盈宝幸福标</h2>
-							<i></i>
-						</li>
-						<li class="second">					
-							
-							<div class="txt1">
-								<h2>7.0<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>￥100.00</h2>
-								<p>起购金额(元)</p>
-							</div>
-							
-							<div class="txt2">
-								<h2>50天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：471人</p>
-						</li>
-						<li class="four">
-								
-						</li>
-						<li class="five">
-							<a class="abtn" href="http://pro.ying158.com/subject/subjectContent/1609">购买</a>
-						</li>
-					</ul>
+	<c:forEach items="${list }" var="list">
+		<li>
+				<!-- <a href="/oversea/overseaView/3"> -->
+				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/upload/news/img/20160122/20160122211432397907.png" width="40" height="40"/></span>
+
+				<h2>${list.title}<p>${list.child_title}</p></h2>
+				<h3>${list.description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
+			<!-- </a> -->
+		</li>
+		</c:forEach>
 	<!-- 异步内容结束 -->
+	
+</div>
+
 	<div class="llpage">
 		<div class="in">
 				<a class="prev_page">上页</a>
