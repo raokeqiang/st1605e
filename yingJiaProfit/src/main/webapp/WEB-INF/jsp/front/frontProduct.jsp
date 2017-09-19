@@ -382,7 +382,7 @@ li.active a {
     	<div class="hwpzNav">
     		<ul>
     			<li class="first"><a class="active" href="/yingJiaProfit/subjectqian/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="/yingJiaProfit/qianmoney/showmon">私募基金</a></li>
+    			<li class="second"><a href="/yingJiaProfit/qianmoney/privmon">私募基金</a></li>
     			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
     		</ul>
     	</div>
