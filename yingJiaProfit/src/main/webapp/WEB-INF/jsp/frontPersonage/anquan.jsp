@@ -11,33 +11,21 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>盈+理财下载中心</title>
-<!-- <link href="http://www.ying158.com/Content/images/jw/icon.ico" -->
-<!-- 	type="image/x-icon" rel="shortcut icon"> -->
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
-<link href="/yingJiaProfit/css/video-js.css" rel="stylesheet"
-	type="text/css">
-<link href="/yingJiaProfit/css/common.css" rel="stylesheet">
+<title>安全信息</title>
+<link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
 
-<link href="/yingJiaProfit/css/iframeindex_data/jw.css" rel="stylesheet">
-
-<script src="/yingJiaProfit/js/jquery.js"></script>
-
+<script src="/yingJiaProfit/css/person_css/jquery.js"></script>
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
-
+<script src="/yingJiaProfit/css/person_css/hm.js"></script>
+<script src="/yingJiaProfit/css/person_css/echarts.js"></script>
 <style type="text/css">
 .hzhb_box {
 	float: left;
 	width: 610px;
 	margin-top: 32px;
 }
-
-.down_img{
-		position:absolute;
-		left:660px;
-		top:250px;
-	}
 
 .hzhb_item {
 	float: left;
@@ -105,7 +93,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url(/yingJiaProfit/img/ft_sns.png) no-repeat;
+	background: url() no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -325,12 +313,14 @@ li.active a {
 
 </head>
 <body>
-
+<!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
 			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+	
+	
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -350,7 +340,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/toFrontPersonage/shouyi">
+						href="/yingJiaProfit/show/frontHome">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -360,44 +350,180 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
-	<script type="text/javascript">
-		$(function() {
-			function showIn(url) {
-				var info = "<div class='mydig'><div class='bg'></div><div class='imgbox'><a href="+url+"></a></div></div>";
-				$('body').append(info);
-			}
-			if (1 != null && 1 == 0) {
-				showIn("/account/bbinInfo/getBbinInfo");
-			}
 
-		});
-	</script>
-	<div class="sdbanner probanner" style="background-image: url(/yingJiaProfit/img/bgdownload.jpg)"></div>
-
-	<div class="down">
-		<h1>
-			版本：<font color="#9a8140">1.0</font>（build 15）/ 大小：<font
-				color="#9a8140">7.3MB</font> / 2017-9-5
-		</h1>
-		<div class="down_img">
-			<img alt="" src="/yingJiaProfit/img/appdownload.png" width="150px"
-				height="150px">
-		</div>
-		<div class="down_xz">
-			<a href="#" target="_blank"><img alt="" src="/yingJiaProfit/img/pingguologo.jpg">IOS版本下载</a> 
-			<a href="#" class="android"><img alt="" src="/yingJiaProfit/img/anzhuologo.jpg">安卓版本下载</a>
-		</div>
-
+<table class="peopleInfo" width="970" height="160" cellspacing="0"
+		cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="info" valign="middle" align="left"><a
+					href="http://pro.ying158.com/account/security">
+						<div class="img">
+							<img src="/yingJiaProfit/img/userPic.jpg">
+						</div>
+						<h2>
+							XXX<span>您好!</span>
+						</h2>
+				</a>
+					<div class="safe">
+						账户安全&nbsp;&nbsp;<span class="scroll"><em style="width: 50%"></em></span>
+					</div>
+					<ul class="listIco iconfont">
+						<li class=""><a href="#1"></a><em></em></li>
+						<li class="active"><a href="#1"></a><em></em></li>
+						<!-- <li class=""><a href="#1">&#xe61f;</a><em>&#xe61b;</em></li> -->
+						<li class="active"><a href="#1"></a><em></em></li>
+						<li class=""><a href="#1"></a><em></em></li>
+					</ul></td>
+				<td align="right"><a href="http://pro.ying158.com/web/logout"
+					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="countBox">
+		<ul>
+			<li><h2>0</h2>
+				<p>
+					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
+				</p></li>
+			<li><h2>0</h2>
+				<p>
+					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">0</h2>
+				<p>
+					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">0</h2>
+				<p>
+					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">0</h2>
+				<p>
+					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
+				</p></li>
+		</ul>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/frontMemberCenter/toRecharge" class="cz">充值</a>
+		</c:if>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="#" class="tk">提款</a>
+		</c:if>
 	</div>
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "//hm.baidu.com/hm.js?282435d865729ac986ce327cbc2a51c1";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
+	<div class="proMain clearfix">
+		<div class="adminLeft">
+			<h2>我的投资</h2>
+			<ul>
+				<li><a id="member_center_menu_invests"
+					href="/yingJiaProfit/toFrontPersonage/touzi"><em
+						class="iconfont red"></em>投资记录</a></li>
+				<li><a 
+					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
+						class="iconfont red"></em>收益记录</a></li>
+				<li><a id="member_center_menu_deposit_record"
+					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
+						class="iconfont red"></em>充值记录</a></li>
+				<li><a id="member_center_menu_withdraw_record"
+					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
+						class="iconfont red"></em>提款记录</a></li>
+				<li><a id="member_center_menu_bbinInfo_record"
+					href="/yingJiaProfit/toFrontPersonage/tiyanjin"><em
+						class="iconfont red"></em>体验金记录</a></li>
+			</ul>
+			<h2>我的账户</h2>
+			<ul>
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+						class="iconfont"></em>账户充值</a></li>
+				<li><a id="member_center_menu_security"
+					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+						class="iconfont"></em>安全信息</a></li>
+				<li><a id="member_center_menu_withdraw"
+					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
+						class="iconfont"></em>我要提款</a></li>
+			</ul>
+		</div>
+		<script>
+			var menu_item = "member_center_menu_profit_record";
+			$("#" + menu_item).addClass("select");
+		</script>
+		<div class="admin-right">
+			<div class="tbConBox">
+				<div class="tab">
+					<a class="select" href="javascript:;">安全中心</a>
+				</div>
+				<div id="conBox">
+					<div class="box" style="display: block">
+
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						<table class="safeTable" width="100%" cellspacing="0"
+							cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">实名认证</p></td>
+									<td>420***631</td>
+									<td><p style="color: #888">保障账户安全，只有完成实名认证才能充值提款</p></td>
+									<td>认证完成</td>
+								</tr>
+								<tr>
+									<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">绑卡认证</p></td>
+									<td>已绑定</td>
+									<td><p style="color: #888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
+									<td><a
+										href="http://pro.ying158.com/account/security/memberBankcardView"
+										class="renzheng">查看</a></td>
+								</tr>
+								<tr>
+									<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">绑定手机</p></td>
+									<td>1398637****</td>
+									<td><p style="color: #888">手机号码是您在盈+金融的重要身份凭证</p></td>
+									<td>绑定完成</td>
+									<!--<td><a onclick="$('#changeTelModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>-->
+								</tr>
+								<!--                           <tr>
+                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61f;</a><em>&#xe61b;</em></span></td>
+                            <td><p style="color:#ff503f">绑定邮箱</p></td>
+                            <td>未设置</td>
+                            <td><p style="color:#888">绑定邮箱后，可作登录时使用</p></td>
+                            <td><a onclick="$('#setEmailModal').modal(); return false;" href="javascript:;" class="renzheng">设置</a></td>
+                          </tr> -->
+								<tr>
+									<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">登录密码</p></td>
+									<td>已设置</td>
+									<td><p style="color: #888">登录盈+金融网站时需要输入的密码</p></td>
+									<td><a
+										onclick="$('#changePWModal').modal(); return false;"
+										href="javascript:;" class="renzheng">修改</a></td>
+								</tr>
+								<tr>
+									<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">提款密码</p></td>
+									<td>已设置</td>
+									<td><p style="color: #888">保障资金安全，提款需要设置提款密码</p></td>
+									<td>设置完成</td>
+									<!-- <a onclick="$('#setWithdrawPWModel').modal(); return false;" href="javascript:;" class="renzheng">修改</a> -->
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
@@ -456,7 +582,7 @@ li.active a {
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
-							onmouseout="    this.src = '/yingJiaProfit/img/3.jpg'"
+							onmouseout="    this.src = 'yingJiaProfit/img/3.jpg'"
 							src="/yingJiaProfit/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
@@ -727,7 +853,6 @@ li.active a {
 				<div class="modal-body">
 					<div class="row">
 						<span>今日暂时没有限购的股票</span>
-
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -873,8 +998,6 @@ li.active a {
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-
 
 </body>
 </html>
