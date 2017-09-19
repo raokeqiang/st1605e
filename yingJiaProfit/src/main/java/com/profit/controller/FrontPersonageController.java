@@ -47,6 +47,11 @@ public class FrontPersonageController {
 		public String shopping(){
 			return "/front/frontShopping";
 		}
+		//注册页面
+		@RequestMapping("/zhuce")
+		public String zhuce(){
+			return "/front/frontZhuCe";
+		}
 		
 		
 	}
