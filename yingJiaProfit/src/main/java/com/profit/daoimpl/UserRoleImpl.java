@@ -50,6 +50,7 @@ public class UserRoleImpl {
 		Session session = getSession();
 		UserRole userRole = (UserRole) objects[0];
 		session.save(userRole);
+		
 	}
 
 	public void UpdateRole(Object objects) {

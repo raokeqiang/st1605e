@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,22 +9,124 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>盈+理财 产品中心</title>
-
-<link href="/yingJiaProfit/css/video-js.css" rel="stylesheet" type="text/css">
-<link href="/yingJiaProfit/css/common.css" rel="stylesheet">
-<link href="/yingJiaProfit/css/iframeindex_data/jw.css" rel="stylesheet">
-<link rel="stylesheet" href="/yingJiaProfit/css/layer.css" id="layui_layer_skinlayercss" style="">
-
-<script src="/yingJiaProfit/js/jquery.js"></script>
+<title>收益记录</title>
+<link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
+<script src="/yingJiaProfit/css/person_css/jquery.js"></script>
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
-<script src="/yingJiaProfit/js/echarts.js"></script>
-<script src="/yingJiaProfit/js/layer.js"></script>
-<script src="/yingJiaProfit/js/pie.js"></script>
+<script src="/yingJiaProfit/css/person_css/hm.js"></script>
+<script src="/yingJiaProfit/css/person_css/echarts.js"></script>
+<!-- 校验 -->
+<script type="text/javascript">
+    var baseContext = "";
+    //绑定银行卡
+    $("#buttonsubmit").click(function () {
+        var name=$("#name").val();
+        var identity=$("#identity").val();
+        var card_no= $("#card_no").val();
+        var card_no2 = $("#card_no2").val();
+        var type = $("#type").val();
+        var loc_province = $("#loc_province").find("option:selected").text();
+        var loc_city = $("#loc_city").find("option:selected").text();
+        var loc_town = $("#loc_town").find("option:selected").text();
+        var cardaddress=loc_province+"-"+loc_city+"-"+loc_town;
+        var cardaddress1 = $("#cardaddress1").val();
+        if (name=="" || name==undefined) {
+            $("#withdrawError").html("请输入姓名");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (identity=="" || identity==undefined) {
+            $("#withdrawError").html("请输入身份证");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (!isIdentityNumber(identity)) {
+            $("#withdrawError").html("请输入正确的身份证号码");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_province=="省份"){
+            $("#withdrawError").html("请选择省份");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_city=="地级市"){
+            $("#withdrawError").html("请选择地级市");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_town=="市、县、区") {
+            $("#withdrawError").html("请选择市、县、区");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+
+        if (card_no == "" || card_no == undefined) {
+            $("#withdrawError").html("请输入银行卡号");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+
+        if (card_no2 == "" || card_no2 == undefined) {
+            $("#withdrawError").html("请再次输入银行卡号");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (card_no2  != card_no) {
+            $("#withdrawError").html("两次输入的银行卡号不一致");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+//button提交
+
+  $(function(){
+  $("#buttonsubmit").click(function(){ //提交按钮
+	  	$("#form1").attr("action","/yingJiaProfit/shopping/savememberCard");
+	  	$("#form1").submit();
+	  });
+//  $("#buttonsubmit").addClass("disabled");
+//         $.ajax({
+//             type : "POST",
+//             dataType : "json",
+//             async : true,
+//             url : '',
+//             data : {
+//                 userName : username,
+//                 identity :identity,
+//                 bankCard: bankCard,
+//                 type:type,
+//                 cardaddress:cardaddress+"-"+cardaddress1
+//             },
+//             success : function(resp) {
+//                 if (resp.code == 0) {
+//                     $("#withdrawError").html(resp.msg);
+//                     $("#withdrawErrorModal").modal();
+//                     window.location.href = baseContext + "";
+//                 } else {
+//                     $("#withdrawError").html(resp.msg);
+//                     $("#withdrawErrorModal").modal();
+//                 }
+
+//             }
+//         });
+
+    });
+
+    var isIdentityNumber = function(number) {
+        if($.trim(number)==''||!/^[0-9]{17}[0-9X]$/.test(number)){
+            return false;
+        }
+        var weights = new Array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
+        var parityBits = new Array("1", "0", "X", "9", "8", "7", "6", "5", "4","3", "2");
+        var power = 0;
+        for ( var i = 0; i < 17; i++) {
+            power += parseInt(number.charAt(i),10)*weights[i];
+        }
+        return parityBits[power%11]==number.substr(17);
+    }
+</script>
 
 <style type="text/css">
 .hzhb_box {
@@ -35,12 +134,6 @@
 	width: 610px;
 	margin-top: 32px;
 }
-
-.down_img{
-		position:absolute;
-		left:660px;
-		top:250px;
-	}
 
 .hzhb_item {
 	float: left;
@@ -108,7 +201,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url(/yingJiaProfit/img/ft_sns.png) no-repeat;
+	background: url() no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -328,12 +421,14 @@ li.active a {
 
 </head>
 <body>
-
+<!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
 			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+	
+	
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -353,7 +448,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/toFrontPersonage/shouyi">
+						href="/yingJiaProfit/show/frontHome">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -363,191 +458,186 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
-	<script type="text/javascript">
-		$(function() {
-			function showIn(url) {
-				var info = "<div class='mydig'><div class='bg'></div><div class='imgbox'><a href="+url+"></a></div></div>";
-				$('body').append(info);
-			}
-			if (1 != null && 1 == 0) {
-				showIn("/account/bbinInfo/getBbinInfo");
-			}
 
-		});
-	</script>
-	<div class="sdbanner probanner" style="background-image: url(/yingJiaProfit/img/bgdownload.jpg)"></div>
+<table class="peopleInfo" width="970" height="160" cellspacing="0"
+		cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="info" valign="middle" align="left"><a
+					href="http://pro.ying158.com/account/security">
+						<div class="img">
+							<img src="/yingJiaProfit/img/userPic.jpg">
+						</div>
+						<h2>
+							，<span>您好!</span>
+						</h2>
+				</a>
+					<div class="safe">
+						账户安全&nbsp;&nbsp;<span class="scroll"><em style="width: 50%"></em></span>
+					</div>
+					<ul class="listIco iconfont">
+						<li class=""><a href="#1"></a><em></em></li>
+						<li class="active"><a href="#1"></a><em></em></li>
+						<li class="active"><a href="#1"></a><em></em></li>
+						<li class=""><a href="#1"></a><em></em></li>
+					</ul></td>
+				<td align="right"><a href="http://pro.ying158.com/web/logout"
+					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
+			</tr>
+		</tbody>
+	</table>
+		<div class="countBox">
+		<ul>
+			<li><h2>0</h2>
+				<p>
+					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
+				</p></li>
+			<li><h2>0</h2>
+				<p>
+					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">0</h2>
+				<p>
+					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">0</h2>
+				<p>
+					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
+				</p></li>
+			
+		</ul>
+		<c:if test="true">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
+		</c:if>
+		<c:if test="true">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
+		</c:if>
+		
+	</div>
+	<div class="proMain clearfix">
+		<div class="adminLeft">
+			<h2>我的投资</h2>
+			<ul>
+				<li><a id="member_center_menu_invests"
+					href="/yingJiaProfit/toFrontPersonage/touzi"><em
+						class="iconfont red"></em>投资记录</a></li>
+				<li><a 
+					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
+						class="iconfont red"></em>收益记录</a></li>
+				<li><a id="member_center_menu_deposit_record"
+					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
+						class="iconfont red"></em>充值记录</a></li>
+				<li><a id="member_center_menu_withdraw_record"
+					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
+						class="iconfont red"></em>提款记录</a></li>
+				<li><a id="member_center_menu_bbinInfo_record"
+					href="/yingJiaProfit/toFrontPersonage/tiyanjin"><em
+						class="iconfont red"></em>体验金记录</a></li>
+			</ul>
+			<h2>我的账户</h2>
+			<ul>
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+						class="iconfont"></em>账户充值</a></li>
+				<li><a id="member_center_menu_security"
+					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+						class="iconfont"></em>安全信息</a></li>
+				<li><a id="member_center_menu_withdraw"
+					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
+						class="iconfont"></em>我要提款</a></li>
+			</ul>
+		</div>
+		<script>
+			var menu_item = "member_center_menu_profit_record";
+			$("#" + menu_item).addClass("select");
+		</script>
+		
+<div class="admin-right">
+        	<div class="tbConBox">
+                <div class="tab">
+                    <a class="select" href="javascript:;">银行卡管理</a>
+                </div>
+                <div id="conBox">
+                    <div class="box"  style="display:block">
+                        <div class="myBankCards clearfix">
+                                <div class="title">绑定银行卡</div>
+                                <form action="/yingJiaProfit/shopping/savememberCard" method="post" id="form1" >
+                                <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right">姓名：</td>
+                                        <td><input type="text" class="tytxt" id="name" name="name"  placeholder="姓名"></td>
+                                        <td style="color:#ff6a00">实名信息提交后不可修改，请务必认真填写真实资料</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="140" align="right">身份证：</td>
+                                        <td><input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证"></td>
+                                        <td style="color:#ff6a00">一个身份证只能绑定一个帐号</td>
+                                    </tr>
 
-	
-	<div class="proMain">
-    	<div class="hwpzNav">
-    		<ul>
-    			<li class="first"><a class="active" href="/yingJiaProfit/subjectqian/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="/yingJiaProfit/qianmoney/privmon">私募基金</a></li>
-    			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
-    		</ul>
-    	</div>
-        <div class="sdShaix">
-        	<ul>
-            	<li class="first">标的类型：</li>
-               		<li><a href="" id="11" class="select">全部</a></li>
-               		<li><a href="" id="12">固收类理财</a></li>
-               		<li><a href="" id="13">车盈宝</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">年化收益：</li>
-               		<li><a href="" id="21" class="select">全部</a></li>
-               		<li><a href="" id="22">6.0%</a></li>
-               		<li><a href="" id="23">7.0%</a></li>
-               		<li><a href="" id="24">7.5%</a></li>
-               		<li><a href="" id="25">8.0%</a></li>
-               		<li><a href="" id="25">8.0%以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">项目期限：</li>
-               		<li><a href="" id="31" class="select">全部</a></li>
-               		<li><a href="" id="32">15天以下</a></li>
-               		<li><a href="" id="33">15-30天</a></li>
-               		<li><a href="" id="34">30-180天</a></li>
-               		<li><a href="" id="35">180-365天</a></li>
-               		<li><a href="" id="36">一年以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">标的状态：</li>
-               		<li><a href="" id="41" class="select">全部</a></li>
-               		<li><a href="" id="42">投标中</a></li>
-               		<li><a href="" id="43">还款中</a></li>
-               		<li><a href="" id="44">已完成</a></li>
-            </ul>
+                                    <tr>
+                                        <td align="right">开户银行：</td>
+                                        <td colspan="2"><select class="form-control" id="type" name="type">
+                                            <option value="GSYH">工商银行</option>
+                                            <option value="JSYH">建设银行</option>
+                                            <option value="NYYH">农业银行</option>
+                                            <option value="YZCX">邮政储蓄</option>
+                                            <option value="ZSYH">招商银行</option>
+                                            <option value="ZGYH">中国银行</option>
+                                        </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">开户地：</td>
+                                        <td colspan="2"><div style="float:left;">
+                                            <select id="loc_province" style="width:80px;"></select>
+                                            <select id="loc_city" style="width:100px;"></select>
+                                            <select id="loc_town" style="width:120px;"></select>
+                                            <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/>
+                                        </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td align="right">银行卡号：</td>
+                                        <td><input type="text" class="tytxt" id="card_no" name="card_no" placeholder="银行卡号"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">确认卡号：</td>
+                                        <td>
+                                            <input type="text" class="tytxt" id="card_no2" name="card_no2" placeholder="确认卡号">
+
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><button class="tybutton" id="buttonsubmit">保存</button></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
 
-<div class="ajaxContainer">
-	<!-- 异步内容开始 -->
-				<c:forEach items="${subjectList}" var="s">
-					<ul class="tbList">
-						<li class="first">
-							<span class="ico zq"></span>
-							<h2><em>投</em>${s.name }</h2>
-							<i></i>
-						</li>
-						<li class="second">	
-							<div class="txt1">
-								<h2>${s.year_rate }<span style="font-size:18px;">+1.0%</span></h2>
-								<p>年化收益</p>
-							</div>
-							<div class="txt2">
-								<h2>￥${s.floor_amount }</h2>
-								<p>起购金额(元)</p>
-							</div>
-							<div class="txt2">
-								<h2>${s.period }天</h2>
-								<p>投资期限</p>
-							</div>
-						</li>
-						<li class="three">
-							<a href="#1">企业担保</a><span>中国人保财险承保</span>
-							<p>计息日期：当天投资，立即计息<br>已购人数：${s.bought }人</p>
-						</li>
-						<li class="four">
-						</li>
-						<li class="five">
-							<a class="abtn" href="/yingJiaProfit/shopping/toBuy?id=${s.id }">购买</a>
-						</li>
-					</ul>
-				</c:forEach>
-					
-					
-	<!-- 异步内容结束 -->
-	<div class="llpage">
-		<div class="in">
-				<a class="prev_page">上页</a>
-					<a class="now">1</a>
-				<a class="next_page" rel="next">下页</a>
+
+
+						<script type="text/javascript">
+							function getJsonInfo(url) {
+								$.get(url, 'json', function(data) {
+									$(".ajaxContainer").empty();
+									$(".ajaxContainer").append(data);
+								});
+							}
+						</script>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-<script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-		require.config({
-            paths: {
-                echarts: '/resources/web/echart/dist/'
-            }
-        });
-		require(
-			[
-				'echarts',
-				'echarts/chart/pie'
-			],
-			function (ec) {
-				var labelTop = {
-						normal : {
-							color:'#ff503f',
-							label : {
-								show : false,
-								position : 'center',
-								formatter : '{b}',
-								textStyle: {
-									baseline : 'bottom'
-								}
-							},
-							labelLine : {
-								show : false
-							}
-						}
-					};
-				var labelFromatter = {
-					normal : {
-						label : {
-							formatter : function (params){
-								return 100 - params.value + '%'
-							},
-							textStyle: {
-								color:'#666',
-								baseline : 'middle'
-							}
-						}
-					},
-				};
-				var labelBottom = {
-					normal : {
-						color: '#f8f8f8',
-						label : {
-							show : true,
-							position : 'center'
-						},
-						labelLine : {
-							show : false
-						}
-					}
-				};
-				var radius = [30,35];
-				var myChart1 =document.getElementsByClassName('yuan');
-				for(i=0;i<myChart1.length;i++){
-					var num = myChart1[i].getAttribute('data-num');
-					ec.init(myChart1[i]).setOption({
-						series : [
-							{
-								type : 'pie',
-								center : ['50%', '50%'],
-								radius : radius,
-								x: '0%', // for funnel
-								itemStyle : labelFromatter,
-								data : [
-									{name:'other', value:100-num, itemStyle : labelBottom},
-									{name:'占比', value:num,itemStyle : labelTop}
-								]
-							},
-						]
-					});
-				}
-			}
-		);
-    </script>    </div>
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
@@ -583,6 +673,7 @@ li.active a {
 
 		</div>
 	</div>
+	</div>
 
 
 
@@ -605,7 +696,7 @@ li.active a {
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
-							onmouseout="    this.src = '/yingJiaProfit/img/3.jpg'"
+							onmouseout="    this.src = 'yingJiaProfit/img/3.jpg'"
 							src="/yingJiaProfit/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
@@ -669,7 +760,7 @@ li.active a {
 									<em class="ico_sns ico_weixin"></em> <span class="txt">微信公众号</span>
 								</div>
 								<div class="tips_bd">
-									<em class="arrow"></em> <img src="yingJiaProfit/yj.jpg"
+									<em class="arrow"></em> <img src="/yingJiaProfit/img/yj.jpg"
 										alt="微信公共平台">
 								</div>
 							</div>
@@ -876,7 +967,6 @@ li.active a {
 				<div class="modal-body">
 					<div class="row">
 						<span>今日暂时没有限购的股票</span>
-
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -1022,8 +1112,6 @@ li.active a {
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-
 
 </body>
 </html>

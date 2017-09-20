@@ -1,12 +1,14 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +28,7 @@ public class SubjectBbinPurchassRecord {
 	private int last_profit_day;// 最后计息日
 	private Subject subject;
 	private Member member;
+	private Set<MemberProfitRecord> memberProfitRecords;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -133,6 +136,16 @@ public class SubjectBbinPurchassRecord {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+
+	//bi-directional many-to-one association to MemberProfitRecord
+	@OneToMany(mappedBy="subjectBbinPurchaseRecord")
+	public Set<MemberProfitRecord> getMemberProfitRecords() {
+		return memberProfitRecords;
+	}
+
+	public void setMemberProfitRecords(Set<MemberProfitRecord> memberProfitRecords) {
+		this.memberProfitRecords = memberProfitRecords;
 	}
 
 }

@@ -23,8 +23,8 @@ public class FinanceProductSubscribe {
 	private String risk_reveal;//风险揭示书
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
-	private int amount;//私募购买金额
-	private int interest;//私募结算收益
+	private double amount;//私募购买金额
+	private double interest;//私募结算收益
 	private Date start_date;//开始时间
 	private Date end_date;//结束时间
 	private String signed_photos;//签署拍照
@@ -88,16 +88,17 @@ public class FinanceProductSubscribe {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
-	public int getAmount() {
+	
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public int getInterest() {
+	public double getInterest() {
 		return interest;
 	}
-	public void setInterest(int interest) {
+	public void setInterest(double interest) {
 		this.interest = interest;
 	}
 	public Date getStart_date() {

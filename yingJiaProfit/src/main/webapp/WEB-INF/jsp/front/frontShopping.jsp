@@ -322,12 +322,34 @@ li.active a {
 }
 </style>
 <script type="text/javascript">
+
+$(function(){
+	$("#btnBuy").click(function(){ 
+		$("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
+		$("#form1").submit();
+	});
+
+	});
+
+
+// //button跳
+// function fun2(id){
+//  window.location.href = '/yingJiaProfit/shopping/goBuy';
+// }
+function fun(obj){
+	var amountYuE=$("#amountYuE").val();//账户余额
+	var mytext=obj.value;//输入框输入金额
+	if(parseInt(amountYuE)<parseInt(mytext)){
+		$("#btnBuy").attr("disabled", true); 
+	}
+}
 	$(function(){
 		$("#btnBuy").click(function(){
 			var check=$("#cardHidden").val();//判断是否绑卡了
 			var checkLogin=$("#hiddenLogin").val();//判断是否登录
 			var mytext=$("#mytext").val();//输入框输入的起投金额
-			var amountYuE=$("#amountYuE").val();//账户余额
+	       var amountYuE=$("#amountYuE").val();//账户余额
+			
 			var reg = /^(\+)?\d+(\.\d+)?$/;//正则验证正数 包括小数
 			var subjectId=$("#subjectId").val();//标ID
 			if(checkLogin=='hasLogin'){
@@ -351,7 +373,7 @@ li.active a {
 									$("#notToPay").show();
 								}else{
 									$("#notToPay").hide();
-									window.location.href="/yingJiaProfit/product/afterBuy?subjectId="+subjectId+"&amountYuE="+amountYuE+"&mytext="+mytext;
+									window.location.href="/yingJiaProfit/shopping/goBuy?subjectId="+subjectId+"&amountYuE="+amountYuE+"&mytext="+mytext;
 								}
 							}
 						}
@@ -398,32 +420,33 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
+	   <form action="/yingJiaProfit/shopping/goBuy"  method="post" id="form1">
 	<div class="proMain">
     <div class="conTit">
         <span><a style="color:#9d8440;" href="/yingJiaProfit/product/login">其他标的</a></span>
         <h2><em>￥</em>购买的标名</h2>
-        <input type="hidden" value="${subject.id }" id="subjectId"><!-- 点击购买把标ID传过去 -->
+        <input type="hidden" value="${sub.id }" id="subjectId" name="subjectId"><!-- 点击购买把标ID传过去 -->
     </div>
     <table class="conTable" width="100%" cellspacing="0" cellpadding="0" border="0">
         <tbody><tr>
             <td class="txtInfo">
                 <div class="txt1">
-                    <h2>123</h2>
+                    <h2>${sub.bought }</h2>
                     <p>已购人数(人)</p>
                 </div>
                 <div class="txt2">
-                    <h2>1%</h2>
+                    <h2>${sub.year_rate }%</h2>
                     <p>年化收益</p>
                 </div>
                 <div class="txt1">
-                    <h2>222</h2>
+                    <h2>${sub.period }</h2>
                     <p>投资期限(天)</p>
                 </div>
             </td>
             <td rowspan="2"  width="360" valign="middle" height="320" align="center">
                 <div class="tbBox">
                     <input id="account" value="0" type="hidden">
-                    <h2>123</h2>
+                    <h2>${sub.floor_amount}</h2>
                     <p>已投金额(元)</p>
 <!--                     <div class="li4" style="display: none;"><span id="checkmoney" style="color: red;"></span></div> -->
                     <div style="display:none;" id="NAN">
@@ -437,7 +460,7 @@ li.active a {
                     </div>
                     <div  style="display:none;" id="bankCard">
                     	<span style="color:red;">请先绑定银行卡,</span>
-                    	<a href="/yingJiaProfit/frontMemberCenter/toBankCard">绑卡</a>
+                    	<a href="/yingJiaProfit/shopping/memberCard">绑卡</a>
                     </div>
                     <c:if test="${empty memberBankcards }">
                     	<input type="hidden" value="nocard" id="cardHidden">
@@ -445,14 +468,15 @@ li.active a {
                     <c:if test="${memberBankcards.id>0 }">
                     	<input type="hidden" value="hascard" id="cardHidden">
                     </c:if>
+                 
                     <div class="tit">
                     	<c:if test="${member.id>0 }">
 	                    	<span class="fr">
-	                    	<input type="hidden" value="${memberAccount.useable_balance }"  id="amountYuE">
-	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="/yingJiaProfit/frontMemberCenter/login">充值&nbsp;&nbsp;&nbsp;</a>
+	                    	<input type="hidden" value="${memberAccount.useable_balance }"  id="amountYuE" name="amountYuE">
+	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="">充值&nbsp;&nbsp;&nbsp;</a>
 							</span>
                         	<h2>账户余额</h2>
-                        	<input type="hidden" value="hasLogin" id="hiddenLogin">
+                        	<input type="hidden" value="${memberAccount.useable_balance }" id="hiddenLogin">
                         </c:if>
                         <c:if test="${empty member }">
                         	<h2 style="color:red; text-align: center; width: 100%;" >登录后可购买</h2>
@@ -461,15 +485,16 @@ li.active a {
                         <div id="count" style="">预期所得收益<i data-num="0.000822" id="num">0</i>元
                         </div>
                     </div>
-                    <input id="mytext" class="txt" name="totalFee" placeholder="起投金额100元以上" type="text">
+                    <input id="mytext" class="txt" name="mytext" placeholder="起投金额100元以上" type="text" onkeyup="fun(this)">
                         <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;" id="addMoney"></span>
                     <p class="preBox">
                         <input id="registerRule" class="registerRule" checked="checked" type="checkbox"><span class="fl">同意<a href="http://pro.ying158.com/web/syxy" target="_black">《产品协议》</a></span>
                         <button id="redPacket">使用红包</button>
                         <button id="bbinAll">体验金全投</button>
                     </p>
-                    <button id="btnBuy">确认抢购</button>
+                    <button id="btnBuy" class="submit">确认抢购</button>
                 </div>
+              
             </td>
         </tr>
         <tr>
@@ -515,7 +540,9 @@ li.active a {
 
                 </tr>
                 </tbody></table>
+                </form>  
                 <div style="border:solid 1px #e9e9e9; padding:15px; margin-top:5px;"><style>.fl{ float:left}
+                  
 .fr{ float:right}
 .productDetailCnt{
 	padding:0 40px;
@@ -1094,6 +1121,41 @@ li.active a {
 		})();
 	</script>
 
+<script type="text/javascript">
+
+    $(function () {
+        $(".tbConBox .tab a").click(function () {
+            if (!$(this).hasClass("select")) {
+                var num = $(this).index();
+                $(this).addClass("select").siblings().removeClass("select");
+                $("#conBox .box").eq(num).show().siblings().hide();
+            }
+        });
+
+        $(":input[name=totalFee]").focus(function () {
+            $(".li4").hide();
+        });
+
+        var redPacket = $("#redPacket");
+        var bbinAll = $("#bbinAll");
+        var addMoney = $("#addMoney");
+        var mytext = $("#mytext");
+        var exists = false;
+        var authBankCard=false;
+        
+            $(".submit").click(function () {
+
+                if (exists == false) {
+                    $("#checkmoney").html("请先登陆!");
+                    $(".li4").show(100);
+                    return false;
+                }
+            });
+
+
+    });
+
+</script>
 
 
 </body>

@@ -46,6 +46,7 @@ public class Subject {
     private String safetyControl;//安全保障
     private int exper_status;//体验金是否可以购买（0：否，1：是）
   //private SubjectFolder subjectFolder;
+    private Set<MemberProfitRecord>memberProfitRecords=new HashSet<MemberProfitRecord>();
 private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<SubjectBbinPurchassRecord>();
 	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();
 	//private Set<SubjectOrderRecord> subjectOrderRecords = new HashSet<>();
@@ -322,6 +323,18 @@ private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<S
 		public void setSubjectBbinPurchassRecord(Set<SubjectBbinPurchassRecord> subjectBbinPurchassRecord) {
 			SubjectBbinPurchassRecord = subjectBbinPurchassRecord;
 		}
+		@OneToMany
+       public Set<MemberProfitRecord> getMemberProfitRecords() {
+			return memberProfitRecords;
+		}
+
+		public void setMemberProfitRecords(Set<MemberProfitRecord> memberProfitRecords) {
+			this.memberProfitRecords = memberProfitRecords;
+		}
+		
+		
+		
+		
 
 	/*	public SubjectBbinPurchaseRecord addSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
 			getSubjectBbinPurchaseRecords().add(subjectBbinPurchaseRecord);

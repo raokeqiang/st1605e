@@ -17,6 +17,7 @@ import com.profit.service.YsoverseaConfigService;
 public class YsShowOverseaqianController {
 	@Autowired
 	@Qualifier("ysoverseaConfigServiceImpl")
+
 	private YsoverseaConfigService overService;
 
 //海外配置显示前台

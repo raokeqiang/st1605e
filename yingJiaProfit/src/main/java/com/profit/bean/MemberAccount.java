@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Member_account")//用户关联表
@@ -12,7 +14,7 @@ import javax.persistence.Table;
 public class MemberAccount {
 
 	private int id;//主键
-	private int member_id;//用户id
+	//private int member_id;//用户id
 	private int useable_balance;//可用余额
 	private int imuseale_balance;//冻结余额
 	private int total_profit;//累计收益
@@ -22,7 +24,7 @@ public class MemberAccount {
 	private int invest_amount;//投资总额
 	private int delflag;// 删除'0'
 	private int bbin_amount;//体验金
-	
+	private Member member;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -31,12 +33,12 @@ public class MemberAccount {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+//	public int getMember_id() {
+//		return member_id;
+//	}
+//	public void setMember_id(int member_id) {
+//		this.member_id = member_id;
+//	}
 	public int getUseable_balance() {
 		return useable_balance;
 	}
@@ -90,6 +92,16 @@ public class MemberAccount {
 	}
 	public void setBbin_amount(int bbin_amount) {
 		this.bbin_amount = bbin_amount;
+	}
+
+	//bi-directional many-to-one association to Member
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	
 }

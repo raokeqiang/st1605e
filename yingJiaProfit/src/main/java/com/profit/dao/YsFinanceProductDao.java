@@ -18,6 +18,6 @@ FinanceProductFunds getById(int id);//私募产品
 List<FinanceProductSubscribe> showmoneyding(int id);//显示签署状态
 FinanceProductSubscribe getByIding(int id);//签署和产品外键关联
 //保存签署合同
-void savehe(FinanceProductSubscribe fina);
+void updatehe(FinanceProductSubscribe fina);
 
 }

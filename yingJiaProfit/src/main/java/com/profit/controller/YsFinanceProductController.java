@@ -112,27 +112,28 @@ public String heyue(Model model,@PathVariable("id")int id){
 //保存签署合同
 @RequestMapping("/savehe")
 public String savehe(Model model,FinanceProductSubscribe finance,@PathVariable("id")int id){
-//	Date now=new Date();
-//	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//	String hehe=dateFormat.format(now);
-//	Date date = null;
-//	try {
-//		date = dateFormat.parse(hehe);
-//	} catch (ParseException e) {
-//		e.printStackTrace();
-//	}
-//	finance.setCreate_date(date);
-//	finance.setUpdate_date(date);
-//	finance.setStart_date(date);
-//	finance.setEnd_date(date);
+	Date now=new Date();
+	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	String hehe=dateFormat.format(now);
+	Date date = null;
+	try {
+		date = dateFormat.parse(hehe);
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	finance.setCreate_date(date);
+	finance.setUpdate_date(date);
+	finance.setStart_date(date);
+	finance.setEnd_date(date);
 	finance=financeService.getByIding(id);
 	finance.setCreate_date(new Date());
-	//finance.setUpdate_date(new Date());
+	finance.setStatus(1);
+	finance.setUpdate_date(new Date());
 System.out.println("qqqqqq"+finance.getMember().getName());
 System.out.println("mmmmm"+finance.getMember().getIdentity());
 System.out.println("ffffffffff"+finance.getAmount());
    
-	financeService.savehe(finance);
+	financeService.updatehe(finance);
 	return "redirect:/money/heyue/{id}";
 }
 }
