@@ -406,12 +406,6 @@ li.active a {
 			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaProfit/frontMemberCenter/toRecharge" class="cz">充值</a> 
-		</c:if>
-		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
-		</c:if>
-		<c:if test="${memberBankcards.id>0 }">
 			<a href="#" class="tk">提款</a> 
 		</c:if>
 	</div>

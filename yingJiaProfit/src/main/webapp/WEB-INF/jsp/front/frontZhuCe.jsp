@@ -463,7 +463,7 @@ li.active a {
 		</div>
 	</div>
 	
-<script type="text/javascript" src="yingJiaProfit/js/regis.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/regis.js"></script>
 <script type="text/javascript">
 $(function(){
 	var b = "";

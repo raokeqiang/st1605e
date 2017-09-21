@@ -361,7 +361,7 @@ li.active a {
 							<img src="/yingJiaFinancing/img/userPic.jpg">
 						</div>
 						<h2>
-							XXX，<span>您好!</span>
+								${member.member_name}，<span>您好!</span>
 						</h2>
 				</a>
 					<div class="safe">
@@ -950,7 +950,6 @@ li.active a {
 					$(".loginInfo").modal();
 				}
 			});
-
 		}
 
 		var gotoTop = function() {
