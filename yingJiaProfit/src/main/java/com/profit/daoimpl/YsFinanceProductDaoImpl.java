@@ -82,9 +82,9 @@ public class YsFinanceProductDaoImpl implements YsFinanceProductDao{
 	}
 
 	@Override
-	public void savehe(FinanceProductSubscribe fina) {
+	public void updatehe(FinanceProductSubscribe fina) {
   Session session=getSession();
-  session.save(fina);
+  session.update(fina);
 	}
 
 	

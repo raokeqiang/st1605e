@@ -50,8 +50,8 @@ public class YsFinanceProductServiceImpl implements YsFinanceProductService {
 	}
 
 	@Override
-	public void savehe(FinanceProductSubscribe fina) {
-		this.ysFinanceProductDao.savehe(fina);
+	public void updatehe(FinanceProductSubscribe fina) {
+		this.ysFinanceProductDao.updatehe(fina);
     	}
 
 

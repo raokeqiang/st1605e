@@ -24,16 +24,6 @@ public class YsShowSubjectController {
 //	@Qualifier("ysSubjectServiceImplqian")
 	private YsSubjectServiceqian subjectServiceqian;
 	
-	
-	
-	@RequestMapping("/sss/{m}")
-	public String sss(@PathVariable("m")String s){
-		 System.out.println("s="+s);
-		return "front/showsubject";
-	}
-	
-	
-	
 	//条件为空，则查询全部
 	@RequestMapping("/showsubject")
 	public String showsubject(Model model,HttpServletRequest request,HttpServletResponse response){
@@ -43,7 +33,7 @@ public class YsShowSubjectController {
 		map=initMap(request, map);
 		List<Subject>list=subjectServiceqian.list(map);//查询所有
 		model.addAttribute("list",list);
-return "front/showsubject";
+         return "front/showsubject";
 	}
 	
 	public Map initMap(HttpServletRequest request,Map map){

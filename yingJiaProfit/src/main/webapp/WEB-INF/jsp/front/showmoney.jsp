@@ -390,42 +390,7 @@ li.active a {
     			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
     		</ul>
     	</div>
-        <div class="sdShaix">
-        	<ul>
-            	<li class="first">标的类型：</li>
-               		<li><a href="" id="11" class="select">全部</a></li>
-               		<li><a href="" id="12">固收类理财</a></li>
-               		<li><a href="" id="13">车盈宝</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">年化收益：</li>
-               		<li><a href="" id="21" class="select">全部</a></li>
-               		<li><a href="" id="22">6.0%</a></li>
-               		<li><a href="" id="23">7.0%</a></li>
-               		<li><a href="" id="24">7.5%</a></li>
-               		<li><a href="" id="25">8.0%</a></li>
-               		<li><a href="" id="25">8.0%以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">项目期限：</li>
-               		<li><a href="" id="31" class="select">全部</a></li>
-               		<li><a href="" id="32">15天以下</a></li>
-               		<li><a href="" id="33">15-30天</a></li>
-               		<li><a href="" id="34">30-180天</a></li>
-               		<li><a href="" id="35">180-365天</a></li>
-               		<li><a href="" id="36">一年以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">标的状态：</li>
-               		<li><a href="" id="41" class="select">全部</a></li>
-               		<li><a href="" id="42">投标中</a></li>
-               		<li><a href="" id="43">还款中</a></li>
-               		<li><a href="" id="44">已完成</a></li>
-            </ul>
-        </div>
-
-
-<div class="ajaxContainer">
+     <div class="ajaxContainer">
 	<!-- 异步内容开始 -->
 				<c:forEach items="${list}" var="s">
 					<ul class="tbList">
@@ -450,12 +415,12 @@ li.active a {
 						</li>
 						<li class="three">
 							<a href="#1">企业担保</a><span>中国人保财险承保</span>
-							<p>计息日期：当天投资，立即计息<br>已购人数：${s.bought }人</p>
+							<p>计息日期：当天投资，立即计息<br>已购人数：${s.buyer_count }人</p>
 						</li>
 						<li class="four">
 						</li>
 						<li class="five">
-							<a class="abtn" href="/yingJiaProfit/product/toBuy?id=${s.id }">购买</a>
+							<a class="abtn" href="/yingJiaProfit/shopping/toBuy?id=${s.id }">购买</a>
 						</li>
 					</ul>
 				</c:forEach>

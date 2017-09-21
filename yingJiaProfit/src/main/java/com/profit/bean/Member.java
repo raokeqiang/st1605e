@@ -33,7 +33,12 @@ public class Member {
 	private String qqAccount;//QQ账号关联
 	private String invitedCode;//被邀请码
 	private String qqNumber;//QQ号码
+	private Set<MemberAccount>memberAccount=new HashSet<MemberAccount>();
 	private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<SubjectBbinPurchassRecord>();
+	private Set<SubjectPurchaseRecord>subjectPurchaseRecords=new HashSet<SubjectPurchaseRecord>();
+	private Set<MemberProfitRecord> memberProfitRecords = new HashSet<MemberProfitRecord>();
+	private Set<MemberTradeRecord> memberTradeRecords = new HashSet<MemberTradeRecord>();
+	private Set<Member_tally> member_tally = new HashSet<Member_tally>();
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -157,6 +162,45 @@ public class Member {
 	}
 	public void setSubjectBbinPurchassRecord(Set<SubjectBbinPurchassRecord> subjectBbinPurchassRecord) {
 		SubjectBbinPurchassRecord = subjectBbinPurchassRecord;
+	}
+	//bi-directional many-to-one association to MemberAccount
+		@OneToMany(mappedBy="member")
+	public Set<MemberAccount> getMemberAccount() {
+		return memberAccount;
+	}
+	public void setMemberAccount(Set<MemberAccount> memberAccount) {
+		this.memberAccount = memberAccount;
+	}
+	//bi-directional many-to-one association to MemberProfitRecord
+		@OneToMany(mappedBy="member")
+	public Set<MemberProfitRecord> getMemberProfitRecords() {
+		return memberProfitRecords;
+	}
+	public void setMemberProfitRecords(Set<MemberProfitRecord> memberProfitRecords) {
+		this.memberProfitRecords = memberProfitRecords;
+	}
+	//bi-directional many-to-one association to MemberTradeRecord
+		@OneToMany(mappedBy="member")
+	public Set<MemberTradeRecord> getMemberTradeRecords() {
+		return memberTradeRecords;
+	}
+	public void setMemberTradeRecords(Set<MemberTradeRecord> memberTradeRecords) {
+		this.memberTradeRecords = memberTradeRecords;
+	}
+	//bi-directional many-to-one association to MemberTally
+		@OneToMany(mappedBy="member")
+	public Set<Member_tally> getMember_tally() {
+		return member_tally;
+	}
+	public void setMember_tally(Set<Member_tally> member_tally) {
+		this.member_tally = member_tally;
+	}
+	@OneToMany(mappedBy="member")
+	public Set<SubjectPurchaseRecord> getSubjectPurchaseRecords() {
+		return subjectPurchaseRecords;
+	}
+	public void setSubjectPurchaseRecords(Set<SubjectPurchaseRecord> subjectPurchaseRecords) {
+		this.subjectPurchaseRecords = subjectPurchaseRecords;
 	}
 	
 }

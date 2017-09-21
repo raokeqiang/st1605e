@@ -14,5 +14,5 @@ FinanceProductFunds getById(int id);
 FinanceProductSubscribe getByIding(int id);
 List<FinanceProductSubscribe> showmoneyding(int id);//显示签署状态
 //保存签署合同
-void savehe(FinanceProductSubscribe fina);
+void updatehe(FinanceProductSubscribe fina);
 }

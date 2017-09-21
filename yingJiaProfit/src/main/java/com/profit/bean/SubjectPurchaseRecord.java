@@ -19,16 +19,17 @@ public class SubjectPurchaseRecord {
 	private int amount;// 购买金额
 	private String deal_id;// 交易IP
 //	private int subject_id;// 标的id
-	private int member_id;// 会员id
+	//private int member_id;// 会员id
 	private int delflag;// 是否删除
 	private Date create_date;// 创建时间
 	private Date update_date;// 修改时间
-	private int interset;// 结算利息
+	private double interset;// 结算利息
 	private int ispayment;// 是否还款
 	private int pay_interest_times;// 购买次数
 	private int last_profit_day;// 最后计息日
 	private String bonus_info;// 红包金额信息（app端实际投资额度+红包额度)
 	private Subject subject;
+	private Member member;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -71,13 +72,13 @@ public class SubjectPurchaseRecord {
 //		this.subject_id = subject_id;
 //	}
 
-	public int getMember_id() {
-		return member_id;
-	}
-
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+//	public int getMember_id() {
+//		return member_id;
+//	}
+//
+//	public void setMember_id(int member_id) {
+//		this.member_id = member_id;
+//	}
 
 	public int getDelflag() {
 		return delflag;
@@ -103,11 +104,13 @@ public class SubjectPurchaseRecord {
 		this.update_date = update_date;
 	}
 
-	public int getInterset() {
+
+
+	public double getInterset() {
 		return interset;
 	}
 
-	public void setInterset(int interset) {
+	public void setInterset(double interset) {
 		this.interset = interset;
 	}
 
@@ -151,6 +154,15 @@ public class SubjectPurchaseRecord {
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
+	}
+@ManyToOne
+@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	
 }
