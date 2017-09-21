@@ -31,6 +31,7 @@ public class FrontLoginDaoImpl {
 		}
 		return false;
 	}
+	
 
 	public Member getMemberByPhone (String phone){
 		String hql="from Member m where m.mobile_Phone='"+phone+"'";
@@ -40,6 +41,7 @@ public class FrontLoginDaoImpl {
 		}
 		return null;
 	}
+	
 	
 	//前台注册
 	public void saveMember(Member member){

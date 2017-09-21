@@ -48,7 +48,9 @@
       <td>${e.identity }</td>  
       <td>${e.invitationCode }</td> 
       <td>${e.create_date }</td> 
-      <td><a href="#">账号详情</a></td>
+      <td><a href="#">编辑</a>||
+      	  <a href="#">删除</a>
+      </td>
       </tr>
     </c:forEach>
    </tbody>
