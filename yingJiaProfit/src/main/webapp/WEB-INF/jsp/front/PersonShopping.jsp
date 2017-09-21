@@ -195,7 +195,7 @@
 	text-align: center;
 	color: #ccc;
 }
-
+<!--start-->
 .ft_sns_list .ico_sns {
 	display: block;
 	width: 62px;
@@ -203,11 +203,10 @@
 	margin: 0 auto;
 	background: url() no-repeat;
 }
-
+<!--end-->
 .ft_sns_list .ico_weixin {
 	background-position: 0 0;
 }
-
 .ft_sns_list .ico_sinawb {
 	background-position: -63px 0;
 }
@@ -1007,10 +1006,8 @@ li.active a {
 			$('#aFloatTools_Hide').hide();
 		});
 		$('*[data-toggle="tooltip"]').tooltip();
-		$(document).ready(
-				function() {
+		$(document).ready(function() {
 					var href = window.location.href.toLowerCase();
-
 					if (href.indexOf("/account/") >= 0) {
 						$(".topNav li:eq(7)").addClass("active");
 

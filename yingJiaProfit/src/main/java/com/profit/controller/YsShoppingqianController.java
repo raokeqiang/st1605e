@@ -17,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mchange.v2.c3p0.stmt.GooGooStatementCache;
 import com.profit.bean.Member;
 import com.profit.bean.MemberAccount;
 import com.profit.bean.MemberBankcards;
@@ -63,11 +65,13 @@ public class YsShoppingqianController {
 				// 判断绑卡member_bankcards(成员银联表)和member关联memberId 关联
 				MemberBankcards memberBankcards = memberCardService.memberCardById(memberId);
 				model.addAttribute("memberBankcards", memberBankcards);
+				
                 return "front/frontShopping";
              }
 		}
 		return "front/frontIframeLogin";
 	}
+	
 	//当点击确认购买之后，表的数据会发生改变
 	//跳到购买的页面mytext页面上的起头金额amountYuE//页面上的余额
 		@RequestMapping("/goBuy")
@@ -75,7 +79,7 @@ public class YsShoppingqianController {
 		MemberProfitRecord memberProfitRecord,MemberTradeRecord memberTradeRecord,
 		Member_tally member_tally,SubjectPurchaseRecord subjectPurchaseRecord,HttpServletRequest request){
 		//从session 获取member信息
-		String sub=  request.getParameter("subjectId");
+		System.out.println("王八蛋"+subjectId);
 		String text=request.getParameter("mytext");
 		String amount=request.getParameter("amountYuE");
 			Object object=session.getAttribute("member");
@@ -87,10 +91,13 @@ public class YsShoppingqianController {
 				String sysDateAndRandom=new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+(int)(Math.random()*9)+(int)(Math.random()*9);
 				Calendar now=Calendar.getInstance();
 				//subject表
-				Subject subject=this.memberCardService.getSubjectById(Integer.valueOf(subjectId));
+				System.out.println("2222"+subjectId);
+				Subject subject=this.memberCardService.getSubjectById(Integer.parseInt(subjectId));
 				System.out.println(subjectId+"hhhhhhhhh");
 				subject.setBought(subject.getBought()+1);
 				subject.setAmount(subject.getAmount()+Integer.parseInt(mytext));
+				System.out.println("111mytext:"+mytext);
+				System.out.println("样样"+subject.getAmount());
 				this.memberCardService.upsubject(subject);
 				subject=this.memberCardService.getSubjectById(Integer.valueOf(subjectId));
 				//结算利息
@@ -122,6 +129,7 @@ public class YsShoppingqianController {
 				memberProfitRecord.setProfit_month(now.get(Calendar.MONTH+1));
 				memberProfitRecord.setProfit_day(now.get(Calendar.DAY_OF_MONTH));
 				this.memberCardService.saveMemberProfitRecord(memberProfitRecord);
+				System.out.println("露露"+memberProfitRecord.getAmount());
 				//操作交易记录表
 				memberTradeRecord.setMember(member);
 				memberTradeRecord.setTrade_no(sysDateAndRandom);
@@ -170,9 +178,11 @@ public class YsShoppingqianController {
 //			
 //			//购买成功后跳到个人信息页面,同时显示改变表的信息
 //		 }
-		  	return "front/PersonShopping";
+			return "frontPersonage/touzi";
+			}else{
+				return "redirect:/shopping/toBuy";
 			}
-			return "front/frontShopping";
+			
 			
 		}
 	// 绑定银行卡，member_bankcards(成员银联表)和member关联

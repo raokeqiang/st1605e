@@ -391,14 +391,15 @@ li.active a {
 	<c:forEach items="${list }" var="list">
 		<li>
 				<!-- <a href="/oversea/overseaView/3"> -->
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/upload/news/img/20160122/20160122211432397907.png" width="40" height="40"/></span>
-
-				<h2>${list.title}<p>${list.child_title}</p></h2>
+				<span style="width: 20px;height: 20px;" class="iconfont"></span>
+             <h2>${list.title}<p>${list.child_title}</p></h2>
 				<h3>${list.description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
 			<!-- </a> -->
 		</li>
 		</c:forEach>
 	<!-- 异步内容结束 -->
+	</div>
+	
 	
 </div>
 

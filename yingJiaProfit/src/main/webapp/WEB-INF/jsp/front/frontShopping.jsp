@@ -325,17 +325,12 @@ li.active a {
 
 $(function(){
 	$("#btnBuy").click(function(){ 
+		alert("1111");
 		$("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
 		$("#form1").submit();
 	});
-
 	});
 
-
-// //button跳
-// function fun2(id){
-//  window.location.href = '/yingJiaProfit/shopping/goBuy';
-// }
 function fun(obj){
 	var amountYuE=$("#amountYuE").val();//账户余额
 	var mytext=obj.value;//输入框输入金额
@@ -373,7 +368,6 @@ function fun(obj){
 									$("#notToPay").show();
 								}else{
 									$("#notToPay").hide();
-									window.location.href="/yingJiaProfit/shopping/goBuy?subjectId="+subjectId+"&amountYuE="+amountYuE+"&mytext="+mytext;
 								}
 							}
 						}
@@ -420,7 +414,7 @@ function fun(obj){
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
-	   <form action="/yingJiaProfit/shopping/goBuy"  method="post" id="form1">
+	   <form action=""  method="post" id="form1">
 	<div class="proMain">
     <div class="conTit">
         <span><a style="color:#9d8440;" href="/yingJiaProfit/product/login">其他标的</a></span>
@@ -446,7 +440,7 @@ function fun(obj){
             <td rowspan="2"  width="360" valign="middle" height="320" align="center">
                 <div class="tbBox">
                     <input id="account" value="0" type="hidden">
-                    <h2>${sub.floor_amount}</h2>
+                    <h2>${sub.amount}</h2>
                     <p>已投金额(元)</p>
 <!--                     <div class="li4" style="display: none;"><span id="checkmoney" style="color: red;"></span></div> -->
                     <div style="display:none;" id="NAN">

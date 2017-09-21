@@ -81,6 +81,7 @@ public class YsMemberCardDaoImpl implements YsMemberCardDao{
 	public Subject getSubjectById(int subjectId) {
 		Session session=getSession();
 		Subject subject=(Subject)session.get(Subject.class, subjectId);
+		System.out.println("去去去去去去"+subjectId);
 		return subject;
 	}
 
