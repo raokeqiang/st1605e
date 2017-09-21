@@ -88,7 +88,7 @@
 <body>
 <div class="style16" >
 	<shiro:hasPermission name="添加角色">
-				<button type="button" style="width: 150px" data-toggle="modal"
+				<button type="button" style="width: 120px;height: 40px" data-toggle="modal"
 				data-target="#addRoleModal"
 				class="btn btn-lg btn-success active btn-block" id="saveBtn">✚新增角色</button>
 	</shiro:hasPermission>

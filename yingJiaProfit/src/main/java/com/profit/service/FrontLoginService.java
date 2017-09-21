@@ -7,5 +7,6 @@ public interface FrontLoginService {
 	public boolean checkLogin(String mobelPhone,String password);
 	
 	public Member getMemberByPhone(String mobelPhone);
+	public void saveMember(Member member);
 
 }

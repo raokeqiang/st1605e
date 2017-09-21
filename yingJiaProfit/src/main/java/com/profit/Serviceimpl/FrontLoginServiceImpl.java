@@ -25,4 +25,9 @@ public class FrontLoginServiceImpl implements FrontLoginService{
 		return this.frontLoginDaoImpl.getMemberByPhone(mobelPhone);
 	}
 
+	@Override
+	public void saveMember(Member member) {
+		this.frontLoginDaoImpl.saveMember(member);;
+	}
+
 }

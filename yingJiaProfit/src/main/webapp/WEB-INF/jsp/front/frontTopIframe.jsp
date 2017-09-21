@@ -48,11 +48,10 @@
 	                <a style="font-size:18px;float:right;margin-top:5px;color:#917739;" target="_parent" href="/yingJiaProfit/toFrontLogin/login">
 	                	登录
 	                </a>
-	                <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="http://pro.ying158.com/web/regis">
+	                <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="/yingJiaProfit/toFrontPersonage/zhuce">
 	                	注册
 	                </a>
 	                 <br>4000-999-158
-	                
                 </c:if>
             </div>
         </div>

@@ -40,4 +40,10 @@ public class FrontLoginDaoImpl {
 		}
 		return null;
 	}
+	
+	//前台注册
+	public void saveMember(Member member){
+		Session session=getSession();
+		session.save(member);
+	}
 }
