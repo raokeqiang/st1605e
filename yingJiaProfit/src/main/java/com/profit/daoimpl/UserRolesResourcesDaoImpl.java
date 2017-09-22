@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.Resources;
+import com.profit.bean.Users;
 
 @Component
 public class UserRolesResourcesDaoImpl {
@@ -19,19 +20,21 @@ public class UserRolesResourcesDaoImpl {
 		return sessionFactory.getCurrentSession();
 	}
 
+	//查询角色
 	public List<Resources> ListAll() {
 		Session session = getSession();
 		List<Resources> UserRoleList = session.createQuery("from Resources").list();
 		System.out.println(UserRoleList.size() + "aaa");
 		return UserRoleList;
 	}
-
+//	根据ID查询
 	public List<Resources> ListById(int id) {
 		Session session = getSession();
 		List<Resources> UserRoleList = session.createQuery("from Resources where resources_id=" + id).list();
 		return UserRoleList;
 	}
-
+	
+//	修改权限
 	public void save(Object... objects) {
 		Session session = getSession();
 		int id = (int) objects[1];
@@ -47,12 +50,14 @@ public class UserRolesResourcesDaoImpl {
 			// resources.getResour().add(userRole);
 		}
 	}
-
+	
 	public void delete(int id) {
 		Session session = getSession();
 		String sql = "delete  from role_res where rid=" + id;
 		session.createSQLQuery(sql).executeUpdate();
 		session.flush();
 	}
+	
 
+	
 }

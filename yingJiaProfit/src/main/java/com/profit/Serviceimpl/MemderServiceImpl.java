@@ -21,16 +21,15 @@ public class MemderServiceImpl implements RoleService<Member>{
 	@Qualifier("memberDaoImpl")
 	private RoleDao<Member> memberDaoImpl;
 	
-	//查询角色
-	@Override
-	public List<Member> listRole() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	//查询账户
 	@Override
 	public List<Member> listMemder(){
 		return memberDaoImpl.listMemder();
 	}
 
+	@Override
+	public void updateUsers(String password, String user_name) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -14,8 +14,7 @@
 <title>盈+理财首页</title>
 <link href="http://www.ying158.com/Content/images/jw/icon.ico"
 	type="image/x-icon" rel="shortcut icon">
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
+
 <link href="/yingJiaProfit/css/video-js.css" rel="stylesheet" type="text/css">
 <link href="/yingJiaProfit/css/common.css" rel="stylesheet">
 
@@ -24,6 +23,9 @@
 <script src="/yingJiaProfit/js/jquery.js"></script>
 
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
+<script src="/yingJiaProfit/js/hm.js"></script>
+<script src="/yingJiaProfit/js/hm_002.js"></script>
+
 
 <style type="text/css">
 .hzhb_box {
@@ -378,13 +380,12 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/show/frontHome">
+						href="/yingJiaProfit/toFrontPersonage/shouyi">
 							我的加法库 </a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 	<div class="main">
 
 
@@ -428,7 +429,7 @@ li.active a {
 					</p>
 					<a
 						style="float: none; margin: 0 auto; margin-left: 15px; display: inline-block; margin-bottom: 10px;"
-						href="/yingJiaProfit/show/frontIframeLogin"><img
+						href="/yingJiaProfit/toFrontLogin/login"><img
 						src="/yingJiaProfit/img/ying_index_login_btn.png"></a>
 						 <a
 						style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"

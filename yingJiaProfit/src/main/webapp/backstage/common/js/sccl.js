@@ -396,9 +396,9 @@ $(function(){
 	/*菜单json*/
 	var menu = [{"id":"1","name":"主菜单","parentId":"0","url":"","icon":"&#xe600;","order":"1","isHeader":"1","childMenus":[
 				{"id":"2","name":"理财产品","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
-				{"id":"3","name":"固收类/P2P","parentId":"3","url":"menus1","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"4","name":"私募基金","parentId":"3","url":"backstage/menus2.jsp","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"5","name":"海外配置","parentId":"3","url":"over/ysmenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
+				{"id":"3","name":"固收类/P2P","parentId":"3","url":"subject/showp2p","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"4","name":"私募基金","parentId":"3","url":"money/showmoney","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"5","name":"海外配置","parentId":"3","url":"over/Seamenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"6","name":"钱包管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
 				{"id":"7","name":"缴费记录","parentId":"6","url":"jfjl","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
@@ -427,8 +427,8 @@ $(function(){
 				]},
 				{"id":"14","name":"系统设置","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[
                 {"id":"23","name":"账号设置","parentId":"9","url":"admin/Memder","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
-	            {"id":"24","name":"角色设置","parentId":"9","url":"admin/juese1","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
-                {"id":"25","name":"密码设置","parentId":"9","url":"backstage/menus6.jsp","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""}
+	            {"id":"24","name":"角色设置","parentId":"9","url":"backSystemRoleSettings/login","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""},
+                {"id":"25","name":"密码设置","parentId":"9","url":"backPassword/topassword","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":""}
 				 ]},
 	            ];
 	initMenu(menu,$(".side-menu"));

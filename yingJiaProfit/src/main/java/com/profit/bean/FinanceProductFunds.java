@@ -1,10 +1,14 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name="Finance_product_funds")//'理财类基金产品表'
@@ -38,7 +42,7 @@ public class FinanceProductFunds {
 	private String ratio;//返佣比例
 	private String contract;//私募合同
 	private String bank_account;//银行账户（支行名称|银行账号|户名）
-	
+	private Set<FinanceProductSubscribe> FinanceProductSubscribe=new HashSet<>();
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -202,6 +206,14 @@ public class FinanceProductFunds {
 	}
 	public void setBank_account(String bank_account) {
 		this.bank_account = bank_account;
+	}
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="fina")
+	public Set<FinanceProductSubscribe> getFinanceProductSubscribe() {
+		return FinanceProductSubscribe;
+	}
+	public void setFinanceProductSubscribe(Set<FinanceProductSubscribe> financeProductSubscribe) {
+		FinanceProductSubscribe = financeProductSubscribe;
 	}
 	
 }

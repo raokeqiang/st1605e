@@ -1,10 +1,13 @@
 package com.profit.bean;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Finance_product_subscribe")//理财类基金产品预约记录表
@@ -13,21 +16,20 @@ public class FinanceProductSubscribe {
 
 	private int id;//主键
 	private String name;//名称
-	private int member_id;//会员id
 	private String phone;//联系电话
-	private int product_id;//理财产品id
 	private String addr;//所在地区
 	private int status;//是否处理(0:签署拍照|1:已签约|2:审核中|3:签署失败)
 	private String comment;//电子签署文档信息
 	private String risk_reveal;//风险揭示书
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
-	private int amount;//私募购买金额
-	private int interest;//私募结算收益
+	private double amount;//私募购买金额
+	private double interest;//私募结算收益
 	private Date start_date;//开始时间
 	private Date end_date;//结束时间
 	private String signed_photos;//签署拍照
-	
+	private FinanceProductFunds fina;
+	private Member member;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -42,24 +44,14 @@ public class FinanceProductSubscribe {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+	
 	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public int getProduct_id() {
-		return product_id;
-	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
-	}
+	
 	public String getAddr() {
 		return addr;
 	}
@@ -96,16 +88,17 @@ public class FinanceProductSubscribe {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
-	public int getAmount() {
+	
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public int getInterest() {
+	public double getInterest() {
 		return interest;
 	}
-	public void setInterest(int interest) {
+	public void setInterest(double interest) {
 		this.interest = interest;
 	}
 	public Date getStart_date() {
@@ -127,5 +120,22 @@ public class FinanceProductSubscribe {
 		this.signed_photos = signed_photos;
 	}
 	
+	
+	@ManyToOne
+	@JoinColumn(name="product_id")
+	public FinanceProductFunds getFina() {
+		return fina;
+	}
+	public void setFina(FinanceProductFunds fina) {
+		this.fina = fina;
+	}
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	
 }

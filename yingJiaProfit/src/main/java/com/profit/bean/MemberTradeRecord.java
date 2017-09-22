@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class MemberTradeRecord {
 
 	private int id;//主键
-	private int member_id;//用户id
+	//private int member_id;//用户id
 	private String trade_no;//交易号
 	private String trade_name;//交易名称
 	private String counterpart;//交易对方
@@ -29,15 +29,6 @@ public class MemberTradeRecord {
 	private Date update_date;//修改时间
 	private Member member;
 
-	@ManyToOne
-	@JoinColumn(name = "Member_Id")
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -46,12 +37,12 @@ public class MemberTradeRecord {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+//	public int getMember_id() {
+//		return member_id;
+//	}
+//	public void setMember_id(int member_id) {
+//		this.member_id = member_id;
+//	}
 	public String getTrade_no() {
 		return trade_no;
 	}
@@ -123,6 +114,15 @@ public class MemberTradeRecord {
 	}
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="member_id", nullable=false)
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	
 	

@@ -2,9 +2,14 @@ package com.profit.bean;
 
 import java.util.Date;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +31,9 @@ public class Subject {
     private Date raise_end;//募集结束
     private int refund_way;//还款方式
     private int safeGuard_way;//保障方式
-    private int year_rate;//年化率
+//    private Date start_date;//标的开始日期
+//    private Date end_date;//标的结束日期
+    private double year_rate;//年化率
     private String comment;//产品速览
     private int folder_id;//文件夹id
     private int delflag;//是否删除
@@ -38,7 +45,12 @@ public class Subject {
     private String projectDetails;//项目详情
     private String safetyControl;//安全保障
     private int exper_status;//体验金是否可以购买（0：否，1：是）
-
+  //private SubjectFolder subjectFolder;
+    private Set<MemberProfitRecord>memberProfitRecords=new HashSet<MemberProfitRecord>();
+private Set<SubjectBbinPurchassRecord> SubjectBbinPurchassRecord = new HashSet<SubjectBbinPurchassRecord>();
+	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();
+	//private Set<SubjectOrderRecord> subjectOrderRecords = new HashSet<>();
+	private Set<SubjectPurchaseRecord> subjectPurchaseRecord = new HashSet<SubjectPurchaseRecord>();
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -169,16 +181,32 @@ public class Subject {
 		this.safeGuard_way = safeGuard_way;
 	}
 
-	public int getYear_rate() {
-		return year_rate;
-	}
+//	public Date getStart_date() {
+//		return start_date;
+//	}
 
-	public void setYear_rate(int year_rate) {
-		this.year_rate = year_rate;
-	}
+//	public void setStart_date(Date start_date) {
+//		this.start_date = start_date;
+//	}
+//
+//	public Date getEnd_date() {
+//		return end_date;
+//	}
+//
+//	public void setEnd_date(Date end_date) {
+//		this.end_date = end_date;
+//	}
 
 	public String getComment() {
 		return comment;
+	}
+
+	public double getYear_rate() {
+		return year_rate;
+	}
+
+	public void setYear_rate(double year_rate) {
+		this.year_rate = year_rate;
 	}
 
 	public void setComment(String comment) {
@@ -264,5 +292,114 @@ public class Subject {
 	public void setExper_status(int exper_status) {
 		this.exper_status = exper_status;
 	}
+	//bi-directional OneToMany association to Subject
+	@OneToMany(mappedBy="subject")
+	public Set<SubjectPurchaseRecord> getSubjectPurchaseRecord() {
+		return subjectPurchaseRecord;
+	}
 
-}
+	public void setSubjectPurchaseRecord(Set<SubjectPurchaseRecord> subjectPurchaseRecord) {
+		this.subjectPurchaseRecord = subjectPurchaseRecord;
+	}
+
+	
+	//bi-directional many-to-one association to SubjectFolder
+	/*	@ManyToOne
+		@JoinColumn(name="folder_id")
+		public SubjectFolder getSubjectFolder() {
+			return this.subjectFolder;
+		}
+	 public void setSubjectFolder(SubjectFolder subjectFolder) {
+			this.subjectFolder = subjectFolder;
+		}
+	*/
+
+//bi-directional many-to-one association to SubjectBbinPurchaseRecord
+		@OneToMany(cascade = CascadeType.ALL,mappedBy="subject")
+		public Set<SubjectBbinPurchassRecord> getSubjectBbinPurchassRecord() {
+			return SubjectBbinPurchassRecord;
+		}
+
+		public void setSubjectBbinPurchassRecord(Set<SubjectBbinPurchassRecord> subjectBbinPurchassRecord) {
+			SubjectBbinPurchassRecord = subjectBbinPurchassRecord;
+		}
+		@OneToMany
+       public Set<MemberProfitRecord> getMemberProfitRecords() {
+			return memberProfitRecords;
+		}
+
+		public void setMemberProfitRecords(Set<MemberProfitRecord> memberProfitRecords) {
+			this.memberProfitRecords = memberProfitRecords;
+		}
+		
+		
+		
+		
+
+	/*	public SubjectBbinPurchaseRecord addSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
+			getSubjectBbinPurchaseRecords().add(subjectBbinPurchaseRecord);
+			subjectBbinPurchaseRecord.setSubject(this);
+
+			return subjectBbinPurchaseRecord;
+		}
+
+		public SubjectBbinPurchaseRecord removeSubjectBbinPurchaseRecord(SubjectBbinPurchaseRecord subjectBbinPurchaseRecord) {
+			getSubjectBbinPurchaseRecords().remove(subjectBbinPurchaseRecord);
+			subjectBbinPurchaseRecord.setSubject(null);
+
+			return subjectBbinPurchaseRecord;
+		}*/
+
+
+	/*		//bi-directional many-to-one association to SubjectFieldRecord
+		@OneToMany(mappedBy="subject")
+		public Set<SubjectFieldRecord> getSubjectFieldRecords() {
+			return this.subjectFieldRecords;
+		}
+
+		public void setSubjectFieldRecords(Set<SubjectFieldRecord> subjectFieldRecords) {
+			this.subjectFieldRecords = subjectFieldRecords;
+		}
+	*/
+	/*	public SubjectFieldRecord addSubjectFieldRecord(SubjectFieldRecord subjectFieldRecord) {
+			getSubjectFieldRecords().add(subjectFieldRecord);
+			subjectFieldRecord.setSubject(this);
+
+			return subjectFieldRecord;
+		}
+
+		public SubjectFieldRecord removeSubjectFieldRecord(SubjectFieldRecord subjectFieldRecord) {
+			getSubjectFieldRecords().remove(subjectFieldRecord);
+			subjectFieldRecord.setSubject(null);
+
+			return subjectFieldRecord;
+		}*/
+
+
+	/*	//bi-directional many-to-one association to SubjectOrderRecord
+		@OneToMany(mappedBy="subject")
+		public Set<SubjectOrderRecord> getSubjectOrderRecords() {
+			return this.subjectOrderRecords;
+		}
+
+		public void setSubjectOrderRecords(Set<SubjectOrderRecord> subjectOrderRecords) {
+			this.subjectOrderRecords = subjectOrderRecords;
+		}*/
+
+	/*	public SubjectOrderRecord addSubjectOrderRecord(SubjectOrderRecord subjectOrderRecord) {
+			getSubjectOrderRecords().add(subjectOrderRecord);
+			subjectOrderRecord.setSubject(this);
+
+			return subjectOrderRecord;
+		}
+
+		public SubjectOrderRecord removeSubjectOrderRecord(SubjectOrderRecord subjectOrderRecord) {
+			getSubjectOrderRecords().remove(subjectOrderRecord);
+			subjectOrderRecord.setSubject(null);
+
+			return subjectOrderRecord;
+		}*/
+	}
+
+
+

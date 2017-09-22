@@ -26,12 +26,11 @@
 	    	<input type="submit" value="登录" >
 	    </div>
 	    </form>
-	   
 	</div>
 	<div class="login-bottom">
 		<h3>首选 &nbsp;<a href="#">返回前台</a>&nbsp 你好</h3>
 	</div>
-</div>	
+</div>
 
 
 </body>

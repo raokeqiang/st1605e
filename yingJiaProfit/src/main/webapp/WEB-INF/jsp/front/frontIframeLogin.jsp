@@ -346,7 +346,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/show/frontHome">
+						href="/yingJiaProfit/toFrontPersonage/shouyi">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -377,7 +377,8 @@ li.active a {
 					<div class="item item1">
 						<div class="lLabel">手机号</div>
 						<div class="lInput">
-							<img src="/yingJiaProfit/img/userIcon.png"><input
+							<img src="/yingJiaProfit/img/userIcon.png">
+							<input
 								placeholder="手机号" id="phone" name="phone"
 								class="form-control phone" type="text"> <span
 								class="errorInfo">用户名不能为空</span>

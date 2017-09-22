@@ -8,6 +8,25 @@
 	<name>yingJiaFinancing Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+	
+<!-- 	<dependency> -->
+<!--     <groupId>ueditor</groupId> -->
+<!--     <artifactId>ueditor</artifactId> -->
+<!--     <version>1.1.2</version> -->
+<!-- </dependency> -->
+	
+	
+	
+	<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20160810</version>
+</dependency>
+	
+	
+	
+	
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

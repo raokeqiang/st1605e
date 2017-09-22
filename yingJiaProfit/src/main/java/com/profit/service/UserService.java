@@ -3,6 +3,8 @@ package com.profit.service;
 import java.util.List;
 import java.util.Set;
 
+import com.profit.bean.UserRole;
+
 //import com.yingjia.bean.Resources;
 
 public interface UserService {
@@ -24,5 +26,7 @@ public interface UserService {
 	public <T> Set<String> ListAllByName(Object object);
 
 	public <T> Set<String> ListResourcesByName(String name);
+	
+	public <T> void saveUserRole(UserRole UserRole);
 
 }

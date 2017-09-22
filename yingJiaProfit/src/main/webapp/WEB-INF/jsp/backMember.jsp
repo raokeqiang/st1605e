@@ -6,10 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>账号管理</title>
+<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 </head>
-<body>
 
-<table width="100%" border="1" class="table-bordered class">
+	<style type="text/css">
+		.style16{
+		width: 100%;
+		height:800px;
+		margin: 0px auto;
+		margin-bottom:20px;
+		border:1px solid #CEE3E9;
+		background-color: #F1F7F9
+		}
+	</style>
+	
+<body>
+<div class="style16">
+<table  width=100%  class="table">
 <caption>账号管理</caption>
    <thead>
       <tr>
@@ -38,6 +53,6 @@
     </c:forEach>
    </tbody>
 </table>
-
+</div>
 </body>
 </html>

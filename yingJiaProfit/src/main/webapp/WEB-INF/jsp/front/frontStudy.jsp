@@ -344,7 +344,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/yingJiaProfit/show/frontHome">
+						href="/yingJiaProfit/toFrontPersonage/shouyi">
 							我的加法库 </a></li>
 				</ul>
 			</div>
