@@ -407,14 +407,14 @@ $(function(){
 				{"id":"9","name":"资讯分类","parentId":"9","url":"zxfl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
 				{"id":"10","name":"资讯管理","parentId":"9","url":"zxgl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},
-	            {"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
-				{"id":"12","name":"理财师审核","parentId":"6","url":"menus7","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"13","name":"绑卡管理","parentId":"6","url":"menus8","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"14","name":"付息计划","parentId":"6","url":"menus9","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"15","name":"充值管理","parentId":"6","url":"menus10","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"16","name":"提现管理","parentId":"6","url":"menus11","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"17","name":"邀请管理","parentId":"6","url":"menus12","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"18","name":"账号管理","parentId":"6","url":"menus13","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""}
+				{"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
+				{"id":"12","name":"理财师管理","parentId":"6","url":"Manage/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"13","name":"绑卡管理","parentId":"6","url":"Card/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"14","name":"付息计划","parentId":"6","url":"Payint/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"15","name":"充值管理","parentId":"6","url":"Recharge/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"16","name":"提现管理","parentId":"6","url":"Withdraw/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"17","name":"邀请管理","parentId":"6","url":"Invite/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"18","name":"账号管理","parentId":"6","url":"Member/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"12","name":"盈+统计","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
 				{"id":"19","name":"财务统计","parentId":"9","url":"cwtj","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},

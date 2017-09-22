@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Member_deposit_record")//充值记录表
@@ -21,7 +23,16 @@ public class MemberDepositRecord {
 	private int delFlag;//标志
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
+    private Member member;
 	
+	@ManyToOne
+	@JoinColumn(name="Member_Id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

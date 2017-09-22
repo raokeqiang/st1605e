@@ -66,7 +66,7 @@ public class YsFinanceProductDaoImpl implements YsFinanceProductDao{
 		FinanceProductFunds finance=(FinanceProductFunds)this.getSession().get(FinanceProductFunds.class, id);
 		return finance;
 	}
-//显示签署状态
+	//显示签署状态
 	@Override
 	public List<FinanceProductSubscribe> showmoneyding(int id) {
 		String hql="from FinanceProductSubscribe where product_id= " +id;

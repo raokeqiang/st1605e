@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>收益记录</title>
+<title>绑卡</title>
 <link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
 <link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
 <link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
@@ -421,9 +424,13 @@ function fun(){//当下拉列表内容发生改变时
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
+						<c:if test="${member.id==null }"><li><a class="item last"
+						href="/yingJiaProfit/toFrontLogin/login">
+							我的加法库 </a></li></c:if>
+							<c:if test="${member.id!=null }">
 					<li><a class="item last"
-						href="/yingJiaProfit/show/frontHome">
-							我的加法库 </a></li>
+						href="/yingJiaProfit/MemberAccount/select?member_id=${member.id }">
+							我的加法库 </a></li></c:if>
 				</ul>
 			</div>
 		</div>
@@ -462,23 +469,30 @@ function fun(){//当下拉列表内容发生改变时
 	</table>
 		<div class="countBox">
 		<ul>
-			<li><h2>0</h2>
+			<li><h2>${memberAccount.useable_balance }</h2>
 				<p>
 					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
 				</p></li>
-			<li><h2>0</h2>
+			<li><h2>${memberAccount.useable_balance+memberAccount.invest_amount+memberAccount.total_profit }</h2>
 				<p>
 					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
 				</p></li>
-			<li><h2 style="color: #9d8440">0</h2>
+			<li><h2 style="color: #9d8440">${memberAccount.invest_amount }</h2>
 				<p>
 					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
 				</p></li>
-			<li><h2 style="color: #9d8440">0</h2>
+			<li><h2 style="color: #9d8440">${memberAccount.total_profit }</h2>
 				<p>
 					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
 				</p></li>
+<<<<<<< HEAD
+			<li><h2 style="color: #9d8440">${memberAccount.imuseale_balance }</h2>
+				<p>
+					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
+				</p></li>
+=======
 			
+>>>>>>> branch 'master' of https://github.com/raokeqiang/st1605e.git
 		</ul>
 		<c:if test="true">
 			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
@@ -763,9 +777,7 @@ function fun(){//当下拉列表内容发生改变时
 								class="kefu">在线客服</span><span class="time">08:30 - 21:00</span>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>

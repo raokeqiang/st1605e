@@ -28,6 +28,7 @@ public class MemberTradeRecord {
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
 	private Member member;
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -115,9 +116,8 @@ public class MemberTradeRecord {
 		this.update_date = update_date;
 	}
 	
-	//bi-directional many-to-one association to Member
-		@ManyToOne
-		@JoinColumn(name="member_id", nullable=false)
+	@ManyToOne
+	@JoinColumn(name="member_id", nullable=false)
 	public Member getMember() {
 		return member;
 	}

@@ -25,6 +25,8 @@ public class MemberAccount {
 	private int delflag;// 删除'0'
 	private int bbin_amount;//体验金
 	private Member member;
+		
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -93,8 +95,6 @@ public class MemberAccount {
 	public void setBbin_amount(int bbin_amount) {
 		this.bbin_amount = bbin_amount;
 	}
-
-	//bi-directional many-to-one association to Member
 	@ManyToOne
 	@JoinColumn(name="member_id")
 	public Member getMember() {

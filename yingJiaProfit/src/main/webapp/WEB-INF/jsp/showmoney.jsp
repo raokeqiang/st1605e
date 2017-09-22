@@ -7,9 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
-<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
-<script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/slimtable.min.js"></script>
+	<link rel="stylesheet" href="/yingJiaProfit/css/slimtable.css">
+
+
+
 <script type="text/javascript">
 $(function(){
 $("#btn1").click(function(){ //模糊查询按钮
@@ -59,7 +65,8 @@ function test1(id){//button传id
 <button type="reset" class="btn btn-primary">重置</button>
 <button type="button" class="btn btn-primary" id="btn2">新增</button> 
 </div>
-<table width="100%" border="1">
+<table id="exampletable" width="100%" class="table">
+ <thead>
 <tr>
 <th>序号</th>
 <th>名称</th>
@@ -72,6 +79,7 @@ function test1(id){//button传id
 <th>添加时间</th>
 <th>操作</th>
 </tr>
+ <thead>
 <c:forEach items="${list }" var="e" varStatus="stat">
 <tr>
 <td>${stat.index+1 }</td>
@@ -97,5 +105,10 @@ test="${e.type==1}">股权类</c:if>
 </c:forEach>
 </table>
 </form>
+<script type="text/javascript">
+$(function() {
+	$("#exampletable").slimtable();
+});
+</script>
 </body>
 </html>

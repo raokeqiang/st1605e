@@ -22,6 +22,7 @@ public class MemberBankcards {
 	private Date update_date;//修改时间
 	private String cardaddress;//开户银行所在地
 	private Member member;
+
 	@Id
 	@GeneratedValue
 	public int getId() {
