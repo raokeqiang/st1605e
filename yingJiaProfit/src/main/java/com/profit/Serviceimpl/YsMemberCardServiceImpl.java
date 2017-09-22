@@ -92,4 +92,9 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 		return this.ysmeberCard.listSubjectPurchaseRecord(subjectId);
 	}
 
+	@Override
+	public List<SubjectPurchaseRecord> listSubpurchaseRecord() {
+		return this.ysmeberCard.listSubpurchaseRecord();
+	}
+
 }

@@ -5,13 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
-<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
-<script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+<title>固收类</title>
+	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/slimtable.min.js"></script>
+	<link rel="stylesheet" href="/yingJiaProfit/css/slimtable.css">
+	
+
 <script type="text/javascript">
 $(function(){
+$("#sum").slimtable();
 $("#btn1").click(function(){ //模糊查询按钮
 		$("#form1").attr("action","/yingJiaProfit/subject/showp2p");
 		$("#form1").submit();
@@ -30,9 +36,20 @@ function test1(id){//button传id
 }
 </script>
 </head>
+	<style type="text/css">
+		.style16{
+		width: 100%;
+		height:800px;
+		margin: 0px auto;
+		margin-bottom:20px;
+		border:1px solid #CEE3E9;
+		background-color: #F1F7F9
+		}
+	</style>
+	
 <body>
+<div  class="style16">
 <form method="post" id="form1">
-<div>
  名称:<input type="text" placeholder="名称" name="name" value="${name}">
 状态:<select name="status">
 							<option value="">全部</option>
@@ -50,8 +67,8 @@ function test1(id){//button传id
 <button type="button" class="btn btn-primary" id="btn1">查询</button>
 <button type="reset" class="btn btn-primary">重置</button>
 <button type="button" class="btn btn-primary" id="btn2">新增</button> 
-</div>
-	<table border="1" width="100%" class="table">
+
+	<table id="sum"  width=100% class="table">	
 		<tr>
 			<td>序号</td>
 			<td>合同编号</td>
@@ -98,11 +115,12 @@ function test1(id){//button传id
 						test="${e.exper_status==1}">是</c:if></td>
 				<td>${e.create_date}</td>
 				<td>
-<button type="button" class="btn btn-primary" onclick="test1(${e.id})">编辑查看</button> 
+		<button type="button" class="btn btn-primary" onclick="test1(${e.id})">编辑查看</button> 
 		<button type="button" class="btn btn-primary" id="btn3" >查看投资</button>  </td>
 			</tr>
 		</c:forEach>
 	</table>
 </form>
+</div>
 </body>
 </html>

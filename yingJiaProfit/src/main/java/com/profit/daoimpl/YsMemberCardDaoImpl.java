@@ -81,7 +81,6 @@ public class YsMemberCardDaoImpl implements YsMemberCardDao{
 	public Subject getSubjectById(int subjectId) {
 		Session session=getSession();
 		Subject subject=(Subject)session.get(Subject.class, subjectId);
-		System.out.println("去去去去去去"+subjectId);
 		return subject;
 	}
 
@@ -130,6 +129,13 @@ session.save(member_tally);
 		 SubjectPurchaseRecord aa=list.get(0);
 		}
 		return null;
+	}
+
+	@Override
+	public List<SubjectPurchaseRecord> listSubpurchaseRecord() {
+		Session session=getSession();
+		List<SubjectPurchaseRecord>list=session.createQuery("from SubjectPurchaseRecord").list();
+		return list;
 	}
 	
 	}

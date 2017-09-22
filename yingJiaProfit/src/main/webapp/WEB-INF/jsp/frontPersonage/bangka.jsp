@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,17 +12,138 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>投资记录</title>
-<!-- <link href="http://www.ying158.com/Content/images/jw/icon.ico" -->
-<!-- 	type="image/x-icon" rel="shortcut icon"> -->
+<title>绑卡</title>
 <link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
 <link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
 <link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
-
 <script src="/yingJiaProfit/css/person_css/jquery.js"></script>
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
 <script src="/yingJiaProfit/css/person_css/hm.js"></script>
 <script src="/yingJiaProfit/css/person_css/echarts.js"></script>
+
+
+<!-- 校验 -->
+<script type="text/javascript">
+    var baseContext = "";
+    //绑定银行卡
+    $("#buttonsubmit").click(function () {
+        var name=$("#name").val();
+        var identity=$("#identity").val();
+        var card_no= $("#card_no").val();
+        var card_no2 = $("#card_no2").val();
+        var type = $("#type").val();
+        var loc_province = $("#loc_province").find("option:selected").text();
+        var loc_city = $("#loc_city").find("option:selected").text();
+        var loc_town = $("#loc_town").find("option:selected").text();
+        var cardaddress=loc_province+"-"+loc_city+"-"+loc_town;
+        var cardaddress1 = $("#cardaddress1").val();
+        if (name=="" || name==undefined) {
+            $("#withdrawError").html("请输入姓名");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (identity=="" || identity==undefined) {
+            $("#withdrawError").html("请输入身份证");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (!isIdentityNumber(identity)) {
+            $("#withdrawError").html("请输入正确的身份证号码");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_province=="省份"){
+            $("#withdrawError").html("请选择省份");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_city=="地级市"){
+            $("#withdrawError").html("请选择地级市");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if(loc_town=="市、县、区") {
+            $("#withdrawError").html("请选择市、县、区");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+
+        if (card_no == "" || card_no == undefined) {
+            $("#withdrawError").html("请输入银行卡号");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+
+        if (card_no2 == "" || card_no2 == undefined) {
+            $("#withdrawError").html("请再次输入银行卡号");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+        if (card_no2  != card_no) {
+            $("#withdrawError").html("两次输入的银行卡号不一致");
+            $("#withdrawErrorModal").modal();
+            return;
+        }
+//button提交
+
+
+
+
+  
+//  $("#buttonsubmit").addClass("disabled");
+//         $.ajax({
+//             type : "POST",
+//             dataType : "json",
+//             async : true,
+//             url : '',
+//             data : {
+//                 userName : username,
+//                 identity :identity,
+//                 bankCard: bankCard,
+//                 type:type,
+//                 cardaddress:cardaddress+"-"+cardaddress1
+//             },
+//             success : function(resp) {
+//                 if (resp.code == 0) {
+//                     $("#withdrawError").html(resp.msg);
+//                     $("#withdrawErrorModal").modal();
+//                     window.location.href = baseContext + "";
+//                 } else {
+//                     $("#withdrawError").html(resp.msg);
+//                     $("#withdrawErrorModal").modal();
+//                 }
+
+//             }
+//         });
+
+    });
+
+    var isIdentityNumber = function(number) {
+        if($.trim(number)==''||!/^[0-9]{17}[0-9X]$/.test(number)){
+            return false;
+        }
+        var weights = new Array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
+        var parityBits = new Array("1", "0", "X", "9", "8", "7", "6", "5", "4","3", "2");
+        var power = 0;
+        for ( var i = 0; i < 17; i++) {
+            power += parseInt(number.charAt(i),10)*weights[i];
+        }
+        return parityBits[power%11]==number.substr(17);
+    }
+    
+    
+    function f55(){
+    	  alert("okkkk");
+    	$("#form1").attr("action","/yingJiaProfit/shopping/savememberCard");
+			$("#form1").submit();
+    	
+    }
+    
+
+   
+    
+    
+</script>
 
 <style type="text/css">
 .hzhb_box {
@@ -97,7 +218,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url(/yingJiaFinancing/img/ft_sns.png) no-repeat;
+	background: url() no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -317,27 +438,31 @@ li.active a {
 
 </head>
 <body>
-
+<!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
-		<iframe src="/yingJiaProfit/show/frontTopIframe"
-			scrolling="no" width="1002" height="94" frameborder="0"></iframe>
+		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
+			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+	
+	
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
 					<li class="active"><a class="item first"
-						href="/yingJiaFinancing/frontIndex/login"> 首页 </a></li>
+						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
+							网上体验中心 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					</li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontInternetCenter/show"> 网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/product/login"> 产品中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontNewsCenter/login">新闻中心
-					</a></li>
+						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontDownloadCenter/login"> 下载中心 </a></li>
-					<li><a class="item " href="/yingJiaFinancing/frontCollege/login">盈+商学院
-					</a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontResearch/login">投研中心
+						href="/yingJiaProfit/show/frontLoad"> 下载中心 </a></li>
+					<li><a class="item " href="/yingJiaProfit/show/frontCollege">
+							盈+商学院 </a></li>
+					<li><a class="item"
+						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 						<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
@@ -355,17 +480,17 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 
-	<table class="peopleInfo" width="970" height="160" cellspacing="0"
+<table class="peopleInfo" width="970" height="160" cellspacing="0"
 		cellpadding="0" border="0">
 		<tbody>
 			<tr>
 				<td class="info" valign="middle" align="left"><a
 					href="http://pro.ying158.com/account/security">
 						<div class="img">
-							<img src="/yingJiaFinancing/img/userPic.jpg">
+							<img src="/yingJiaProfit/img/userPic.jpg">
 						</div>
 						<h2>
-							${member.member_name},<span>您好!</span>
+							，<span>您好!</span>
 						</h2>
 				</a>
 					<div class="safe">
@@ -374,7 +499,6 @@ li.active a {
 					<ul class="listIco iconfont">
 						<li class=""><a href="#1"></a><em></em></li>
 						<li class="active"><a href="#1"></a><em></em></li>
-						<!-- <li class=""><a href="#1">&#xe61f;</a><em>&#xe61b;</em></li> -->
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
@@ -401,23 +525,22 @@ li.active a {
 				<p>
 					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
 				</p></li>
+<<<<<<< HEAD
 			<li><h2 style="color: #9d8440">${memberAccount.imuseale_balance }</h2>
 				<p>
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>
+=======
+			
+>>>>>>> branch 'master' of https://github.com/raokeqiang/st1605e.git
 		</ul>
-		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+		<c:if test="true">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
 		</c:if>
-		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+		<c:if test="true">
+			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
 		</c:if>
-		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
-		</c:if>
-		<c:if test="${memberBankcards.id>0 }">
-			<a href="#" class="tk">提款</a> 
-		</c:if>
+		
 	</div>
 	<div class="proMain clearfix">
 		<div class="adminLeft">
@@ -442,9 +565,9 @@ li.active a {
 			<h2>我的账户</h2>
 			<ul>
 				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
-						class="iconfont" class="select"></em>账户充值</a></li>
+						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" ><em
+					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
@@ -455,87 +578,95 @@ li.active a {
 			var menu_item = "member_center_menu_profit_record";
 			$("#" + menu_item).addClass("select");
 		</script>
-
-	<div class="admin-right">
+		
+<div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
                     <a class="select" href="javascript:;">银行卡管理</a>
                 </div>
                 <div id="conBox">
-                    <div class="box" style="display:block">
+                    <div class="box"  style="display:block">
                         <div class="myBankCards clearfix">
                                 <div class="title">绑定银行卡</div>
-                                <table class="txTable" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                    <tbody><tr>
+                                
+                                
+                                <form method="post" id="form1"  >
+                                <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
                                         <td align="right">姓名：</td>
-                                        <td><input class="tytxt" id="username" name="username" placeholder="姓名" type="text"></td>
+                                        <td><input type="text" class="tytxt" id="name" name="name"  placeholder="姓名"></td>
                                         <td style="color:#ff6a00">实名信息提交后不可修改，请务必认真填写真实资料</td>
                                     </tr>
                                     <tr>
                                         <td width="140" align="right">身份证：</td>
-                                        <td><input class="tytxt" id="identity" name="identity" placeholder="身份证" type="text"></td>
+                                        <td><input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证"></td>
                                         <td style="color:#ff6a00">一个身份证只能绑定一个帐号</td>
                                     </tr>
 
                                     <tr>
                                         <td align="right">开户银行：</td>
-                                        <td colspan="2"><select class="form-control" id="type">
-                                            <option value="GSYH" selected="selected">工商银行</option>
-                                            <option value="GDYH">光大银行</option>
-                                            <option value="GFYH">广发银行</option>
-                                            <option value="HXYH">华夏银行</option>
+                                        <td colspan="2"><select class="form-control" id="type" name="type">
+                                            <option value="GSYH">工商银行</option>
                                             <option value="JSYH">建设银行</option>
-                                            <option value="JTYH">交通银行</option>
-                                            <option value="MSYH">民生银行</option>
                                             <option value="NYYH">农业银行</option>
-                                            <option value="PFYH">浦发银行</option>
-                                            <option value="XYYH">兴业银行</option>
                                             <option value="YZCX">邮政储蓄</option>
                                             <option value="ZSYH">招商银行</option>
                                             <option value="ZGYH">中国银行</option>
-                                            <option value="ZXYH">中信银行</option>
                                         </select></td>
                                     </tr>
-
                                     <tr>
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
-                                            <select id="loc_province" style="width:80px;" selectedindex="0"><option value="" selected="selected">省份</option><option value="1">北京市</option><option value="22">天津市</option><option value="44">上海市</option><option value="66">重庆市</option><option value="108">河北省</option><option value="406">山西省</option><option value="622">内蒙古</option><option value="804">辽宁省</option><option value="945">吉林省</option><option value="1036">黑龙江省</option><option value="1226">江苏省</option><option value="1371">浙江省</option><option value="1500">安徽省</option><option value="1679">福建省</option><option value="1812">江西省</option><option value="1992">山东省</option><option value="2197">河南省</option><option value="2456">湖北省</option><option value="2613">湖南省</option><option value="2822">广东省</option><option value="3015">广西</option><option value="3201">海南省</option><option value="3235">四川省</option><option value="3561">贵州省</option><option value="3728">云南省</option><option value="3983">西藏</option><option value="4136">陕西省</option><option value="4334">甘肃省</option><option value="4499">青海省</option><option value="4588">宁夏</option><option value="4624">新疆</option><option value="4802">香港</option><option value="4822">澳门</option><option value="4825">台湾省</option></select>
-                                            <select id="loc_city" style="width:100px;" selectedindex="0"><option value="" selected="selected">地级市</option></select>
-                                            <select id="loc_town" style="width:120px;" selectedindex="0"><option value="" selected="selected">市、县、区</option></select>
-                                            <input name="location_id" id="cardaddress" type="hidden">
+                                            <select id="loc_province" style="width:80px;"></select>
+                                            <select id="loc_city" style="width:100px;"></select>
+                                            <select id="loc_town" style="width:120px;"></select>
+                                            <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/>
                                         </div>
                                         </td>
                                         <td></td>
                                     </tr>
-                                    <tr>
-                                        <td align="right">开户支行：</td>
-                                        <td><div style="float:left;"><input class="tytxt" name="cardaddress1" id="cardaddress1" placeholder="开户支行" type="text"></div></td>
-                                        <td></td>
-                                    </tr>
+                                   
                                     <tr>
                                         <td align="right">银行卡号：</td>
-                                        <td><input class="tytxt" id="bankCardNum" placeholder="银行卡号" type="text"></td>
+                                        <td><input type="text" class="tytxt" id="card_no" name="card_no" placeholder="银行卡号"></td>
                                     </tr>
                                     <tr>
                                         <td align="right">确认卡号：</td>
                                         <td>
-                                            <input class="tytxt" id="bankCardNumConfirm" placeholder="确认卡号" type="text">
+                                            <input type="text" class="tytxt" id="card_no2" name="card_no2" placeholder="确认卡号">
 
                                         </td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><button class="tybutton" id="buttonsubmit">保存</button></td>
+                                        <td><button class="tybutton" id="butt"   onclick="f55();">保存</button></td>
                                         <td></td>
                                     </tr>
-                                </tbody></table>
+                                </table>
+                                </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+
+						<script type="text/javascript">
+							function getJsonInfo(url) {
+								$.get(url, 'json', function(data) {
+									$(".ajaxContainer").empty();
+									$(".ajaxContainer").append(data);
+								});
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
@@ -547,21 +678,21 @@ li.active a {
 		<div class="row">
 			<div class="security">
 				<div class="item">
-					<img src="/yingJiaFinancing/img/indexSecurity1.png">
+					<img src="/yingJiaProfit/img/indexSecurity1.png">
 					<div class="detail">
 						资金银行监管
 						<div class="desc">平台资金由第三方银行监管</div>
 					</div>
 				</div>
 				<div class="item">
-					<img src="/yingJiaFinancing/img/indexSecurity2.png">
+					<img src="/yingJiaProfit/img/indexSecurity2.png">
 					<div class="detail">
 						交易证监会监管
 						<div class="desc">投资交易由证监会监管</div>
 					</div>
 				</div>
 				<div class="item">
-					<img src="/yingJiaFinancing/img/indexSecurity3.png">
+					<img src="/yingJiaProfit/img/indexSecurity3.png">
 					<div class="detail">
 						风控盈+监管
 						<div class="desc">盈+全自动风控系统为您保驾护航</div>
@@ -585,68 +716,68 @@ li.active a {
 						主要合作机构</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.picc.com/"><img
-							onmouseout="this.src = '/yingJiaFinancing/img/1.jpg'"
-							src="/yingJiaFinancing/img/1.jpg"></a>
+							onmouseout="this.src = '/yingJiaProfit/img/1.jpg'"
+							src="/yingJiaProfit/img/1.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.fuioupay.com/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/2.jpg'"
-							src="/yingJiaFinancing/img/2.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/2.jpg'"
+							src="/yingJiaProfit/img/2.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/3.jpg'"
-							src="/yingJiaFinancing/img/3.jpg"></a>
+							onmouseout="    this.src = 'yingJiaProfit/img/3.jpg'"
+							src="/yingJiaProfit/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.zttrust.com.cn/stations/526623d20a/index.php/5268e6b50a"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/4.jpg'"
-							src="/yingJiaFinancing/img/4.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/4.jpg'"
+							src="/yingJiaProfit/img/4.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://sc.hkex.com.hk/TuniS/www.hkex.com.hk/eng/index.htm/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/5.jpg'"
-							src="/yingJiaFinancing/img/5.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/5.jpg'"
+							src="/yingJiaProfit/img/5.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.cmegroup.com/cn-s/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/6.jpg'"
-							src="/yingJiaFinancing/img/6.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/6.jpg'"
+							src="/yingJiaProfit/img/6.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.sgx.com/wps/portal/sgxweb_ch/home/%21ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOKNHB1NPAycDSz9wwzMDTxD_Z2Cg8PCDANdjYEKIoEKDHAARwNC-sP1o8BK8JhQkBthkO6oqAgAzDYPQQ%21%21/dl5/d5/L2dBISEvZ0FBIS9nQSEh/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/7.jpg'"
-							src="/yingJiaFinancing/img/7.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/7.jpg'"
+							src="/yingJiaProfit/img/7.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.neeq.com.cn/index/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/8.jpg'"
-							src="/yingJiaFinancing/img/8.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/8.jpg'"
+							src="/yingJiaProfit/img/8.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.cmbchina.com/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/9.jpg'"
-							src="/yingJiaFinancing/img/9.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/9.jpg'"
+							src="/yingJiaProfit/img/9.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.bankcomm.com/BankCommSite/default.shtml"><img
-							onmouseout="this.src = '/yingJiaFinancing/img/10.jpg'"
-							src="/yingJiaFinancing/img/10.jpg"></a>
+							onmouseout="this.src = '/yingJiaProfit/img/10.jpg'"
+							src="/yingJiaProfit/img/10.jpg"></a>
 					</div>
 
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.ccb.com/cn/home/index.html"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/11.jpg'"
-							src="/yingJiaFinancing/img/11.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/11.jpg'"
+							src="/yingJiaProfit/img/11.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.icbc.com.cn/icbc/"><img
-							onmouseout="    this.src = '/yingJiaFinancing/img/12.jpg'"
-							src="/yingJiaFinancing/img/12.jpg"></a>
+							onmouseout="    this.src = '/yingJiaProfit/img/12.jpg'"
+							src="/yingJiaProfit/img/12.jpg"></a>
 					</div>
 				</div>
 
@@ -659,7 +790,7 @@ li.active a {
 									<em class="ico_sns ico_weixin"></em> <span class="txt">微信公众号</span>
 								</div>
 								<div class="tips_bd">
-									<em class="arrow"></em> <img src="yingJiaFinancing/yj.jpg"
+									<em class="arrow"></em> <img src="/yingJiaProfit/img/yj.jpg"
 										alt="微信公共平台">
 								</div>
 							</div>
@@ -681,15 +812,13 @@ li.active a {
 								style="display: inline-block; height: 50px; width: 50px; text-align: center;"
 								target="_blank"
 								href="http://wpa.qq.com/msgrd?v=3&amp;uin=508886246&amp;site=qq&amp;menu=yes"><img
-								src="/yingJiaFinancing/img/qqIcon.png"
+								src="/yingJiaProfit/img/qqIcon.png"
 								onmouseover="$(this).css('height', '52px');"
 								onmouseout="    $(this).css('height', '48px');"></a> <span
 								class="kefu">在线客服</span><span class="time">08:30 - 21:00</span>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -866,7 +995,6 @@ li.active a {
 				<div class="modal-body">
 					<div class="row">
 						<span>今日暂时没有限购的股票</span>
-
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -1012,8 +1140,6 @@ li.active a {
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-
 
 </body>
 </html>
