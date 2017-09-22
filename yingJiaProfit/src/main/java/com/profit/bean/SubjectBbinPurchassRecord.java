@@ -5,18 +5,20 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Subject_bbin_purchass_record") // 体验金购买标的
+@Table(name = "subject_bbin_purchase_record") // 体验金购买标的
 public class SubjectBbinPurchassRecord {
 
 	private int id;// 主键
 	private String serial_number;// 流水号
 	private int amount;// 购买金额
 	private String deal_ip;// 交易ip
-	private int subject_id;// 标的ip
-	private int member_id;//
+	private Subject subject_id;// 标的ip
+	private Member member_id;//
 	private int delflag;
 	private Date create_date;
 	private Date update_date;
@@ -25,6 +27,24 @@ public class SubjectBbinPurchassRecord {
 	private int pay_interest_times;
 	private int last_profit_day;// 最后计息日
 
+
+	@ManyToOne
+	@JoinColumn(name="subject_id")
+	public Subject getSubject_id() {
+		return subject_id;
+	}
+	public void setSubject_id(Subject subject) {
+		this.subject_id = subject;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(Member member_id) {
+		this.member_id = member_id;
+	}
 	public int getPay_interest_times() {
 		return pay_interest_times;
 	}
@@ -73,22 +93,6 @@ public class SubjectBbinPurchassRecord {
 
 	public void setDeal_ip(String deal_ip) {
 		this.deal_ip = deal_ip;
-	}
-
-	public int getSubject_id() {
-		return subject_id;
-	}
-
-	public void setSubject_id(int subject_id) {
-		this.subject_id = subject_id;
-	}
-
-	public int getMember_id() {
-		return member_id;
-	}
-
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 
 	public int getDelflag() {

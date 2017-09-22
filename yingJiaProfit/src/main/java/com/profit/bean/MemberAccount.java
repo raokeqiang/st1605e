@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Member_account")//用户关联表
@@ -22,7 +24,16 @@ public class MemberAccount {
 	private int invest_amount;//投资总额
 	private int delflag;// 删除'0'
 	private int bbin_amount;//体验金
-	
+	private Member member;
+		
+	@ManyToOne
+	@JoinColumn(name="Member_Id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

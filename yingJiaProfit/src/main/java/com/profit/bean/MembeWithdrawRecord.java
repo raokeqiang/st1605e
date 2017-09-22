@@ -5,9 +5,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name="Member_withdraw_record")//体现记录表
+@Table(name="Member_withdraw_record")//提现记录表
 @Entity
 public class MembeWithdrawRecord {
 
@@ -23,7 +25,16 @@ public class MembeWithdrawRecord {
 	private String channel_name;//打款通道（富友，贝付）
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
+    private Member member;
 	
+	@ManyToOne
+	@JoinColumn(name="Member_Id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

@@ -17,7 +17,7 @@ public class Subject {
     private int type;//标的类型
     private int status;//标的状态
     private int floor_amount;//起投金额
-    private int amount;//标的金额
+    private int amount;//标的金额 
     private int first_id;//始标id
     private int parent_id;//父标id
     private int period;//标的周期
@@ -26,8 +26,6 @@ public class Subject {
     private Date raise_end;//募集结束
     private int refund_way;//还款方式
     private int safeGuard_way;//保障方式
-    private Date start_date;//标的开始日期
-    private Date end_date;//标的结束日期
     private int year_rate;//年化率
     private String comment;//产品速览
     private int folder_id;//文件夹id
@@ -169,22 +167,6 @@ public class Subject {
 
 	public void setSafeGuard_way(int safeGuard_way) {
 		this.safeGuard_way = safeGuard_way;
-	}
-
-	public Date getStart_date() {
-		return start_date;
-	}
-
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
-	}
-
-	public Date getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
 	}
 
 	public int getYear_rate() {
