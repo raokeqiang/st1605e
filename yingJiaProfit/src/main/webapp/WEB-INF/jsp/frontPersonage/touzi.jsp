@@ -463,6 +463,7 @@ li.active a {
 
 							<div class="ajaxContainer">
 								<!-- 异步内容开始 -->
+								
 								<table class="tzlist" width="100%" cellspacing="0"
 									cellpadding="0" bordercolor="#e9e9e9" border="1">
 									<tbody>
@@ -470,24 +471,23 @@ li.active a {
 											<th>订单编号</th>
 											<th>标的名称</th>
 											<th>金额</th>
-											<th>预期收益</th>
 											<th>状态</th>
 											<th>购买时间</th>
 										</tr>
 											<tr>
-												<td>0</td>
-												<td>0</td>
-												<td>
-													0
-												</td>
-												<td>0</td>
-												<td>
-														投资中
-												</td>
-												<td>0</td>
+											<c:forEach items="${list }"  var="e">
+											<span style="width: 10px;height: 10px;" class="iconfont"></span>
+												<td><h2>${e.serial_number }</h2></td>
+												<td>${e.subject.name }</td>
+												<td>${e.amount }</td>
+											<td><c:if test="${e.subject.status==0}">募集中</c:if> <c:if
+						                        test="${e.subject.status==1}">未募集</c:if></td>
+												<td>${e.subject.create_date}</td>
+												</c:forEach>
 											</tr>
 									</tbody>
 								</table>
+								
 								<div class="listCount">
 									总计<font color="#ff503f">${touZiCnt }</font>笔
 								</div>
@@ -502,31 +502,7 @@ li.active a {
 							</script>
 						</div>
 					</div>
-					<div class="tab">
-						<a class="select" href="javascript:;">预约记录</a>
-					</div>
-					<div id="conBox">
-						<div class="box" style="display: block">
-
-							<div class="ajaxContainer2">
-								<!-- 异步内容开始 -->
-								<table class="tzlist" width="100%" cellspacing="0"
-									cellpadding="0" bordercolor="#e9e9e9" border="1">
-									<tbody>
-										<tr>
-											<th>标的名称</th>
-											<th>金额</th>
-											<th>预期收益</th>
-											<th>状态</th>
-											<th>预约时间</th>
-											<th>下载</th>
-										</tr>
-									</tbody>
-								</table>
-								<div class="listCount">
-									总计<font color="#ff503f">0</font>笔
-								</div>
-							</div>
+				
 							<script type="text/javascript">
 								function getJsonInfo2(url) {
 									$.get(url, 'json', function(data) {

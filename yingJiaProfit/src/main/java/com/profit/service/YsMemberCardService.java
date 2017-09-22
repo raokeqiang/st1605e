@@ -33,5 +33,6 @@ void saveMember_tally(Member_tally member_tally);
 //标的购买表
 void saveSubjectPurchaseRecord(SubjectPurchaseRecord subjectPurchaseRecord);
 List<SubjectPurchaseRecord>listSubjectPurchaseRecord(int subjectId);
-
+//购买成功后的显示
+List<SubjectPurchaseRecord>listSubpurchaseRecord();
 }
