@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta charset="utf-8">
 <meta name="renderer" content="webkit">
 <meta name="viewport"
@@ -17,130 +18,62 @@
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
 <script src="/yingJiaProfit/css/person_css/hm.js"></script>
 <script src="/yingJiaProfit/css/person_css/echarts.js"></script>
-
-
 <!-- 校验 -->
 <script type="text/javascript">
-    var baseContext = "";
-    //绑定银行卡
-    $("#buttonsubmit").click(function () {
-        var name=$("#name").val();
-        var identity=$("#identity").val();
-        var card_no= $("#card_no").val();
-        var card_no2 = $("#card_no2").val();
-        var type = $("#type").val();
-        var loc_province = $("#loc_province").find("option:selected").text();
-        var loc_city = $("#loc_city").find("option:selected").text();
-        var loc_town = $("#loc_town").find("option:selected").text();
-        var cardaddress=loc_province+"-"+loc_city+"-"+loc_town;
-        var cardaddress1 = $("#cardaddress1").val();
-        if (name=="" || name==undefined) {
-            $("#withdrawError").html("请输入姓名");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if (identity=="" || identity==undefined) {
-            $("#withdrawError").html("请输入身份证");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if (!isIdentityNumber(identity)) {
-            $("#withdrawError").html("请输入正确的身份证号码");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if(loc_province=="省份"){
-            $("#withdrawError").html("请选择省份");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if(loc_city=="地级市"){
-            $("#withdrawError").html("请选择地级市");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if(loc_town=="市、县、区") {
-            $("#withdrawError").html("请选择市、县、区");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
+   function fun2(){
+	   //获取文本框的内容
+	   var name=document.form1.name.value;
+	   var identity=document.form1.identity.value;
+	   var card_no=document.form1.card_no.value;
+	   var card_no2=document.form1.card_no2.value;
+	   //获取层的内容
+		 var d1=document.getElementById("d1");
+		 var d2=document.getElementById("d2");
+		 var d3=document.getElementById("d3");
+		 var d4=document.getElementById("d4");
+		 
+		 //正则表达式
+		  var s1=/^\w{6,}$/;//姓名
+		  var s5=/^\d{18}|\d{18}[a-zA-Z]{1}$/;//身份证
+		  var s2=/^\d{14,20}$/;//银行卡号
+		  var s3=/^\d{6,20}$/;//银行卡号
+		  
+		  if(!s1.test(name)){
+			  d1.innerHTML="<font color=red>姓名不能为空，且至少有六位字符</font>";
+			  return false;
+			  }else{
+				  d1.innerHTML="<font color=blue>姓名正确！</font>";
+				  }
+		  if(!s2.test(card_no)){
+				 d3.innerHTML="<font color=red>银行卡号至少有十二位字符</font>";
+				 return false;
+					}else{
+					 d3.innerHTML="<font color=blue>银行卡号正确！</font>";
+						}
+							 
+			if(card_no!=card_no2){
+				d4.innerHTML="<font color=red>两次银行卡号输入不一致</font>";
+				return false;
+					} else{
+				d4.innerHTML="<font color=blue>银行卡号正确</font>";
+						} 
+			  if(!s5.test(identity)){
+				  d2.innerHTML="<font color=red>身份证为十八位数字</font>";
+				  return false;
+				  }else{
+					  d2.innerHTML="<font color=blue>身份证输入正确！</font>";
+					  }
+		  return true;
+   }
 
-        if (card_no == "" || card_no == undefined) {
-            $("#withdrawError").html("请输入银行卡号");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-
-        if (card_no2 == "" || card_no2 == undefined) {
-            $("#withdrawError").html("请再次输入银行卡号");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-        if (card_no2  != card_no) {
-            $("#withdrawError").html("两次输入的银行卡号不一致");
-            $("#withdrawErrorModal").modal();
-            return;
-        }
-//button提交
-
-
-
-
-  
-//  $("#buttonsubmit").addClass("disabled");
-//         $.ajax({
-//             type : "POST",
-//             dataType : "json",
-//             async : true,
-//             url : '',
-//             data : {
-//                 userName : username,
-//                 identity :identity,
-//                 bankCard: bankCard,
-//                 type:type,
-//                 cardaddress:cardaddress+"-"+cardaddress1
-//             },
-//             success : function(resp) {
-//                 if (resp.code == 0) {
-//                     $("#withdrawError").html(resp.msg);
-//                     $("#withdrawErrorModal").modal();
-//                     window.location.href = baseContext + "";
-//                 } else {
-//                     $("#withdrawError").html(resp.msg);
-//                     $("#withdrawErrorModal").modal();
-//                 }
-
-//             }
-//         });
-
-    });
-
-    var isIdentityNumber = function(number) {
-        if($.trim(number)==''||!/^[0-9]{17}[0-9X]$/.test(number)){
-            return false;
-        }
-        var weights = new Array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
-        var parityBits = new Array("1", "0", "X", "9", "8", "7", "6", "5", "4","3", "2");
-        var power = 0;
-        for ( var i = 0; i < 17; i++) {
-            power += parseInt(number.charAt(i),10)*weights[i];
-        }
-        return parityBits[power%11]==number.substr(17);
-    }
-    
-    
+//提交表单
     function f55(){
     	  alert("okkkk");
     	$("#form1").attr("action","/yingJiaProfit/shopping/savememberCard");
 			$("#form1").submit();
     	
     }
-    
-
-   
-    
-    
-</script>
+ </script>
 
 <style type="text/css">
 .hzhb_box {
@@ -434,7 +367,34 @@ li.active a {
 </style>
 
 </head>
-<body>
+<!-- 级联操作 -->
+<script type="text/javascript">
+ var p=["湖北省","广东省","江苏省"];
+ p["湖北省"]=["武汉市","襄阳市","孝感市","荆州市","随州市","十堰市","仙桃市","老河口市","宜昌市"];
+ p["广东省"]=["广州市","汕头市","深圳市","珠江市"];
+ p["江苏省"]=["南京市","徐州市","无锡市","盐城市","镇江市","苏州市","张家港市"];
+function fun(){//当下拉列表内容发生改变时
+       var v=document.getElementById("se").value;//获取选择的省
+	   var city=document.getElementById("city");//城市对象
+	   city.options.length=0;//清空城市下拉列表
+	   for(i=0;i<p[v].length;i++){
+		     var op = new Option(p[v][i],p[v][i]);
+			 city.options.add(op);
+		   }
+ }
+ 
+ function show(){//一开始显示
+     for(var i=0;i<p.length;i++){
+		  var op=new Option(p[i],p[i]);
+		  document.getElementById("se").options.add(op);
+ }
+        for(var j=0;j<p["湖北省"].length;j++){
+		  var op=new Option(p["湖北省"][j],p["湖北省"][j]);
+		  document.getElementById("city").options.add(op);
+		 }
+ }
+</script>
+<body onload="show();">
 <!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
@@ -574,19 +534,19 @@ li.active a {
                     <div class="box"  style="display:block">
                         <div class="myBankCards clearfix">
                                 <div class="title">绑定银行卡</div>
-                                
-                                
-                                <form method="post" id="form1"  >
+                                <form method="post" id="form1"  onsubmit="return fun2();">
                                 <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td align="right">姓名：</td>
                                         <td><input type="text" class="tytxt" id="name" name="name"  placeholder="姓名"></td>
                                         <td style="color:#ff6a00">实名信息提交后不可修改，请务必认真填写真实资料</td>
+                                          <td><div id="d1"></div></td>
                                     </tr>
                                     <tr>
                                         <td width="140" align="right">身份证：</td>
                                         <td><input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证"></td>
                                         <td style="color:#ff6a00">一个身份证只能绑定一个帐号</td>
+                                          <td><div id="d2"></div></td>
                                     </tr>
 
                                     <tr>
@@ -603,10 +563,9 @@ li.active a {
                                     <tr>
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
-                                            <select id="loc_province" style="width:80px;"></select>
-                                            <select id="loc_city" style="width:100px;"></select>
-                                            <select id="loc_town" style="width:120px;"></select>
-                                            <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/>
+                                           省:<select id="se"  name="se" style="width:80px;" onchange="fun(this.value);"></select>
+                                            市:<select id="city"  name="city" style="width:100px;"></select>
+                                            <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/ >
                                         </div>
                                         </td>
                                         <td></td>
@@ -615,14 +574,14 @@ li.active a {
                                     <tr>
                                         <td align="right">银行卡号：</td>
                                         <td><input type="text" class="tytxt" id="card_no" name="card_no" placeholder="银行卡号"></td>
+                                          <td><div id="d3"></div></td>
                                     </tr>
                                     <tr>
                                         <td align="right">确认卡号：</td>
                                         <td>
                                             <input type="text" class="tytxt" id="card_no2" name="card_no2" placeholder="确认卡号">
-
                                         </td>
-                                        <td></td>
+                                        <td><div id="d4"></div></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
