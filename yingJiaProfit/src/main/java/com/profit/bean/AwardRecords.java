@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Award_records")//'奖励记录表'
@@ -12,25 +14,19 @@ import javax.persistence.Table;
 public class AwardRecords {
 
 	private int id;//主键
-	private int invitingid;//邀请人id
+	private Member invitingid;//邀请人id
 	private int byinvitingid;//被邀请人id
 	private int type;//奖励类型（0：注册奖励，1：投资奖励）
 	private int amount;//奖励金额
 	private int isAward;//0:未奖励  1：已奖励
 	private Date addTime;//添加时间
 	
-	@Id
-	@GeneratedValue
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getInvitingid() {
+	@ManyToOne
+	@JoinColumn(name="invitingid")
+	public Member getInvitingid() {
 		return invitingid;
 	}
-	public void setInvitingid(int invitingid) {
+	public void setInvitingid(Member invitingid) {
 		this.invitingid = invitingid;
 	}
 	public int getByinvitingid() {
@@ -38,6 +34,14 @@ public class AwardRecords {
 	}
 	public void setByinvitingid(int byinvitingid) {
 		this.byinvitingid = byinvitingid;
+	}
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getType() {
 		return type;

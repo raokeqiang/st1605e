@@ -22,7 +22,7 @@ public class Subject {
     private int type;//标的类型
     private int status;//标的状态
     private int floor_amount;//起投金额
-    private int amount;//标的金额
+    private int amount;//标的金额 
     private int first_id;//始标id
     private int parent_id;//父标id
     private int period;//标的周期

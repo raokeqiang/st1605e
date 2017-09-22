@@ -1,15 +1,11 @@
 package com.profit.controller;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.profit.bean.Member;
-import com.profit.bean.UserRole;
+import org.springframework.beans.factory.annotation.Qualifier;
 import com.profit.service.RoleService;
 /**
  * 后台管理主页
@@ -20,13 +16,8 @@ import com.profit.service.RoleService;
 @RequestMapping("/admin")
 public class BackMemberController {
 	
-	
-	@Autowired
 	@Qualifier("memderServiceImpl")
 	private RoleService<Member> memderServiceImpl;
-	
-	
-
 	
 	//查询账号后跳转账号管理界面
 	@RequestMapping("/Memder")

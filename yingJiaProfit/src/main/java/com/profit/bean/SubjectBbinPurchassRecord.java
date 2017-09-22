@@ -12,14 +12,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Subject_bbin_purchass_record") // 体验金购买标的
+@Table(name = "subject_bbin_purchase_record") // 体验金购买标的
 public class SubjectBbinPurchassRecord {
 
 	private int id;// 主键
 	private String serial_number;// 流水号
 	private int amount;// 购买金额
 	private String deal_ip;// 交易ip
-    private int delflag;
+	private Subject subject_id;// 标的ip
+	private Member member_id;//
+	private int delflag;
 	private Date create_date;
 	private Date update_date;
 	private int interest;// 结算利息
