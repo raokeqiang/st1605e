@@ -465,25 +465,32 @@ li.active a {
 					<div class="box" style="display: block">
 
 						<div class="ajaxContainer">
-							<table class="tzlist" width="100%" cellspacing="0"
-								cellpadding="0" bordercolor="#e9e9e9" border="1">
-								<tbody>
-									<tr>
-										<th width="30%">订单号</th>
-										<th width="20%">金额</th>
-										<th width="20%">状态</th>
-										<th width="20%">时间</th>
-									</tr>
-										<tr>
-											<td>0</td>
-											<td>0</td>
-											<td>
-													充值失败
-											</td> 	
-											<td>0</td>
-										</tr>
-								</tbody>
-							</table>
+						1111111111111111111111
+							<form method="post" id="form1">
+							
+						 <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+						
+                                    <tr>
+                                        <td align="right">姓名：</td>
+                                   <td><input type="text" class="tytxt" id="name" name="name"  value="${e.member.name }"></td>
+                                <td align="right">银行卡号：</td>
+                                        <td><input type="text" class="tytxt" id="card_no" name="card_no" value="${e.card_no }"></td>
+                                          <td><div id="d3"></div></td>
+                                    </tr>
+                               
+                                  <tr>
+                                        <td align="right">金额：</td>
+                                        <td><input type="text" class="tytxt" id="money" name="money" placeholder="请输入金额"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><button class="tybutton" id="butt" >充值</button></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+							</form>
+							
+							
 						</div>
 						<script type="text/javascript">
 							function getJsonInfo(url) {

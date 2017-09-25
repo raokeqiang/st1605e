@@ -441,7 +441,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/shopping/tocongzhi"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
@@ -479,15 +479,7 @@ li.active a {
 											<th>购买时间</th>
 										</tr>
 											<tr>
-											<c:forEach items="${list }"  var="e">
-											<span style="width: 10px;height: 10px;" class="iconfont"></span>
-												<td><h2>${e.serial_number }</h2></td>
-												<td>${e.subject.name }</td>
-												<td>${e.amount }</td>
-											<td><c:if test="${e.subject.status==0}">募集中</c:if> <c:if
-						                        test="${e.subject.status==1}">未募集</c:if></td>
-												<td>${e.subject.create_date}</td>
-												</c:forEach>
+											
 											</tr>
 									</tbody>
 								</table>

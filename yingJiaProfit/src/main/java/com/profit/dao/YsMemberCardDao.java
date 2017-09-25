@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import com.profit.bean.Member;
 import com.profit.bean.MemberAccount;
 import com.profit.bean.MemberBankcards;
+import com.profit.bean.MemberDepositRecord;
 import com.profit.bean.MemberProfitRecord;
 import com.profit.bean.MemberTradeRecord;
 import com.profit.bean.Member_tally;
@@ -40,4 +41,6 @@ List<SubjectPurchaseRecord>listSubjectPurchaseRecord(int subjectId);
 //购买之后次数加1，此时应该根据会员id和购买标的id同时进行操作
 //购买成功后的显示
 List<SubjectPurchaseRecord>listSubpurchaseRecord();
+//显示平台的账户余额，查询充值表根据用户的id
+List<MemberDepositRecord> memberDepositRecords(int memberId);
 }

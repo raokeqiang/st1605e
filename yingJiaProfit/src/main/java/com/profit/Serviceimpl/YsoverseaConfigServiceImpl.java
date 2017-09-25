@@ -45,9 +45,16 @@ public class YsoverseaConfigServiceImpl implements YsoverseaConfigService{
 	}
 
 	@Override
-	public List<OverseaConfigSubscribe> listding() {
-		return ysOverseaImpl.listover();
+	public List<OverseaConfigSubscribe> listding(int id) {
+		return ysOverseaImpl.listover(id);
 	}
+
+//	@Override
+//	public OverseaConfigSubscribe overseaConfiggetById(int oversea_id) {
+//		return ysOverseaImpl.overseaConfiggetById(oversea_id);
+//	}
+
+	
 
 
 

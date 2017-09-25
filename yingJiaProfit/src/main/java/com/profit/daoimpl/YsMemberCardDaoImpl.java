@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.profit.bean.Member;
 import com.profit.bean.MemberAccount;
 import com.profit.bean.MemberBankcards;
+import com.profit.bean.MemberDepositRecord;
 import com.profit.bean.MemberProfitRecord;
 import com.profit.bean.MemberTradeRecord;
 import com.profit.bean.Member_tally;
@@ -137,8 +138,19 @@ session.save(member_tally);
 		List<SubjectPurchaseRecord>list=session.createQuery("from SubjectPurchaseRecord").list();
 		return list;
 	}
-	
+	// 根据id查询充值记录表
+	@Override
+	public List<MemberDepositRecord> memberDepositRecords(int memberId) { 
+		Session session=getSession();
+		String hql="from MemberDepositRecord m where m.member.id"+memberId;
+		List<MemberDepositRecord> list=session.createQuery(hql).list();
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
+
+}
 
 
 

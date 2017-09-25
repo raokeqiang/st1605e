@@ -7,4 +7,5 @@ import com.profit.bean.Subject;
 
 public interface YsSubjectServiceqian {
 List<Subject>list(Map map);
+List<Subject>query(String hql);
 }

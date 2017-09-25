@@ -60,10 +60,6 @@ public class YsOverseaConfigController {
     @RequestMapping("/update")
     public String update(OverseaConfig over){  //更新
     	OverseaConfig  newover=overService.getById(over.getId());//通过id获取的是以前的数据
-//    	System.out.println(over.getTitle());
-//    	System.out.println(over.getChild_title());
-//    	System.out.println(over.getStatus());
-//    	System.out.println(over.getSortColum());
     	newover.setTitle(over.getTitle());
         newover.setChild_title(over.getChild_title());
         newover.setStatus(over.getStatus());
@@ -81,9 +77,12 @@ public class YsOverseaConfigController {
 //    	return "yslistding";
 //    }
     @RequestMapping("/listding")
-   	public String list(Model model){
-       	List<OverseaConfigSubscribe> list2 = overService.listding();
+   	public String list(Model model,int id){
+    	//System.out.println(id);
+    	//OverseaConfigSubscribe overseaConfigSubscribe=overService.overseaConfiggetById(id);
+     	List<OverseaConfigSubscribe> list2 = overService.listding(id);
        	model.addAttribute("list2", list2);
+       	System.out.println(list2.size());
    		return "Sealistding";
    	}
    }

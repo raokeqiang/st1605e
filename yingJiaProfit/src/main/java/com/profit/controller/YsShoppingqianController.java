@@ -1,5 +1,6 @@
 package com.profit.controller;
 import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -7,10 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -62,8 +63,7 @@ public class YsShoppingqianController {
 				// 判断绑卡member_bankcards(成员银联表)和member关联memberId 关联
 				MemberBankcards memberBankcards = memberCardService.memberCardById(memberId);
 				model.addAttribute("memberBankcards", memberBankcards);
-				
-                return "front/frontShopping";
+				 return "front/frontShopping";
              }
 		}
 		return "front/frontIframeLogin";
@@ -94,6 +94,7 @@ public class YsShoppingqianController {
 				subject=this.memberCardService.getSubjectById(Integer.valueOf(subjectId));
 				//结算利息
 				double interest=((((Integer.parseInt(mytext)*(subject.getYear_rate()+1))/100)/365)*(subject.getPeriod()));
+				System.out.println("wang"+interest);
 			   //成员账户表
 				MemberAccount memberAccount=this.memberCardService.memberAccountById(meberId);
 				memberAccount.setUseable_balance(Integer.parseInt(amountYuE)-Integer.parseInt(mytext));
@@ -161,6 +162,8 @@ public class YsShoppingqianController {
 				return "redirect:/shopping/toBuy";
 			}
 }
+		
+	
 //		//购买成功后，页面显示
 //		@RequestMapping("/showshop")
 //		public String showshop(Model model){
@@ -170,16 +173,17 @@ public class YsShoppingqianController {
 //		}
 	
 	// 绑定银行卡，member_bankcards(成员银联表)和member关联
-	@RequestMapping("/memberCard")
-	public String memberCard(Model model) {
-		List<MemberBankcards>list=memberCardService.listMemberCard();
-		model.addAttribute("list",list);
-		return "frontPersonage/bangka";
-	}
+//	@RequestMapping("/memberCard")
+//	public String memberCard(Model model) {
+//		List<MemberBankcards>list=memberCardService.listMemberCard();
+//		model.addAttribute("list",list);
+//		return "frontPersonage/bangka";
+//	}
 
 // 绑卡，将数据绑到银行卡中
 	@RequestMapping("/savememberCard")
-	public String savememberCard(MemberBankcards memberCard, HttpServletRequest request) {
+	public String savememberCard(MemberBankcards memberCard, HttpServletRequest request,HttpSession session) {
+	Member member	=(Member) session.getAttribute("member");
 		// 从页面上获取值
 		String name = request.getParameter("name");
 		String identity = request.getParameter("identity");
@@ -188,16 +192,25 @@ public class YsShoppingqianController {
 		String se = request.getParameter("se");
 		String  city=request.getParameter("city");
 		String cardaddres=se+city;
-		System.out.println("名字:"+name+"身份证:"+identity+"开户银行"+type+"卡号"+card_no+"地址:"+cardaddres);
+	System.out.println("名字:"+name+"身份证:"+identity+"开户银行"+type+"卡号"+card_no+"地址:"+cardaddres);
         memberCard.setCard_no(card_no);
 		memberCard.setCardaddress(cardaddres);
 		memberCard.setType(type);
-	   System.out.println("qqqqqqq"+memberCard.getMember());
-		System.out.println("111111111111"+	memberCard.getType()+memberCard.getMember().getIdentity());
-		memberCard.getMember().setIdentity(identity);
-	    memberCard.getMember().setName(name);
+		memberCard.setMember(member);
+		memberCard.setCreate_date(new Date());
+        memberCard.getMember().setIdentity(identity);
+        memberCard.getMember().setName(name);
 		memberCardService.saveMemberCard(memberCard);
-		return "front/frontShopping";
-	}
+		return "frontPersonage/touzi";
+}
 
+	//充值
+	@RequestMapping("/tocongzhi")
+	public String congzhi(HttpSession session,Model model){
+//		Member member	=(Member) session.getAttribute("member");
+//		List<MemberBankcards>list=memberCardService.listMemberCard(); 
+//		model.addAttribute("list",list);
+		return "frontPersonage/index";
+		
+	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import com.profit.bean.Member;
 import com.profit.bean.MemberAccount;
 import com.profit.bean.MemberBankcards;
+import com.profit.bean.MemberDepositRecord;
 import com.profit.bean.MemberProfitRecord;
 import com.profit.bean.MemberTradeRecord;
 import com.profit.bean.Member_tally;
@@ -35,4 +36,6 @@ void saveSubjectPurchaseRecord(SubjectPurchaseRecord subjectPurchaseRecord);
 List<SubjectPurchaseRecord>listSubjectPurchaseRecord(int subjectId);
 //购买成功后的显示
 List<SubjectPurchaseRecord>listSubpurchaseRecord();
+//显示平台的账户余额
+List<MemberDepositRecord> memberDepositRecords(int memberId);
 }

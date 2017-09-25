@@ -10,7 +10,8 @@ import com.profit.bean.OverseaConfigSubscribe;
 
 public interface YsOverseaConfigDao {
 	List<OverseaConfig> listAllover();
-	List<OverseaConfigSubscribe>listover();
+//	OverseaConfigSubscribe overseaConfiggetById(int oversea_id);
+	List<OverseaConfigSubscribe>listover(int id);
 	 OverseaConfig getoverById(int id);
 	 void deleteover(OverseaConfig over);
 	 void updateover(OverseaConfig over);

@@ -24,7 +24,10 @@ public class YsSubjectServiceImplqian implements YsSubjectServiceqian{
 		return 	this.subjectDaoqian.list(map);
 	}
 
-	
+	@Override
+	public List<Subject> query(String hql) {
+		return this.subjectDaoqian.query(hql);
+	}	
 
 
 

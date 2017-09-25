@@ -66,6 +66,12 @@ public class YsSubjectDaoqianImpl implements YsSubjectDaoqian{
 	   System.out.println("hql===="+hql);
 	   return hql;
    }
+@Override
+public List<Subject> query(String hql) {
+	Session session=getsession();
+	List<Subject>list=session.createQuery(hql).list();
+	return list;
+}
 
 	
 }

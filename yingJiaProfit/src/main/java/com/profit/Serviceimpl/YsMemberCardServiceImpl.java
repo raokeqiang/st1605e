@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.profit.bean.Member;
 import com.profit.bean.MemberAccount;
 import com.profit.bean.MemberBankcards;
+import com.profit.bean.MemberDepositRecord;
 import com.profit.bean.MemberProfitRecord;
 import com.profit.bean.MemberTradeRecord;
 import com.profit.bean.Member_tally;
@@ -84,7 +85,7 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 
 	@Override
 	public void saveSubjectPurchaseRecord(SubjectPurchaseRecord subjectPurchaseRecord) {
-  this.ysmeberCard.saveSubjectPurchaseRecord(subjectPurchaseRecord);		
+      this.ysmeberCard.saveSubjectPurchaseRecord(subjectPurchaseRecord);		
 	}
 
 	@Override
@@ -95,6 +96,11 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 	@Override
 	public List<SubjectPurchaseRecord> listSubpurchaseRecord() {
 		return this.ysmeberCard.listSubpurchaseRecord();
+	}
+
+	@Override
+	public List<MemberDepositRecord> memberDepositRecords(int memberId) {
+		return this.ysmeberCard.memberDepositRecords(memberId);
 	}
 
 }
