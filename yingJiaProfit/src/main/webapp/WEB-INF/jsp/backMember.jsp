@@ -10,7 +10,6 @@
 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 	
-	<script type="text/javascript" src="/yingJiaProfit/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="/yingJiaProfit/js/slimtable.min.js"></script>
 	<link rel="stylesheet" href="/yingJiaProfit/css/slimtable.css">
 	
@@ -29,17 +28,16 @@
 	
 <body>
 <div class="style16">
-<table id="exampletable"  width=100% class="table">	
-<caption>账号管理</caption>
+<table id="exampletable"  width=100% class="table">
+<caption><input type="button" value="添加" class="btn btn-primary" /></caption>
    <thead>
       <tr>
          <th>编号</th>
-         <th>手机号</th>
          <th>用户名</th>
-         <th>姓名</th>
-         <th>身份证</th>
-         <th>邀请码</th>
-         <th>注册时间</th>
+         <th>名称</th>
+         <th>手机号</th>
+         <th>创建时间</th>
+         <th>身份</th>
          <th>操作</th>
       </tr>
    </thead>
@@ -47,14 +45,12 @@
    <c:forEach  items="${list }" var="e" varStatus="stat" >
       <tr>
       <td>${stat.index+1 }</td>
-      <td>${e.mobile_Phone }</td>
+      <td>${e.user_name }</td>
       <td>${e.name }</td>
-      <td>${e.member_name }</td>
-      <td>${e.identity }</td>  
-      <td>${e.invitationCode }</td> 
-      <td>${e.create_date }</td> 
-      <td><a href="#">编辑</a>||
-      	  <a href="#">删除</a>
+      <td>${e.mobile_Phone }</td>
+      <td>${e.create_date }</td>  
+      <td>${e.userRole.cname }</td> 
+      <td><input type="button" value="编辑" class="btn btn-primary" />
       </td>
       </tr>
     </c:forEach>
@@ -66,6 +62,5 @@ $(function() {
 	$("#exampletable").slimtable();
 });
 </script>
-
 </body>
 </html>

@@ -1,14 +1,17 @@
 package com.profit.controller;
 
 import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.profit.bean.Member;
-import org.springframework.beans.factory.annotation.Qualifier;
-import com.profit.service.RoleService;
+
+import com.profit.Serviceimpl.BackUsersServiceImpl;
+import com.profit.service.BackUsersService;
 /**
- * 后台管理主页
+ * 后台账户管理
  * @author Administrator
  *
  */
@@ -16,14 +19,14 @@ import com.profit.service.RoleService;
 @RequestMapping("/admin")
 public class BackMemberController {
 	
-	@Qualifier("memderServiceImpl")
-	private RoleService<Member> memderServiceImpl;
+	@Resource
+	private BackUsersService backUsersServiceImpl;
 	
 	//查询账号后跳转账号管理界面
 	@RequestMapping("/Memder")
 	public String Memder(Model model){
-		List<Member> list=memderServiceImpl.listMemder();
-		model.addAttribute("list",list);
+		List list=this.backUsersServiceImpl.ListUser();
+		model.addAttribute("list", list);
 		return "backMember";
 	}
 }
