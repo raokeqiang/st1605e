@@ -125,5 +125,4 @@ public class Users {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
-
 }

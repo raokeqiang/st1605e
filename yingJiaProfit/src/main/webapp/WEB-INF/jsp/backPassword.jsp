@@ -25,33 +25,38 @@
                     <h2>密码设置</h2>
                 </div>
 
+               
                 <form id="defaultForm" method="post" class="form-horizontal" action="/yingJiaProfit/backPassword/updatePassword">
+                   <input type="hidden" id="oldpassword" value="${password }">
                     <div class="alert alert-success" style="display: none;"></div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label">请输入原密码</label>
                         <div class="col-lg-5">
-                            <input type="text" class="form-control" name="password" />
+                            <input type="text" class="form-control" id="password" name="password" placeholder="请输入原密码" onkeyup="checkse()"/>
+                            <span style="display: none; color:red" id="ypwd">原密码不正确</span>
                         </div>
                     </div>
 
                      <div class="form-group">	
                         <label class="col-lg-3 control-label">请输入新密码</label>
                         <div class="col-lg-5">
-                            <input type="password" class="form-control" name="password1" />
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="请输入密码"/>
                         </div>
                     </div>
 
                     <div class="form-group">	
                         <label class="col-lg-3 control-label">请再输入一次</label>
                         <div class="col-lg-5">
-                            <input type="password" class="form-control" name="password2" />
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="请输入密码" onkeyup="checksu()" />
+                            <span style="display: none; color:red" id="pwd">两次输入密码不一致</span>
                         </div>
                     </div>
 
                      <div class="form-group">
                             <div class="col-lg-5 col-lg-offset-3">
-                                <button type="submit" class="btn btn-primary">提交</button>
+                                <button type="submit" class="btn btn-primary" id="bt1">提交</button>
+                                 <button type="submit" class="btn btn-primary" disabled="disabled" id="bt2">提交</button>
                             </div>
                         </div>
                 </form>
@@ -62,70 +67,43 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#defaultForm').bootstrapValidator({
-        	    message: 'This value is not valid',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh',
-            },
-         
-            fields: {
-            	password: {
-                    validators: {
-                        notEmpty: {
-                            message: '原密码不能为空'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: '密码长度不能小于6或者大于30'
-                        },
-                        remote: {             //ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-	                         url: '/yingJiaProfit/backPassword/lober',//验证地址
-	                         message: '原密码输入错误!',
-	                         delay :  2000,   //每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
-	                         type: 'POST',
-	                        	
-                    }
-                   }
-                },
-                password1: {
-                    validators: {
-                        notEmpty: {
-                            message: '新密码不能为空！'
-                        },
-                       indentical:{
-                        	field: 'password2',
-                        	  message: '·密码不一致'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: '·密码长度不能小于6或者大于30'
-                        }
-                    }
-                },
-                password2: {
-                    validators: {
-                        notEmpty: {
-                            message: '新密码不能为空！'
-                        },
-                        indentical:{
-                        	field: 'password1',
-                        	  message: '·密码不一致'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: '·密码长度不能小于6或者大于30'
-                        },
-                    }
-                },
-            }
-        });
-    });
+$(function() {
+	$("#bt1").hide();
+	$("#bt2").show();
+});
+	
+    	function checkse(){
+    		var ypwd=$("#oldpassword").val();
+    		var xpwd=$("#password").val();
+    		if(ypwd==xpwd){
+    			$("#ypwd").hide();
+    			$("#bt2").hide();
+    			$("#bt1").show();
+    			
+    		}
+    		if(ypwd!=xpwd){
+    			$("#ypwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    	}
+    	
+    	function checksu(){
+    		var password1=$("#password1").val();
+    		var password2=$("#password2").val();
+    		if(password1==password2){
+    			$("#pwd").hide();
+    			$("#bt2").hide();
+    			$("#bt1").show();
+    		}
+    		if(password1!=password2){
+    			$("#pwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    	}
+    	
+     
         
 </script>
 </body>
