@@ -15,7 +15,7 @@ public class AwardRecords {
 
 	private int id;//主键
 	private Member invitingid;//邀请人id
-	private int byinvitingid;//被邀请人id
+	private Member byinvitingid;//被邀请人id
 	private int type;//奖励类型（0：注册奖励，1：投资奖励）
 	private int amount;//奖励金额
 	private int isAward;//0:未奖励  1：已奖励
@@ -29,10 +29,12 @@ public class AwardRecords {
 	public void setInvitingid(Member invitingid) {
 		this.invitingid = invitingid;
 	}
-	public int getByinvitingid() {
+	@ManyToOne
+	@JoinColumn(name="byinvitingid")
+	public Member getByinvitingid() {
 		return byinvitingid;
 	}
-	public void setByinvitingid(int byinvitingid) {
+	public void setByinvitingid(Member byinvitingid) {
 		this.byinvitingid = byinvitingid;
 	}
 	@Id

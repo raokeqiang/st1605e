@@ -27,9 +27,9 @@
        <tbody>
          <td>${stat.index+1 }</td>
          <td>${subjectBbinPurchassRecord.serial_number }</td>
-         <td>${subjectBbinPurchassRecord.member_id.mobile_Phone }</td>
-         <td>${subjectBbinPurchassRecord.member_id.member_name }</td>
-         <td>${subjectBbinPurchassRecord.member_id.identity }</td>
+         <td>${subjectBbinPurchassRecord.member.mobile_Phone }</td>
+         <td>${subjectBbinPurchassRecord.member.member_name }</td>
+         <td>${subjectBbinPurchassRecord.member.identity }</td>
          <td>${subjectBbinPurchassRecord.interest }</td>
          <td>${subjectBbinPurchassRecord.last_profit_day }</td>
          <td>
@@ -38,7 +38,7 @@
          </td>
          <td>
            <c:if test="${subjectBbinPurchassRecord.ispayment==0 }">
-              <button><a href="/yingJiaProfit/Payint/Bpary?id=${subjectPurchaseRecord.id }&&sid=${subject_id }">还款</a></button> 
+              <button><a href="/yingJiaProfit/Payint/Bpary?id=${subjectPurchaseRecord.id }&& sid=${subject_id }">还款</a></button> 
            </c:if> 
            <c:if test="${subjectBbinPurchassRecord.ispayment==1 }">已还款</c:if> 
          </td>

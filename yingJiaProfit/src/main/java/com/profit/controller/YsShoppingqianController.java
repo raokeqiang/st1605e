@@ -147,7 +147,7 @@ public class YsShoppingqianController {
 				subjectPurchaseRecord.setDelflag(0);
 				subjectPurchaseRecord.setCreate_date(sysDate);
 				subjectPurchaseRecord.setUpdate_date(sysDate);
-				subjectPurchaseRecord.setInterset(interest);
+				subjectPurchaseRecord.setInterest(interest);
 				subjectPurchaseRecord.setIspayment(1);
 				subjectPurchaseRecord.setPay_interest_times(1);
 				subjectPurchaseRecord.setLast_profit_day(Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date())));

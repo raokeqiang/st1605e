@@ -55,7 +55,7 @@ public class SubjectDao {
         		   subject.setId(Integer.parseInt(obj[10].toString()));
         	   }
         	  
-        	  subjectPurchaseRecord.setSubject_id(subject);
+        	  subjectPurchaseRecord.setSubject(subject);
         	  int ams;
        	      if(obj[4]==null){
        		   ams=0;
