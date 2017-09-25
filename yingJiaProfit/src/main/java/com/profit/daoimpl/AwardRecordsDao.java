@@ -23,8 +23,10 @@ public class AwardRecordsDao {
 	}
 	public List<AwardRecords> ListAll(Map map) {
 		Session session = getSession();
-		String hql="from AwardRecords where 0=0 ";
-		List list=session.createSQLQuery(hql).list();
+		String hql="from AwardRecords a where 0=0 ";
+		hql=getHql(hql,map);
+		List<AwardRecords> list=session.createQuery(hql).list();
+		System.out.println(hql);
 		return list;
 	}
 	public List<Range> ListRangeAll(Map map) {
@@ -55,7 +57,6 @@ public class AwardRecordsDao {
 		return listrange;
 	}
 	public String getsql(String sql,Map map){
-		
 		String qmember_name=(String)map.get("qmember_name");   
 		String qmobile_Phone=(String)map.get("qmobile_Phone");     
 		String qinvitationCode=(String)map.get("qinvitationCode");
@@ -90,6 +91,13 @@ public class AwardRecordsDao {
    	   }
       }
 		return sql;
+	}
+	public String getHql(String hql,Map map){
+		String phone=(String)map.get("phone");
+		 if(phone!=null&&!phone.equals("")){
+	    	   hql+=" and a.invitingid.mobile_Phone ="+phone;
+	       }
+		 return hql;
 	}
 	public AwardRecords getById(int id) {
 		Session session=getSession();

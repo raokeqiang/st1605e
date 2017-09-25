@@ -103,23 +103,24 @@
              </td>
              <td>投资状态</td>
              <td>
-                <c:if test="${subjectPurchaseRecord.subject_id.status==1 }">募集中</c:if>
-                <c:if test="${subjectPurchaseRecord.subject_id.status==0 }">已结束</c:if>
+                <c:if test="${subjectPurchaseRecord.subject.status==1 }">募集中</c:if>
+                <c:if test="${subjectPurchaseRecord.subject.status==0 }">已结束</c:if>
              </td>
         </tr>
         <tr style="color:black;font-size: 15px">
              <td>投资标的名称</td>
-             <td>${subjectPurchaseRecord.subject_id.name }</td>
+             <td>${subjectPurchaseRecord.subject.name }</td>
               <td>投资收益(/周期)</td>
              <td>
              <script type="text/javascript">
                 var am=${subjectPurchaseRecord.amount };
                 var count=${subjectPurchaseRecord.pay_interest_times };
-                var per=${subjectPurchaseRecord.subject_id.period };
-                var year=${subjectPurchaseRecord.subject_id.year_rate};
+                var per=${subjectPurchaseRecord.subject.period };
+                var year=${subjectPurchaseRecord.subject.year_rate};
                 var shou=am*count*(year/100)/365*per;
                 document.write(shou);
              </script>
+             
              </td>
         </tr>
         <tr style="color:black;font-size: 15px">

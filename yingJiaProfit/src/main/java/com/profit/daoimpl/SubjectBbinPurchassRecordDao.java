@@ -29,7 +29,7 @@ public class SubjectBbinPurchassRecordDao {
   public String getHql(String hql,Map map){
       int subject_id=(int)map.get("subject_id");   
         if(subject_id!=0){
-       hql+=" and s.subject_id.id = "+subject_id;
+       hql+=" and s.subject.id = "+subject_id;
    }
    return hql;
  }
