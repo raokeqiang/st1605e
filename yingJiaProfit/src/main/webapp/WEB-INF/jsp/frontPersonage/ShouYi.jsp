@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -339,9 +340,13 @@ li.active a {
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
+						<c:if test="${member.id==null }"><li><a class="item last"
+						href="/yingJiaProfit/toFrontLogin/login">
+							我的加法库 </a></li></c:if>
+							<c:if test="${member.id!=null }">
 					<li><a class="item last"
-						href="/yingJiaProfit/show/frontHome">
-							我的加法库 </a></li>
+						href="/yingJiaProfit/MemberAccount/select?member_id=${member.id }">
+							我的加法库 </a></li></c:if>
 				</ul>
 			</div>
 		</div>
@@ -381,23 +386,23 @@ li.active a {
 	</table>
 		<div class="countBox">
 		<ul>
-			<li><h2>0</h2>
+			<li><h2>${memberAccount.useable_balance }</h2>
 				<p>
 					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
 				</p></li>
-			<li><h2>0</h2>
+			<li><h2>${memberAccount.useable_balance+memberAccount.invest_amount+memberAccount.total_profit }</h2>
 				<p>
 					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
 				</p></li>
-			<li><h2 style="color: #9d8440">0</h2>
+			<li><h2 style="color: #9d8440">${memberAccount.invest_amount }</h2>  
 				<p>
 					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
 				</p></li>
-			<li><h2 style="color: #9d8440">0</h2>
+			<li><h2 style="color: #9d8440">${memberAccount.total_profit }</h2>
 				<p>
 					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
 				</p></li>
-			<li><h2 style="color: #9d8440">0</h2>
+			<li><h2 style="color: #9d8440">${memberAccount.imuseale_balance }</h2>
 				<p>
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>

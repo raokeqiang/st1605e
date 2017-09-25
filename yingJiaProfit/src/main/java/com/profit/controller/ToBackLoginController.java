@@ -77,20 +77,20 @@ public class ToBackLoginController {
 		        System.out.println(msg);  
 		    } catch (DisabledAccountException e) {  
 		        msg = "帐号已被禁用. The account for username " + token.getPrincipal() + " was disabled.";  
-		        model.addAttribute("message", msg);  
-		        System.out.println(msg);  
-		    } catch (ExpiredCredentialsException e) {  
+		        model.addAttribute("message", msg);
+		        System.out.println(msg); 
+		    } catch (ExpiredCredentialsException e) { 
 		        msg = "帐号已过期. the account for username " + token.getPrincipal() + "  was expired.";  
-		        model.addAttribute("message", msg);  
-		        System.out.println(msg);  
-		    } catch (UnknownAccountException e) {  
+		        model.addAttribute("message", msg); 
+		        System.out.println(msg); 
+		    } catch (UnknownAccountException e) { 
 		        msg = "帐号不存在. There is no user with username of " + token.getPrincipal();  
-		        model.addAttribute("message", msg);  
-		        System.out.println(msg);  
-		    } catch (UnauthorizedException e) {  
-		        msg = "您没有得到相应的授权！" + e.getMessage();  
-		        model.addAttribute("message", msg);  
-		        System.out.println(msg);  
+		        model.addAttribute("message", msg); 
+		        System.out.println(msg); 
+		    } catch (UnauthorizedException e) {
+		        msg = "您没有得到相应的授权！" + e.getMessage(); 
+		        model.addAttribute("message", msg); 
+		        System.out.println(msg); 
 		    }  
 		return "backLogin";
 	}

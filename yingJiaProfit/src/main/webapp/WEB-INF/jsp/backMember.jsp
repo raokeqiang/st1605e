@@ -6,9 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>账号管理</title>
-<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+	<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
 	<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="/yingJiaProfit/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/yingJiaProfit/js/slimtable.min.js"></script>
+	<link rel="stylesheet" href="/yingJiaProfit/css/slimtable.css">
+	
 </head>
 
 	<style type="text/css">
@@ -24,7 +29,7 @@
 	
 <body>
 <div class="style16">
-<table  width=100%  class="table">
+<table id="exampletable"  width=100% class="table">	
 <caption>账号管理</caption>
    <thead>
       <tr>
@@ -48,11 +53,19 @@
       <td>${e.identity }</td>  
       <td>${e.invitationCode }</td> 
       <td>${e.create_date }</td> 
-      <td><a href="#">账号详情</a></td>
+      <td><a href="#">编辑</a>||
+      	  <a href="#">删除</a>
+      </td>
       </tr>
     </c:forEach>
    </tbody>
 </table>
 </div>
+<script type="text/javascript">
+$(function() {
+	$("#exampletable").slimtable();
+});
+</script>
+
 </body>
 </html>

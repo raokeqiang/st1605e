@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -379,9 +380,13 @@ li.active a {
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
+				<c:if test="${member.id==null }"><li><a class="item last"
+						href="/yingJiaProfit/toFrontLogin/login">
+							我的加法库 </a></li></c:if>
+							<c:if test="${member.id!=null }">
 					<li><a class="item last"
-						href="/yingJiaProfit/toFrontPersonage/shouyi">
-							我的加法库 </a></li>
+						href="/yingJiaProfit/MemberAccount/select?member_id=${member.id }">
+							我的加法库 </a></li></c:if>
 				</ul>
 			</div>
 		</div>

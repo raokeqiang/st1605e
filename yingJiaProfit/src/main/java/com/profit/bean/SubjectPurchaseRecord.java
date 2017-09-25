@@ -105,9 +105,12 @@ public class SubjectPurchaseRecord {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
+
+
 	public double getInterest() {
 		return interest;
 	}
+
 	public void setInterest(double interest) {
 		this.interest = interest;
 	}
