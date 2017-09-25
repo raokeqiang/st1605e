@@ -33,8 +33,9 @@ public class MemberDepositRecordDao {
 		String qstatus=(String)map.get("qstatus");
 		String qfuiouno=(String)map.get("qfuiouno");
 		String qtime=(String)map.get("qtime");
-		int member_id=(int)map.get("member_id");  
-	      if(member_id!=0){     //根据member_id查询充值管理表 内容
+		int member_id=0;
+	      if(map.get("member_id")!=null){     //根据member_id查询充值管理表 内容
+	    	  member_id=(int)map.get("member_id"); 
 	    	  hql+=" and m.member.id = "+member_id;
 	      }
 		

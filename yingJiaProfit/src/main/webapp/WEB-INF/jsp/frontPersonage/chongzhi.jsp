@@ -465,6 +465,7 @@ li.active a {
 					<div class="box" style="display: block">
 
 						<div class="ajaxContainer">
+
 						1111111111111111111111
 							<form method="post" id="form1">
 							
@@ -491,6 +492,30 @@ li.active a {
 							</form>
 							
 							
+
+							<table class="tzlist" width="100%" cellspacing="0"
+								cellpadding="0" bordercolor="#e9e9e9" border="1">
+								<tbody>
+									<tr>
+										<th width="30%">订单号</th>
+										<th width="20%">金额</th>
+										<th width="20%">状态</th>
+										<th width="20%">时间</th>
+									</tr>
+										<c:forEach items="${listAll }" var="m">
+										<tr>
+											<td>${m.serial_number }</td>
+											<td>${m.amount }</td>
+											<td>
+											 <c:if test="${m.status==0 }">待付款</c:if>
+                                             <c:if test="${m.status==1 }">已完成</c:if>
+											</td>
+											<td>${m.create_date }</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+
 						</div>
 						<script type="text/javascript">
 							function getJsonInfo(url) {
