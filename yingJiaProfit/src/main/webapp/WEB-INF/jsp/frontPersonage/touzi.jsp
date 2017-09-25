@@ -407,10 +407,10 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>

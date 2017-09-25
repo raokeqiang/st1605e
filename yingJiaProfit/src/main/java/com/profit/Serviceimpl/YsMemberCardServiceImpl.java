@@ -24,8 +24,8 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 	@Autowired
 	private YsMemberCardDao ysmeberCard;
 	@Override
-	public List<MemberBankcards> listMemberCard() {
-		return ysmeberCard.listMembercard();
+	public List<MemberBankcards> listMemberCard(int memberId) {
+		return ysmeberCard.listMembercard(memberId);
 	}
 
 	@Override
@@ -42,10 +42,15 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 	public List<Member> listMember() {
 		return ysmeberCard.listMember();
 	}
-
+//判断是否绑卡
 	@Override
 	public Member membergetById(int memberId) {
 		return this.ysmeberCard.membergetById(memberId);
+	}
+	//判断是否绑卡
+	@Override
+	public boolean getMemberBankcardsKa(String card_no) {
+		return this.ysmeberCard.getMemberBankcardsKa(card_no);
 	}
 
 	@Override
@@ -102,5 +107,33 @@ public class YsMemberCardServiceImpl implements YsMemberCardService {
 	public List<MemberDepositRecord> memberDepositRecords(int memberId) {
 		return this.ysmeberCard.memberDepositRecords(memberId);
 	}
+
+	@Override
+	public void saveMemberDepositRecord(MemberDepositRecord memberDepositRecord) {
+		 //保存充值记录表
+	 this.ysmeberCard.saveMemberDepositRecord(memberDepositRecord);
+	}
+
+	@Override
+	public void updateMemberDepositRecord(MemberDepositRecord memberDepositRecord) {
+    this.ysmeberCard.updateMemberDepositRecord(memberDepositRecord);	
+	}
+
+	@Override
+	public void updateMemberTradeRecord(MemberTradeRecord memberTradeRecord) {
+  this.ysmeberCard.updateMemberTradeRecord(memberTradeRecord);		
+	}
+
+	@Override
+	public void updateMemberAccount(MemberAccount memberAccount) {
+   this.ysmeberCard.updateMemberAccount(memberAccount);		
+	}
+
+	@Override
+	public void saveMemberAccount(MemberAccount memberAccount) {
+this.ysmeberCard.saveMemberAccount(memberAccount);		
+	}
+
+	
 
 }

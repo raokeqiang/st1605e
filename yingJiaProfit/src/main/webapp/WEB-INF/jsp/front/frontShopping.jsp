@@ -325,8 +325,7 @@ li.active a {
 
 $(function(){
 	$("#btnBuy").click(function(){ 
-		alert("1111");
-		$("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
+	  $("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
 		$("#form1").submit();
 	});
 	});
@@ -471,7 +470,7 @@ function fun(obj){
                     	<c:if test="${member.id>0 }">
 	                    	<span class="fr">
 	                    	<input type="hidden" value="${memberAccount.useable_balance }"  id="amountYuE" name="amountYuE">
-	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="">充值&nbsp;&nbsp;&nbsp;</a>
+	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="/yingJiaProfit/shopping/tocongzhi">充值&nbsp;&nbsp;&nbsp;</a>
 							</span>
                         	<h2>账户余额</h2>
                         	<input type="hidden" value="${memberAccount.useable_balance }" id="hiddenLogin">

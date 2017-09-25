@@ -76,6 +76,7 @@ public class YsShowSubjectController {
     String type,@RequestParam(required=false,value="year_rate")
     String year_rate,@RequestParam(required=false,value="status")String status,
     @RequestParam(required=false,value="days")String days,Model model,HttpSession re){
+		System.out.println(status);
     	if("-1".equals(type)){
     		re.setAttribute("type", null);
     		type=null;

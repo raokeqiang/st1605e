@@ -470,13 +470,13 @@ li.active a {
             </ul>
         	<ul>
             	<li class="first">标的状态：</li>
-               		<li><a href="yingJiaProfit/subjectqian/queryType?status=-1"
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=-1"
                		 id="41" <c:if test="${ empty status}">class="select" </c:if>>全部</a></li>
-               		<li><a href="yingJiaProfit/subjectqian/queryType?status=0"  id="42" 
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=0"  id="42" 
                		<c:if test="${status==0}">class="select" </c:if>>投标中</a></li>
-               		<li><a href="yingJiaProfit/subjectqian/queryType?status=1"  id="43" 
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=1"  id="43" 
                		 <c:if test="${status==1}">class="select" </c:if>>还款中</a></li>
-               		<li><a href="yingJiaProfit/subjectqian/queryType?status=2"  id="44" 
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=2"  id="44" 
                		 <c:if test="${status==2}">class="select" </c:if>>已完成</a></li>
             </ul>
         </div>
