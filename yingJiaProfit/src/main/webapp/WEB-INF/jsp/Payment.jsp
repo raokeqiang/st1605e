@@ -27,14 +27,14 @@
       <tbody>
          <td>${subjectPurchaseRecord.id }</td>
          <td>${subjectPurchaseRecord.serial_number }</td>
-         <td>${subjectPurchaseRecord.member_id.mobile_Phone }</td>
-         <td>${subjectPurchaseRecord.member_id.member_name }</td>
-         <td>${subjectPurchaseRecord.member_id.identity }</td>
+         <td>${subjectPurchaseRecord.member.mobile_Phone }</td>
+         <td>${subjectPurchaseRecord.member.member_name }</td>
+         <td>${subjectPurchaseRecord.member.identity }</td>
          <td>
              <script type="text/javascript">
                 var am=${subjectPurchaseRecord.amount };
                 var count=${subjectPurchaseRecord.pay_interest_times };
-                var inter=${subjectPurchaseRecord.interset };
+                var inter=${subjectPurchaseRecord.interest };
                 var sum=(am+inter)*count;
                 document.write(sum);
              </script>
@@ -46,7 +46,7 @@
          </td>
          <td>
            <c:if test="${subjectPurchaseRecord.ispayment==0 }">
-              <button><a href="/yingJiaProfit/Payint/Ppary?id=${subjectPurchaseRecord.id }&&sid=${subject_id }">还款</a></button> 
+              <button><a href="/yingJiaProfit/Payint/Ppary?id=${subjectPurchaseRecord.id }&&sid=${subjectPurchaseRecord.subject }">还款</a></button> 
            </c:if> 
            <c:if test="${subjectPurchaseRecord.ispayment==1 }">已还款</c:if> 
          </td>

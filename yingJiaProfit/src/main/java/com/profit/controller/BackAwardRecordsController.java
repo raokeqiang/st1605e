@@ -41,19 +41,15 @@ public class BackAwardRecordsController {
 		model.addAttribute("listAll",listAll);
 		return "/Invite";
 	}
-	@RequestMapping("/Enroll")
-	public String Enroll(Model model,int id){
-		
-		return "redirect:/Invite/listAll";
-	}
-	@RequestMapping("/Invest")
-	public String Invest(Model model,int id){
-		
-		return "redirect:/Invite/listAll";
-	}
+	
 	@RequestMapping("/Rewardslog")
-	public String Rewardslog(Model model,int id){
-		
-		return "redirect:/Invite/listAll";
+	public String Rewardslog(Model model,String phone){
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("phone",phone);
+		System.out.println(phone);
+		List<AwardRecords> awardRecordsList=awardRecordsServiceImpl.listAll(map);
+		System.out.println("-------------213434");
+		model.addAttribute("awardRecordsList", awardRecordsList);
+		return "/Invitelog";
 	}
 }

@@ -34,6 +34,11 @@ public class MembeWithdrawRecordDao {
 		String qbank_card=(String)map.get("qbank_card");
 		String qstatus=(String)map.get("qstatus");
 		String qcreate_date=(String)map.get("qcreate_date");
+		int member_id=0;
+		 if(map.get("member_id")!=null){
+		    	member_id=(int)map.get("member_id");
+		    	hql+=" and m.member.id = "+member_id;
+		    }
        if(qmember_name!=null&&!qmember_name.equals("")){
     	   hql+=" and m.member.member_name like '%"+qmember_name+"%' ";
        }

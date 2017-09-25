@@ -156,24 +156,24 @@ public class YsShoppingqianController {
 			List<SubjectPurchaseRecord>list=this.memberCardService.listSubjectPurchaseRecord(Integer.valueOf(subjectId));
 		//购买成功后跳到个人信息页面,同时显示改变表的信息
 //		 }
-			return "redirect:/shopping/showshop";
+			return "frontPersonage/touzi";
 			}else{
 				return "redirect:/shopping/toBuy";
 			}
-			
-			
-		}
-		//购买成功后，页面显示
-		@RequestMapping("/showshop")
-		public String showshop(Model model){
-		List<SubjectPurchaseRecord>list=memberCardService.listSubpurchaseRecord();
-		model.addAttribute("list",list);
-			return "frontPersonage/touzi";
-		}
+}
+//		//购买成功后，页面显示
+//		@RequestMapping("/showshop")
+//		public String showshop(Model model){
+//		List<SubjectPurchaseRecord>list=memberCardService.listSubpurchaseRecord();
+//		model.addAttribute("list",list);
+//			return "frontPersonage/touzi";
+//		}
 	
 	// 绑定银行卡，member_bankcards(成员银联表)和member关联
 	@RequestMapping("/memberCard")
-	public String memberCard() {
+	public String memberCard(Model model) {
+		List<MemberBankcards>list=memberCardService.listMemberCard();
+		model.addAttribute("list",list);
 		return "frontPersonage/bangka";
 	}
 
@@ -185,13 +185,17 @@ public class YsShoppingqianController {
 		String identity = request.getParameter("identity");
 		String type = request.getParameter("type");
 		String card_no = request.getParameter("card_no");
-		String cardaddress = request.getParameter("cardress");
-		System.out.println("名字:"+name+"身份证:"+identity+"开户银行"+type+"卡号"+card_no+"地址:"+cardaddress);
+		String se = request.getParameter("se");
+		String  city=request.getParameter("city");
+		String cardaddres=se+city;
+		System.out.println("名字:"+name+"身份证:"+identity+"开户银行"+type+"卡号"+card_no+"地址:"+cardaddres);
         memberCard.setCard_no(card_no);
-		memberCard.setCardaddress(cardaddress);
+		memberCard.setCardaddress(cardaddres);
 		memberCard.setType(type);
+	   System.out.println("qqqqqqq"+memberCard.getMember());
+		System.out.println("111111111111"+	memberCard.getType()+memberCard.getMember().getIdentity());
 		memberCard.getMember().setIdentity(identity);
-		memberCard.getMember().setName(name);
+	    memberCard.getMember().setName(name);
 		memberCardService.saveMemberCard(memberCard);
 		return "front/frontShopping";
 	}

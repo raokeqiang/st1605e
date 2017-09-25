@@ -46,32 +46,32 @@
     <c:forEach  items="${listAll }" var="a" varStatus="stat" >
       <tr>
         <td>${stat.index+1 }</td>
-        <td>${a.subject_id.serial_no }</td>
+        <td>${a.subject.serial_no }</td>
         <td>
-         <c:if test="${a.subject_id.type==0 }">固收类</c:if>
-         <c:if test="${a.subject_id.type==1 }">P2P车贷</c:if>
-         <c:if test="${a.subject_id.type==2 }">海外配置</c:if>
-         <c:if test="${a.subject_id.type==3 }">股权基金</c:if>
+         <c:if test="${a.subject.type==0 }">固收类</c:if>
+         <c:if test="${a.subject.type==1 }">P2P车贷</c:if>
+         <c:if test="${a.subject.type==2 }">海外配置</c:if>
+         <c:if test="${a.subject.type==3 }">股权基金</c:if>
         </td>
-        <td>${a.subject_id.name }</td>
-        <td>￥${a.subject_id.amount } </td>
+        <td>${a.subject.name }</td>
+        <td>￥${a.subject.amount } </td>
         <td>￥${a.amount }.00元</td>
-        <td>${a.subject_id.bought }人</td>
-        <td>${a.subject_id.period }天</td>
-        <td>${a.subject_id.year_rate }%</td>
+        <td>${a.subject.bought }人</td>
+        <td>${a.subject.period }天</td>
+        <td>${a.subject.year_rate }%</td>
         <td>
-          <c:if test="${a.subject_id.status==1 }">募集中</c:if>
-          <c:if test="${a.subject_id.status==0 }">已完成</c:if>
+          <c:if test="${a.subject.status==1 }">募集中</c:if>
+          <c:if test="${a.subject.status==0 }">已完成</c:if>
         </td>
         <td>
-          <c:if test="${a.subject_id.exper_status==1 }">是</c:if> 
-          <c:if test="${a.subject_id.exper_status==0 }">否</c:if> 
+          <c:if test="${a.subject.exper_status==1 }">是</c:if> 
+          <c:if test="${a.subject.exper_status==0 }">否</c:if> 
         </td>
         <td>
-         <c:if test="${a.subject_id.exper_status==1 }">
-           <button><a href="/yingJiaProfit/Payint/Bbin?id=${a.subject_id.id }">体验金付息</a></button>
+         <c:if test="${a.subject.exper_status==1 }">
+           <button><a href="/yingJiaProfit/Payint/Bbin?id=${a.subject.id }">体验金付息</a></button>
          </c:if>
-        <button><a href="/yingJiaProfit/Payint/Payment?id=${a.subject_id.id }">付息列表</a></button>
+        <button><a href="/yingJiaProfit/Payint/Payment?id=${a.subject.id }">付息列表</a></button>
         </td>
       </tr>
       </c:forEach>

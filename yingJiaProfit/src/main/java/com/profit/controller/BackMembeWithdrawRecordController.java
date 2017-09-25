@@ -22,17 +22,17 @@ import com.profit.service.BackwService;
 @RequestMapping("/Withdraw")
 public class BackMembeWithdrawRecordController {
 												//提现管理
-	@Resource(name="memberWithdrawRecordServiceImpl")
+	@Resource(name="memberWithdrawRecordServiceImpl")   //提现
 	private BackwService<MembeWithdrawRecord> memberWithdrawRecordServiceImpl;
-	@Resource(name="memberAccountServiceImpl")
+	@Resource(name="memberAccountServiceImpl")          //邀请奖励
 	private BackwService<MemberAccount> memberAccountServiceImpl;
-	@Resource(name="financiaPlannerServiceImpl")
+	@Resource(name="financiaPlannerServiceImpl")        //理财师
 	private BackwService<FinanciaPlanner> financiaPlannerServiceImpl;
-	@Resource(name="subjectPurchaseRecordServiceImpl")
+	@Resource(name="subjectPurchaseRecordServiceImpl")   //标的订单
 	private BackwService<SubjectPurchaseRecord> subjectPurchaseRecordServiceImpl;
-	@Resource(name="memberDepositRecordServiceImpl")
+	@Resource(name="memberDepositRecordServiceImpl")     //充值
 	private BackwService<MemberDepositRecord> memberDepositRecordServiceImpl;
-	@Resource(name="memberTradeRecordServiceImpl")
+	@Resource(name="memberTradeRecordServiceImpl")       //交易记录
 	private BackwService<MemberTradeRecord> memberTradeRecordServiceImpl;
 	
 	@RequestMapping("/listAll")
@@ -73,7 +73,6 @@ public class BackMembeWithdrawRecordController {
 		}
 		List<SubjectPurchaseRecord> list3= subjectPurchaseRecordServiceImpl.listAll(map);
 		SubjectPurchaseRecord subjectPurchaseRecord=(SubjectPurchaseRecord)list3.get(0);
-		
 		
 		List<MemberDepositRecord> list4= memberDepositRecordServiceImpl.listAll(map);
 		MemberDepositRecord memberDepositRecord=(MemberDepositRecord)list4.get(0);

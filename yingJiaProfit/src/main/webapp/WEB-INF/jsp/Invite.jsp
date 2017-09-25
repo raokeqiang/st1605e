@@ -65,15 +65,16 @@
         <td>${e.create_date }</td>
         <td></td>
         <td>
-         <c:if test="${e.enroll=='2' }">已注册奖励,</c:if>
-         <c:if test="${e.enroll=='1' }"><button><a href="/yingJiaProfit/Invite/Enroll?id=e.id">注册奖励</a></button>|</c:if>
-          <c:choose>
-           <c:when test="${e.invest=='2' }">已投资奖励</c:when>
-           <c:when test="${e.invest=='1' }"><button><a href="/yingJiaProfit/Invite/Invest?id=e.id">投资奖励</a></button>|</c:when>
-           <c:when test="${e.enroll!='0' && e.invest=='0' }">投资金额未达到!</c:when>
-           <c:when test="${e.enroll=='0' && e.invest=='0' }">不能奖励|</c:when>
-         </c:choose>
-         <button><a href="/yingJiaProfit/Invite/Rewardslog?id=e.id">奖励记录</a></button>
+         <c:if test="${e.enroll=='2' }">已注册奖励|</c:if>
+         <c:if test="${e.invest=='2' }">已投资奖励|</c:if>
+<%--          <c:if test="${e.enroll=='1' }"><button><a href="/yingJiaProfit/Invite/Enroll?id=e.id">注册奖励</a></button>|</c:if> --%>
+<%--           <c:choose> --%>
+<%--            <c:when test="${e.invest=='2' }">已投资奖励|</c:when> --%>
+<%--            <c:when test="${e.invest=='1' }"><button><a href="/yingJiaProfit/Invite/Invest?id=e.id">投资奖励</a></button>|</c:when> --%>
+<%--            <c:when test="${e.enroll!='0' && e.invest=='0' }">投资金额未达到!</c:when> --%>
+<%--            <c:when test="${e.enroll=='0' && e.invest=='0' }">不能奖励|</c:when> --%>
+<%--          </c:choose> --%>
+         <button><a href="/yingJiaProfit/Invite/Rewardslog?phone=${e.mobile_Phone }">奖励记录</a></button>
         </td>
       </tr>
       </c:forEach>

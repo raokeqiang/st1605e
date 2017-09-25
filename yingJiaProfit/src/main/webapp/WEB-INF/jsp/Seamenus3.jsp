@@ -12,17 +12,20 @@
    <script type="text/javascript" src="yingJiaProfit/js/jquery-3.2.0.min.js"></script>
    <script type="text/javascript">
    $(function(){
-  $("#btn3").click(function(){ //查看预约
-	   	$("#form1").attr("action","/yingJiaProfit/over/listding");
-	   	$("#form1").submit();
-	   });
+//   $("#btn3").click(function(){ //查看预约
+// 	   	$("#form1").attr("action","/yingJiaProfit/over/listding");
+// 	   	$("#form1").submit();
+// 	   });
   $("#btn2").click(function(){ //新增按钮
 		$("#form1").attr("action","/yingJiaProfit/over/SeaoverAdd");
 		$("#form1").submit();
-	});/
+	});
 	   });
    function fun(id){//button传id
 	   window.location.href = '/yingJiaProfit/over/inData?id='+id;
+	  }
+   function fun2(id){//button传id
+	   window.location.href = '/yingJiaProfit/over/listding?id='+id;
 	  }
    </script>
    <style type="text/css">
@@ -59,6 +62,8 @@
 				<td>${e.sortColum }</td>
 				<td>${e.addTime}</td>
 			<td> 
+			<button type="button" class="btn btn-warning" id="btn3" onclick="fun2(${e.id})">查看预约<button>
+				<button type="button" class="btn btn-success" onclick="fun(${e.id})">编辑查看<button>
 				<button  class="btn btn-warning" id="btn3">查看预约<button>
 				<button  class="btn btn-success" onclick="fun(${e.id})">编辑查看<button>
 				</tr>

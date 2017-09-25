@@ -474,14 +474,21 @@ li.active a {
 										<th width="20%">状态</th>
 										<th width="20%">创建时间</th>
 									</tr>
+									<c:forEach items="${listAll }" var="m">
 										<tr>
-											<td>0</td>
-											<td>0</td>
+											<td>${m.serial_number }</td>
+											<td>${m.amount }</td>
 											<td>
-											审核中
+											 <c:if test="${m.status==0 }">待审核</c:if>
+                                             <c:if test="${m.status==1 }">已打款</c:if>
+											 <c:if test="${m.status==2 }">打款中</c:if>
+                                             <c:if test="${m.status==3 }">打款失败</c:if>
+                                             <c:if test="${m.status==4 }">已冻结</c:if>
+                                             <c:if test="${m.status==5 }">已解冻</c:if>
 											</td>
-											<td>0</td>
+											<td>${m.create_date }</td>
 										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

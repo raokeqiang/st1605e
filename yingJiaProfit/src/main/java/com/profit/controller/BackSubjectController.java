@@ -56,15 +56,17 @@ public String Payment(Model model,Map map,int id){
 }
 @RequestMapping("/Ppary")      //付息还款操作
 public String Ppary(Model model,int id,int sid){
+	System.out.println("123");
 	SubjectPurchaseRecord subjectPurchaseRecord=subjectPurchaseRecordServiceImpl.getById(id);
-	subjectPurchaseRecord.setIspayment(1);
+	subjectPurchaseRecord.setIspayment(0);
 	subjectPurchaseRecordServiceImpl.update(subjectPurchaseRecord);
      return "redirect:/Payint/Payment?id=${"+sid+" }";
 }
 @RequestMapping("/Bpary")      //体验金还款操作
 public String Bpary(Model model,int id,int sid){
+	System.out.println("456");
 	SubjectBbinPurchassRecord subjectBbinPurchassRecord=subjectBbinPurchassRecordServiceImpl.getById(id);
-	subjectBbinPurchassRecord.setIspayment(1);
+	subjectBbinPurchassRecord.setIspayment(0);
 	subjectBbinPurchassRecordServiceImpl.update(subjectBbinPurchassRecord);
 	return "redirect:/Payint/Bbin?id=${"+sid+"}";
 }

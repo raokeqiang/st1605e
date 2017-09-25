@@ -23,14 +23,21 @@ public class SubjectBbinPurchassRecordDao {
   public List<SubjectBbinPurchassRecord> listAll(Map map) {
        Session session = getSession();
        String hql="from SubjectBbinPurchassRecord s where 0=0 ";
+       hql=getHql(hql,map);
        List<SubjectBbinPurchassRecord> list=session.createQuery(hql).list();
        return list;
 }
   public String getHql(String hql,Map map){
-      int subject_id=(int)map.get("subject_id");   
-        if(subject_id!=0){
-       hql+=" and s.subject_id.id = "+subject_id;
-   }
+        int subject_id=0;
+        int member_id=0;
+        if(map.get("subject_id")!=null){
+        	subject_id=(int)map.get("subject_id");   
+           hql+=" and s.subject.id = "+subject_id;
+       }
+        if(map.get("member_id")!=null){
+        	member_id=(int)map.get("member_id");   
+           hql+=" and s.member.id = "+member_id;
+       }
    return hql;
  }
 public SubjectBbinPurchassRecord getById(int id) {
