@@ -474,14 +474,24 @@ li.active a {
 										<th width="20%">状态</th>
 										<th width="20%">创建时间</th>
 									</tr>
+									<c:forEach items="${listAll }" var="s">
 										<tr>
-											<td>0</td>
-											<td>0</td>
+											<td>${s.serial_number }</td>
 											<td>
-											审核中
+											 <script type="text/javascript">
+											  var am=${s.amount};
+											  var ptim=${s.pay_interest_times};
+											  var ss=am*ptim;
+											  document.write(ss);
+											 </script>
 											</td>
-											<td>0</td>
+											<td> 
+											 <c:if test="${s.subject.status==1 }">募集中</c:if>
+                                             <c:if test="${s.subject.status==0 }">已完成</c:if>
+                                            </td> 	
+											<td>${s.create_date }</td>
 										</tr>
+									</c:forEach>	
 								</tbody>
 							</table>
 						</div>

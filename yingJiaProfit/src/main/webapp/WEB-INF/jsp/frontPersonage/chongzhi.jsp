@@ -474,14 +474,17 @@ li.active a {
 										<th width="20%">状态</th>
 										<th width="20%">时间</th>
 									</tr>
+										<c:forEach items="${listAll }" var="m">
 										<tr>
-											<td>0</td>
-											<td>0</td>
+											<td>${m.serial_number }</td>
+											<td>${m.amount }</td>
 											<td>
-													充值失败
-											</td> 	
-											<td>0</td>
+											 <c:if test="${m.status==0 }">待付款</c:if>
+                                             <c:if test="${m.status==1 }">已完成</c:if>
+											</td>
+											<td>${m.create_date }</td>
 										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

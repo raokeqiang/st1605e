@@ -386,7 +386,7 @@ li.active a {
 							<c:if test="${member.id!=null }">
 					<li><a class="item last"
 						href="/yingJiaProfit/MemberAccount/select?member_id=${member.id }">
-							我的加法库 </a></li></c:if>
+							我的加法库</a></li></c:if>
 				</ul>
 			</div>
 		</div>
