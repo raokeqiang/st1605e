@@ -143,7 +143,7 @@ public class YsShoppingqianController {
 				//标的购买表
 				subjectPurchaseRecord.setSubject(subject);
 			   subjectPurchaseRecord.setMember(member);
-			//subjectPurchaseRecord.setSerial_number(sysDate);
+			   subjectPurchaseRecord.setSerial_number(sysDateAndRandom);
 				subjectPurchaseRecord.setAmount(Integer.parseInt(mytext));
 				subjectPurchaseRecord.setDeal_id("");
 				subjectPurchaseRecord.setDelflag(0);
@@ -231,11 +231,14 @@ public class YsShoppingqianController {
 //从session 得到这四个属性，然后进行表的操作
 	public String topay(MemberTradeRecord memberTradeRecord,
 	MemberDepositRecord memberDepositRecord,String WIDout_trade_no,String WIDsubject,
-	String WIDbody,int WIDtotal_amount,String date,HttpSession session){
+	String WIDbody,int WIDtotal_amount,String date,HttpSession session,SubjectPurchaseRecord subjectPurchaseRecord){
 		//先从session里面获取用户
 		Member member=(Member)session.getAttribute("member");
+
 		//添加充值流水表
 		memberDepositRecord.setAmount(WIDtotal_amount);
+		//添加购买流水表
+		subjectPurchaseRecord.setSerial_number(WIDout_trade_no);
 		// 添加创建日期
 				memberDepositRecord.setCreate_date(new Date());
 				// 添加修改日期
@@ -265,6 +268,7 @@ public class YsShoppingqianController {
 		//执行保存方法
         memberCardService.saveMemberDepositRecord(memberDepositRecord);
         memberCardService.saveMemberTradeRecord(memberTradeRecord);
+        memberCardService.saveSubjectPurchaseRecord(subjectPurchaseRecord);
         //存入session中,支付成功后调用
 		session.setAttribute("WIDtotal_amount", WIDtotal_amount);
 		session.setAttribute("memberDepositRecord", memberDepositRecord);
@@ -312,7 +316,6 @@ public class YsShoppingqianController {
 		member_tally.setAmount(num);
 		member_tally.setMember(member);
 		member_tally.setCreate_date(new Date());
-		
 		member_tally.setType_id(1);
 		member_tally.setType_name("支付宝充值");
 		this.memberCardService.saveMember_tally(member_tally);
@@ -320,7 +323,7 @@ public class YsShoppingqianController {
 		session.setAttribute("memberTradeRecord", null);
 		session.setAttribute("WIDtotal_amount", null);
 		if(sub==null){
-			return"front/frontShopping";
+			return"frontPersonage/touzi";
 		}else{
 			return "frontPersonage/return_url";
 		}

@@ -172,7 +172,7 @@
 
 .ft_sns_list a:hover .ico_txwb {
 	background-position: -126px -63px;
-}
+} 
 
 .ft_sns_list a:hover .txt {
 	color: #3D9FE1
