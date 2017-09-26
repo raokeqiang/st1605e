@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.profit.bean.Member;
 import com.profit.dao.RoleDao;
+import com.profit.daoimpl.MemberDaoImpl;
 import com.profit.service.RoleService;
 
 @Service
@@ -18,8 +19,7 @@ import com.profit.service.RoleService;
 public class MemderServiceImpl implements RoleService<Member>{
 
 	@Autowired
-	@Qualifier("memberDaoImpl")
-	private RoleDao<Member> memberDaoImpl;
+	private MemberDaoImpl memberDaoImpl;
 	
 	//查询账户
 	@Override

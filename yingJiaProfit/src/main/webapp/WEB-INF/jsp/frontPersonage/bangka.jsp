@@ -489,7 +489,8 @@ function fun(){//当下拉列表内容发生改变时
 				<p>
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>
-			
+
+	
 		</ul>
 		<c:if test="true">
 			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
@@ -575,7 +576,7 @@ function fun(){//当下拉列表内容发生改变时
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
                                            省:<select id="se"  name="se" style="width:80px;" onchange="fun(this.value);"></select>
-                                            市:<select id="city"  name="city" style="width:100px;"></select>
+                                           市:<select id="city"  name="city" style="width:100px;"></select>
                                             <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/ >
                                         </div>
                                         </td>
@@ -607,10 +608,6 @@ function fun(){//当下拉列表内容发生改变时
             </div>
         </div>
     </div>
-
-
-
-
 						<script type="text/javascript">
 							function getJsonInfo(url) {
 								$.get(url, 'json', function(data) {

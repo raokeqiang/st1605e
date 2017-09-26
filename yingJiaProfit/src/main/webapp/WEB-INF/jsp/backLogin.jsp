@@ -11,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="keywords" content="Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-
 </head>
 <body>
 <div class="login">
@@ -31,7 +30,5 @@
 		<h3>首选 &nbsp;<a href="#">返回前台</a>&nbsp 你好</h3>
 	</div>
 </div>
-
-
 </body>
 </html>
