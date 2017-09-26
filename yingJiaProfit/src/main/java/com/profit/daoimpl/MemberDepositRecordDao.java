@@ -24,6 +24,7 @@ public class MemberDepositRecordDao {
 		Session session = getSession();
 		 String hql=" from MemberDepositRecord m where 0=0 ";
 		 hql=getHql(hql,map);
+		 System.out.println("-------"+hql);
         List<MemberDepositRecord> list = session.createQuery(hql).list();
 		return list;
 	}
@@ -33,12 +34,10 @@ public class MemberDepositRecordDao {
 		String qstatus=(String)map.get("qstatus");
 		String qfuiouno=(String)map.get("qfuiouno");
 		String qtime=(String)map.get("qtime");
-		int member_id=0;
-	      if(map.get("member_id")!=null){     //根据member_id查询充值管理表 内容
-	    	  member_id=(int)map.get("member_id"); 
+		int member_id=(int)map.get("member_id");
+	      if(member_id!=0){     //根据member_id查询充值管理表 内容
 	    	  hql+=" and m.member.id = "+member_id;
 	      }
-		
        if(qorderno!=null&&!qorderno.equals("")){
     	   hql+=" and m.pay_channel_order_no like '%"+qorderno+"%' ";
        }

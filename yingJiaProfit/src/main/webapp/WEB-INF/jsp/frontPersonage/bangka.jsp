@@ -574,7 +574,7 @@ function fun(){//当下拉列表内容发生改变时
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
                                            省:<select id="se"  name="se" style="width:80px;" onchange="fun(this.value);"></select>
-                                            市:<select id="city"  name="city" style="width:100px;"></select>
+                                           市:<select id="city"  name="city" style="width:100px;"></select>
                                             <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/ >
                                         </div>
                                         </td>

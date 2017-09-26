@@ -478,14 +478,15 @@ li.active a {
 											<th>状态</th>
 											<th>购买时间</th>
 										</tr>
-											<tr>
 											<c:forEach items="${list }"  var="e">
+											<tr>
 												<td>${e.serial_number }</td>
 												<td>${e.subject.name }</td>
 												<td>${e.amount }</td>
 											<td>
 											 <c:if test="${e.subject.status==0}">募集中</c:if> 
-											 <c:if test="${e.subject.status==1}">未募集</c:if></td>
+											 <c:if test="${e.subject.status==1}">未募集</c:if>
+											 </td>
 											<td>${e.subject.create_date}</td>
 											</c:forEach>
 											</tr>
