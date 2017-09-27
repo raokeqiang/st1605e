@@ -33,6 +33,7 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/html/" mapping="/html/**" />
 	<mvc:resources location="/editor/" mapping="/editor/**" />
+	<mvc:resources location="/utf8-jsp/" mapping="/utf8-jsp/**" />
 	
 	<!-- 视图解析器 -->
 	<bean
