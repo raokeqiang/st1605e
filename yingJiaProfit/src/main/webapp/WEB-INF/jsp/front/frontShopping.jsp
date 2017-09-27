@@ -325,8 +325,7 @@ li.active a {
 
 $(function(){
 	$("#btnBuy").click(function(){ 
-		alert("1111");
-		$("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
+	  $("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
 		$("#form1").submit();
 	});
 	});
@@ -392,7 +391,7 @@ function fun(obj){
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
@@ -471,7 +470,7 @@ function fun(obj){
                     	<c:if test="${member.id>0 }">
 	                    	<span class="fr">
 	                    	<input type="hidden" value="${memberAccount.useable_balance }"  id="amountYuE" name="amountYuE">
-	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="">充值&nbsp;&nbsp;&nbsp;</a>
+	                        ${memberAccount.useable_balance }元&nbsp;&nbsp;<a href="/yingJiaProfit/shopping/tocongzhi">充值&nbsp;&nbsp;&nbsp;</a>
 							</span>
                         	<h2>账户余额</h2>
                         	<input type="hidden" value="${memberAccount.useable_balance }" id="hiddenLogin">

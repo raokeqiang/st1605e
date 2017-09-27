@@ -172,7 +172,7 @@
 
 .ft_sns_list a:hover .ico_txwb {
 	background-position: -126px -63px;
-}
+} 
 
 .ft_sns_list a:hover .txt {
 	color: #3D9FE1
@@ -489,6 +489,8 @@ function fun(){//当下拉列表内容发生改变时
 				<p>
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>
+
+	
 		</ul>
 		<c:if test="true">
 			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 

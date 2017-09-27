@@ -46,10 +46,10 @@ public class YsFinanceProductDaoImpl implements YsFinanceProductDao{
 			hql+=" and name like '%"+name+"%'";
 		}
 		if(type!=null&&!type.equals("")){
-			hql+=" and type like '%"+type+"%'";
+			hql+=" and type='"+type+"'";
 		}
 		if(status!=null&&!status.equals("")){
-			hql+=" and status like '%"+status+"%'";
+			hql+=" and status='"+status+"'";
 		}
 	return hql;
 		

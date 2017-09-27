@@ -9,5 +9,6 @@ import com.profit.bean.Subject;
 
 public interface YsSubjectDaoqian {
   List <Subject>list(Map map);
+  List<Subject>query(String hql);
   Session getsession();
 }

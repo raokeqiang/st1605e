@@ -39,6 +39,15 @@ public class Member {
 	private Set<MemberProfitRecord> memberProfitRecords = new HashSet<MemberProfitRecord>();
 	private Set<MemberTradeRecord> memberTradeRecords = new HashSet<MemberTradeRecord>();
 	private Set<Member_tally> member_tally = new HashSet<Member_tally>();
+	private Set<MemberDepositRecord> memberDepositRecords = new HashSet<>();
+	
+	@OneToMany(mappedBy="member")
+    public Set<MemberDepositRecord> getMemberDepositRecords() {
+		return memberDepositRecords;
+	}
+	public void setMemberDepositRecords(Set<MemberDepositRecord> memberDepositRecords) {
+		this.memberDepositRecords = memberDepositRecords;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

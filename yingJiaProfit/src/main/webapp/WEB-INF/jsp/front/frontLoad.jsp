@@ -339,7 +339,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
