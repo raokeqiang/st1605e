@@ -30,6 +30,12 @@ public class FinancialController {
 		if(iphone==null||"".equals(iphone)){
 			iphone="0";
 		}
+		boolean tf=financialServiceImpl.tf(iphone);
+		if(tf){
+			
+		}{
+			iphone="0";
+		}
 		System.out.println(start+"时间");
 		List<AwardRecords>       a1=financialServiceImpl.lsa(iphone, start);
 		List<Member>              a2=financialServiceImpl.lsm(iphone);

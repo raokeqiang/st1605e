@@ -1,4 +1,4 @@
-package com.profit.dao;
+ package com.profit.dao;
 
 import java.util.List;
 
@@ -19,4 +19,5 @@ public interface FinancialDao {
 	List<MembeWithdrawRecord  > lsmw(String iphone,String start); //提现记录
 	List<MemberTradeRecord > lst(String iphone,String start,String type,String zhifu);//交易记录
 	List<MemberAccount   > lsma(String iphone,String start);//余额表
+	boolean tf(String title);
 }

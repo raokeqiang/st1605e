@@ -401,7 +401,7 @@ $(function(){
 				{"id":"5","name":"海外配置","parentId":"3","url":"over/Seamenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"6","name":"钱包管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-				{"id":"7","name":"缴费记录","parentId":"6","url":"jfjl","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
+				{"id":"7","name":"缴费记录","parentId":"6","url":"wallet/listAll","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
 				]},
             	{"id":"8","name":"学院管理","parentId":"1","url":"","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":[
 				{"id":"9","name":"资讯分类","parentId":"9","url":"T/listnewsType","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
