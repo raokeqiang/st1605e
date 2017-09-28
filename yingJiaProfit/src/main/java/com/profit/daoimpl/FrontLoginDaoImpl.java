@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.Member;
+import com.profit.bean.MemberBankcards;
 
 @Component
 public class FrontLoginDaoImpl {
@@ -47,5 +48,15 @@ public class FrontLoginDaoImpl {
 	public void saveMember(Member member){
 		Session session=getSession();
 		session.save(member);
+	}
+	
+	public MemberBankcards getMemberBankcards(int member_id){
+		String sql="from MemberBankcards  where member_id="+member_id;
+		List <MemberBankcards> list=getSession().createQuery(sql).list();
+		return list.get(0);
+	}
+	public void updatepwd(Member member){
+		Session session=getSession();
+		session.update(member);
 	}
 }

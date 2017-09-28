@@ -12,35 +12,26 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>盈+理财 产品中心</title>
+<title>安全信息</title>
+<link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
+<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+ <link rel="stylesheet" href="/yingJiaProfit/css/bootstrapValidator.css" />
 
-<link href="/yingJiaProfit/css/video-js.css" rel="stylesheet" type="text/css">
-<link href="/yingJiaProfit/css/common.css" rel="stylesheet">
-<link href="/yingJiaProfit/css/iframeindex_data/jw.css" rel="stylesheet">
-<link rel="stylesheet" href="/yingJiaProfit/css/layer.css" id="layui_layer_skinlayercss" style="">
-
-<script src="/yingJiaProfit/js/jquery.js"></script>
+<script src="/yingJiaProfit/css/person_css/jquery.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
-<script src="/yingJiaProfit/js/echarts.js"></script>
-<script src="/yingJiaProfit/js/layer.js"></script>
-<script src="/yingJiaProfit/js/pie.js"></script>
-
+<script src="/yingJiaProfit/css/person_css/hm.js"></script>
+<script src="/yingJiaProfit/css/person_css/echarts.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/bootstrapValidator.js" ></script>
 <style type="text/css">
 .hzhb_box {
 	float: left;
 	width: 610px;
 	margin-top: 32px;
 }
-
-.down_img{
-		position:absolute;
-		left:660px;
-		top:250px;
-	}
 
 .hzhb_item {
 	float: left;
@@ -108,7 +99,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url(/yingJiaProfit/img/ft_sns.png) no-repeat;
+	background: url() no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -326,14 +317,16 @@ li.active a {
 }
 </style>
 
-</head>
+</head>8
 <body>
-
+<!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
 			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-		<div class="jwNav">
+	
+	
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -367,137 +360,212 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
-	<script type="text/javascript">
-		$(function() {
-			function showIn(url) {
-				var info = "<div class='mydig'><div class='bg'></div><div class='imgbox'><a href="+url+"></a></div></div>";
-				$('body').append(info);
-			}
-			if (1 != null && 1 == 0) {
-				showIn("/account/bbinInfo/getBbinInfo");
-			}
 
-		});
-	</script>
-	<div class="sdbanner probanner" style="background-image: url(/yingJiaProfit/img/bgdownload.jpg)"></div>
-
-	
-	<div class="proMain">
-    	<div class="hwpzNav">
-    		<ul>
-    		<li class="first"><a class="active" href="/yingJiaProfit/subjectqian/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="/yingJiaProfit/qianmoney/privmon">私募基金</a></li>
-    			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
-    			<li class="four"><a href="/yingJiaProfit/qianmoney/privmon">股权基金</a></li>
-    		</ul>
-    	</div>
-   		<div class="ajaxContainer">
-	<!-- 异步内容开始 -->
-	<c:forEach items="${list }" var="list">
-		<li>
-				<!-- <a href="/oversea/overseaView/3"> -->
-				<span style="width: 20px;height: 20px;" class="iconfont"></span>
-             <h2>${list.title}<p>${list.child_title}</p></h2>
-				<h3>${list.description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
-			<!-- </a> -->
-		</li>
-		</c:forEach>
-	<!-- 异步内容结束 -->
+<table class="peopleInfo" width="970" height="160" cellspacing="0"
+		cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="info" valign="middle" align="left"><a
+					href="http://pro.ying158.com/account/security">
+						<div class="img">
+							<img src="/yingJiaProfit/img/userPic.jpg">
+						</div>
+						<h2>
+							${member.member_name},<span>您好!</span>
+						</h2>
+				</a>
+					<div class="safe">
+						账户安全&nbsp;&nbsp;<span class="scroll"><em style="width: 50%"></em></span>
+					</div>
+					<ul class="listIco iconfont">
+						<li class=""><a href="#1"></a><em></em></li>
+						<li class="active"><a href="#1"></a><em></em></li>
+						<!-- <li class=""><a href="#1">&#xe61f;</a><em>&#xe61b;</em></li> -->
+						<li class="active"><a href="#1"></a><em></em></li>
+						<li class=""><a href="#1"></a><em></em></li>
+					</ul></td>
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
+					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="countBox">
+		<ul>
+			<li><h2>${memberAccount.useable_balance }</h2>
+				<p>
+					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
+				</p></li>
+			<li><h2>${memberAccount.useable_balance+memberAccount.invest_amount+memberAccount.total_profit }</h2>
+				<p>
+					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.invest_amount }</h2>
+				<p>
+					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.total_profit }</h2>
+				<p>
+					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.imuseale_balance }</h2>
+				<p>
+					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
+				</p></li>
+		</ul>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/jilian/sheng" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/jilian/sheng" class="tk">提款</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/toFrontPersonage/woyaotikuan" class="tk">提款</a> 
+			</c:if>
 	</div>
-	
-	
-</div>
+	<div class="proMain clearfix">
+		<div class="adminLeft">
+			<h2>我的投资</h2>
+			<ul>
+				<li><a id="member_center_menu_invests"
+					href="/yingJiaProfit/toFrontPersonage/touzi"><em
+						class="iconfont red"></em>投资记录</a></li>
+				<li><a 
+					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
+						class="iconfont red"></em>收益记录</a></li>
+				<li><a id="member_center_menu_deposit_record"
+					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
+						class="iconfont red"></em>充值记录</a></li>
+				<li><a id="member_center_menu_withdraw_record"
+					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
+						class="iconfont red"></em>提款记录</a></li>
+				<li><a id="member_center_menu_bbinInfo_record"
+					href="/yingJiaProfit/toFrontPersonage/tiyanjin"><em
+						class="iconfont red"></em>体验金记录</a></li>
+			</ul>
+			<h2>我的账户</h2>
+			<ul>
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
+						class="iconfont"></em>账户充值</a></li>
+				<li><a id="member_center_menu_security"
+					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+						class="iconfont"></em>安全信息</a></li>
+				<li><a id="member_center_menu_withdraw"
+					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
+						class="iconfont"></em>我要提款</a></li>
+			</ul>
+		</div>
+		<script>
+			var menu_item = "member_center_menu_profit_record";
+			$("#" + menu_item).addClass("select");
+		</script>
+		<div class="admin-right">
+			<div class="tbConBox">
+				<div class="tab">
+					<a class="select" href="javascript:;">安全中心</a>
+				</div>
+				<div class="container">
+    <div class="row">
+        <!-- form: -->
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h2>密码设置</h2>
+                </div>
 
-	<div class="llpage">
-		<div class="in">
-				<a class="prev_page">上页</a>
-					<a class="now">1</a>
-				<a class="next_page" rel="next">下页</a>
+               
+                <form id="defaultForm" method="post" class="form-horizontal" action="/yingJiaProfit/backPassword/updatePassword1">
+                   <input type="hidden" id="oldpassword" value="${password1 }">
+                    <div class="alert alert-success" style="display: none;"></div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">请输入原密码</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" id="password" name="password" placeholder="请输入原密码" onkeyup="checkse()"/>
+                            <span style="display: none; color:red" id="ypwd">原密码不正确</span>
+                        </div>
+                    </div>
+
+                     <div class="form-group">	
+                        <label class="col-lg-3 control-label">请输入新密码</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="请输入密码"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">	
+                        <label class="col-lg-3 control-label">请再输入一次</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="请输入密码" onkeyup="checksu()" />
+                            <span style="display: none; color:red" id="pwd">两次输入密码不一致</span>
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary" id="bt1">提交</button>
+                                 <button type="submit" class="btn btn-primary" disabled="disabled" id="bt2">提交</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </section>
+        <!-- :form -->
+    </div>
+</div>
+			</div>
 		</div>
 	</div>
-</div>
-<script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-		require.config({
-            paths: {
-                echarts: '/resources/web/echart/dist/'
-            }
-        });
-		require(
-			[
-				'echarts',
-				'echarts/chart/pie'
-			],
-			function (ec) {
-				var labelTop = {
-						normal : {
-							color:'#ff503f',
-							label : {
-								show : false,
-								position : 'center',
-								formatter : '{b}',
-								textStyle: {
-									baseline : 'bottom'
-								}
-							},
-							labelLine : {
-								show : false
-							}
-						}
-					};
-				var labelFromatter = {
-					normal : {
-						label : {
-							formatter : function (params){
-								return 100 - params.value + '%'
-							},
-							textStyle: {
-								color:'#666',
-								baseline : 'middle'
-							}
-						}
-					},
-				};
-				var labelBottom = {
-					normal : {
-						color: '#f8f8f8',
-						label : {
-							show : true,
-							position : 'center'
-						},
-						labelLine : {
-							show : false
-						}
-					}
-				};
-				var radius = [30,35];
-				var myChart1 =document.getElementsByClassName('yuan');
-				for(i=0;i<myChart1.length;i++){
-					var num = myChart1[i].getAttribute('data-num');
-					ec.init(myChart1[i]).setOption({
-						series : [
-							{
-								type : 'pie',
-								center : ['50%', '50%'],
-								radius : radius,
-								x: '0%', // for funnel
-								itemStyle : labelFromatter,
-								data : [
-									{name:'other', value:100-num, itemStyle : labelBottom},
-									{name:'占比', value:num,itemStyle : labelTop}
-								]
-							},
-						]
-					});
-				}
-			}
-		);
-    </script>    </div>
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#bt1").hide();
+		$("#bt2").show();
+	});
+	
+    	function checkse(){
+    		var ypwd=$("#oldpassword").val();
+    		var xpwd=$("#password").val();
+    		if(ypwd==xpwd){
+    			$("#ypwd").hide();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    			
+    		}
+    		if(ypwd!=xpwd){
+    			$("#ypwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    	}
+    	
+    	function checksu(){
+    		var password1=$("#password1").val();
+    		var password2=$("#password2").val();
+    		if(password1==password2){
+    			$("#pwd").hide();
+    			$("#bt2").hide();
+    			$("#bt1").show();
+    		}
+    		if(password1!=password2){
+    			$("#pwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    		if($("#ypwd").show()||$("#pwd").show()){
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    		if($("#ypwd").hide()||$("#pwd").hide()){
+    			$("#bt1").show();
+    			$("#bt2").hide();
+    		}
+    	}
+     
+        
+</script>
+
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
@@ -533,6 +601,7 @@ li.active a {
 
 		</div>
 	</div>
+	</div>
 
 
 
@@ -555,7 +624,7 @@ li.active a {
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
-							onmouseout="    this.src = '/yingJiaProfit/img/3.jpg'"
+							onmouseout="    this.src = 'yingJiaProfit/img/3.jpg'"
 							src="/yingJiaProfit/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
@@ -619,7 +688,7 @@ li.active a {
 									<em class="ico_sns ico_weixin"></em> <span class="txt">微信公众号</span>
 								</div>
 								<div class="tips_bd">
-									<em class="arrow"></em> <img src="yingJiaProfit/yj.jpg"
+									<em class="arrow"></em> <img src="/yingJiaProfit/img/yj.jpg"
 										alt="微信公共平台">
 								</div>
 							</div>
@@ -826,7 +895,6 @@ li.active a {
 				<div class="modal-body">
 					<div class="row">
 						<span>今日暂时没有限购的股票</span>
-
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -972,8 +1040,6 @@ li.active a {
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-
 
 </body>
 </html>

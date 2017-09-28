@@ -32,7 +32,7 @@
 	</div>
 	
 	
-		<div class="jwNav">
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -40,7 +40,7 @@
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
@@ -51,7 +51,7 @@
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -89,7 +89,7 @@
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -117,13 +117,18 @@
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>
 		</ul>
-		<c:if test="true">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
-		<c:if test="true">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
-		
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="#" class="tk">提款</a> 
+			</c:if>
 	</div>
 	<div class="proMain clearfix">
 		<div class="adminLeft">
@@ -147,10 +152,10 @@
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng" class="select"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan" ><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em

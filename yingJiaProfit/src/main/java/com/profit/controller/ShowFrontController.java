@@ -58,4 +58,12 @@ public class ShowFrontController {
 	public String  toStudy(){
 		return "front/frontStudy";
 	}
+	@RequestMapping("/xiugai")
+	public String  xiugai(){
+		return "front/xiugaimima";
+	}
+	@RequestMapping("/tikuan")
+	public String  tikuan(){
+		return "front/tikuanmima";
+	}
 }

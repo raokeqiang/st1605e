@@ -158,7 +158,7 @@ public class YsShoppingqianController {
 			List<SubjectPurchaseRecord>list=this.memberCardService.listSubjectPurchaseRecord(Integer.valueOf(subjectId));
 		//购买成功后跳到个人信息页面,同时显示改变表的信息
 //		 }
-			return "frontPersonage/touzi";
+			return "redirect:/toFrontPersonage/touzi";
 			}else{
 				return "redirect:/shopping/toBuy";
 			}
@@ -202,7 +202,7 @@ public class YsShoppingqianController {
         memberCard.getMember().setIdentity(identity);
         memberCard.getMember().setName(name);
 		memberCardService.saveMemberCard(memberCard);
-		return "frontPersonage/touzi";
+		return "redirect:/toFrontPersonage/touzi";
 }
 
 	@RequestMapping("/tocongzhi")
@@ -218,7 +218,7 @@ public class YsShoppingqianController {
 		//	model.addAttribute("memberBankcards", memberBankcards);
 			System.out.println("=========="+memberBankcards.isEmpty());
 			if(memberBankcards.isEmpty()){
-				return"frontPersonage/bangka";
+				return"redirect:/jilian/sheng";
 			}
 		}
     return "frontPersonage/index";

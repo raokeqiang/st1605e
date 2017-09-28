@@ -327,19 +327,21 @@ li.active a {
 			<div class="row">
 				<ul class="topNav">
 					<li class="active"><a class="item first"
-						href="/yingJiaFinancing/frontIndex/login"> 首页 </a></li>
+						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
+							网上体验中心 </a></li>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
+					</li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontInternetCenter/show"> 网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/product/login"> 产品中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontNewsCenter/login">新闻中心
-					</a></li>
+						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontDownloadCenter/login"> 下载中心 </a></li>
-					<li><a class="item " href="/yingJiaFinancing/frontCollege/login">盈+商学院
+						href="/yingJiaProfit/show/frontLoad"> 下载中心 </a></li>
+					<li><a class="item " href="/yingJiaProfit/show/frontCollege">
+							盈+商学院 </a></li>
+					<li><a class="item"
+						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontResearch/login">投研中心
-					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -378,7 +380,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -407,10 +409,10 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
@@ -430,7 +432,7 @@ li.active a {
 					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
 						class="iconfont red"></em>收益记录</a></li>
 				<li><a id="member_center_menu_deposit_record"
-					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
+					href="/yingJiaProfit/toFrontPersonage/chongzhi" class="select"><em
 						class="iconfont red"></em>充值记录</a></li>
 				<li><a id="member_center_menu_withdraw_record"
 					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
@@ -444,7 +446,7 @@ li.active a {
 				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan"><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em

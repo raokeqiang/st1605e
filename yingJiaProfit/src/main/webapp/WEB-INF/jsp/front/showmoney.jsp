@@ -333,7 +333,7 @@ li.active a {
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
 			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -341,7 +341,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>

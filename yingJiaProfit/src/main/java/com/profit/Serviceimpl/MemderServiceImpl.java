@@ -32,4 +32,10 @@ public class MemderServiceImpl implements RoleService<Member>{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void updateUsers1(String password2, String password1) {
+		// TODO Auto-generated method stub
+		
+	}
 }

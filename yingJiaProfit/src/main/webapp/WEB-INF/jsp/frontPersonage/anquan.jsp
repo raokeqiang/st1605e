@@ -321,7 +321,7 @@ li.active a {
 	</div>
 	
 	
-		<div class="jwNav">
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -329,7 +329,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
@@ -379,7 +379,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -408,17 +408,17 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a>
+			<a href="/yingJiaProfit/jilian/sheng" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaProfit/frontMemberCenter/toRecharge" class="cz">充值</a>
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
+			<a href="/yingJiaProfit/jilian/sheng" class="tk">提款</a>
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="#" class="tk">提款</a>
-		</c:if>
+			<a href="/yingJiaProfit/toFrontPersonage/woyaotikuan" class="tk">提款</a> 
+			</c:if>
 	</div>
 	<div class="proMain clearfix">
 		<div class="adminLeft">
@@ -469,28 +469,49 @@ li.active a {
 							cellpadding="0" border="0">
 							<tbody>
 								<tr>
+									<c:if test="${memberBankcards.id>0 }">
 									<td class="first"><span class="iconfont active"><a
 											href="#1"></a><em></em></span></td>
 									<td><p style="color: #ff503f">实名认证</p></td>
-									<td>420***631</td>
+									<td>420******</td>
 									<td><p style="color: #888">保障账户安全，只有完成实名认证才能充值提款</p></td>
 									<td>认证完成</td>
+									</c:if>
+									<c:if test="${empty memberBankcards }">
+									<td class="first"><span class="iconfont active"><a
+									href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">实名认证</p></td>
+									<td>#nbsp;</td>
+									<td><p style="color: #888">保障账户安全，只有完成实名认证才能充值提款</p></td>
+									<td><a href="/yingJiaProfit/jilian/sheng" class="renzheng">认证</a></td>
+									</c:if>
 								</tr>
 								<tr>
+									<c:if test="${memberBankcards.id>0 }">
 									<td class="first"><span class="iconfont active"><a
 											href="#1"></a><em></em></span></td>
 									<td><p style="color: #ff503f">绑卡认证</p></td>
 									<td>已绑定</td>
 									<td><p style="color: #888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
-									<td><a
-										href="http://pro.ying158.com/account/security/memberBankcardView"
-										class="renzheng">查看</a></td>
+									<td>绑定完成</td>
+										</c:if>
+										
+									<c:if test="${empty memberBankcards }">
+										<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">绑卡认证</p></td>
+									<td>未绑定</td>
+									<td><p style="color: #888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
+									<td><a href="/yingJiaProfit/jilian/sheng"
+										class="renzheng">绑定</a></td>
+									</c:if>
+										
 								</tr>
 								<tr>
 									<td class="first"><span class="iconfont active"><a
 											href="#1"></a><em></em></span></td>
 									<td><p style="color: #ff503f">绑定手机</p></td>
-									<td>1398637****</td>
+									<td>********</td>
 									<td><p style="color: #888">手机号码是您在盈+金融的重要身份凭证</p></td>
 									<td>绑定完成</td>
 									<!--<td><a onclick="$('#changeTelModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>-->
@@ -508,18 +529,25 @@ li.active a {
 									<td><p style="color: #ff503f">登录密码</p></td>
 									<td>已设置</td>
 									<td><p style="color: #888">登录盈+金融网站时需要输入的密码</p></td>
-									<td><a
-										onclick="$('#changePWModal').modal(); return false;"
-										href="javascript:;" class="renzheng">修改</a></td>
+									<td><a  href="/yingJiaProfit/show/xiugai" class="renzheng" >修改</a></td>
 								</tr>
 								<tr>
+									<c:if test="${member.withdraw_password!=null }">
 									<td class="first"><span class="iconfont active"><a
 											href="#1"></a><em></em></span></td>
 									<td><p style="color: #ff503f">提款密码</p></td>
 									<td>已设置</td>
 									<td><p style="color: #888">保障资金安全，提款需要设置提款密码</p></td>
 									<td>设置完成</td>
-									<!-- <a onclick="$('#setWithdrawPWModel').modal(); return false;" href="javascript:;" class="renzheng">修改</a> -->
+									</c:if>
+									<c:if test="${member.withdraw_password==null }">
+										<td class="first"><span class="iconfont active"><a
+											href="#1"></a><em></em></span></td>
+									<td><p style="color: #ff503f">提款密码</p></td>
+									<td>未设置</td>
+									<td><p style="color: #888">保障资金安全，提款需要设置提款密码</p></td>
+									<td><a  href="/yingJiaProfit/show/tikuan" class="renzheng" >设置</a></td>
+									</c:if>
 								</tr>
 							</tbody>
 						</table>
@@ -528,6 +556,7 @@ li.active a {
 			</div>
 		</div>
 	</div>
+	
 
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
