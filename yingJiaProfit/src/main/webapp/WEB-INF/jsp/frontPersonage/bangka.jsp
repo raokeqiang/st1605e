@@ -24,7 +24,330 @@
 <!-- 校验 -->
 
 
+<<<<<<< HEAD
 <body>
+=======
+<style type="text/css">
+.hzhb_box {
+	float: left;
+	width: 610px;
+	margin-top: 32px;
+}
+
+.hzhb_item {
+	float: left;
+	margin: 5px;
+	border: solid 1px #aaa;
+	border-radius: 3px;
+}
+
+.hzhb_item img {
+	width: 120px;
+	height: 40px;
+}
+
+.ft_item {
+	float: left;
+	width: 239px;
+}
+
+.ft_item_tit {
+	height: 28px;
+	line-height: 28px;
+	font-size: 20px;
+	color: #ccc;
+	padding-left: 40px;
+}
+
+.ft_links_list {
+	margin-top: 10px;
+}
+
+.ft_links_list .ft_link {
+	height: 30px;
+	line-height: 30px;
+}
+
+.ft_item_sns {
+	float: right;
+	width: 340px;
+}
+
+.ft_sns_list {
+	margin-left: 40px;
+}
+
+.ft_sns_list li {
+	float: left;
+	width: 74px;
+	margin: 5px;
+}
+
+.ft_sns_list a {
+	display: block;
+	width: 74px;
+}
+
+.ft_sns_list .txt {
+	display: block;
+	line-height: 32px;
+	text-align: center;
+	color: #ccc;
+}
+
+.ft_sns_list .ico_sns {
+	display: block;
+	width: 62px;
+	height: 62px;
+	margin: 0 auto;
+	background: url() no-repeat;
+}
+
+.ft_sns_list .ico_weixin {
+	background-position: 0 0;
+}
+
+.ft_sns_list .ico_sinawb {
+	background-position: -63px 0;
+}
+
+.ft_sns_list .ico_txwb {
+	background-position: -126px 0;
+}
+
+.ft_sns_list a:hover .ico_sinawb {
+	background-position: -63px -63px;
+}
+
+.ft_sns_list a:hover .ico_txwb {
+	background-position: -126px -63px;
+} 
+
+.ft_sns_list a:hover .txt {
+	color: #3D9FE1
+}
+
+.ft_sns_list .wx_tips {
+	cursor: pointer;
+	position: relative;
+}
+
+.ft_sns_list .wx_tips .tips_hd {
+	
+}
+
+.ft_sns_list .wx_tips .tips_bd {
+	display: none;
+	position: absolute;
+	left: 90px;
+	top: -10px;
+}
+
+.ft_sns_list .wx_tips .tips_bd .arrow {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-color: transparent #fff transparent transparent;
+	border-width: 8px 8px 8px 8px;
+	border-style: dashed solid dashed none;
+	position: absolute;
+	top: : -8px;
+}
+
+.ft_sns_list .wx_tips .tips_bd img {
+	width: 180px;
+	height: 180px;
+}
+
+.ft_sns_list .wx_tips .tips_bd .txt {
+	font-size: 14px;
+	line-height: 32px;
+	color: #3D9FE1;
+}
+
+.ft_sns_list .wx_tips:hover .ico_weixin {
+	background-position: 0 -63px;
+}
+
+.ft_sns_list .wx_tips:hover .txt {
+	color: #3D9FE1;
+}
+
+.ft_sns_list .wx_tips:hover .tips_bd {
+	display: block;
+}
+</style>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img {
+	border: 0;
+}
+
+.rides-cs {
+	font-size: 12px;
+	background: #29a7e2;
+	position: fixed;
+	top: 250px;
+	right: 0px;
+	_position: absolute;
+	z-index: 1500;
+	border-radius: 6px 0px 0 6px;
+}
+
+.rides-cs a {
+	color: #00A0E9;
+}
+
+.rides-cs a:hover {
+	color: #ff8100;
+	text-decoration: none;
+}
+
+.rides-cs .floatL {
+	width: 36px;
+	float: left;
+	position: relative;
+	z-index: 1;
+	margin-top: 21px;
+	height: 181px;
+}
+
+.rides-cs .floatL a {
+	font-size: 0;
+	text-indent: -999em;
+	display: block;
+}
+
+.rides-cs .floatR {
+	width: 130px;
+	float: left;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.rides-cs .floatR .cn {
+	background: #F7F7F7;
+	border-radius: 6px;
+	margin-top: 4px;
+}
+
+.rides-cs .cn .titZx {
+	font-size: 14px;
+	color: #333;
+	font-weight: 600;
+	line-height: 24px;
+	padding: 5px;
+	text-align: center;
+}
+
+.rides-cs .cn ul {
+	padding: 0px;
+}
+
+.rides-cs .cn ul li {
+	line-height: 38px;
+	height: 38px;
+	border-bottom: solid 1px #E6E4E4;
+	overflow: hidden;
+	text-align: center;
+}
+
+.rides-cs .cn ul li span {
+	color: #333;
+}
+
+.rides-cs .cn ul li a {
+	color: #777;
+}
+
+.rides-cs .cn ul li img {
+	vertical-align: middle;
+}
+
+.rides-cs .btnOpen, .rides-cs .btnCtn {
+	position: relative;
+	z-index: 9;
+	top: 25px;
+	left: 0;
+	background-image: url(/Content/images/jw/qqkefu.png);
+	background-repeat: no-repeat;
+	display: block;
+	height: 146px;
+	padding: 8px;
+}
+
+.rides-cs .btnOpen {
+	background-position: 0 0;
+}
+
+.rides-cs .btnCtn {
+	background-position: -37px 0;
+}
+
+.rides-cs ul li.top {
+	border-bottom: solid #ACE5F9 1px;
+}
+
+.rides-cs ul li.bot {
+	border-bottom: none;
+}
+
+.topNav {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	margin: 0;
+	padding: 8px 0;
+}
+
+li.active {
+	/*background: #323030;*/
+	background: none;
+}
+
+li.active a {
+	color: white;
+}
+</style>
+
+</head>
+<!-- 级联操作 -->
+<script type="text/javascript">
+ var p=["湖北省","广东省","江苏省"];
+ p["湖北省"]=["武汉市","襄阳市","孝感市","荆州市","随州市","十堰市","仙桃市","老河口市","宜昌市"];
+ p["广东省"]=["广州市","汕头市","深圳市","珠江市"];
+ p["江苏省"]=["南京市","徐州市","无锡市","盐城市","镇江市","苏州市","张家港市"];
+function fun(){//当下拉列表内容发生改变时
+       var v=document.getElementById("se").value;//获取选择的省
+	   var city=document.getElementById("city");//城市对象
+	   city.options.length=0;//清空城市下拉列表
+	   for(i=0;i<p[v].length;i++){
+		     var op = new Option(p[v][i],p[v][i]);
+			 city.options.add(op);
+		   }
+ }
+ 
+ function show(){//一开始显示
+     for(var i=0;i<p.length;i++){
+		  var op=new Option(p[i],p[i]);
+		  document.getElementById("se").options.add(op);
+ }
+        for(var j=0;j<p["湖北省"].length;j++){
+		  var op=new Option(p["湖北省"][j],p["湖北省"][j]);
+		  document.getElementById("city").options.add(op);
+		 }
+ }
+</script>
+<body onload="show();">
+>>>>>>> branch 'master' of https://github.com/raokeqiang/st1605e.git
 <!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"

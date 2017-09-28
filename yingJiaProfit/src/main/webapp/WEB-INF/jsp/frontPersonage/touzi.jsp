@@ -479,12 +479,13 @@ li.active a {
 											<th>金额</th>
 											<th>状态</th>
 											<th>购买时间</th>
-										</tr>
 
+   									    <tr>
 
-                            <c:forEach items="${list }"  var="e">
-                          				  <tr>
-												<td>${e.serial_number }</td>
+					               <c:forEach items="${list }"  var="e">
+											<tr>
+                                                <td>${e.serial_number }</td>
+
 												<td>${e.subject.name }</td>
 												<td><script type="text/javascript">
 											  var am=${e.amount };

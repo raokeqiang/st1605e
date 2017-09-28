@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Feedback")//'意见反馈表'
@@ -12,10 +14,31 @@ import javax.persistence.Table;
 public class FeedBack {
 
 	private int id;//主键
-	private int member_id;//会员id
 	private String content;//意见反馈内容
 	private Date create_date;//创建时间
-	
+	private Member member;
+	private String type;
+	private String  iphone;
+	public String getIphone() {
+		return iphone;
+	}
+	public void setIphone(String iphone) {
+		this.iphone = iphone;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -23,12 +46,6 @@ public class FeedBack {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getContent() {
 		return content;

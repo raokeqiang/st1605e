@@ -401,11 +401,11 @@ $(function(){
 				{"id":"5","name":"海外配置","parentId":"3","url":"over/Seamenus3","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"6","name":"钱包管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-				{"id":"7","name":"缴费记录","parentId":"6","url":"jfjl","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
+				{"id":"7","name":"缴费记录","parentId":"6","url":"wallet/listAll","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":""}
 				]},
-            	{"id":"8","name":"学院管理","parentId":"1","url":"xygl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":[
-				{"id":"9","name":"资讯分类","parentId":"9","url":"zxfl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"10","name":"资讯管理","parentId":"9","url":"zxgl","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
+            	{"id":"8","name":"学院管理","parentId":"1","url":"","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":[
+				{"id":"9","name":"资讯分类","parentId":"9","url":"T/listnewsType","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"10","name":"资讯管理","parentId":"9","url":"N/listnews","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
 				{"id":"12","name":"理财师管理","parentId":"6","url":"Manage/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
@@ -417,12 +417,12 @@ $(function(){
 				{"id":"18","name":"账号管理","parentId":"6","url":"Member/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"12","name":"盈+统计","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
-				{"id":"19","name":"财务统计","parentId":"9","url":"cwtj","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
-				{"id":"20","name":"用户综合","parentId":"9","url":"yhzh","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
+				{"id":"19","name":"财务统计","parentId":"9","url":"GongGao/serCop","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""},
+				{"id":"20","name":"用户综合","parentId":"9","url":"Fin/listall","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},	
 				{"id":"13","name":"盈+设置","parentId":"1","url":"","icon":"&#xe608;","order":"1","isHeader":"0","childMenus":[
-	            {"id":"21","name":"公告管理","parentId":"9","url":"gggl","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""},
-	            {"id":"22","name":"意见反馈","parentId":"9","url":"yjfk","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""}
+	            {"id":"21","name":"公告管理","parentId":"9","url":"Push/toAnnouncements","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""},
+	            {"id":"22","name":"意见反馈","parentId":"9","url":"F/listall","icon":"&#xe607;","order":"1","isHeader":"0","childMenus":""}
 	            ]},	
 				]},
 				{"id":"14","name":"系统设置","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[

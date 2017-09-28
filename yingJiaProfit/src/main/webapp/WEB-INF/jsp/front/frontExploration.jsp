@@ -650,35 +650,35 @@ li.active a {
 							<div class="col-sm-12">
 
 
-								<select name="MsgType" class="form-control" id="MsgType"
+								<select name="type" class="form-control" id="type"
 									data-val-required="留言类型 字段是必需的。" data-val="true">
 									<option selected="selected" value="0">请选择反馈类型</option>
 									<option value="1">终止实盘结算申请</option>
-									<option value="6">追加保证金</option>
-									<option value="7">交易问题</option>
-									<option value="3">功能使用问题</option>
-									<option value="4">大额预约</option>
-									<option value="50">其他问题</option>
+									<option value="2">追加保证金</option>
+									<option value="3">交易问题</option>
+									<option value="4">功能使用问题</option>
+									<option value="5">大额预约</option>
+									<option value="6">其他问题</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<input class="form-control" id="contact" placeholder="请输入手机号或邮箱"
-									type="text">
+								<input class="form-control" id="iphone" placeholder="请输入有效手机号"
+									type="text" name="iphone">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<textarea class="form-control" id="content"
-									placeholder="请填写你的用户名、实盘帐号并说明是结算申请还是追加保证金！"></textarea>
+								<textarea class="form-control" id="content" name="content"
+									placeholder="请填写反馈意见！"></textarea>
 							</div>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success" id="submitFeedback"
-						onclick="submitFeedback();">提交</button>
+						onclick="fun(),submitFeedback();">提交</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 				</div>
 			</div>
@@ -687,26 +687,24 @@ li.active a {
 
 	<script type="text/javascript">
 		function submitFeedback() {
-			var type = $('#feedbackForm #MsgType').val();
-			var contact = $('#feedbackForm #contact').val();
-			var content = $('#feedbackForm #content').val();
-			$('#submitFeedback').attr('disabled', true);
-			$.post('/api/feedback/create', {
-				msgType : type,
-				contact : contact,
-				content : content
-			}).done(function(res) {
-				if (res.isSuccess) {
-					alert('感谢您的反馈，我们会尽快给您做出答复！');
-					$('#feedbackModal').modal('hide');
-					$('#feedbackForm #contact').val('');
-					$('#feedbackForm #content').val('');
-				} else {
-					alert(res.errorMessage);
-				}
-			}).always(function() {
-				$('#submitFeedback').attr('disabled', false);
-			});
+			var type =document.getElementById("type").value;
+			var iphone =document.getElementById("iphone").value;
+			var content =document.getElementById("content").value;
+			    $.post("/yingJiaProfit/F/saveF",{type:type,iphone:iphone,content:content},function(data){
+			    	if(data=="no"){
+			    		alert("请填写意见！");
+			    	}else if(data=="yes"){
+			    		alert("反馈成功！");
+			    		window.location.href="/yingJiaProfit/F/tu"
+			    	}else if(data=="ll"){
+			    		alert("联系方式有误！");
+			    	}
+			    });
+		}
+		function fun(){
+			if('${member.id}'==''){
+				window.location.href="/yingJiaProfit/toFrontLogin/login"
+			}
 		}
 	</script>
 
