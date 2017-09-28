@@ -441,7 +441,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
@@ -480,9 +480,9 @@ li.active a {
 											<td>
 											 <script type="text/javascript">
 											  var am=${s.amount};
-											  var ptim=${s.pay_interest_times};
-											  var ss=am*ptim;
-											  document.write(ss);
+											  var ptim=${s.subject.year_rate};
+											  var ss=am*ptim/100;
+											  document.write(ss.toFixed(2));
 											 </script>
 											</td>
 											<td> 

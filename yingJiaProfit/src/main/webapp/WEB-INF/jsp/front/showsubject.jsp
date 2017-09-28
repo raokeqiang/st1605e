@@ -422,42 +422,62 @@ li.active a {
     	<div class="hwpzNav">
     		<ul>
     			<li class="first"><a class="active" href="/yingJiaProfit/subjectqian/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="">私募基金</a></li>
-    			<li class="three"><a href="">海外配置</a></li>
-    			<li class="four"><a href="">股权基金</a></li>
+    			<li class="second"><a href="/yingJiaProfit/qianmoney/privmon">私募基金</a></li>
+    			<li class="three"><a href="/yingJiaProfit/sea/showsea">海外配置</a></li>
+    			<li class="four"><a href="/yingJiaProfit/qianmoney/privmon">股权基金</a></li>
     		</ul>
     	</div>
         <div class="sdShaix">
         	<ul>
             	<li class="first">标的类型：</li>
-               		<li><a href="/yingJiaProfit/subjectqian/showsubject" id="11" class="select">全部</a></li>
-               		<li><a href="/yingJiaProfit/subjectqian/showsubject" id="12">固收类理财</a></li>
-               		<li><a href="/yingJiaProfit/subjectqian/showsubject" id="13">车盈宝</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?type=-1&num=-1" id="11" 
+             <c:if test="${ empty type}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?type=0&num=1" 
+              <c:if test="${type==0}">class="select" </c:if>  id="12"> 固收类理财</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?type=1&num=2" 
+               		<c:if test="${type==1}">class="select" </c:if>
+               		id="13">车盈宝</a></li>
             </ul>
         	<ul>
             	<li class="first">年化收益：</li>
-               		<li><a href="#" id="21" class="select" onclick="setValue1(0,-1)">全部</a></li>
-               		<li><a href="#" id="22"  onclick="setValue1(6,0)">6.0%</a></li>
-               		<li><a href="#" id="23"  onclick="setValue1(7,0)">7.0%</a></li>
-               		<li><a href="#" id="24" onclick="setValue1(7.5,0)">7.5%</a></li>
-               		<li><a href="#" id="25" onclick="setValue1(8,0)">8.0%</a></li>
-               		<li><a href="#" id="25" onclick="setValue1(8,1)">8.0%以上</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=-1" id="21"  
+               		<c:if test="${ empty year_rate}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=6"
+               		 id="22"  <c:if test="${year_rate==6}">class="select" </c:if>>6.0%</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=7"
+               		 id="23" <c:if test="${year_rate==7}">class="select" </c:if>>7.0%</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=8" 
+               		id="24" <c:if test="${year_rate==8}">class="select" </c:if>>8.0%</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=9" 
+               		id="25" <c:if test="${year_rate==9}">class="select" </c:if>>9.0%</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?year_rate=10" id="25" 
+               	<c:if test="${year_rate==10}">class="select" </c:if>>10.0%以上</a></li>
             </ul>
         	<ul>
             	<li class="first">项目期限：</li>
-               		<li><a href="#" id="31" class="select" onclick="setValue2(0,0)">全部</a></li>
-               		<li><a href="#" id="32" onclick="setValue2(0,15)">15天以下</a></li>
-               		<li><a href="#" id="33"  onclick="setValue2(15,30)">15-30天</a></li>
-               		<li><a href="#" id="34" onclick="setValue2(30,180)">30-180天</a></li>
-               		<li><a href="#" id="35" onclick="setValue2(180,365)">180-365天</a></li>
-               		<li><a href="#" id="36" onclick="setValue2(365,-1)">一年以上</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=-1"  id="31" 
+               		 <c:if test="${ empty days}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=1" 
+               		 <c:if test="${days==1}">class="select" </c:if> id="32">>15天以下</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=2"  id="33" 
+               		 <c:if test="${days==2}">class="select" </c:if>>15-30天</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=3"  id="34" 
+               		<c:if test="${days==3}">class="select" </c:if>>30-180天</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=4"  id="35" 
+               		<c:if test="${days==4}">class="select" </c:if>>180-365天</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?days=5" id="36" 
+               		 <c:if test="${days==5}">class="select" </c:if>>一年以上</a></li>
             </ul>
         	<ul>
             	<li class="first">标的状态：</li>
-               		<li><a href="#" id="41" class="select" onclick="setValue3(-1)">全部</a></li>
-               		<li><a href="#" id="42" onclick="setValue3(0)">投标中</a></li>
-               		<li><a href="#" id="43" onclick="setValue3(1)">还款中</a></li>
-               		<li><a href="#" id="44" onclick="setValue3(2)">已完成</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=-1"
+               		 id="41" <c:if test="${ empty status}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=0"  id="42" 
+               		<c:if test="${status==0}">class="select" </c:if>>投标中</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=1"  id="43" 
+               		 <c:if test="${status==1}">class="select" </c:if>>还款中</a></li>
+               		<li><a href="/yingJiaProfit/subjectqian/queryType?status=2"  id="44" 
+               		 <c:if test="${status==2}">class="select" </c:if>>已完成</a></li>
             </ul>
         </div>
 

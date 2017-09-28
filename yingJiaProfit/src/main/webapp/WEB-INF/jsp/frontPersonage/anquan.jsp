@@ -312,7 +312,7 @@ li.active a {
 }
 </style>
 
-</head>
+</head>8
 <body>
 <!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
@@ -442,7 +442,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em

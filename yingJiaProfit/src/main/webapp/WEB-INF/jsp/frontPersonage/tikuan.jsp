@@ -441,7 +441,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
@@ -477,7 +477,10 @@ li.active a {
 									<c:forEach items="${listAll }" var="m">
 										<tr>
 											<td>${m.serial_number }</td>
-											<td>${m.amount }</td>
+											<td><script type="text/javascript">
+											  var am=${m.amount };
+											  document.write(am.toFixed(2));
+											  </script></td>
 											<td>
 											 <c:if test="${m.status==0 }">待审核</c:if>
                                              <c:if test="${m.status==1 }">已打款</c:if>

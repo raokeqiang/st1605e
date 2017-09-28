@@ -10,6 +10,7 @@ void saveover(OverseaConfig over);
  List<OverseaConfig> listAllover() ;
 	OverseaConfig getById(int id) ;
 //	//显示海外配置订阅
- List<OverseaConfigSubscribe> listding() ;
+	//OverseaConfigSubscribe overseaConfiggetById(int oversea_id);
+ List<OverseaConfigSubscribe> listding(int id) ;
 	
 }

@@ -15,7 +15,7 @@ public class MemberDepositRecord {
 
 	private int id;//主键
 	private String serial_number;//流水号
-	private int member_id;//用户id
+	//private int member_id;//用户id
 	private int amount;//金额
 	private int status;//默认‘0’ 状态（0：待付款，1：完成）
 	private String pay_channel_name;//充值渠道名称
@@ -26,7 +26,7 @@ public class MemberDepositRecord {
     private Member member;
 	
 	@ManyToOne
-	@JoinColumn(name="Member_Id")
+	@JoinColumn(name="member_Id")
 	public Member getMember() {
 		return member;
 	}
@@ -47,12 +47,12 @@ public class MemberDepositRecord {
 	public void setSerial_number(String serial_number) {
 		this.serial_number = serial_number;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+//	public int getMember_id() {
+//		return member_id;
+//	}
+//	public void setMember_id(int member_id) {
+//		this.member_id = member_id;
+//	}
 	public int getAmount() {
 		return amount;
 	}

@@ -407,10 +407,10 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
@@ -441,7 +441,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
@@ -478,18 +478,24 @@ li.active a {
 											<th>状态</th>
 											<th>购买时间</th>
 										</tr>
-											<c:forEach items="${list }"  var="e">
-											<tr>
+
+
+                            <c:forEach items="${list }"  var="e">
+                          				  <tr>
 												<td>${e.serial_number }</td>
 												<td>${e.subject.name }</td>
-												<td>${e.amount }</td>
+												<td><script type="text/javascript">
+											  var am=${e.amount };
+											  document.write(am.toFixed(2));
+											  </script></td>
 											<td>
 											 <c:if test="${e.subject.status==0}">募集中</c:if> 
-											 <c:if test="${e.subject.status==1}">未募集</c:if>
+											 <c:if test="${e.subject.status==1}">已完成</c:if>
 											 </td>
 											<td>${e.subject.create_date}</td>
-											</c:forEach>
 											</tr>
+											</c:forEach>
+											
 									</tbody>
 								</table>
 								

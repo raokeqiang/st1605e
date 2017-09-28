@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.profit.bean.MemberBankcards;
 import com.profit.bean.OverseaConfig;
 import com.profit.bean.OverseaConfigSubscribe;
 import com.profit.dao.YsOverseaConfigDao;
@@ -24,9 +25,10 @@ public class YsOverseaDaoImpl implements YsOverseaConfigDao {
 	}
 
 	@Override
-	public List<OverseaConfigSubscribe> listover() {
+	public List<OverseaConfigSubscribe> listover(int id) {
 		 Session session=getSession();
-		  List<OverseaConfigSubscribe> list2=session.createQuery("from OverseaConfigSubscribe").list();
+		 String hql="from OverseaConfigSubscribe  where id ="+id;
+		  List<OverseaConfigSubscribe> list2=session.createQuery(hql).list();
 		  return list2;
 	}
 
@@ -61,4 +63,17 @@ public class YsOverseaDaoImpl implements YsOverseaConfigDao {
 		
 	}
 
-}
+	//@Override
+//	public OverseaConfigSubscribe overseaConfiggetById(int oversea_id) {
+//		System.out.println(oversea_id);
+//	  Session session=getSession();
+//	  String hql="from OverseaConfigSubscribe  where id ="+id;
+//		List<OverseaConfigSubscribe> list=session.createQuery(hql).list();
+//		if(list.size()>0){
+//			return list.get(0);
+//		}
+//		return null;
+//	}
+	}
+
+
