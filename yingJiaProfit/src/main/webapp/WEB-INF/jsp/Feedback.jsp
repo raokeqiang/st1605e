@@ -14,9 +14,10 @@
 <body>
 <table class="table">
 <thead>
-<tr><td>序号</td><td>反馈人</td><td>反馈意见</td><td>反馈类型</td><td>反馈时间</td></tr>
+<tr><td>序号</td><td>反馈人</td><td>反馈意见</td><td>反馈类型</td><td>反馈时间</td><td>联系电话</td></tr>
 <c:forEach items="${Bb }" var="bb" varStatus="stat" >
 <tr><td>${stat.index+1} </td><td>${bb.member.member_name}</td><td>${bb.content}</td><td>${bb.type}</td><td>${bb.create_date  }</td>
+<td></td>
 </tr>
 </c:forEach>
 </thead>
