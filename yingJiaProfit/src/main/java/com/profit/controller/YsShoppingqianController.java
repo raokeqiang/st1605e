@@ -235,6 +235,8 @@ public class YsShoppingqianController {
 
 		//添加充值流水表
 		memberDepositRecord.setAmount(WIDtotal_amount);
+		
+		System.out.println("sssssssssssss"+WIDtotal_amount);
 		//添加购买流水表
 		subjectPurchaseRecord.setSerial_number(WIDout_trade_no);
 		// 添加创建日期

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,63 +32,32 @@
 </head>
 <body>
 	<div class="gjList clearfix">
+	  <c:forEach items="${list}" var="s">
 		<ul>
 			<li>
 <!-- 			<a class="all" target="_blank" -->
 <!-- 				href="http://pro.ying158.com/finance/financeView/28"> -->
+     
 					<h2 class="tit">
-						<span>募</span>凯丰对冲10号
+					
+						<span>募</span>${s.name }
 					</h2> <span class="fenl">股权</span>
 					<div class="count">
-						<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>31</b>人</span>
-						<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
+						<span class="s1"><b>${s.year_rate }</b>%</span> <span class="s2"><b></b></span>
+						<span class="s3">年化收益</span> <span class="s4"></span> <span
 							class="s5">/</span>
 					</div>
 					<p class="safe">
-						起购金额：￥1,000,000.00元<br>
+						起购金额：￥${s.floor_amount }<br>
 					</p>
 					<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
 					<p class="abox">
-						<span class="abtn">立即购买</span>
+						<span class="abtn"><a class="abtn" href="/yingJiaProfit/shopping/toBuy?id=${s.id }">购买</a></span>
 					</p>
 			</a></li>
-			<li><a class="all" target="_blank"
-				href="http://pro.ying158.com/finance/financeView/27">
-					<h2 class="tit">
-						<span>募</span>凯丰对冲9号
-					</h2> <span class="fenl">股权</span>
-					<div class="count">
-						<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>36</b>人</span>
-						<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
-							class="s5">/</span>
-					</div>
-					<p class="safe">
-						起购金额：￥1,000,000.00元<br>
-					</p>
-					<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
-					<p class="abox">
-						<span class="abtn">立即购买</span>
-					</p>
-			</a></li>
-			<li><a class="all" target="_blank"
-				href="http://pro.ying158.com/finance/financeView/24">
-					<h2 class="tit">
-						<span>募</span>和聚友道专享1号
-					</h2> <span class="fenl">私募</span>
-					<div class="count">
-						<span class="s1"><b>35.0</b>%</span> <span class="s2"><b>360</b>天</span>
-						<span class="s3">年化收益</span> <span class="s4">投资期限</span> <span
-							class="s5">/</span>
-					</div>
-					<p class="safe">
-						起购金额：￥1,000,000.00元<br>
-					</p>
-					<p class="txt" style="height: 72px;">精品私募</p>
-					<p class="abox">
-						<span class="abtn">立即购买</span>
-					</p>
-			</a></li>
+			
 		</ul>
+		</c:forEach>
 	</div>
 </body>
 </html>
