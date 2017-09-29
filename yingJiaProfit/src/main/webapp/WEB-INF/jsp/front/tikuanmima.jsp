@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,21 +12,20 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>盈+理财网上体验中心</title>
-<!-- <link href="http://www.ying158.com/Content/images/jw/icon.ico" -->
-<!-- 	type="image/x-icon" rel="shortcut icon"> -->
-<script src="/yingJiaProfit/js/hm.js"></script>
-<script src="/yingJiaProfit/js/hm_002.js"></script>
-<link href="/yingJiaProfit/css/video-js.css" rel="stylesheet"
-	type="text/css">
-<link href="/yingJiaProfit/css/common.css" rel="stylesheet">
+<title>安全信息</title>
+<link href="/yingJiaProfit/css/person_css/common.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/iconfont.css" rel="stylesheet">
+<link href="/yingJiaProfit/css/person_css/jw.css" rel="stylesheet">
+<link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
+ <link rel="stylesheet" href="/yingJiaProfit/css/bootstrapValidator.css" />
 
-<link href="/yingJiaProfit/css/jw.css" rel="stylesheet">
-
-<script src="/yingJiaProfit/js/jquery.js"></script>
-
+<script src="/yingJiaProfit/css/person_css/jquery.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/jquery.min.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/bootstrap.min.js"></script>
 <script src="/yingJiaProfit/js/bootstrap.js"></script>
-
+<script src="/yingJiaProfit/css/person_css/hm.js"></script>
+<script src="/yingJiaProfit/css/person_css/echarts.js"></script>
+<script type="text/javascript" src="/yingJiaProfit/js/bootstrapValidator.js" ></script>
 <style type="text/css">
 .hzhb_box {
 	float: left;
@@ -100,7 +99,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url(/yingJiaProfit/img/ft_sns.png) no-repeat;
+	background: url() no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -318,14 +317,16 @@ li.active a {
 }
 </style>
 
-</head>
+</head>8
 <body>
-
+<!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
-		<iframe src="/yingJiaProfit/show/frontIframeLogin" scrolling="no"
+		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
 			width="1002" height="94" frameborder="0"></iframe>
 	</div>
-		<div class="jwNav">
+	
+	
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -360,39 +361,179 @@ li.active a {
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 
-	<div class="container">
-		<div class="kcenter">
+<table class="peopleInfo" width="970" height="160" cellspacing="0"
+		cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="info" valign="middle" align="left"><a
+					href="http://pro.ying158.com/account/security">
+						<div class="img">
+							<img src="/yingJiaProfit/img/userPic.jpg">
+						</div>
+						<h2>
+							${member.member_name},<span>您好!</span>
+						</h2>
+				</a>
+					<div class="safe">
+						账户安全&nbsp;&nbsp;<span class="scroll"><em style="width: 50%"></em></span>
+					</div>
+					<ul class="listIco iconfont">
+						<li class=""><a href="#1"></a><em></em></li>
+						<li class="active"><a href="#1"></a><em></em></li>
+						<!-- <li class=""><a href="#1">&#xe61f;</a><em>&#xe61b;</em></li> -->
+						<li class="active"><a href="#1"></a><em></em></li>
+						<li class=""><a href="#1"></a><em></em></li>
+					</ul></td>
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
+					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="countBox">
+		<ul>
+			<li><h2>${memberAccount.useable_balance }</h2>
+				<p>
+					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
+				</p></li>
+			<li><h2>${memberAccount.useable_balance+memberAccount.invest_amount+memberAccount.total_profit }</h2>
+				<p>
+					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.invest_amount }</h2>
+				<p>
+					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.total_profit }</h2>
+				<p>
+					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${memberAccount.imuseale_balance }</h2>
+				<p>
+					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
+				</p></li>
+		</ul>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/jilian/sheng" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/jilian/sheng" class="tk">提款</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/toFrontPersonage/woyaotikuan" class="tk">提款</a> 
+			</c:if>
+	</div>
+	<div class="proMain clearfix">
+		<div class="adminLeft">
+			<h2>我的投资</h2>
 			<ul>
-				<li><a href="http://pro.ying158.com/subject">产品中心</a></li>
-				<li><a href="http://www.ying158.com/Home/NewsCenter">新闻中心</a></li>
-				<li><a href="http://pro.ying158.com/mobileappdownload">下载中心</a></li>
-				<li><a href="http://www.ying158.com/home/Help">盈+商学院</a></li>
-				<li><a href="http://www.ying158.com/UserGuide/TradingSoftware">投研中心</a></li>
-				<li><a
-					href="http://pro.ying158.com/account/trades/profit/records">我的加法库</a></li>
+				<li><a id="member_center_menu_invests"
+					href="/yingJiaProfit/toFrontPersonage/touzi"><em
+						class="iconfont red"></em>投资记录</a></li>
+				<li><a 
+					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
+						class="iconfont red"></em>收益记录</a></li>
+				<li><a id="member_center_menu_deposit_record"
+					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
+						class="iconfont red"></em>充值记录</a></li>
+				<li><a id="member_center_menu_withdraw_record"
+					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
+						class="iconfont red"></em>提款记录</a></li>
+				<li><a id="member_center_menu_bbinInfo_record"
+					href="/yingJiaProfit/toFrontPersonage/tiyanjin"><em
+						class="iconfont red"></em>体验金记录</a></li>
 			</ul>
-			<div
-				style="position: absolute; left: 485px; top: 410px; font-size: 18px;">
-				<a href="http://www.ying158.com/UserGuide/TradingSoftware"
-					style="color: transparent">投研中心</a>
-			</div>
-			<div
-				style="position: absolute; left: 720px; top: 390px; font-size: 18px;">
-				<a href="http://pro.ying158.com/account/trades/profit/records"
-					style="color: transparent">我的加法库</a>
-			</div>
-			<div
-				style="position: absolute; right: 50px; top: 220px; font-size: 18px;">
-				<a href="#" onclick="$('#feedbackModal').modal(); return false;"
-					style="color: transparent">投诉与建议</a>
-			</div>
-			<div
-				style="position: absolute; left: 835px; top: 490px; font-size: 18px;">
-				<a href="http://www.ying158.com/UserGuide/TradingSoftware"
-					style="color: transparent">投研中心</a>
+			<h2>我的账户</h2>
+			<ul>
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
+						class="iconfont"></em>账户充值</a></li>
+				<li><a id="member_center_menu_security"
+					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+						class="iconfont"></em>安全信息</a></li>
+				<li><a id="member_center_menu_withdraw"
+					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
+						class="iconfont"></em>我要提款</a></li>
+			</ul>
+		</div>
+		<script>
+			var menu_item = "member_center_menu_profit_record";
+			$("#" + menu_item).addClass("select");
+		</script>
+		<div class="admin-right">
+			<div class="tbConBox">
+				<div class="tab">
+					<a class="select" href="javascript:;">安全中心</a>
+				</div>
+				<div class="container">
+    <div class="row">
+        <!-- form: -->
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h2>提款密码设置</h2>
+                </div>
+
+               
+                <form id="defaultForm" method="post" class="form-horizontal" action="/yingJiaProfit/toFrontLogin/tikuan">
+                   <input type="hidden" name="memberid" value="${member.id }">
+                    <input type="hidden" name="phone" value="${member.mobile_Phone }">
+                    <div class="alert alert-success" style="display: none;"></div>
+                     <div class="form-group">	
+                        <label class="col-lg-3 control-label">请输入提款密码</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" id="password1" name="password1" placeholder="请输入密码"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">	
+                        <label class="col-lg-3 control-label">请再输入一次</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="请输入密码" onkeyup="checksu()" />
+                            <span style="display: none; color:red" id="pwd">两次输入密码不一致</span>
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary" id="bt1">提交</button>
+                                 <button type="submit" class="btn btn-primary" disabled="disabled" id="bt2">提交</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </section>
+        <!-- :form -->
+    </div>
+</div>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	$(function() {
+		$("#bt1").hide();
+		$("#bt2").show();
+	});   	
+    	function checksu(){
+    		var password1=$("#password1").val();
+    		var password2=$("#password2").val();
+    		if(password1==password2){
+    			$("#pwd").hide();
+    			$("#bt2").hide();
+    			$("#bt1").show();
+    		}
+    		if(password1!=password2){
+    			$("#pwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    	}
+     
+        
+</script>
+
 
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
@@ -451,7 +592,7 @@ li.active a {
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
-							onmouseout="    this.src = '/yingJiaProfit/img/3.jpg'"
+							onmouseout="    this.src = 'yingJiaProfit/img/3.jpg'"
 							src="/yingJiaProfit/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
@@ -650,35 +791,35 @@ li.active a {
 							<div class="col-sm-12">
 
 
-								<select name="type" class="form-control" id="type"
+								<select name="MsgType" class="form-control" id="MsgType"
 									data-val-required="留言类型 字段是必需的。" data-val="true">
 									<option selected="selected" value="0">请选择反馈类型</option>
 									<option value="1">终止实盘结算申请</option>
-									<option value="2">追加保证金</option>
-									<option value="3">交易问题</option>
-									<option value="4">功能使用问题</option>
-									<option value="5">大额预约</option>
-									<option value="6">其他问题</option>
+									<option value="6">追加保证金</option>
+									<option value="7">交易问题</option>
+									<option value="3">功能使用问题</option>
+									<option value="4">大额预约</option>
+									<option value="50">其他问题</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<input class="form-control" id="iphone" placeholder="请输入有效手机号"
-									type="text" name="iphone">
+								<input class="form-control" id="contact" placeholder="请输入手机号或邮箱"
+									type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<textarea class="form-control" id="content" name="content"
-									placeholder="请填写反馈意见！"></textarea>
+								<textarea class="form-control" id="content"
+									placeholder="请填写你的用户名、实盘帐号并说明是结算申请还是追加保证金！"></textarea>
 							</div>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success" id="submitFeedback"
-						onclick="fun(),submitFeedback();">提交</button>
+						onclick="submitFeedback();">提交</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 				</div>
 			</div>
@@ -687,24 +828,26 @@ li.active a {
 
 	<script type="text/javascript">
 		function submitFeedback() {
-			var type =document.getElementById("type").value;
-			var iphone =document.getElementById("iphone").value;
-			var content =document.getElementById("content").value;
-			    $.post("/yingJiaProfit/F/saveF",{type:type,iphone:iphone,content:content},function(data){
-			    	if(data=="no"){
-			    		alert("请填写意见！");
-			    	}else if(data=="yes"){
-			    		alert("反馈成功！");
-			    		window.location.href="/yingJiaProfit/F/tu"
-			    	}else if(data=="ll"){
-			    		alert("联系方式有误！");
-			    	}
-			    });
-		}
-		function fun(){
-			if('${member.id}'==''){
-				window.location.href="/yingJiaProfit/toFrontLogin/login"
-			}
+			var type = $('#feedbackForm #MsgType').val();
+			var contact = $('#feedbackForm #contact').val();
+			var content = $('#feedbackForm #content').val();
+			$('#submitFeedback').attr('disabled', true);
+			$.post('/api/feedback/create', {
+				msgType : type,
+				contact : contact,
+				content : content
+			}).done(function(res) {
+				if (res.isSuccess) {
+					alert('感谢您的反馈，我们会尽快给您做出答复！');
+					$('#feedbackModal').modal('hide');
+					$('#feedbackForm #contact').val('');
+					$('#feedbackForm #content').val('');
+				} else {
+					alert(res.errorMessage);
+				}
+			}).always(function() {
+				$('#submitFeedback').attr('disabled', false);
+			});
 		}
 	</script>
 
@@ -720,7 +863,6 @@ li.active a {
 				<div class="modal-body">
 					<div class="row">
 						<span>今日暂时没有限购的股票</span>
-
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -866,8 +1008,6 @@ li.active a {
 			s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-
-
 
 </body>
 </html>

@@ -21,7 +21,7 @@ public class FrontMemberAccountController {
 	public String select(int member_id,HttpServletRequest request,HttpSession session){
 		MemberAccount mA=this.frontMemberAccountServiceImpl.selectMA(member_id);
 		session.setAttribute("memberAccount", mA);
-		return "/frontPersonage/ShouYi";
+		return "redirect:/toFrontPersonage/shouyi";
 		
 	}
 }

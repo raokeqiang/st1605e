@@ -22,62 +22,11 @@
 <script src="/yingJiaProfit/css/person_css/hm.js"></script>
 <script src="/yingJiaProfit/css/person_css/echarts.js"></script>
 <!-- 校验 -->
-<script type="text/javascript">
-   function fun2(){
-	   //获取文本框的内容
-	   var name=document.form1.name.value;
-	   var identity=document.form1.identity.value;
-	   var card_no=document.form1.card_no.value;
-	   var card_no2=document.form1.card_no2.value;
-	   //获取层的内容
-		 var d1=document.getElementById("d1");
-		 var d2=document.getElementById("d2");
-		 var d3=document.getElementById("d3");
-		 var d4=document.getElementById("d4");
-		 
-		 //正则表达式
-		  var s1=/^\w{6,}$/;//姓名
-		  var s5=/^\d{18}|\d{18}[a-zA-Z]{1}$/;//身份证
-		  var s2=/^\d{14,20}$/;//银行卡号
-		  var s3=/^\d{6,20}$/;//银行卡号
-		  
-		  if(!s1.test(name)){
-			  d1.innerHTML="<font color=red>姓名不能为空，且至少有六位字符</font>";
-			  return false;
-			  }else{
-				  d1.innerHTML="<font color=blue>姓名正确！</font>";
-				  }
-		  if(!s2.test(card_no)){
-				 d3.innerHTML="<font color=red>银行卡号至少有十二位字符</font>";
-				 return false;
-					}else{
-					 d3.innerHTML="<font color=blue>银行卡号正确！</font>";
-						}
-							 
-			if(card_no!=card_no2){
-				d4.innerHTML="<font color=red>两次银行卡号输入不一致</font>";
-				return false;
-					} else{
-				d4.innerHTML="<font color=blue>银行卡号正确</font>";
-						} 
-			  if(!s5.test(identity)){
-				  d2.innerHTML="<font color=red>身份证为十八位数字</font>";
-				  return false;
-				  }else{
-					  d2.innerHTML="<font color=blue>身份证输入正确！</font>";
-					  }
-		  return true;
-   }
 
-//提交表单
-    function f55(){
-    	  alert("okkkk");
-    	$("#form1").attr("action","/yingJiaProfit/shopping/savememberCard");
-			$("#form1").submit();
-    	
-    }
- </script>
 
+<<<<<<< HEAD
+<body>
+=======
 <style type="text/css">
 .hzhb_box {
 	float: left;
@@ -398,6 +347,7 @@ function fun(){//当下拉列表内容发生改变时
  }
 </script>
 <body onload="show();">
+>>>>>>> branch 'master' of https://github.com/raokeqiang/st1605e.git
 <!-- 顶部iframe -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="no"
@@ -405,7 +355,7 @@ function fun(){//当下拉列表内容发生改变时
 	</div>
 	
 	
-		<div class="jwNav">
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -413,7 +363,7 @@ function fun(){//当下拉列表内容发生改变时
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
@@ -424,7 +374,7 @@ function fun(){//当下拉列表内容发生改变时
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -450,7 +400,7 @@ function fun(){//当下拉列表内容发生改变时
 							<img src="/yingJiaProfit/img/userPic.jpg">
 						</div>
 						<h2>
-							，<span>您好!</span>
+							${member.member_name}，<span>您好!</span>
 						</h2>
 				</a>
 					<div class="safe">
@@ -462,7 +412,7 @@ function fun(){//当下拉列表内容发生改变时
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -489,16 +439,19 @@ function fun(){//当下拉列表内容发生改变时
 				<p>
 					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
 				</p></li>
-
-	
 		</ul>
-		<c:if test="true">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
-		<c:if test="true">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="tk">提款</a>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
-		
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="#" class="tk">提款</a> 
+			</c:if>
 	</div>
 	<div class="proMain clearfix">
 		<div class="adminLeft">
@@ -522,10 +475,10 @@ function fun(){//当下拉列表内容发生改变时
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng" class="select"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan" ><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
@@ -546,8 +499,9 @@ function fun(){//当下拉列表内容发生改变时
                     <div class="box"  style="display:block">
                         <div class="myBankCards clearfix">
                                 <div class="title">绑定银行卡</div>
-                                <form method="post" id="form1"  onsubmit="return fun2();">
+                                <form  method="post" action="/yingJiaProfit/jilian/cardBound" >
                                 <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                   <input type="hidden" value="${member.id }" name="member_id" >
                                     <tr>
                                         <td align="right">姓名：</td>
                                         <td><input type="text" class="tytxt" id="name" name="name"  placeholder="姓名"></td>
@@ -575,9 +529,17 @@ function fun(){//当下拉列表内容发生改变时
                                     <tr>
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
-                                           省:<select id="se"  name="se" style="width:80px;" onchange="fun(this.value);"></select>
-                                           市:<select id="city"  name="city" style="width:100px;"></select>
-                                            <input type="hidden" name="location_id"  id="cardaddress" name="cardaddress"/ >
+                                      	   <select name="province" id="loc_province" style="width:80px;">
+                                           <option>选择省</option>
+                                           <c:forEach items="${shengList }" var="e">
+                                           <option value="${e.ID }">${e.name }</option>
+                                           </c:forEach>
+                                           
+                                           </select>
+                                        	 <select name="shi" id="loc_city" style="width:100px;">
+                                            	<option value="">地级市</option>
+                                            </select>
+                                               <select name="xiang" id="loc_town" style="width:120px;"><option value="">市、县、区</option></select>
                                         </div>
                                         </td>
                                         <td></td>
@@ -597,7 +559,7 @@ function fun(){//当下拉列表内容发生改变时
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><button class="tybutton" id="butt"   onclick="f55();">保存</button></td>
+                                        <td><button class="tybutton" type="submit" id="buttonsubmit">保存</button></td>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -784,315 +746,102 @@ function fun(){//当下拉列表内容发生改变时
 			</div>
 		</div>
 	</div>
-	<div class="modal fade loginModal infoModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" style="width: 400px;">
-				<div class="modal-header">
-					<span>用户登录</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<div class="content" style="padding: 20px 40px;">
-						<input class="form-control" placeholder="用户名/手机/邮箱" id="modalUser"
-							type="text"><br> <input class="form-control"
-							placeholder="密码" id="modalPw" type="password">
-					</div>
-					<div>
-						<button class="btn btn-primary" onclick="loginFromModal()"
-							style="padding-left: 20px; padding-right: 20px;">登录</button>
-						<a class="btn btn-info"
-							href="http://www.ying158.com/Account/Regist" target="blank"
-							style="padding-left: 20px; padding-right: 20px; margin-left: 20px;">注册</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade loginInfo infoModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" style="width: 400px;">
-				<div class="modal-header">
-					<span>错误信息</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<div class="content" id="loginFail"></div>
-					<button class="btn btn-primary confirmBtn" data-dismiss="modal">确认</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade infoModal" id="infosModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" style="border-radius: 0px; width: 400px;">
-				<div class="modal-header">
-					<span>通知</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div id="infosModalError"></div>
-					<button class="btn btn-success confirmBtn" data-dismiss="modal">确认</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade infoModal" id="infosSuccessModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" style="border-radius: 0px; width: 400px;">
-				<div class="modal-header">
-					<span>通知</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div id="infosSuccessModalError"></div>
-					<button class="btn btn-success confirmBtn" data-dismiss="modal">确认</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="feedbackModal" class="modal fade infoModal">
-		<div data-bind="" class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span>填写反馈</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only"></span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" id="feedbackForm">
-						<div class="form-group">
-							<div class="col-sm-12">
-
-
-								<select name="MsgType" class="form-control" id="MsgType"
-									data-val-required="留言类型 字段是必需的。" data-val="true">
-									<option selected="selected" value="0">请选择反馈类型</option>
-									<option value="1">终止实盘结算申请</option>
-									<option value="6">追加保证金</option>
-									<option value="7">交易问题</option>
-									<option value="3">功能使用问题</option>
-									<option value="4">大额预约</option>
-									<option value="50">其他问题</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<input class="form-control" id="contact" placeholder="请输入手机号或邮箱"
-									type="text">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<textarea class="form-control" id="content"
-									placeholder="请填写你的用户名、实盘帐号并说明是结算申请还是追加保证金！"></textarea>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-success" id="submitFeedback"
-						onclick="submitFeedback();">提交</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script type="text/javascript">
-		function submitFeedback() {
-			var type = $('#feedbackForm #MsgType').val();
-			var contact = $('#feedbackForm #contact').val();
-			var content = $('#feedbackForm #content').val();
-			$('#submitFeedback').attr('disabled', true);
-			$.post('/api/feedback/create', {
-				msgType : type,
-				contact : contact,
-				content : content
-			}).done(function(res) {
-				if (res.isSuccess) {
-					alert('感谢您的反馈，我们会尽快给您做出答复！');
-					$('#feedbackModal').modal('hide');
-					$('#feedbackForm #contact').val('');
-					$('#feedbackForm #content').val('');
-				} else {
-					alert(res.errorMessage);
-				}
-			}).always(function() {
-				$('#submitFeedback').attr('disabled', false);
-			});
-		}
-	</script>
-
-	<div id="bannedStockModal" class="modal fade infoModal">
-		<div data-bind="" class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<span>今日限制购买的股票</span>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only"></span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<span>今日暂时没有限购的股票</span>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-straight"
-						data-dismiss="modal" style="margin-top: initial;">确认</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<script type="text/javascript">
-		function showBannedStocks() {
-			$('#bannedStockModal').modal('show');
-		}
-	</script>
-
-
+	
 	<script>
-		$("#aFloatTools_Show").click(function() {
-			$('#divFloatToolsView').animate({
-				width : 'show',
-				opacity : 'show'
-			}, 100, function() {
-				$('#divFloatToolsView').show();
-			});
-			$('#aFloatTools_Show').hide();
-			$('#aFloatTools_Hide').show();
-		});
-		$("#aFloatTools_Hide").click(function() {
-			$('#divFloatToolsView').animate({
-				width : 'hide',
-				opacity : 'hide'
-			}, 100, function() {
-				$('#divFloatToolsView').hide();
-			});
-			$('#aFloatTools_Show').show();
-			$('#aFloatTools_Hide').hide();
-		});
-		$('*[data-toggle="tooltip"]').tooltip();
-		$(document).ready(
-				function() {
-					var href = window.location.href.toLowerCase();
-
-					if (href.indexOf("/account/") >= 0) {
-						$(".topNav li:eq(7)").addClass("active");
-
-					} else if (href.indexOf("/home/help") >= 0) {
-
-						$(".topNav li:eq(5)").addClass("active");
-
-					} else if (href.indexOf("/home/kcenter") >= 0) {
-
-						$(".topNav li:eq(1)").addClass("active");
-
-					} else if (href.indexOf("/home/newscenter") >= 0
-							|| href.indexOf("/news/") >= 0) {
-
-						$(".topNav li:eq(3)").addClass("active");
-
-					} else if (href.indexOf("/home/rule") >= 0) {
-
-						$(".topNav li:eq(3)").addClass("active");
-
-					} else if (href.indexOf("/tradingsoftware") >= 0) {
-
-						$(".topNav li:eq(6)").addClass("active");
-
-					} else if (href.indexOf("/gzpeizi") >= 0) {
-
-						$(".topNav li:eq(2)").addClass("active");
-
-					} else if (href.indexOf("jiameng") >= 0) {
-
-						$(".topNav li:eq(4)").addClass("active");
-
-					} else {
-
-						$(".topNav li:eq(0)").addClass("active");
-					}
-
-				});
-
-		var kefu = function(num) {
-			var url = "";
-			switch (num) {
-			case 1:
-				url = "tencent://message/?uin=3044901756&Menu=yes";
-				break;
-			case 2:
-				url = "tencent://message/?uin=773031422&Menu=yes";
-				break;
-			default:
-				url = "tencent://message/?uin=2093717869&Menu=yes";
-			}
-			window
-					.open(
-							url,
-							'在线客服',
-							'height=405,width=500,top=200,left=200,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
-		}
-
-		var loginFromModal = function() {
-			var un = $("#modalUser").val();
-			var pw = $("#modalPw").val();
-			if (un == "" || un == undefined) {
-				$("#loginFail").html("请输入用户名");
-				$(".loginInfo").modal();
-				return;
-			}
-			if (pw == "" || pw == undefined) {
-				$("#loginFail").html("请输入登录密码");
-				$(".loginInfo").modal();
-				return;
-			}
-			$.post("/api/authentication/signIn", {
-				login : un,
-				password : pw
-			}, function(data) {
-				if (data.isAuthenticated) {
-					window.location.reload();
-				} else {
-					$("#loginFail").html("用户名或密码有误");
-					$(".loginInfo").modal();
-				}
-			});
-
-		}
-
-		var gotoTop = function() {
-			$("html,body").animate({
-				scrollTop : 0
-			}, 1000);
-		}
-	</script>
-
-	<script type="text/javascript">
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "//hm.baidu.com/hm.js?bb6cf2322300378a89a69641641427c0";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?06cf97732baac1a65bed8ae95f2384aa";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    
+    $(function(){
+    	
+        $("#loc_province").change(function(){
+              var provinceId=$("#loc_province").val();
+              $.post("/yingJiaProfit/jilian/boundShi",{sid:provinceId},function(data){
+                   $("#loc_city").empty();
+                     for(var i=0;i<data.length;i++){
+                           $("#loc_city").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+                   }
+              });
+        });
+        
+        $("#loc_city").change(function(){
+            var provinceId=$("#loc_city").val();
+            $.post("/yingJiaProfit/jilian/boundXiang",{shid:provinceId},function(data){
+                 $("#loc_town").empty();
+                   for(var i=0;i<data.length;i++){
+                         $("#loc_town").append('<option value="'+data[i].name+'">'+data[i].name+'</option>');
+                 }
+            });
+        });
+        
+        $("#username").change(function(){
+        	var username=$("#username").val();
+        	var user_name=$("#user_name").val();
+        	if(username==user_name){
+        		$(".errorInfoName").html("").hide();
+        		$("#errorInfoName").html("").hide();
+        	}else{
+        		$(".errorInfoName").html("请填写实名信息").show();
+        		$("#errorInfoName").html("").hide();
+        		return ;
+        	}
+      	});
+        
+        $("#identity").change(function(){
+        	var idcard=$("#identity").val();
+        	if(idcard.length!=18){
+        		$(".errorInfoIdCard").html("请输入正确的身份证号").show();
+        		$("#errorInfoIdCard").html("").hide();
+        		return ;
+        	}else{
+        		$(".errorInfoIdCard").html("").hide();
+        	}
+        	$.post("/yingJiaProfit/jilian/idcardcheck",{idcard:idcard},function(msg){
+        		if(msg=='no'){
+        			$(".errorInfoIdCard").html("此证件已被绑定,请更换").show();
+        			$("#errorInfoIdCard").html("").hide();
+        		}else{
+        			$(".errorInfoIdCard").html("").hide();
+        			$("#errorInfoIdCard").html("").hide();
+        		}
+        	})
+      	});
+        
+        $("#bankCardNum").change(function(){
+        	var bankCard=$("#bankCardNum").val();
+        	if(bankCard.length!=19){
+        		$(".bankCardNum").html("请输入正确的银行卡号").show();
+        		return ;
+        	}else{
+        		$(".bankCardNum").html("").hide();
+        	}
+        	$.post("/yingJiaProfit/jilian/bankCardCheck",{bankCard:bankCard},function(msg){
+        		if(msg=='no'){
+        			$(".bankCardNum").html("此证件已被绑定,请更换").show();
+        		}else{
+        			$(".bankCardNum").html("").hide();
+        		}
+        	})
+      	});
+        
+        $("#rebankCardNum").change(function(){
+        	var bankCard=$("#bankCardNum").val();
+        	var rebankCard=$("#rebankCardNum").val();
+        	if(rebankCard!=bankCard){
+        		$(".rebankCardNum").html("请输入正确的银行卡号").show();
+        		return ;
+        	}else{
+        		$(".rebankCardNum").html("").hide();
+        	}
+      	});
+        
+    });
+    
+</script>
 
 </body>
 </html>

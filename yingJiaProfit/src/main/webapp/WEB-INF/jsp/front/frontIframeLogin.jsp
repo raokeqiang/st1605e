@@ -327,7 +327,7 @@ li.active a {
 	</div>
 	
 	
-		<div class="jwNav">
+			<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">

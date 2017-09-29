@@ -143,6 +143,17 @@ public class FinancialDaoImpl implements FinancialDao{
 		System.out.println(list.size()+"123132131");
 		return list;
 	}
-	
+	public boolean tf(String title) {
+		System.out.println(title);
+		Session session=getSession();
+		String hql=" from Member where mobile_Phone='"+title+"'";
+		List list=session.createQuery(hql).list();
+		System.out.println(hql);
+		if(list.size()>0){
+			return true;
+		}else{
+		return false;
+	}
+	}
 
 }

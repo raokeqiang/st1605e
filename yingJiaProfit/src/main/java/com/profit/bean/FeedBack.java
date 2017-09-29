@@ -18,7 +18,13 @@ public class FeedBack {
 	private Date create_date;//创建时间
 	private Member member;
 	private String type;
-	
+	private String  iphone;
+	public String getIphone() {
+		return iphone;
+	}
+	public void setIphone(String iphone) {
+		this.iphone = iphone;
+	}
 	public String getType() {
 		return type;
 	}

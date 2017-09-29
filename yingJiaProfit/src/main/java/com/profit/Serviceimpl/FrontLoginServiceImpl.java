@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.profit.bean.Member;
+import com.profit.bean.MemberBankcards;
 import com.profit.daoimpl.FrontLoginDaoImpl;
 import com.profit.service.FrontLoginService;
 
@@ -28,6 +29,17 @@ public class FrontLoginServiceImpl implements FrontLoginService{
 	@Override
 	public void saveMember(Member member) {
 		this.frontLoginDaoImpl.saveMember(member);;
+	}
+
+	@Override
+	public MemberBankcards getMemberBankcards(int member_id) {
+		return this.frontLoginDaoImpl.getMemberBankcards(member_id);
+	}
+
+
+	@Override
+	public void updatepwd(Member member) {
+		this.frontLoginDaoImpl.updatepwd(member);
 	}
 
 }

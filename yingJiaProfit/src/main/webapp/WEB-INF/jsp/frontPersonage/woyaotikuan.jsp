@@ -322,24 +322,26 @@ li.active a {
 		<iframe src="/yingJiaProfit/show/frontTopIframe"
 			scrolling="no" width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
 					<li class="active"><a class="item first"
-						href="/yingJiaFinancing/frontIndex/login"> 首页 </a></li>
+						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
+							网上体验中心 </a></li>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
+					</li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontInternetCenter/show"> 网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/product/login"> 产品中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontNewsCenter/login">新闻中心
-					</a></li>
+						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontDownloadCenter/login"> 下载中心 </a></li>
-					<li><a class="item " href="/yingJiaFinancing/frontCollege/login">盈+商学院
+						href="/yingJiaProfit/show/frontLoad"> 下载中心 </a></li>
+					<li><a class="item " href="/yingJiaProfit/show/frontCollege">
+							盈+商学院 </a></li>
+					<li><a class="item"
+						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontResearch/login">投研中心
-					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -378,7 +380,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -407,10 +409,10 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
@@ -444,10 +446,10 @@ li.active a {
 				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan"><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
-					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
+					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"  class="select"><em
 						class="iconfont"></em>我要提款</a></li>
 			</ul>
 		</div>
@@ -467,72 +469,95 @@ li.active a {
 						<form action="/yingJiaFinancing/workFlow/flow" method="post">
 							<input type="hidden" name="bank_name" value="x"/>
 							<input type="hidden" name="bank_card" value="x"/>
-						    <input type="hidden" name="cardaddress" value="x"/>
+						     <input type="hidden" id="jine2" value="${memberAccount.useable_balance }">
 							<table class="txTable" width="100%" cellspacing="0"
 								cellpadding="0" border="0">
 								<tbody>
 									<tr>
 										<td width="140" align="right">账户余额：</td>
-										<td><strong>123</strong>元</td>
+										<td><strong>${memberAccount.useable_balance }</strong>元</td>
 									</tr>
 									<tr>
 										<td align="right">提款银行卡号：</td>
-										<td><strong>1111111111111111111</strong> <input
+										<td><strong>${memberBankcards.card_no }</strong> <input
 											id="withdrawBankCard" value="6228480402564890018"
 											type="hidden"></td>
 									</tr>
 									
 									<tr>
 										<td align="right">提款金额：</td>
-										<td><input class="tytxt" id="withdrawAmount" name="amount"
-											style="width: 250px" type="text"></td>
+										<td><input class="tytxt" id="jine1" name="amount"
+											style="width: 250px" type="text"  onkeyup="checkse()">
+											   <span style="display: none; color:red" id="ypwd1">提款金额输入错误！</span>
+											   <span style="display: none; color:red" id="ypwd2">提款金额不能大于可用余额或为负！</span>
+											   </td>
 									</tr>
 	
 									<tr>
 										<td align="right">提款密码：</td>
 										<td><input class="tytxt" id="withdrawPW"
 											style="display: inline; width: 250px;" type="password">
+											 <span style="display: none; color:red" id="ypwd">提款密码错误！</span>
 											&nbsp;</td>
 									</tr>
 									<tr>
 										<td>&nbsp;</td>
-										<td><input type="submit" class="tybutton" id="withdrawConfirm" value="提交"></td>
+										<td><button type="submit" class="tybutton" id="bt1" >提交</button>
+										<button type="submit" class="tybutton" disabled="disabled" id="bt1" >提交</button>
+										</td>
 									</tr>
 								</tbody>
 							</table>
 						</form>
 					</div>
-					<div class="box">
-
-						<div class="ajaxContainer">
-							<table class="tzlist" width="100%" cellspacing="0"
-								cellpadding="0" bordercolor="#e9e9e9" border="1">
-								<tbody>
-									<tr>
-										<th width="20%">时间</th>
-										<th width="30%">订单号</th>
-										<th width="20%">金额</th>
-										<th width="10%">状态</th>
-									</tr>
-								</tbody>
-							</table>
-
-
-						</div>
-						<script type="text/javascript">
-							function getJsonInfo(url) {
-								$.get(url, 'json', function(data) {
-									$(".ajaxContainer").empty();
-									$(".ajaxContainer").append(data);
-								});
-							}
-						</script>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+<script type="text/javascript">
+	$(function() {
+		$("#bt1").hide();
+		$("#bt2").show();
+	});
+	
+    	function checkse(){
+    		var jine1=$("#jine1").val();
+    		var jine2=$("#jine2").val();
+    		if(jine1>=jine2||jine1<0){
+    			$("#ypwd2").show();
+    		}
+    		if(ypwd!=xpwd){
+    			$("#ypwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    	}
+    	
+    	function checksu(){
+    		var password1=$("#password1").val();
+    		var password2=$("#password2").val();
+    		if(password1==password2){
+    			$("#pwd").hide();
+    			$("#bt2").hide();
+    			$("#bt1").show();
+    		}
+    		if(password1!=password2){
+    			$("#pwd").show();
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    		if($("#ypwd").show()||$("#pwd").show()){
+    			$("#bt1").hide();
+    			$("#bt2").show();
+    		}
+    		if($("#ypwd").hide()||$("#pwd").hide()){
+    			$("#bt1").show();
+    			$("#bt2").hide();
+    		}
+    	}
+     
+        
+</script>
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->
 	<!-- -----------------------------------------分割线---------------------------------- -->

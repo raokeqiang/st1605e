@@ -1,6 +1,7 @@
 package com.profit.Serviceimpl;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,8 @@ public class FinancialServiceImpl implements FinancialService{
 
 	public List<MemberAccount> lsma(String iphone,String start) {
 		return financialDaoImpl.lsma(iphone, start);
+	}
+	public boolean tf(String title) {
+		return financialDaoImpl.tf(title);
 	}
 }

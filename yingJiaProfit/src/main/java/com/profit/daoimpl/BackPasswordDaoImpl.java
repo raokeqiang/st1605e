@@ -17,7 +17,13 @@ public class BackPasswordDaoImpl {
 	
 	public void updateUsers(String password,String user_name) {
 		Session session = getSession();
-		String sql="update users set password="+password+" where user_name= '"+user_name+"'";
+		String sql="update users set password='"+password+"' where user_name= '"+user_name+"'";
+		session.createSQLQuery(sql).executeUpdate();
+	}
+	
+	public void updateUsers1(String password2,String password1) {
+		Session session = getSession();
+		String sql="update member set password= '"+password2+"' where password= '"+password1+"'";
 		session.createSQLQuery(sql).executeUpdate();
 	}
 	

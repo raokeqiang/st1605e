@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.profit.Cry.CryptographyUtil;
 import com.profit.bean.Member;
+import com.profit.bean.MemberBankcards;
 import com.profit.service.FrontLoginService;
 
 @Controller
@@ -38,11 +40,27 @@ public class TofontLoginController {
 		boolean bool=this.FrontLoginServiceImpl.checkLogin(mobilePhone, CryptographyUtil.md5(password, "javamd"));
 		if(bool==true){
 			Member member=this.FrontLoginServiceImpl.getMemberByPhone(mobilePhone);
+			System.out.println(member.getId()+"--------------------");
+			MemberBankcards memberBankcards=this.FrontLoginServiceImpl.getMemberBankcards(member.getId());
 			session.setAttribute("member", member);
+			session.setAttribute("memberBankcards", memberBankcards);
+			session.setAttribute("password1", password);
 			return bool;
 		}
 		return false;
 	}
+	//设置提款密码
+	@RequestMapping("/tikuan")
+	public String tikuan(int memberid,String password2,String phone,HttpSession session){
+		System.out.println("----"+memberid+"---11111----"+password2);
+		Member member=this.FrontLoginServiceImpl.getMemberByPhone(phone);
+		member.setWithdraw_password(password2);
+		this.FrontLoginServiceImpl.updatepwd(member);
+		session.setAttribute("member", member);
+		return "redirect:/toFrontPersonage/anquan";
+	}
+	
+	
 	//退出登录清除Session
 	@RequestMapping("/logout")
 	public String logout(String url,HttpSession session){
