@@ -5,8 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 <link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.css">
 <link rel="stylesheet" href="/yingJiaProfit/css/bootstrap.min.css">
 <script type="text/javascript" src="/yingJiaProfit/js/jquery-3.2.0.min.js"></script>
@@ -31,17 +29,43 @@
 <body>
 <form action="/yingJiaProfit/over/update"  method="post"  id="form1"    name="form1">
 <input type="hidden" name="id" value="${over.id }"> 
-标题:<input type="text"  name="title" value="${over.title}"><br>
-子标题:<input type="text" name="child_title" value="${over.child_title  }"><br>
-状态:<select name="status" id="status">
-<option value="0">未募集</option>
-<option value="1">募集中</option>
-</select><br>
-排序值:<input type="text" name="sortColum" value="${over.sortColum}"><br>
-图标:<input type="file"   id="oversea_icon"   >
-<!-- <input type="submit" value="提交"  > -->
+<table border="0" cellspacing="0" width="400">
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;标题:</td>
+	<td><input type="text" name="title" value="${over.title}" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;子标题:</td>
+	<td><input type="text" name="child_title" value="${over.child_title }" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;描述:</td>
+	<td><input type="text" name="description" value="${over.description }" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;用户群体:</td>
+	<td><input type="text" name="user_type" value="${over.user_type }" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;排序值:</td>
+	<td><input type="text" name="sortColum" value="${over.sortColum }" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;状态:</td>
+	<td><select name="status" id="status" class="form-control">
+	<option value="0">未募集</option>
+	<option value="1">募集中</option>
+	<option value="2">已结束</option>
+	</select></td>
+	</tr>
+<tr height="60">
+<td colspan="2"  align="center">
 <button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
+</td>
+</tr>
+ 	</table>
+
 </form>
 
 

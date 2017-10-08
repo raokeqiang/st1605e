@@ -109,9 +109,15 @@ public String heyue(Model model,@PathVariable("id")int id){
 	model.addAttribute("finan",finan);
 	return "showhe";
 }
+
+
+
+
 //保存签署合同
 @RequestMapping("/savehe")
 public String savehe(Model model,FinanceProductSubscribe finance,@PathVariable("id")int id){
+	
+	System.out.println("保存==============");
 	Date now=new Date();
 	SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String hehe=dateFormat.format(now);

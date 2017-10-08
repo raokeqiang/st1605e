@@ -322,21 +322,53 @@ li.active a {
 }
 </style>
 <script type="text/javascript">
-
 $(function(){
 	$("#btnBuy").click(function(){ 
+// 		var amountYuE=$("#amountYuE").val();//账户余额
+// 		var mytext=$("#mytext").val()       ;    //输入框输入金额
+// 		alert(amountYuE+"   "+mytext);
+// 			if(parseInt(amountYuE)<parseInt(mytext)){
+// 				$("#btnBuy").attr("disabled", true); 
+// 			}
+			 var a = $("#mytext").val();
+			 if(a<100){
+				    $("#check").text("起投金额最低100元!"); 
+				    return ;
+			 }
+			var m ="${memberAccount.useable_balance }";
+			if(parseFloat(m)<parseFloat(a)){
+				     $("#check").text("账户余额不足,请充值!"); 
+				     return ;
+			}
+			  $("#check").text(""); 
 	  $("#form1").attr("action","/yingJiaProfit/shopping/goBuy");
 		$("#form1").submit();
 	});
 	});
 
-function fun(obj){
-	var amountYuE=$("#amountYuE").val();//账户余额
-	var mytext=obj.value;//输入框输入金额
-	if(parseInt(amountYuE)<parseInt(mytext)){
-		$("#btnBuy").attr("disabled", true); 
-	}
+function fun(){
+//结算利息
+	var a = $("#mytext").val();
+    var n="${sub.year_rate }"/100;
+var  tian="${sub.period }";
+var   num=a*n/365*tian;
+//保留2位小数
+var f = Math.round(num*100)/100; 
+var s = f.toString(); 
+var rs = s.indexOf('.'); 
+if (rs < 0) { 
+rs = s.length; 
+s += '.'; 
+} 
+while (s.length <= rs + 2) { 
+s += '0'; 
+} 
+
+
+$("#ddd").text(s);
 }
+
+
 	$(function(){
 		$("#btnBuy").click(function(){
 			var check=$("#cardHidden").val();//判断是否绑卡了
@@ -445,7 +477,7 @@ function fun(obj){
                     <input id="account" value="0" type="hidden">
                     <h2>${sub.amount}</h2>
                     <p>已投金额(元)</p>
-<!--                     <div class="li4" style="display: none;"><span id="checkmoney" style="color: red;"></span></div> -->
+                    <div class="li4" style="display: none;"><span id="check" style="color: red;"></span></div>
                     <div style="display:none;" id="NAN">
                     	<span style="color:red;">请输入正确的金额</span>
                     </div>
@@ -465,8 +497,7 @@ function fun(obj){
                     <c:if test="${memberBankcards.id>0 }">
                     	<input type="hidden" value="hascard" id="cardHidden">
                     </c:if>
-                 
-                    <div class="tit">
+                 <div class="tit">
                     	<c:if test="${member.id>0 }">
 	                    	<span class="fr">
 	                    	<input type="hidden" value="${memberAccount.useable_balance }"  id="amountYuE" name="amountYuE">
@@ -479,11 +510,21 @@ function fun(obj){
                         	<h2 style="color:red; text-align: center; width: 100%;" >登录后可购买</h2>
                         	<input type="hidden" value="noLogin" id="hiddenLogin">
                         </c:if>
-                        <div id="count" style="">预期所得收益<i data-num="0.000822" id="num">0</i>元
-                        </div>
+<!--                         <div id="count" style="">预期所得收益<i data-num="0.000822" id="num">0</i>元 -->
+<!--                         </div> -->
                     </div>
-                    <input id="mytext" class="txt" name="mytext" placeholder="起投金额100元以上" type="text" onkeyup="fun(this)">
+                    
+                    
+                    
+                    <input id="mytext" class="txt" name="mytext" placeholder="起投金额100元以上" type="text" onkeyup="fun()">
                         <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;" id="addMoney"></span>
+                          <div id="ccc">预期所得收益:
+                        <font color="red"   id="ddd">0</font>
+                        元
+                        </div>
+                        
+                        
+                        
                     <p class="preBox">
                         <input id="registerRule" class="registerRule" checked="checked" type="checkbox"><span class="fl">同意<a href="http://pro.ying158.com/web/syxy" target="_black">《产品协议》</a></span>
                         <button id="redPacket">使用红包</button>
