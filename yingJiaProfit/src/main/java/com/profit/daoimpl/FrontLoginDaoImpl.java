@@ -53,7 +53,10 @@ public class FrontLoginDaoImpl {
 	public MemberBankcards getMemberBankcards(int member_id){
 		String sql="from MemberBankcards  where member_id="+member_id;
 		List <MemberBankcards> list=getSession().createQuery(sql).list();
-		return list.get(0);
+		if(list.size()!=0){
+			return list.get(0);
+		}
+		return null;
 	}
 	public void updatepwd(Member member){
 		Session session=getSession();

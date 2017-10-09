@@ -68,7 +68,7 @@ public class FrontJiLianController {
 		mb.setMember(member);
 		this.frontJiLianServiceImpl.saveka(mb);
 		this.frontJiLianServiceImpl.updateka(member);
-		return "anquan";
+		return "frontPersonage/anquan";
 	}
 	@RequestMapping("idcardcheck")
 	public void idcardcheck(String idcard,HttpServletResponse res){
