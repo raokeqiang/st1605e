@@ -15,43 +15,39 @@
 
 	<meta content="" name="author" />
 
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	
+	<link href="/yingJiaProfit/back_desk/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/style.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="/yingJiaProfit/back_desk/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 
-	<link href="/Ying_Second/back_desk/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	<link href="/yingJiaProfit/back_desk/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
-	<link href="/Ying_Second/back_desk/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
-	<!-- END GLOBAL MANDATORY STYLES -->
 
-	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link rel="stylesheet" href="/yingJiaProfit/back_desk/media/css/DT_bootstrap.css" />
 
-	<link rel="stylesheet" href="/Ying_Second/back_desk/media/css/DT_bootstrap.css" />
 
-	<!-- END PAGE LEVEL STYLES -->
-
-	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	<link rel="shortcut icon" href="/yingJiaProfit/back_desk/media/image/favicon.ico" />
 </head>
 
 
 <body class="page-header-fixed" onload="fun(),fun2(),fun3(),fun4(),fun5(),fun6()">
 
-<div class="page-container row-fluid">
+<!-- <div class="page-container row-fluid"> -->
 
-		<div class="page-content">
+<!-- 		<div class="page-content"> -->
 
-			<div class="container-fluid">
+<!-- 			<div class="container-fluid"> -->
 
 				<div class="row-fluid">
 
@@ -278,11 +274,11 @@
 
 		</div>
 
-	</div>
+<!-- 	</div> -->
 	
-		</div>
+<!-- 		</div> -->
 
-	</div>
+<!-- 	</div> -->
 
 	<!-- END CONTAINER -->
 
@@ -292,7 +288,6 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
 
 		</div>
 
@@ -339,27 +334,27 @@
                     <input type="hidden" id="a5" value="${a5 }">  
                        </c:forEach>
                            
-	<script src="/Ying_Second/back_desk/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="/yingJiaProfit/back_desk/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<script src="/yingJiaProfit/back_desk/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="/yingJiaProfit/back_desk/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
 
-	<script src="/Ying_Second/back_desk/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/yingJiaProfit/back_desk/media/js/bootstrap.min.js" type="text/javascript"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/excanvas.min.js"></script>
+	<script src="/yingJiaProfit/back_desk/media/js/excanvas.min.js"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/respond.min.js"></script>  
+	<script src="/yingJiaProfit/back_desk/media/js/respond.min.js"></script>  
 
-	<script src="/Ying_Second/back_desk/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="/yingJiaProfit/back_desk/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="/yingJiaProfit/back_desk/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
 
-	<script src="/Ying_Second/back_desk/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="/yingJiaProfit/back_desk/media/js/jquery.cookie.min.js" type="text/javascript"></script>
 
-	<script src="/Ying_Second/back_desk/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<script src="/yingJiaProfit/back_desk/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
 
-	<script src="/Ying_Second/back_desk/media/js/app.js"></script>    
+	<script src="/yingJiaProfit/back_desk/media/js/app.js"></script>       
 	<script type="text/javascript">
 	function fun2(){
 		var c1=document.getElementById("c1");
