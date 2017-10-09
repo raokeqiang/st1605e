@@ -47,13 +47,12 @@ public class FeedBackController {
 	public String saveF(FeedBack feedBack,HttpServletRequest requst,HttpServletResponse response) throws IOException{
 		PrintWriter pw=response.getWriter();
 //		Member m=(Member) requst.getSession().getAttribute("member");
-//		if(m.getId()<1){
-//			return "t";
-//		}else 
-		System.out.println(feedBack.getContent());
-		System.out.println(feedBack.getIphone());
-		System.out.println(feedBack.getType());
-		if(feedBack.getContent()==null||("").equals(feedBack.getContent())){
+//		if(){
+//			pw.print("wu");
+//			return null;
+//		}
+//		else 
+			if(feedBack.getContent()==null||("").equals(feedBack.getContent())){
 				pw.print("no");
 			return null;
 		}else if(feedBack.getIphone().length()!=11){

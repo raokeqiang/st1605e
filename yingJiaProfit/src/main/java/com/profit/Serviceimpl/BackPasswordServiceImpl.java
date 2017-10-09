@@ -29,6 +29,12 @@ public class BackPasswordServiceImpl implements RoleService<Users> {
 	 this.backPasswordDaoImpl.updateUsers(password, user_name);
 		
 	}
+
+	@Override
+	public void updateUsers1(String password2, String password1) {
+		this.backPasswordDaoImpl.updateUsers1(password2, password1);
+		
+	}
 	
 	
 

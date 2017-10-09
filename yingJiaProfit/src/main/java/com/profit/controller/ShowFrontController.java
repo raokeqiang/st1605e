@@ -1,13 +1,25 @@
 package com.profit.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.profit.bean.FinanceProductFunds;
+import com.profit.service.YsFinanceProductService;
 
 @Controller
 @RequestMapping("/show")
 public class ShowFrontController {
-
+	@Autowired
+	@Qualifier("ysFinanceProductServiceImpl")
+	private YsFinanceProductService financeService;
 	//显示主页上部内容
 	@RequestMapping("/frontTopIframe")
 	public String toTop(){
@@ -15,7 +27,14 @@ public class ShowFrontController {
 	}
 	//显示首页中部内容
 	@RequestMapping("/frontMiddleIframe")
-	public String toMiddle(){
+	public String toMiddle(Model model){
+		Map map=new HashMap();
+		List<FinanceProductFunds> list=financeService.showmoney(map);
+		List<FinanceProductFunds> mList=new ArrayList<>() ;
+		for(int i=0; i<4;i++){
+			mList.add(list.get(i));
+		}
+		model.addAttribute("list", mList);
 		return "front/frontMiddleIframe";
 	}
 	//进入前台首页 页面
@@ -57,5 +76,13 @@ public class ShowFrontController {
 	@RequestMapping("/frontStudy")
 	public String  toStudy(){
 		return "front/frontStudy";
+	}
+	@RequestMapping("/xiugai")
+	public String  xiugai(){
+		return "front/xiugaimima";
+	}
+	@RequestMapping("/tikuan")
+	public String  tikuan(){
+		return "front/tikuanmima";
 	}
 }

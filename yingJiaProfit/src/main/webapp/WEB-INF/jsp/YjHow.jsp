@@ -83,7 +83,7 @@
 							<table  border="0">
 							<thead class="flip-content" >
 							<tr >
-							<td  style="text-align: center">手机号码：<input class="form-control" type="text" name="iphone" value=""></td>
+							<td  style="text-align: center">手机号码：<input class="form-control" type="text" name="iphone" ></td>
 							<td  style="text-align:left;">交易类型：<select class="form-control" name="type" id="type">
 	            	<option value="">全部</option>
 	            	<option value="1">充值</option>

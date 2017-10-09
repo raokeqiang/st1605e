@@ -15,7 +15,8 @@ public class MemberBankcards {
 
 	private int id;//主键
 	private String type;//银行卡类型
-	//private int member_id;//用户id
+
+//	private int member_id;//用户id
 	private String card_no;//卡号
 	private int delflag;//默认‘0’ 是否删除(0：正常使用，2：被删除)
 	private Date create_date;//创建时间
@@ -74,12 +75,11 @@ public class MemberBankcards {
 		this.cardaddress = cardaddress;
 	}
 	@ManyToOne
-	@JoinColumn(name="member_Id")
+	@JoinColumn(name="member_id")
 	public Member getMember() {
 		return member;
 	}
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	
 }

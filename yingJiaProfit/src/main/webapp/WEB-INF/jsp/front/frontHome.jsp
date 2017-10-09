@@ -361,7 +361,7 @@ li.active a {
 		<iframe src="/yingJiaProfit/show/frontTopIframe" scrolling="nox`" width="1002"
 			height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
@@ -380,13 +380,13 @@ li.active a {
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-				<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
 					<li><a class="item last"
 						href="/yingJiaProfit/MemberAccount/select?member_id=${member.id }">
-							我的加法库</a></li></c:if>
+							我的加法库 </a></li></c:if>
 				</ul>
 			</div>
 		</div>

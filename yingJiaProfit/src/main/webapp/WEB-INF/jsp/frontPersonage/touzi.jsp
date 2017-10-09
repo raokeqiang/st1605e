@@ -322,22 +322,24 @@ li.active a {
 		<iframe src="/yingJiaProfit/show/frontTopIframe"
 			scrolling="no" width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
 					<li class="active"><a class="item first"
-						href="/yingJiaFinancing/frontIndex/login"> 首页 </a></li>
+						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
+							网上体验中心 </a></li>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
+					</li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontInternetCenter/show"> 网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/product/login"> 产品中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontNewsCenter/login">新闻中心
-					</a></li>
+						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontDownloadCenter/login"> 下载中心 </a></li>
-					<li><a class="item " href="/yingJiaFinancing/frontCollege/login">盈+商学院
-					</a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontResearch/login">投研中心
+						href="/yingJiaProfit/show/frontLoad"> 下载中心 </a></li>
+					<li><a class="item " href="/yingJiaProfit/show/frontCollege">
+							盈+商学院 </a></li>
+					<li><a class="item"
+						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
 					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
@@ -378,7 +380,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -424,7 +426,7 @@ li.active a {
 			<h2>我的投资</h2>
 			<ul>
 				<li><a id="member_center_menu_invests"
-					href="/yingJiaProfit/toFrontPersonage/touzi"><em
+					href="/yingJiaProfit/toFrontPersonage/touzi"  class="select"><em
 						class="iconfont red"></em>投资记录</a></li>
 				<li><a 
 					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
@@ -441,10 +443,10 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/shopping/tocongzhi"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan"><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
@@ -477,22 +479,26 @@ li.active a {
 											<th>金额</th>
 											<th>状态</th>
 											<th>购买时间</th>
-										</tr>
-       <tr>
 
+   									    <tr>
 
 					               <c:forEach items="${list }"  var="e">
 											<tr>
                                                 <td>${e.serial_number }</td>
+
 												<td>${e.subject.name }</td>
-												<td>${e.amount }</td>
+												<td><script type="text/javascript">
+											  var am=${e.amount };
+											  document.write(am.toFixed(2));
+											  </script></td>
 											<td>
 											 <c:if test="${e.subject.status==0}">募集中</c:if> 
-											 <c:if test="${e.subject.status==1}">未募集</c:if>
+											 <c:if test="${e.subject.status==1}">已完成</c:if>
 											 </td>
 											<td>${e.subject.create_date}</td>
+											</tr>
 											</c:forEach>
-</tr>
+											
 									</tbody>
 								</table>
 								

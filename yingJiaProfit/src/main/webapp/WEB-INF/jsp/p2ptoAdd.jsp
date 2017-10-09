@@ -20,36 +20,41 @@
 </head>
 <body>
 <form action="/yingJiaProfit/subject/p2pAdd" id="form1" method="post">
-名称:<input type="text"  name="name" ><br>
-合同编号:<input type="text" name="serial_no" ><br>
-起投金额:<input type="text" name="floor_amount" ><br>
-年化收益:<input type="text+%" name="year_rate"><br>
-投资期限:<input type="text" name="period"><br>
-状态:<select name="status">
-<option value="0">未募集</option>
+<table border="0" cellspacing="0" width="100%">
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;名称:</td><td><input type="text" name="name" class="form-control"></td><td>&nbsp;&nbsp;类型:</td><td><select class="form-control" name="type"><option value="0">固收类</option><option value="1">P2P车贷</option><option value="2">P2P房贷</option></select></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;合同编号:</td><td><input type="text" name="serial_no" class="form-control"></td><td>&nbsp;&nbsp;借款用途:</td><td><input type="text" name="purpose"  class="form-control"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;起投金额(元):</td><td><input type="text" name="floor_amount" class="form-control"></td><td>&nbsp;&nbsp;保障方式:</td><td><select name="safeGuard_way" class="form-control"><option value="0">企业担保</option><option value="1">银行监管</option></select></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;年化收益(%):</td><td><input type="text+%"  name="year_rate" class="form-control"></td><td>&nbsp;&nbsp;可使用体验金:</td><td><select name="experStatus" class="form-control"><option value="0">否</option><option value="1">是</option></select></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;状态:</td><td><select class="form-control" name="status">
+<option value="0">未发布</option>
 <option value="1">募集中</option>
-</select><br>
-借款人姓名:<input type="text" name="borrowername" ><br>
-类型:
-<select name="type">
-<option value="0">p2p房贷</option>
-<option value="1">p2p车贷</option>
-</select><br>
-借款用途:<input type="text" name="purpose" ><br>
-保障方式:
-<select name="afetyControl">
-<option value="0">企业担保</option>
-<option value="1">保障方式</option>
-</select><br>
- 可使用体验金:
- <select name="exper_status">
-<option value="0">否</option>
-<option value="1">是</option>
-</select><br>
-已购人数:<input type="text" name="bought" ><br>
-<!-- <input type="submit" value="提交"> -->
+<option value="2">回款中</option>
+<option value="3">还款完成</option>
+</select></td><td>&nbsp;&nbsp;已购人数:</td><td><input type="text" class="form-control" name="bought"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;投资期限(天):</td><td><input type="text" class="form-control" name="period"></td><td colspan="2"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;借款人姓名:</td><td><input type="text" name="borrowername" class="form-control"></td><td colspan="2"></td>
+</tr>
+<tr height="60">
+<td colspan="4"  align="center">
 <button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
+</td>
+</tr>
+</table>
+
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>

@@ -21,13 +21,6 @@ $(function () {
             }
         });
 
-        password.keyup(function () {
-            if ((/^[a-zA-Z]\w{5,17}$/.test(password.val()))) {
-                password.removeAttr("style");
-                $(".error").html("").hide();
-                return;
-            }
-        });
 
 
         //登录
@@ -36,12 +29,6 @@ $(function () {
             if (!(/^1[3-9][0-9]\d{8}$/.test(phone.val()))) {
                 phone.focus().css(css);
                 $(".error").html("手机号码格式不正确").show();
-                return;
-            }
-
-            if (!(/^[a-zA-Z]\w{5,17}$/.test(password.val()))) {
-                password.focus().css(css);
-                $(".error").html("密码格式不正确").show();
                 return;
             }
 
@@ -56,7 +43,7 @@ $(function () {
                 },
                 success: function (msg) {
                     if (msg==true) {
-                        window.location.href = "/yingJiaProfit/toFrontLogin/login";
+                        window.location.href = "/yingJiaProfit/subjectqian/showsubject";
                     } else {
                         $(".error").html("用户名或密码错误").show();
                     }

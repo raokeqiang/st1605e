@@ -11,12 +11,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.profit.bean.Member;
@@ -143,7 +141,9 @@ public class YsShoppingqianController {
 				//标的购买表
 				subjectPurchaseRecord.setSubject(subject);
 			   subjectPurchaseRecord.setMember(member);
-			   subjectPurchaseRecord.setSerial_number(sysDateAndRandom);
+
+			     subjectPurchaseRecord.setSerial_number(sysDateAndRandom);
+
 				subjectPurchaseRecord.setAmount(Integer.parseInt(mytext));
 				subjectPurchaseRecord.setDeal_id("");
 				subjectPurchaseRecord.setDelflag(0);
@@ -158,7 +158,7 @@ public class YsShoppingqianController {
 			List<SubjectPurchaseRecord>list=this.memberCardService.listSubjectPurchaseRecord(Integer.valueOf(subjectId));
 		//购买成功后跳到个人信息页面,同时显示改变表的信息
 //		 }
-			return "frontPersonage/touzi";
+			return "redirect:/toFrontPersonage/touzi";
 			}else{
 				return "redirect:/shopping/toBuy";
 			}
@@ -202,7 +202,7 @@ public class YsShoppingqianController {
         memberCard.getMember().setIdentity(identity);
         memberCard.getMember().setName(name);
 		memberCardService.saveMemberCard(memberCard);
-		return "frontPersonage/touzi";
+		return "redirect:/toFrontPersonage/touzi";
 }
 
 	@RequestMapping("/tocongzhi")
@@ -218,7 +218,7 @@ public class YsShoppingqianController {
 		//	model.addAttribute("memberBankcards", memberBankcards);
 			System.out.println("=========="+memberBankcards.isEmpty());
 			if(memberBankcards.isEmpty()){
-				return"frontPersonage/bangka";
+				return"redirect:/jilian/sheng";
 			}
 		}
     return "frontPersonage/index";
@@ -237,6 +237,8 @@ public class YsShoppingqianController {
 
 		//添加充值流水表
 		memberDepositRecord.setAmount(WIDtotal_amount);
+		
+		System.out.println("sssssssssssss"+WIDtotal_amount);
 		//添加购买流水表
 		subjectPurchaseRecord.setSerial_number(WIDout_trade_no);
 		// 添加创建日期

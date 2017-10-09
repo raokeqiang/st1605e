@@ -322,24 +322,26 @@ li.active a {
 		<iframe src="/yingJiaProfit/show/frontTopIframe"
 			scrolling="no" width="1002" height="94" frameborder="0"></iframe>
 	</div>
-	<div class="jwNav">
+		<div class="jwNav">
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
 					<li class="active"><a class="item first"
-						href="/yingJiaFinancing/frontIndex/login"> 首页 </a></li>
+						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
+					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
+							网上体验中心 </a></li>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
+					</li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontInternetCenter/show"> 网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/product/login"> 产品中心 </a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontNewsCenter/login">新闻中心
-					</a></li>
+						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
-						href="/yingJiaFinancing/frontDownloadCenter/login"> 下载中心 </a></li>
-					<li><a class="item " href="/yingJiaFinancing/frontCollege/login">盈+商学院
+						href="/yingJiaProfit/show/frontLoad"> 下载中心 </a></li>
+					<li><a class="item " href="/yingJiaProfit/show/frontCollege">
+							盈+商学院 </a></li>
+					<li><a class="item"
+						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item" href="/yingJiaFinancing/frontResearch/login">投研中心
-					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -378,7 +380,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -407,10 +409,10 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="/yingJiaFinancing/frontMemberCenter/toRecharge" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
 		</c:if>
 		<c:if test="${empty memberBankcards }">
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
@@ -433,7 +435,7 @@ li.active a {
 					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
 						class="iconfont red"></em>充值记录</a></li>
 				<li><a id="member_center_menu_withdraw_record"
-					href="/yingJiaProfit/toFrontPersonage/tikuan"><em
+					href="/yingJiaProfit/toFrontPersonage/tikuan"  class="select"><em
 						class="iconfont red"></em>提款记录</a></li>
 				<li><a id="member_center_menu_bbinInfo_record"
 					href="/yingJiaProfit/toFrontPersonage/tiyanjin"><em
@@ -441,7 +443,7 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
 					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
@@ -477,7 +479,10 @@ li.active a {
 									<c:forEach items="${listAll }" var="m">
 										<tr>
 											<td>${m.serial_number }</td>
-											<td>${m.amount }</td>
+											<td><script type="text/javascript">
+											  var am=${m.amount };
+											  document.write(am.toFixed(2));
+											  </script></td>
 											<td>
 											 <c:if test="${m.status==0 }">待审核</c:if>
                                              <c:if test="${m.status==1 }">已打款</c:if>

@@ -20,20 +20,42 @@
 </head>
 <body>
 <form action="/yingJiaProfit/over/oadd"  id="form1" method="post" >
-标题:<input type="text"  name="name" >
-子标题:<input type="text" name="child_title" >
-描述:  <input type="text"  name="description">
- 状态:<select " >
-           <option value="0">未募集</option>
-            <option value="1">募集中</option>
-        </select>
-排序值:
-    <input type="text"   name="sortColmn" >
-  
-图标:<input type="file" name="oversea_icon"><br>
-<!--  <input type="submit" value="提交"> -->
+<table border="0" cellspacing="0" width="400">
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;标题:</td>
+	<td><input type="text" name="title"  class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;子标题:</td>
+	<td><input type="text" name="child_title"  class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;描述:</td>
+	<td><input type="text" name="description" class="form-control"></td>
+	</tr>
+<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;排序值:</td>
+	<td><input type="text" name="sortColum" value="${over.sortColum }" class="form-control"></td>
+	</tr>
+	<tr height="60">
+	<td>&nbsp;&nbsp;&nbsp;状态:</td>
+	<td><select name="status" id="status" class="form-control">
+	<option value="0">未募集</option>
+	<option value="1">募集中</option>
+	<option value="2">已结束</option>
+	</select></td>
+	</tr>
+<tr height="60">
+<td colspan="2"  align="center">
+
  <button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
+</td>
+</tr>
+ 	</table>
+
+  
+
 </form>
 
 //编辑器

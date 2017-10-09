@@ -49,6 +49,6 @@ public class FinancialServiceImpl implements FinancialService{
 		return financialDaoImpl.lsma(iphone, start);
 	}
 	public boolean tf(String title) {
-		return financialDaoImpl.equals(title);
+		return financialDaoImpl.tf(title);
 	}
 }

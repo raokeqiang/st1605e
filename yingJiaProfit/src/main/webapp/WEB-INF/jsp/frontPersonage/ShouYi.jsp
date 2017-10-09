@@ -329,7 +329,7 @@ li.active a {
 						href="/yingJiaProfit/show/frontHome"> 首页 </a></li>
 					<li><a class="item" href="/yingJiaProfit/show/frontExploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/yingJiaProfit/show/frontProduct"> 产品中心 </a>
+					<li><a class="item" href="/yingJiaProfit/subjectqian/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontJournalism"> 新闻中心 </a></li>
@@ -340,7 +340,7 @@ li.active a {
 					<li><a class="item"
 						href="/yingJiaProfit/show/frontStudy"> 投研中心
 					</a></li>
-						<c:if test="${member.id==null }"><li><a class="item last"
+					<c:if test="${member.id==null }"><li><a class="item last"
 						href="/yingJiaProfit/toFrontLogin/login">
 							我的加法库 </a></li></c:if>
 							<c:if test="${member.id!=null }">
@@ -379,7 +379,7 @@ li.active a {
 						<li class="active"><a href="#1"></a><em></em></li>
 						<li class=""><a href="#1"></a><em></em></li>
 					</ul></td>
-				<td align="right"><a href="http://pro.ying158.com/web/logout"
+				<td align="right"><a href="/yingJiaProfit/toFrontLogin/logout"
 					class="loginOut"><span class="iconfont"></span>安全退出</a></td>
 			</tr>
 		</tbody>
@@ -408,7 +408,13 @@ li.active a {
 				</p></li>
 		</ul>
 		<c:if test="${empty memberBankcards }">
-			<a href="/yingJiaProfit/frontMemberCenter/toBankCard" class="cz">充值</a> 
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${memberBankcards.id>0 }">
+			<a href="/yingJiaProfit/shopping/tocongzhi" class="cz">充值</a> 
+		</c:if>
+		<c:if test="${empty memberBankcards }">
+			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
 			<a href="#" class="tk">提款</a> 
@@ -422,7 +428,7 @@ li.active a {
 					href="/yingJiaProfit/toFrontPersonage/touzi"><em
 						class="iconfont red"></em>投资记录</a></li>
 				<li><a 
-					href="/yingJiaProfit/toFrontPersonage/shouyi"><em
+					href="/yingJiaProfit/toFrontPersonage/shouyi"  class="select"><em
 						class="iconfont red"></em>收益记录</a></li>
 				<li><a id="member_center_menu_deposit_record"
 					href="/yingJiaProfit/toFrontPersonage/chongzhi"><em
@@ -436,10 +442,10 @@ li.active a {
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
-				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/toFrontPersonage/bangka"><em
+				<li><a id="member_center_menu_deposit" href="/yingJiaProfit/jilian/sheng"><em
 						class="iconfont"></em>账户充值</a></li>
 				<li><a id="member_center_menu_security"
-					href="/yingJiaProfit/toFrontPersonage/anquan" class="select"><em
+					href="/yingJiaProfit/toFrontPersonage/anquan"><em
 						class="iconfont"></em>安全信息</a></li>
 				<li><a id="member_center_menu_withdraw"
 					href="/yingJiaProfit/toFrontPersonage/woyaotikuan"><em
@@ -475,14 +481,14 @@ li.active a {
 											<td>
 											 <script type="text/javascript">
 											  var am=${m.amount};
-											  var ptim=${m.pay_interest_times};
-											  var ss=am*ptim;
-											  document.write(ss);
+											  var ptim=${m.subject.year_rate};
+											  var ss=am*ptim/100;
+											  document.write(ss.toFixed(2));
 											 </script>
 											</td>
 											<td> 
-											 <c:if test="${m.subject.status==1 }">募集中</c:if>
-                                             <c:if test="${m.subject.status==0 }">已完成</c:if>
+											 <c:if test="${m.subject.status==0 }">募集中</c:if>
+                                             <c:if test="${m.subject.status==1 }">已完成</c:if>
                                             </td> 	
 											<td>${m.create_date }</td>
 										</tr>

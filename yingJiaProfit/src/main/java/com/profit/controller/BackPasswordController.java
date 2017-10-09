@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.profit.Cry.CryptographyUtil;
 import com.profit.bean.Users;
 import com.profit.service.RoleService;
 
@@ -60,6 +61,12 @@ public class BackPasswordController {
 		String user_name=(String)request.getSession().getAttribute("user_name");
 		BackPasswordServiceImpl.updateUsers(password2, user_name);
 		return "backPassword";
+		}
+	@RequestMapping("/updatePassword1")
+	public String updatepassword1(String password2,HttpServletRequest request){
+		String password1=(String)request.getSession().getAttribute("password1");
+		this.BackPasswordServiceImpl.updateUsers1(CryptographyUtil.md5(password2, "javamd"), CryptographyUtil.md5(password1, "javamd"));
+		return "redirect:/toFrontPersonage/anquan";
 		}
 	}
 
