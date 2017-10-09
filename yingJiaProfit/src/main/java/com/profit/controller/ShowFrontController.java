@@ -20,6 +20,7 @@ public class ShowFrontController {
 	@Autowired
 	@Qualifier("ysFinanceProductServiceImpl")
 	private YsFinanceProductService financeService;
+
 	//显示主页上部内容
 	@RequestMapping("/frontTopIframe")
 	public String toTop(){

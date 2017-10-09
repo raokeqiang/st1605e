@@ -349,9 +349,13 @@ $(function(){
 function fun(){
 //结算利息
 	var a = $("#mytext").val();
+	
     var n="${sub.year_rate }"/100;
+ 
 var  tian="${sub.period }";
+
 var   num=a*n/365*tian;
+
 //保留2位小数
 var f = Math.round(num*100)/100; 
 var s = f.toString(); 

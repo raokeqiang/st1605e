@@ -418,7 +418,7 @@ li.active a {
 			<a href="/yingJiaFinancing/frontMemberCenter/toBankCard" class="tk">提款</a>
 		</c:if>
 		<c:if test="${memberBankcards.id>0 }">
-			<a href="#" class="tk">提款</a> 
+			<a href="/yingJiaProfit/toFrontPersonage/woyaotikuan" class="tk">提款</a> 
 		</c:if>
 	</div>
 	<div class="proMain clearfix">

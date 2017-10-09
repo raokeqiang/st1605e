@@ -394,7 +394,7 @@ $(function(){
 	//getSkinByCookie();
 
 	/*菜单json*/
-	var menu = [{"id":"1","name":"主菜单","parentId":"0","url":"","icon":"&#xe600;","order":"1","isHeader":"1","childMenus":[
+	var menu = [{"id":"1","name":"主菜单","parentId":"0","url":"subject/showp2p","icon":"&#xe600;","order":"0","isHeader":"0","childMenus":[
 				{"id":"2","name":"理财产品","parentId":"1","url":"","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":[
 				{"id":"3","name":"固收类/P2P","parentId":"3","url":"subject/showp2p","icon":"&#xe609;","order":"1","isHeader":"0","childMenus":""},
 				{"id":"4","name":"私募基金","parentId":"3","url":"money/showmoney","icon":"&#xe601;","order":"1","isHeader":"0","childMenus":""},
@@ -408,7 +408,7 @@ $(function(){
 				{"id":"10","name":"资讯管理","parentId":"9","url":"N/listnews","icon":"&#xe606;","order":"1","isHeader":"0","childMenus":""}
 				]},
 				{"id":"11","name":"会员管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
-				{"id":"12","name":"理财师管理","parentId":"6","url":"Manage/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
+				
 				{"id":"13","name":"绑卡管理","parentId":"6","url":"Card/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
 				{"id":"14","name":"付息计划","parentId":"6","url":"Payint/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},
 				{"id":"15","name":"充值管理","parentId":"6","url":"Recharge/listAll","icon":"&#xe605;","order":"1","isHeader":"0","childMenus":""},

@@ -42,7 +42,7 @@ public class FrontJiLian {
 	}
 	//查询名称
 	public String getmin(int id){
-		String sql="select name from sys_region where region_level="+id;
+		String sql="select name from sys_region where id="+id;
 		List list=getSession().createSQLQuery(sql).list();
 		return (String) list.get(0);
 	}
