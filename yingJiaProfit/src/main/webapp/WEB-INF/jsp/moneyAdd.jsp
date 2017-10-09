@@ -20,23 +20,53 @@
 </head>
 <body>
 <form action="/yingJiaProfit/money/moneyAdd"  method="post" id="form1">
-类型:<select name="type">
+<table border="0" cellspacing="0" width="400">
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;类别:</td>
+<td><select name="type" class="form-control">
 							<option value="">全部</option>
 						<option value=0>私募类</option>
 							<option value="1">股权类</option>
-</select><br>
-名称:<input type="text"  name="name" ><br>
-起投金额:<input type="text" name="floor_amount" ><br>
-年化收益:<input type="text+%" name="year_rate"><br>
-投资期限:<input type="text" name="period"><br>
-状态:<select name="status">
-<option value="0">未募集</option>
+</select></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;名称:</td>
+<td><input type="text" name="name"  class="form-control"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;起投金额:</td>
+<td><input type="text" name="floor_amount" class="form-control"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;年化收益:</td>
+<td><input type="text" name="year_rate" class="form-control"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;返佣比例:</td>
+<td><input type="text" name="ratio" class="form-control"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;状态:</td>
+<td><select name="status" class="form-control">
+<option value="0">未发布</option>
 <option value="1">募集中</option>
-</select><br>
-返佣比例:<input type="text" name="ratio"><br>
-<!-- <input type="submit" value="提交"> -->
+<option value="2">已结束</option>
+</select></td>
+</tr>
+<tr height="60">
+<td>&nbsp;&nbsp;&nbsp;投资期限:</td>
+<td><input type="text" name="period" class="form-control"></td>
+</tr>
+
+
+<tr height="60">
+<td colspan="2"  align="center">
  <button type="submit" class="btn btn-primary">提交</button>
  <button type="button" class="btn btn-primary" id="btn2">返回</button> 
+</td>
+</tr>
+ </table>
+
 </form> 
 <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/yingJiaProfit/editor/ueditor.all.min.js"> </script>

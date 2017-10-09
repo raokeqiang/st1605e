@@ -11,12 +11,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.profit.bean.Member;
@@ -239,6 +237,8 @@ public class YsShoppingqianController {
 
 		//添加充值流水表
 		memberDepositRecord.setAmount(WIDtotal_amount);
+		
+		System.out.println("sssssssssssss"+WIDtotal_amount);
 		//添加购买流水表
 		subjectPurchaseRecord.setSerial_number(WIDout_trade_no);
 		// 添加创建日期

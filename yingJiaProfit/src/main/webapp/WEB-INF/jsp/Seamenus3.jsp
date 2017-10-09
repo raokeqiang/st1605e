@@ -63,8 +63,10 @@
 				<td>${e.sortColum }</td>
 				<td>${e.addTime}</td>
 			<td> 
+		
 			<button type="button" class="btn btn-warning" id="btn3" onclick="fun2(${e.id})">查看预约<button>
 			<button type="button" class="btn btn-success" onclick="fun(${e.id})">编辑查看<button>
+	
 			</tr>
 
 			</c:forEach>
